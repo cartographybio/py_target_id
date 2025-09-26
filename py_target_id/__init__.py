@@ -10,3 +10,4 @@ __author__ = "Jeffrey Granja"
 
 from .google import *
 from .load_manifest import *
+from .download_manifest import *
