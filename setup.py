@@ -26,8 +26,9 @@ setup(
     ],
     python_requires=">=3.8",
     install_requires=[
-        "pandas>=1.3.0",
-        "numpy>=1.20.0",
+        "pandas>=1.3.0,<2.2.0",  # Avoid pandas 2.2+ NumPy 2.0 issues
+        "numpy>=1.20.0,<2.0",    # Stay on NumPy 1.x
+        "scipy>=1.7.0,<1.14.0",  # Compatible scipy range
     ],
     extras_require={
         "dev": [
