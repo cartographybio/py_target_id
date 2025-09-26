@@ -2,6 +2,10 @@
 Utility functions for target_id package.
 """
 
+# Define what gets exported with "from google import *"
+__all__ = ['google_copy', 'set_google_copy_version']
+
+
 # Global variable to store the google_copy version
 GOOGLE_COPY_VERSION = None
 

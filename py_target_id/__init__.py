@@ -7,3 +7,6 @@ from Google Cloud Storage for genomics workflows.
 
 __version__ = "0.1.0"
 __author__ = "Jeffrey Granja"
+
+from .google import *
+from .load_manifest import *

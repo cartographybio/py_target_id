@@ -2,6 +2,9 @@
 Manifest loading and processing functions.
 """
 
+# Define what gets exported
+__all__ = ['load_manifest']
+
 import pandas as pd
 import subprocess
 import re
@@ -9,7 +12,7 @@ import os
 from multiprocessing import Pool, cpu_count
 import warnings
 
-from .utils import google_copy, set_google_copy_version
+from .google import google_copy, set_google_copy_version
 
 # File extension patterns for regex matching
 PATTERNS = {
