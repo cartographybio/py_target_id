@@ -29,6 +29,8 @@ setup(
         "pandas>=1.3.0,<2.2.0",  # Avoid pandas 2.2+ NumPy 2.0 issues
         "numpy>=1.20.0,<2.0",    # Stay on NumPy 1.x
         "scipy>=1.7.0,<1.14.0",  # Compatible scipy range
+        "numexpr>=2.8.0",        # Fix the pandas warning
+        "bottleneck>=1.3.4",     # Fix the pandas warning
     ],
     extras_require={
         "dev": [
