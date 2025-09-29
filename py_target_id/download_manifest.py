@@ -14,6 +14,7 @@ import pandas as pd
 import warnings
 
 from py_target_id.google import google_copy
+from py_target_id.zarr import h5_to_zarr
 
 def download_manifest(
     manifest: pd.DataFrame, 
