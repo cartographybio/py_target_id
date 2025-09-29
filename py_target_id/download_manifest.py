@@ -19,11 +19,12 @@ def download_manifest(
     manifest: pd.DataFrame, 
     dest_dir: str = "temp", 
     create_subdirs: bool = True, 
-    overwrite: bool = False, 
+    overwrite: bool = False,
     verbose: bool = True
 ) -> pd.DataFrame:
     """
     Download files from cloud storage based on a manifest DataFrame.
+    Automatically converts h5map files to zarr format after downloading.
     
     Parameters:
     -----------
@@ -41,14 +42,14 @@ def download_manifest(
     Returns:
     --------
     pd.DataFrame
-        Modified manifest with Local_* columns added
+        Modified manifest with Local_* and Zarr_* columns added
     """
     
     if len(manifest) == 0:
         if verbose:
             print("No files to download")
         return manifest
-    
+        
     # Create a copy to avoid modifying the original
     manifest_copy = manifest.copy()
     
@@ -60,7 +61,7 @@ def download_manifest(
     dest_dir = str(dest_path.resolve())
     
     if create_subdirs:
-        subdirs = ["h5map", "ArchRCells", "Stats", "ArchRCells_Malig", "SE_Malig", "Metadata"]
+        subdirs = ["h5map", "ArchRCells", "Stats", "ArchRCells_Malig", "SE_Malig", "Metadata", "Zarr_h5map", "Zarr_Archr_Malig"]
         for subdir in subdirs:
             subdir_path = dest_path / subdir
             subdir_path.mkdir(parents=True, exist_ok=True)
@@ -102,6 +103,14 @@ def download_manifest(
         manifest_copy['Local_Metadata'] = manifest_copy['Cloud_Metadata'].apply(
             lambda x: os.path.join(dest_dir, "Metadata", os.path.basename(str(x)))
         )
+        
+        # Add Zarr path columns (ALWAYS created)
+        manifest_copy['Local_Zarr_h5map'] = manifest_copy['Cloud_h5map'].apply(
+            lambda x: os.path.join(dest_dir, "Zarr_h5map", os.path.basename(str(x)).replace('.h5', '.zarr'))
+        )
+        manifest_copy['Local_Zarr_Archr_Malig'] = manifest_copy['Cloud_Archr_Malig'].apply(
+            lambda x: os.path.join(dest_dir, "Zarr_Archr_Malig", os.path.basename(str(x)).replace('.h5', '.zarr'))
+        )
     else:
         manifest_copy['Local_h5map'] = manifest_copy['Cloud_h5map'].apply(
             lambda x: os.path.join(dest_dir, os.path.basename(str(x)))
@@ -121,38 +130,56 @@ def download_manifest(
         manifest_copy['Local_Metadata'] = manifest_copy['Cloud_Metadata'].apply(
             lambda x: os.path.join(dest_dir, os.path.basename(str(x)))
         )
+        
+        # Add Zarr path columns (ALWAYS created)
+        manifest_copy['Local_Zarr_h5map'] = manifest_copy['Cloud_h5map'].apply(
+            lambda x: os.path.join(dest_dir, os.path.basename(str(x)).replace('.h5', '.zarr'))
+        )
+        manifest_copy['Local_Zarr_Archr_Malig'] = manifest_copy['Cloud_Archr_Malig'].apply(
+            lambda x: os.path.join(dest_dir, os.path.basename(str(x)).replace('.h5', '.zarr'))
+        )
     
     # Define file types
     file_types = {
         'h5map': {
             'cloud_files': manifest_copy['Cloud_h5map'].tolist(),
             'local_files': manifest_copy['Local_h5map'].tolist(),
-            'subdir': 'h5map'
+            'subdir': 'h5map',
+            'convert_to_zarr': True,
+            'h5_path': 'assays/RNA.counts',
+            'zarr_files': manifest_copy['Local_Zarr_h5map'].tolist()
         },
         'archr': {
             'cloud_files': manifest_copy['Cloud_Archr'].tolist(),
             'local_files': manifest_copy['Local_Archr'].tolist(),
-            'subdir': 'ArchRCells'
+            'subdir': 'ArchRCells',
+            'convert_to_zarr': False
         },
         'stats': {
             'cloud_files': manifest_copy['Cloud_Stats'].tolist(),
             'local_files': manifest_copy['Local_Stats'].tolist(),
-            'subdir': 'Stats'
+            'subdir': 'Stats',
+            'convert_to_zarr': False
         },
         'archr_malig': {
             'cloud_files': manifest_copy['Cloud_Archr_Malig'].tolist(),
             'local_files': manifest_copy['Local_Archr_Malig'].tolist(),
-            'subdir': 'ArchRCells_Malig'
+            'subdir': 'ArchRCells_Malig',
+            'convert_to_zarr': True,
+            'h5_path': 'RNA',
+            'zarr_files': manifest_copy['Local_Zarr_Archr_Malig'].tolist()
         },
         'se_malig': {
             'cloud_files': manifest_copy['Cloud_SE_Malig'].tolist(),
             'local_files': manifest_copy['Local_SE_Malig'].tolist(),
-            'subdir': 'SE_Malig'
+            'subdir': 'SE_Malig',
+            'convert_to_zarr': False
         },
         'metadata': {
             'cloud_files': manifest_copy['Cloud_Metadata'].tolist(),
             'local_files': manifest_copy['Local_Metadata'].tolist(),
-            'subdir': 'Metadata'
+            'subdir': 'Metadata',
+            'convert_to_zarr': False
         }
     }
     
@@ -178,6 +205,13 @@ def download_manifest(
                 file_types[file_type]['local_files'] = [
                     local for local, exists in zip(local_files, existing) if not exists
                 ]
+                
+                # Also filter zarr files if applicable
+                if file_types[file_type].get('convert_to_zarr') and file_types[file_type].get('zarr_files'):
+                    zarr_files = file_types[file_type]['zarr_files']
+                    file_types[file_type]['zarr_files'] = [
+                        zarr for zarr, exists in zip(zarr_files, existing) if not exists
+                    ]
     
     # Count total files to download after filtering
     total_files = sum(len(ft['cloud_files']) for ft in file_types.values())
@@ -243,6 +277,35 @@ def download_manifest(
             if verbose:
                 print(f"✓ Completed {len(cloud_files)} {file_type} files in {batch_elapsed:.1f} seconds "
                       f"({rate_this_batch:.1f} files/min)")
+            
+            # Convert to zarr (MANDATORY for h5map and archr_malig)
+            if file_info.get('convert_to_zarr'):
+                if verbose:
+                    print(f"Converting {len(cloud_files)} {file_type} files to zarr...")
+                
+                local_files = file_info['local_files']
+                zarr_files = file_info['zarr_files']
+                h5_path = file_info['h5_path']
+                
+                zarr_start = time.time()
+                for idx, (local_h5, zarr_path) in enumerate(zip(local_files, zarr_files), 1):
+                    if os.path.exists(local_h5):
+                        try:
+                            h5_to_zarr(local_h5, zarr_path, h5_path=h5_path)
+                            if verbose:
+                                print(f"  ✓ [{idx}/{len(local_files)}] Converted {os.path.basename(local_h5)} to zarr")
+                        except Exception as e:
+                            error_msg = f"Failed to convert {os.path.basename(local_h5)}: {str(e)}"
+                            warnings.warn(f"  ✗ {error_msg}")
+                            raise RuntimeError(error_msg)  # Fail hard if zarr conversion fails
+                    else:
+                        error_msg = f"H5 file not found for conversion: {local_h5}"
+                        warnings.warn(f"  ✗ {error_msg}")
+                        raise FileNotFoundError(error_msg)
+                
+                zarr_elapsed = time.time() - zarr_start
+                if verbose:
+                    print(f"  ✓ Zarr conversion completed in {zarr_elapsed:.1f} seconds")
         else:
             warnings.warn(f"✗ Failed to download {file_type} files")
     
