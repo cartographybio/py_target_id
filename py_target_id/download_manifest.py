@@ -1,10 +1,9 @@
-
 """
 Download functions for manifest files.
 """
 
 # Define what gets exported
-__all__ = ['download_manifest']
+__all__ = ['download_manifest', 'parallel_h5_to_zarr']
 
 import os
 import subprocess
@@ -12,16 +11,96 @@ import time
 from pathlib import Path
 import pandas as pd
 import warnings
+from concurrent.futures import ProcessPoolExecutor, as_completed
+import multiprocessing
 
 from py_target_id.google import google_copy
 from py_target_id.zarr import h5_to_zarr
+
+
+def _convert_single_h5_to_zarr(args):
+    """Worker function for parallel h5 to zarr conversion"""
+    local_h5, zarr_path, h5_path = args
+    try:
+        h5_to_zarr(local_h5, zarr_path, h5_path=h5_path)
+        return True, os.path.basename(local_h5), None
+    except Exception as e:
+        return False, os.path.basename(local_h5), str(e)
+
+
+def parallel_h5_to_zarr(local_files, zarr_files, h5_path, n_workers=None, verbose=True):
+    """
+    Convert multiple h5 files to zarr in parallel
+    
+    Parameters
+    ----------
+    local_files : list
+        List of h5 file paths to convert
+    zarr_files : list
+        List of output zarr paths
+    h5_path : str
+        Path within h5 file (e.g., 'RNA' or 'assays/RNA.counts')
+    n_workers : int, optional
+        Number of parallel workers. Default: CPU count - 1
+    verbose : bool
+        Print progress messages
+        
+    Raises
+    ------
+    RuntimeError
+        If any conversions fail
+    """
+    if n_workers is None:
+        n_workers = max(1, multiprocessing.cpu_count() - 1)
+    
+    # Prepare arguments, only for files that exist
+    args_list = [(h5, zarr, h5_path) for h5, zarr in zip(local_files, zarr_files) 
+                 if os.path.exists(h5)]
+    
+    if len(args_list) == 0:
+        if verbose:
+            print("No files to convert")
+        return
+    
+    if verbose:
+        print(f"Converting {len(args_list)} files using {n_workers} workers...")
+    
+    completed = 0
+    failed = []
+    
+    with ProcessPoolExecutor(max_workers=n_workers) as executor:
+        # Submit all conversion jobs
+        futures = {executor.submit(_convert_single_h5_to_zarr, args): args 
+                   for args in args_list}
+        
+        # Process results as they complete
+        for future in as_completed(futures):
+            success, filename, error = future.result()
+            completed += 1
+            
+            if success:
+                if verbose:
+                    print(f"  ✓ [{completed}/{len(args_list)}] {filename}")
+            else:
+                failed.append((filename, error))
+                if verbose:
+                    print(f"  ✗ [{completed}/{len(args_list)}] {filename}: {error}")
+    
+    if failed:
+        error_msg = f"Failed to convert {len(failed)} files: " + ", ".join([f[0] for f in failed])
+        raise RuntimeError(error_msg)
+    
+    if verbose:
+        print(f"  ✓ All {len(args_list)} files converted successfully")
+
 
 def download_manifest(
     manifest: pd.DataFrame, 
     dest_dir: str = "temp", 
     create_subdirs: bool = True, 
     overwrite: bool = False,
-    verbose: bool = True
+    verbose: bool = True,
+    n_workers: int = None
 ) -> pd.DataFrame:
     """
     Download files from cloud storage based on a manifest DataFrame.
@@ -39,6 +118,8 @@ def download_manifest(
         Whether to overwrite existing files
     verbose : bool
         Whether to print progress messages
+    n_workers : int, optional
+        Number of parallel workers for zarr conversion. Default: CPU count - 1
         
     Returns:
     --------
@@ -279,30 +360,29 @@ def download_manifest(
                 print(f"✓ Completed {len(cloud_files)} {file_type} files in {batch_elapsed:.1f} seconds "
                       f"({rate_this_batch:.1f} files/min)")
             
-            # Convert to zarr (MANDATORY for h5map and archr_malig)
+            # Convert to zarr in parallel (MANDATORY for h5map and archr_malig)
             if file_info.get('convert_to_zarr'):
                 if verbose:
-                    print(f"Converting {len(cloud_files)} {file_type} files to zarr...")
+                    print(f"Converting {len(cloud_files)} {file_type} files to zarr (parallel)...")
                 
                 local_files = file_info['local_files']
                 zarr_files = file_info['zarr_files']
                 h5_path = file_info['h5_path']
                 
                 zarr_start = time.time()
-                for idx, (local_h5, zarr_path) in enumerate(zip(local_files, zarr_files), 1):
-                    if os.path.exists(local_h5):
-                        try:
-                            h5_to_zarr(local_h5, zarr_path, h5_path=h5_path)
-                            if verbose:
-                                print(f"  ✓ [{idx}/{len(local_files)}] Converted {os.path.basename(local_h5)} to zarr")
-                        except Exception as e:
-                            error_msg = f"Failed to convert {os.path.basename(local_h5)}: {str(e)}"
-                            warnings.warn(f"  ✗ {error_msg}")
-                            raise RuntimeError(error_msg)  # Fail hard if zarr conversion fails
-                    else:
-                        error_msg = f"H5 file not found for conversion: {local_h5}"
-                        warnings.warn(f"  ✗ {error_msg}")
-                        raise FileNotFoundError(error_msg)
+                
+                try:
+                    parallel_h5_to_zarr(
+                        local_files, 
+                        zarr_files, 
+                        h5_path, 
+                        n_workers=n_workers,
+                        verbose=verbose
+                    )
+                except Exception as e:
+                    error_msg = f"Zarr conversion failed: {str(e)}"
+                    warnings.warn(f"  ✗ {error_msg}")
+                    raise RuntimeError(error_msg)
                 
                 zarr_elapsed = time.time() - zarr_start
                 if verbose:
@@ -313,7 +393,7 @@ def download_manifest(
     total_elapsed = (time.time() - start_time) / 60
     overall_rate = completed_files / total_elapsed if total_elapsed > 0 else 0
     if verbose:
-        print(f"\n🎉 Download complete! {completed_files} files in {total_elapsed:.1f} minutes "
+        print(f"\nDownload complete! {completed_files} files in {total_elapsed:.1f} minutes "
               f"({overall_rate:.1f} files/min average)")
     
     manifest_copy = manifest_copy.reset_index(drop=True)
