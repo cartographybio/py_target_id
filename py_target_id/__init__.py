@@ -7,5 +7,5 @@ __version__ = "0.1.0"
 __author__ = "Jeffrey Granja"
 
 from . import data
-from . import pipeline
+from . import run
 from . import utils
