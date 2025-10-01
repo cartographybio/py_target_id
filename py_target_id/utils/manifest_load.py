@@ -12,7 +12,7 @@ import os
 from multiprocessing import Pool, cpu_count
 import warnings
 
-from py_target_id.google import google_copy, set_google_copy_version
+from .google import google_copy, set_google_copy_version
 
 # File extension patterns for regex matching
 PATTERNS = {

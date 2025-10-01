@@ -14,8 +14,8 @@ import warnings
 from concurrent.futures import ProcessPoolExecutor, as_completed
 import multiprocessing
 
-from py_target_id.google import google_copy
-from py_target_id.zarr import h5_to_zarr
+from .google import google_copy
+from ..data.h5_to_zarr import h5_to_zarr
 
 
 def _convert_single_h5_to_zarr(args):
