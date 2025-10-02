@@ -527,16 +527,16 @@ def run_target_id_multi_v1(
             torch.cuda.synchronize()
 
             # Section 1: Basic computations
-            t1 = time.time()
+            #t1 = time.time()
             n_genes_batch = len(gx_t)
             corrected_idx_gpu = torch.argmax((score_matrix >= 0.35).int(), dim=1)
             n_pos_val = (malig_xy >= 0.5).sum(dim=1)
             p_pos_per = n_pos_val.half() / n_malig_samples
             torch.cuda.synchronize()
-            section1_time = time.time() - t1
+            #section1_time = time.time() - t1
 
             # Section 2: Off-targets - ON MEDIANS (like R does)
-            t2 = time.time()
+            #t2 = time.time()
 
             thresholds = [0.01, 0.05, 0.1, 0.25, 0.5, 1.0]
             off_targets_gpu = {}
@@ -545,19 +545,19 @@ def run_target_id_multi_v1(
                 off_targets_gpu[f'N_Off_Targets_{thresh}'] = (ha_med >= thresh).sum(dim=1)
 
             torch.cuda.synchronize()
-            section2_time = time.time() - t2
+            #section2_time = time.time() - t2
 
             # Section 3: Second target value
-            t3 = time.time()
+            #t3 = time.time()
             if malig_med.shape[1] > 1:
                 sc_2nd_target_val = torch.kthvalue(malig_med, k=malig_med.shape[1]-1, dim=1).values
             else:
                 sc_2nd_target_val = malig_med[:, 0]
             torch.cuda.synchronize()
-            section3_time = time.time() - t3
+            #section3_time = time.time() - t3
 
             # Section 4: Log computations
-            t4 = time.time()
+            #t4 = time.time()
             offset = 1e-8
             corrected_off_val = torch.gather(ha_ordered, 1, corrected_idx_gpu.unsqueeze(1)).squeeze(1)
             ha_ordered_first = ha_ordered[:, 0]
@@ -572,10 +572,10 @@ def run_target_id_multi_v1(
 
             n_off_targets = (score_matrix < 0.35).sum(dim=1)
             torch.cuda.synchronize()
-            section4_time = time.time() - t4
+            #section4_time = time.time() - t4
 
             # Section 5: CPU transfer
-            t5 = time.time()
+            #t5 = time.time()
             names = [f"{surface[i]}.{surface[j]}" for i, j in zip(gx_all[start:end], gy_all[start:end])]
 
             # Time individual transfers
@@ -607,10 +607,10 @@ def run_target_id_multi_v1(
             sc_2nd_target_val_cpu = sc_2nd_target_val.cpu().numpy()
             sc_2nd_lfc_cpu = sc_2nd_lfc.cpu().numpy()
 
-            section5_time = time.time() - t5
+            #section5_time = time.time() - t5
 
             # Section 6: DataFrame creation
-            t6 = time.time()
+            #t6 = time.time()
             df = pd.DataFrame({
                 'gene_name': names,
                 'batch_start_idx': start,
@@ -631,14 +631,14 @@ def run_target_id_multi_v1(
                 **off_targets_cpu
             })
             all_results.append(df)
-            section6_time = time.time() - t6
+            #section6_time = time.time() - t6
 
             metrics_time = time.time() - metrics_start
 
             # Print detailed breakdown
             print(f"{metrics_time:.1f}s ", end='')
-            print(f"[GPU:{section1_time:.2f}+{section2_time:.2f}+{section3_time:.2f}+{section4_time:.2f}={section1_time+section2_time+section3_time+section4_time:.2f}s, ", end='')
-            print(f"Xfer:{section5_time:.2f}s, DF:{section6_time:.2f}s] | ", end='')
+            #print(f"[GPU:{section1_time:.2f}+{section2_time:.2f}+{section3_time:.2f}+{section4_time:.2f}={section1_time+section2_time+section3_time+section4_time:.2f}s, ", end='')
+            #print(f"Xfer:{section5_time:.2f}s, DF:{section6_time:.2f}s] | ", end='')
 
             # Get GPU stats
             allocated, reserved, total, usage_pct = get_gpu_memory_info()
