@@ -392,7 +392,7 @@ def clear_gpu_memory(verbose=True):
 # Main pipeline with FP16
 # ============================================================================
 
-def run_all_pairs_gpu_optimized(
+def run_target_id_multi_v1(
     malig_adata,
     ha_adata,
     surface: np.ndarray,
