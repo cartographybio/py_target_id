@@ -398,7 +398,7 @@ def compute_target_quality_score(
 # MAIN RUN FUNCTION
 # ============================================================================
 
-def run_target_id_v1(
+def target_id_v1(
     malig_adata,
     healthy_adata,
     device: Optional[str] = None,
