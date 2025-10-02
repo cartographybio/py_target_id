@@ -452,7 +452,7 @@ def run_target_id_multi_v1(
         
         # Generate pairs
         n = len(surface)
-        indices = np.triu_indices(n, k=1)
+        indices = np.triu_indices(n, k=0)
         gx_all = indices[0]
         gy_all = indices[1]
         
@@ -655,6 +655,9 @@ def run_target_id_multi_v1(
             overall_elapsed = time.time() - overall_start
 
             print(f"Done:{iter_time:.1f}s | Total ({overall_elapsed/60:.1f}min) | GPU:{usage_pct:.1f}% ({allocated:.1f}/{total:.1f}GB)")
+
+        elapsed = time.time() - overall_start
+        print(f"------  Combining Results - | Total: {elapsed/60:.1f}min")
         
         df_all = pd.concat(all_results, ignore_index=True)
         
@@ -665,6 +668,9 @@ def run_target_id_multi_v1(
         df_all['Target_Val_Pos'] = np.nan
         df_all['N_Pos'] = 0
         df_all['P_Pos'] = 0.0
+
+        elapsed = time.time() - overall_start
+        print(f"------  Running Positive Patients - | Total: {elapsed/60:.1f}min")
         
         if n_passing > 0:
             passing_indices = df_all[passing_mask].index.values
