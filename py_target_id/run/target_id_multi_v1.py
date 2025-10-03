@@ -2,7 +2,7 @@
 Target ID Multi v1 - GPU Optimized
 """
 
-__all__ = ['run_target_id_multi_v1']
+__all__ = ['target_id_multi_v1']
 
 import torch
 import numpy as np

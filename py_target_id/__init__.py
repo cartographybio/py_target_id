@@ -9,3 +9,4 @@ __author__ = "Jeffrey Granja"
 from . import data
 from . import run
 from . import utils
+from . import plot

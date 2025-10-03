@@ -3,7 +3,7 @@ Target ID
 """
 
 # Define what gets exported
-__all__ = ['run_target_id_v1']
+__all__ = ['target_id_v1']
 
 import numpy as np
 import pandas as pd
