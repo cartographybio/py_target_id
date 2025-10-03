@@ -21,24 +21,28 @@ def ensure_r_packages():
         r('''
         if (!require("jgplot2", quietly = TRUE)) {
             if (!require("devtools", quietly = TRUE)) {
-                install.packages("devtools")
+                install.packages("devtools", repos = "https://cloud.r-project.org")
             }
             devtools::install_github("jeffmgranja/jgplot2")
         }
-        suppressPackageStartupMessages(library(jgplot2))
-
-        #Palettes
-        pal_cart <- c("#e0f3db", "#6BC291", "#18B5CB", "#2E95D2", "#28154C")
-        pal_cart2 <- colorRampPalette(c("#e0f3db", "#6BC291", "#18B5CB", "#2E95D2", "#28154C"))(100)
-
-        #Theme
-        theme_small_margin <- function(width = 0.2){
-            theme(
-                plot.margin = unit(c(width, width, width, width), "cm")
-            )
+        
+        suppressPackageStartupMessages({
+            library(ggplot2)
+            library(ggrepel)
+            library(jgplot2)
+        })
+        
+        # Palettes
+        pal_cart <<- c("#e0f3db", "#6BC291", "#18B5CB", "#2E95D2", "#28154C")
+        pal_cart2 <<- colorRampPalette(c("#e0f3db", "#6BC291", "#18B5CB", "#2E95D2", "#28154C"))(100)
+        
+        # Theme
+        theme_small_margin <<- function(width = 0.2){
+            theme(plot.margin = unit(c(width, width, width, width), "cm"))
         }
-
-        cbio_dpal <- function(){
+        
+        # Discrete palette function
+        cbio_dpal <<- function(){
           function(n){
             .cbio <- list(
               "1"  = c("#28154C"),
@@ -50,28 +54,24 @@ def ensure_r_packages():
             )
           
             if(n <= 6){
-              pal <- .cbio[[n]]
+              pal <- .cbio[[as.character(n)]]
             }else if(n > 6 & n <= 20){
               pal <- jgplot2:::.stallion3[[n]]
             }else{
-              pal <- jgplot2:::.stallion3[[length(.stallion3)]]
+              pal <- jgplot2:::.stallion3[[length(jgplot2:::.stallion3)]]
             }
-
             if (n > length(pal)) {
               pal <- colorRampPalette(pal)(n)
             }
-
             pal
           }
-
-
-        #Cartography
+        }
+        
+        # Set default scales
         options(ggplot2.discrete.colour = function(...) discrete_scale("colour", "cbio_dpal", cbio_dpal(), ...))
         options(ggplot2.discrete.fill = function(...) discrete_scale("fill", "cbio_dpal", cbio_dpal(), ...))
-
         options(ggplot2.continuous.colour = function() scale_color_gradientn(colours = pal_cart2))
         options(ggplot2.continuous.fill = function() scale_fill_gradientn(colours = pal_cart2))
-
         ''')
         _packages_loaded = True
 
