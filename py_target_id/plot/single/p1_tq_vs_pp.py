@@ -6,8 +6,8 @@ Manifest loading and processing functions.
 __all__ = ['p1_tq_vs_pp']
 
 import numpy as np
-from .utils import get_top_n_per_interval  # Relative import
-from ..core import pd2r, r  # Or wherever these live
+from ..utils import get_top_n_per_interval  # Relative import
+from ..py2r import pd2r, r  # Or wherever these live
 
 def p1_tq_vs_pp(df, out="plot.pdf", target_q=80, ppos=15):
 
