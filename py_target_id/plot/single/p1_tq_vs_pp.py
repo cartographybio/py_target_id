@@ -5,11 +5,14 @@ Manifest loading and processing functions.
 # Define what gets exported
 __all__ = ['p1_tq_vs_pp']
 
+import numpy as np
+from .utils import get_top_n_per_interval  # Relative import
+from ..core import pd2r, r  # Or wherever these live
 
 def p1_tq_vs_pp(df, out="plot.pdf", target_q=80, ppos=15):
 
     # Subset high-quality targets for labeling
-    g1 = tid.plot.utils.get_top_n_per_interval(
+    g1 = get_top_n_per_interval(
         df, 
         x_col='P_Pos_Per', 
         y_col='TargetQ_Final_v1',
@@ -23,8 +26,8 @@ def p1_tq_vs_pp(df, out="plot.pdf", target_q=80, ppos=15):
     sub_df = df[df["gene_name"].isin(genes)]
 
     # Send data to R
-    tid.plot.pd2r("df", df)
-    tid.plot.pd2r("sub_df", sub_df)
+    pd2r("df", df)
+    pd2r("sub_df", sub_df)
     
     # Create plot in R
     r(f'''
