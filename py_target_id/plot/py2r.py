@@ -26,6 +26,52 @@ def ensure_r_packages():
             devtools::install_github("jeffmgranja/jgplot2")
         }
         suppressPackageStartupMessages(library(jgplot2))
+
+        #Palettes
+        pal_cart <- c("#e0f3db", "#6BC291", "#18B5CB", "#2E95D2", "#28154C")
+        pal_cart2 <- colorRampPalette(c("#e0f3db", "#6BC291", "#18B5CB", "#2E95D2", "#28154C"))(100)
+
+        #Theme
+        theme_small_margin <- function(width = 0.2){
+            theme(
+                plot.margin = unit(c(width, width, width, width), "cm")
+            )
+        }
+
+        cbio_dpal <- function(){
+          function(n){
+            .cbio <- list(
+              "1"  = c("#28154C"),
+              "2"  = c("lightgrey", "#28154C"),
+              "3"  = c("lightgrey", "#18B5CB", "#28154C"),
+              "4"  = c("lightgrey", "#6BC291", "#6BC291", "#28154C"),
+              "5"  = c("lightgrey", "#6BC291", "#18B5CB", "#2E95D2", "#28154C"),
+              "6"  = c("lightgrey", "#E0F3DB", "#6BC291", "#18B5CB", "#2E95D2", "#28154C")
+            )
+          
+            if(n <= 6){
+              pal <- .cbio[[n]]
+            }else if(n > 6 & n <= 20){
+              pal <- jgplot2:::.stallion3[[n]]
+            }else{
+              pal <- jgplot2:::.stallion3[[length(.stallion3)]]
+            }
+
+            if (n > length(pal)) {
+              pal <- colorRampPalette(pal)(n)
+            }
+
+            pal
+          }
+
+
+        #Cartography
+        options(ggplot2.discrete.colour = function(...) discrete_scale("colour", "cbio_dpal", cbio_dpal(), ...))
+        options(ggplot2.discrete.fill = function(...) discrete_scale("fill", "cbio_dpal", cbio_dpal(), ...))
+
+        options(ggplot2.continuous.colour = function() scale_color_gradientn(colours = pal_cart2))
+        options(ggplot2.continuous.fill = function() scale_fill_gradientn(colours = pal_cart2))
+
         ''')
         _packages_loaded = True
 
@@ -34,3 +80,6 @@ def pd2r(name, df):
     with localconverter(pandas2ri.converter):
         r_df = pandas2ri.py2rpy(df)
         globalenv[name] = r_df
+
+
+
