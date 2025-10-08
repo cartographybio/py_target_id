@@ -60,7 +60,13 @@ class DaskAnnData:
             0 for rbind (concatenate cells), 1 for cbind (concatenate genes)
         """
         # Open all zarr stores
-        stores = [zarr.open(path, mode='r') for path in zarr_paths]
+        stores = []
+        for path in zarr_paths:
+            if os.path.isdir(path):
+                stores.append(zarr.open(path, mode='r'))
+            else:
+                # Assume it's a zip store
+                stores.append(zarr.open(zarr.ZipStore(path, mode='r'), mode='r'))
         
         # Create dask arrays
         dask_arrays = [
