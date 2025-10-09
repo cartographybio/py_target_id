@@ -66,12 +66,12 @@ def load_manifest(latest=True, parallel=True):
     
     # Define paths
     paths = {
-        'h5map': 'gs://cartography_target_id_samples/Samples_v3/processed/h5map/',
-        'archr': 'gs://cartography_target_id_samples/Samples_v3/processed/ArchRCells/',
-        'stats': 'gs://cartography_target_id_samples/Samples_v3/processed/Stats/',
-        'archr_malig': 'gs://cartography_target_id_samples/Samples_v3/processed/ArchRCells_Malig/',
-        'se_malig': 'gs://cartography_target_id_samples/Samples_v3/processed/SE_Malig/',
-        'metadata': 'gs://cartography_target_id_samples/Samples_v3/processed/Metadata/'
+        'h5map': 'gs://cartography_target_id_package/Sample_Input/20251008/processed/h5map/',
+        'archr': 'gs://cartography_target_id_package/Sample_Input/20251008/processed/ArchRCells/',
+        'stats': 'gs://cartography_target_id_package/Sample_Input/20251008/processed/Stats/',
+        'archr_malig': 'gs://cartography_target_id_package/Sample_Input/20251008/processed/ArchRCells_Malig/',
+        'se_malig': 'gs://cartography_target_id_package/Sample_Input/20251008/processed/SE_Malig/',
+        'metadata': 'gs://cartography_target_id_package/Sample_Input/20251008/processed/Metadata/'
     }
     
     print("Loading manifest files...")
