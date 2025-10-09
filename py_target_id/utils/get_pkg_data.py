@@ -226,14 +226,12 @@ def apical_genes(version: str = "20240715") -> List[str]:
         List of apical gene names
     """
     if version == "20240715":
-        path = _get_data_path('annotation/apical.v1.20240715.csv')
-        df = pd.read_csv(path, index_col=0)
-        # Return genes where value == 1
-        if df.shape[1] == 1:
-            return df[df.iloc[:, 0] == 1].index.tolist()
-        else:
-            # Assuming binary column exists
-            return df[df.iloc[:, 0] == 1].index.tolist()
+        path = _get_data_path('annotation/apical.v1.20240715.txt')
+        with open(path, 'r') as f:
+            genes = [line.strip() for line in f if line.strip()]
+        return genes
     else:
         raise ValueError(f"Unknown version: {version}")
 
+
+        
