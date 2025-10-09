@@ -26,8 +26,8 @@ def get_malig_adata(manifest, positivity = True):
     return adata_all
 
 def get_malig_archr_adata(manifest):
-    from py_target_id import data
-    malig_adata = data.read_h5(manifest.Local_Archr_Malig, "RNA")
+    from py_target_id import infra
+    malig_adata = infra.read_h5(manifest.Local_Archr_Malig, "RNA")
     malig_meta = ~malig_adata.obs_names.str.contains("nonmalig")
     malig_adata = malig_adata[malig_meta, :]
     return malig_adata

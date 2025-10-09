@@ -26,7 +26,8 @@ def surface_genes(
     latest: bool = False,
     evidence: float = 0.1,
     as_df: bool = False,
-    include_tabs: bool = True
+    include_tabs: bool = True,
+    filter_valid: bool = True
 ) -> list[str] | pd.DataFrame:
     """
     Load surface protein genes filtered by tier and evidence.
@@ -49,6 +50,8 @@ def surface_genes(
         If False, return list of gene names
     include_tabs : bool, default=True
         If True, include TABS genes with tier="TABS"
+    filter_valid : bool, default=True
+        If True, only return genes that are in valid_genes()
     
     Returns
     -------
@@ -59,6 +62,9 @@ def surface_genes(
     if version == 1:
         sgenes_series = surface_evidence()
         sgenes = sgenes_series[sgenes_series >= evidence].index.tolist()
+        if filter_valid:
+            valid = set(valid_genes())
+            sgenes = [g for g in sgenes if g in valid]
         if as_df:
             raise ValueError("as_df=True only supported for version=2")
         return sgenes
@@ -102,7 +108,7 @@ def surface_genes(
         
         # Add TABS genes if requested
         if include_tabs:
-            tabs = tabs_genes(version=2)
+            tabs = tabs_genes(version=2, filter_valid=False)
             # Create DataFrame for TABS genes not already in surface
             existing_genes = set(filtered_surface['gene_name'])
             new_tabs_genes = [g for g in tabs if g not in existing_genes]
@@ -116,6 +122,11 @@ def surface_genes(
         
         # Deduplicate - keep first occurrence
         filtered_surface = filtered_surface.drop_duplicates(subset=['gene_name'], keep='first')
+        
+        # Filter by valid genes
+        if filter_valid:
+            valid = set(valid_genes())
+            filtered_surface = filtered_surface[filtered_surface['gene_name'].isin(valid)]
         
         if as_df:
             # Add numeric tier column (TABS stays as string "TABS")
@@ -132,7 +143,7 @@ def surface_genes(
     else:
         raise ValueError(f"Unknown version: {version}")
         
-def tabs_genes(version: int = 2, as_df: bool = False) -> list[str] | pd.DataFrame:
+def tabs_genes(version: int = 2, as_df: bool = False, filter_valid: bool = True) -> list[str] | pd.DataFrame:
     """
     Load TABS (Therapeutically Applicable Body Site) genes.
     
@@ -145,6 +156,8 @@ def tabs_genes(version: int = 2, as_df: bool = False) -> list[str] | pd.DataFram
     as_df : bool, default=False
         If True, return DataFrame with original columns (deduplicated)
         If False, return list of gene names (deduplicated)
+    filter_valid : bool, default=True
+        If True, only return genes that are in valid_genes()
     
     Returns
     -------
@@ -159,11 +172,18 @@ def tabs_genes(version: int = 2, as_df: bool = False) -> list[str] | pd.DataFram
         # Deduplicate by final_gene
         df = df.drop_duplicates(subset=['final_gene'], keep='first')
         
+        if filter_valid:
+            valid = set(valid_genes())
+            df = df[df['final_gene'].isin(valid)]
+        
         if as_df:
             return df.reset_index(drop=True)
         
         genes = df['final_gene'].dropna().tolist()
         genes = sorted(set(genes + ['SLC34A2']))
+        if filter_valid:
+            valid = set(valid_genes())
+            genes = [g for g in genes if g in valid]
         return genes
     
     elif version == 2:
@@ -173,11 +193,18 @@ def tabs_genes(version: int = 2, as_df: bool = False) -> list[str] | pd.DataFram
         # Deduplicate by symbol
         df = df.drop_duplicates(subset=['symbol'], keep='first')
         
+        if filter_valid:
+            valid = set(valid_genes())
+            df = df[df['symbol'].isin(valid)]
+        
         if as_df:
             return df.reset_index(drop=True)
         
         genes = df['symbol'].dropna().tolist()
         genes = sorted(set(genes + ['SLC34A2', 'FOLR1']))
+        if filter_valid:
+            valid = set(valid_genes())
+            genes = [g for g in genes if g in valid]
         return genes
     
     else:
@@ -253,3 +280,4 @@ def apical_genes(version: str = "20240715") -> List[str]:
         raise ValueError(f"Unknown version: {version}")
 
 
+        

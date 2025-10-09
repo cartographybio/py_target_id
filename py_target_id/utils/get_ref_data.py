@@ -76,6 +76,8 @@ def get_ref_lv4_ffpe_h5_adata(
         >>> adata = tid.data.get_ref_lv4_ffpe_med_adata()
         >>> adata = tid.data.get_ref_lv4_ffpe_med_adata(version="20250225")
     """
+    from py_target_id import infra
+
     local_file = os.path.join(local_base_path, "Healthy_Atlas.Gene_Matrix.ArchRCells.FFPE.h5")
     
     # Check if file exists and we don't want to overwrite
@@ -170,6 +172,8 @@ def get_ref_lv4_sc_h5_adata(
         >>> adata = tid.data.get_ref_lv4_ffpe_med_adata()
         >>> adata = tid.data.get_ref_lv4_ffpe_med_adata(version="20250225")
     """
+    from py_target_id import infra
+
     local_file = os.path.join(local_base_path, "Healthy_Atlas.Gene_Matrix.ArchRCells.SC.h5")
     
     # Check if file exists and we don't want to overwrite
