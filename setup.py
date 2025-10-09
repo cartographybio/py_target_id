@@ -9,8 +9,8 @@ libraries = ['hdf5_serial', 'hdf5_serial_cpp']
 
 ext_modules = [
     Pybind11Extension(
-        "py_target_id.hdf5_sparse_reader",  # Note the package prefix
-        ["py_target_id/_cpp/hdf5_sparse_reader.cpp"],
+        "py_target_id.hdf5_sparse_reader",
+        ["py_target_id/cpp/hdf5_sparse_reader.cpp"],  # Correct path based on your structure
         include_dirs=include_dirs,
         library_dirs=library_dirs,
         libraries=libraries,
@@ -35,7 +35,8 @@ setup(
         'scanpy',
         'anndata',
         'torch',
-        'tqdm'
+        'tqdm',
+        'plotnine'
     ],
     python_requires='>=3.7',
 )
