@@ -134,8 +134,8 @@ def tabs_genes(version: int = 2, as_df: bool = False) -> list[str] | pd.DataFram
         If as_df=True: DataFrame with original data (deduplicated by gene)
     """
     if version == 1:
-        path = _get_data_path('annotation/TABs_Antibody_Count.20230323.parquet')
-        df = pd.read_parquet(path)
+        path = _get_data_path('annotation/TABs_Antibody_Count.20230323.csv')
+        df = pd.read_csv(path)
         
         # Deduplicate by final_gene
         df = df.drop_duplicates(subset=['final_gene'], keep='first')
@@ -148,8 +148,8 @@ def tabs_genes(version: int = 2, as_df: bool = False) -> list[str] | pd.DataFram
         return genes
     
     elif version == 2:
-        path = _get_data_path('annotation/TABS_Antibody_Clinical.20250815.parquet')
-        df = pd.read_parquet(path)
+        path = _get_data_path('annotation/TABS_Antibody_Clinical.20250815.csv')
+        df = pd.read_csv(path)
         
         # Deduplicate by symbol
         df = df.drop_duplicates(subset=['symbol'], keep='first')
