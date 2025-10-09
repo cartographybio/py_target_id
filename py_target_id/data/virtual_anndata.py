@@ -9,8 +9,7 @@ import numpy as np
 import pandas as pd
 from scipy.sparse import csr_matrix
 import h5py
-from ..hdf5_sparse_reader import read_sparse_hdf5_subset as hdf5_sparse_reader
-
+from py_target_id import hdf5_sparse_reader
 class VirtualMatrix:
     """Fast lazy/virtual matrix using C++ backend with parallel HDF5 reading for sparse matrices."""
 
