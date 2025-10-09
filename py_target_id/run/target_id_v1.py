@@ -403,7 +403,6 @@ def target_id_v1(
     healthy_adata,
     device: Optional[str] = None,
     surface_evidence_path: Optional[str] = "surface_evidence.v1.20240715.csv",
-    pos_mat = None,
     version: str = "1.02"
 ) -> pd.DataFrame:
     """
@@ -442,8 +441,8 @@ def target_id_v1(
     healthy_subset = healthy_adata[:, genes].copy()
 
     # Compute Positivity Quickly
-    if pos_mat is None:
-        pos_mat = run.compute_positivity_matrix(malig_adata)
+    if "positivity" not in malig_adata.layers:
+        malig_adata = run.compute_positivity_matrix(malig_adata)
     
     # Extract matrices
     mat_malig = malig_subset.X.T if hasattr(malig_subset.X, 'T') else malig_subset.X.T
@@ -530,6 +529,8 @@ def target_id_v1(
         df = compute_target_quality_score(df, surface_evidence_path)
     
     df = df.sort_values('TargetQ_Final_v1', ascending=False)
-    
+    df["Postivie_Final_v2"] = malig_adata.layers['positivity'].mean(axis=0)
+
     print("Target ID complete!")
+
     return df
