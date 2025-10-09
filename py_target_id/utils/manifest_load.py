@@ -12,7 +12,7 @@ import os
 from multiprocessing import Pool, cpu_count
 import warnings
 
-from .google import google_copy, set_google_copy_version
+from py_target_id.utils import google_copy, set_google_copy_version
 
 # File extension patterns for regex matching
 PATTERNS = {
@@ -21,6 +21,7 @@ PATTERNS = {
     'stats': r'\.stats\.csv$',
     'archr_malig': r'\.ArchRCells\.h5$',
     'se_malig': r'\.malig\.se\.rds$',
+    'ad_malig': r'\.malig\.h5ad$',
     'metadata': r'\.mdata\.rds$'
 }
 
@@ -91,6 +92,7 @@ def load_manifest(latest=True, parallel=True, verbose=True):
         'stats': 'gs://cartography_target_id_package/Sample_Input/20251008/processed/Stats/',
         'archr_malig': 'gs://cartography_target_id_package/Sample_Input/20251008/processed/ArchRCells_Malig/',
         'se_malig': 'gs://cartography_target_id_package/Sample_Input/20251008/processed/SE_Malig/',
+        'ad_malig': 'gs://cartography_target_id_package/Sample_Input/20251008/processed/AD_Malig/',
         'metadata': 'gs://cartography_target_id_package/Sample_Input/20251008/processed/Metadata/'
     }
     
@@ -124,7 +126,7 @@ def load_manifest(latest=True, parallel=True, verbose=True):
         if verbose:
             print("Processing directories in parallel...\n")
         # Use parallel processing
-        with Pool(processes=min(6, cpu_count())) as pool:
+        with Pool(processes=min(7, cpu_count())) as pool:  # Changed from 6 to 7
             file_lists = pool.map(process_path, path_items)
     else:
         if verbose:
@@ -159,8 +161,8 @@ def load_manifest(latest=True, parallel=True, verbose=True):
     
     # Count files per sample ID across all types
     file_counts = all_files.groupby('sample_id').size().reset_index(name='count')
-    complete_samples = file_counts[file_counts['count'] == 6]['sample_id'].tolist()
-    incomplete_samples = file_counts[file_counts['count'] != 6]
+    complete_samples = file_counts[file_counts['count'] == 7]['sample_id'].tolist()  # Changed from 6 to 7
+    incomplete_samples = file_counts[file_counts['count'] != 7]  # Changed from 6 to 7
     
     if verbose and not incomplete_samples.empty:
         print(f"\n⚠️  Warning: {len(incomplete_samples)} samples have incomplete files:")
@@ -168,18 +170,18 @@ def load_manifest(latest=True, parallel=True, verbose=True):
     
     if not complete_samples:
         print("\n" + "="*70)
-        print("❌ ERROR: No samples found with all 6 required file types")
+        print("❌ ERROR: No samples found with all 7 required file types")  # Changed from 6 to 7
         print("="*70)
         print("\nFile type distribution:")
         print(all_files['type'].value_counts().to_string())
         print("\nSamples and their file counts:")
         print(file_counts.sort_values('count').to_string(index=False))
         print("="*70)
-        warnings.warn("No samples found with all 6 required file types")
+        warnings.warn("No samples found with all 7 required file types")  # Changed from 6 to 7
         return pd.DataFrame()
     
     if verbose:
-        print(f"✓ Found {len(complete_samples)} samples with complete data (all 6 file types)")
+        print(f"✓ Found {len(complete_samples)} samples with complete data (all 7 file types)")  # Changed from 6 to 7
     
     # Filter to complete samples and reshape to wide format
     complete_files = all_files[all_files['sample_id'].isin(complete_samples)]
@@ -199,6 +201,7 @@ def load_manifest(latest=True, parallel=True, verbose=True):
         'Cloud_Stats': wide_files.get('stats', ''),
         'Cloud_Archr_Malig': wide_files.get('archr_malig', ''),
         'Cloud_SE_Malig': wide_files.get('se_malig', ''),
+        'Cloud_AD_Malig': wide_files.get('ad_malig', ''),
         'Cloud_Metadata': wide_files.get('metadata', '')
     })
     
