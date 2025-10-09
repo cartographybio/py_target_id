@@ -1,43 +1,41 @@
-from setuptools import setup, find_packages
+from setuptools import setup, find_packages, Extension
+from pybind11.setup_helpers import Pybind11Extension, build_ext
+import os
 
-with open("README.md", "r", encoding="utf-8") as fh:
-    long_description = fh.read()
+# HDF5 configuration
+include_dirs = ['/usr/include/hdf5/serial']
+library_dirs = ['/usr/lib/x86_64-linux-gnu']
+libraries = ['hdf5_serial', 'hdf5_serial_cpp']
+
+ext_modules = [
+    Pybind11Extension(
+        "py_target_id.hdf5_sparse_reader",  # Note the package prefix
+        ["py_target_id/_cpp/hdf5_sparse_reader.cpp"],
+        include_dirs=include_dirs,
+        library_dirs=library_dirs,
+        libraries=libraries,
+        extra_compile_args=['-std=c++14', '-fopenmp', '-O3', '-march=native'],
+        extra_link_args=['-fopenmp'],
+        language='c++'
+    ),
+]
 
 setup(
     name="py_target_id",
-    version="0.1.0",
-    author="Jeffrey Granja",
-    author_email="jgranja@cartography.bio",
-    description="Target ID analysis tools for cartography.bio",
-    long_description=long_description,
-    long_description_content_type="text/markdown",
-    url="https://github.com/yourusername/target_id",
+    version="1.0.0",
     packages=find_packages(),
-    classifiers=[
-        "Development Status :: 3 - Alpha",
-        "Intended Audience :: Science/Research",
-        "License :: OSI Approved :: MIT License",
-        "Operating System :: OS Independent",
-        "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.8",
-        "Programming Language :: Python :: 3.9",
-        "Programming Language :: Python :: 3.10",
-        "Programming Language :: Python :: 3.11",
-    ],
-    python_requires=">=3.8",
+    ext_modules=ext_modules,
+    cmdclass={"build_ext": build_ext},
     install_requires=[
-        "pandas>=1.3.0,<2.2.0",  # Avoid pandas 2.2+ NumPy 2.0 issues
-        "numpy>=1.20.0,<2.0",    # Stay on NumPy 1.x
-        "scipy>=1.7.0,<1.14.0",  # Compatible scipy range
-        "numexpr>=2.8.0",        # Fix the pandas warning
-        "bottleneck>=1.3.4",     # Fix the pandas warning
+        'numpy',
+        'pandas',
+        'scipy',
+        'h5py',
+        'pybind11',
+        'scanpy',
+        'anndata',
+        'torch',
+        'tqdm'
     ],
-    extras_require={
-        "dev": [
-            "pytest>=6.0",
-            "pytest-cov>=2.0",
-            "black>=21.0",
-            "flake8>=3.8",
-        ],
-    },
+    python_requires='>=3.7',
 )
