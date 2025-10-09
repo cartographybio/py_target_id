@@ -26,6 +26,12 @@ setup(
     packages=find_packages(),
     ext_modules=ext_modules,
     cmdclass={"build_ext": build_ext},
+    package_data={
+        'py_target_id': [
+            'data/**/*',  # Include everything under data/ recursively
+        ],
+    },
+    include_package_data=True,
     install_requires=[
         'numpy',
         'pandas',
