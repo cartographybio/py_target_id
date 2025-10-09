@@ -131,22 +131,22 @@ saveRDS(se, se_out, compress=FALSE)
 #2. H5AD for Python Easier
 ########################################################################################
 
-# Create H5 file structure manually
-if (file.exists(ad_out)) file.remove(ad_out)
+# # Create H5 file structure manually
+# if (file.exists(ad_out)) file.remove(ad_out)
 
-h5createFile(ad_out)
+# h5createFile(ad_out)
 
-# Write main matrix
-h5write(as.matrix(assay(se, "median")), ad_out, "X")
+# # Write main matrix
+# h5write(as.matrix(assay(se, "median")), ad_out, "X")
 
-# Metadata
-h5write(as.data.frame(colData(se)), ad_out, "obs")
+# # Metadata
+# h5write(as.data.frame(colData(se)), ad_out, "obs")
 
-# Row/column names
-h5write(rownames(colData(se)), ad_out, "obs_names")
-h5write(rownames(rowData(se)), ad_out, "var_names")
+# # Row/column names
+# h5write(rownames(colData(se)), ad_out, "obs_names")
+# h5write(rownames(rowData(se)), ad_out, "var_names")
 
-o <- h5closeAll()
+# o <- h5closeAll()
 
 ########################################################################################
 #3. Surface Gene H5
@@ -220,8 +220,17 @@ writeTENxMatrix(as(final_matrix, "dgCMatrix"), h5_out,  group = "RNA_Norm_Counts
 #4. Copy To Bucket
 ########################################################################################
 
-system("gsutil cp 20250225/* gs://cartography_target_id_package/Healthy_Atlas/FFPE/20250225/")
-system("gsutil cp 20250201/* gs://cartography_target_id_package/Healthy_Atlas/SingleCell/20250201/")
+import py_target_id as tid
+
+h_adata = tid.utils.se_rds_to_anndata("20250225/Healthy_Atlas.Lv4.se.rds")
+h_adata.write("20250225/Healthy_Atlas.Lv4.h5ad")
+
+h_adata2 = tid.utils.se_rds_to_anndata("20250201/Healthy_Atlas.Lv4.se.rds")
+h_adata2.write("20250201/Healthy_Atlas.Lv4.h5ad")
+
+
+system("gsutil -m cp 20250225/* gs://cartography_target_id_package/Healthy_Atlas/FFPE/20250225/")
+system("gsutil -m cp 20250201/* gs://cartography_target_id_package/Healthy_Atlas/SingleCell/20250201/")
 
 #system("gsutil -m mv -r gs://cartography_target_id_samples/Samples_v3/* gs://cartography_target_id_package/Sample_Input/20251008/")
 #system("gsutil -m mv -r gs://cartography_target_id_samples/Samples_v2/* gs://cartography_target_id_package/Sample_Input/20250811/")
