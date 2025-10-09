@@ -1,8 +1,14 @@
-"""
-Utility functions for GCS operations, manifest handling, and R compatibility.
-"""
-from .google import *
-from .manifest_load import *
-from .manifest_download import *
-from .r_to_py import *
-from .malig import *
+# utils/__init__.py
+import os
+import importlib
+
+# Auto-import all .py files in this directory
+_current_dir = os.path.dirname(__file__)
+for filename in os.listdir(_current_dir):
+    if filename.endswith('.py') and not filename.startswith('_'):
+        module_name = filename[:-3]
+        module = importlib.import_module(f'.{module_name}', package=__name__)
+        # Import all public names
+        for name in dir(module):
+            if not name.startswith('_'):
+                globals()[name] = getattr(module, name)
