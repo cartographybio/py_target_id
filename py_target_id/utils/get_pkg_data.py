@@ -22,10 +22,11 @@ def _get_data_path(subpath: str) -> str:
 
 def surface_genes(
     version: int = 2,
-    tiers: List[int] = [1, 2],
+    tiers: list[int] = [1, 2],
     latest: bool = False,
-    evidence: float = 0.1
-) -> List[str]:
+    evidence: float = 0.1,
+    as_df: bool = False
+) -> list[str] | pd.DataFrame:
     """
     Load surface protein genes filtered by tier and evidence.
     
@@ -42,20 +43,25 @@ def surface_genes(
         If False, use packaged data
     evidence : float, default=0.1
         Minimum evidence score threshold (only for version=1)
+    as_df : bool, default=False
+        If True, return DataFrame with gene_name and tier columns
+        If False, return list of gene names
     
     Returns
     -------
-    list
-        List of surface gene names
+    list or pd.DataFrame
+        If as_df=False: List of surface gene names (deduplicated)
+        If as_df=True: DataFrame with 'gene_name' and 'tier' columns (deduplicated)
     """
     if version == 1:
         sgenes_series = surface_evidence()
         sgenes = sgenes_series[sgenes_series >= evidence].index.tolist()
+        if as_df:
+            raise ValueError("as_df=True only supported for version=2")
         return sgenes
     
     elif version == 2:
         if latest:
-            # Would require gspread or similar library
             raise NotImplementedError(
                 "Google Sheets integration not implemented. "
                 "Use latest=False to load from package data."
@@ -89,15 +95,25 @@ def surface_genes(
         
         # Filter by requested tiers
         tier_strings = [f'Tier{t}' for t in tiers]
-        sgenes = surface.loc[surface['Tier'].isin(tier_strings), 'gene_name'].tolist()
+        filtered_surface = surface[surface['Tier'].isin(tier_strings)]
         
-        return sgenes
+        # Deduplicate - keep first occurrence (or lowest tier if you prefer)
+        filtered_surface = filtered_surface.drop_duplicates(subset=['gene_name'], keep='first')
+        
+        if as_df:
+            # Add numeric tier column
+            result_df = filtered_surface[['gene_name', 'Tier']].copy()
+            result_df['tier'] = result_df['Tier'].str.replace('Tier', '').astype(int)
+            result_df = result_df[['gene_name', 'tier']].reset_index(drop=True)
+            return result_df
+        else:
+            sgenes = filtered_surface['gene_name'].tolist()
+            return sgenes
     
     else:
         raise ValueError(f"Unknown version: {version}")
 
-
-def tabs_genes(version: int = 2) -> List[str]:
+def tabs_genes(version: int = 2, as_df: bool = False) -> list[str] | pd.DataFrame:
     """
     Load TABS (Therapeutically Applicable Body Site) genes.
     
@@ -107,22 +123,40 @@ def tabs_genes(version: int = 2) -> List[str]:
         Version of TABS data:
         - 1: Original antibody count data (2023)
         - 2: Clinical antibody data (2025)
+    as_df : bool, default=False
+        If True, return DataFrame with original columns (deduplicated)
+        If False, return list of gene names (deduplicated)
     
     Returns
     -------
-    list
-        Sorted list of unique TABS gene names
+    list or pd.DataFrame
+        If as_df=False: Sorted list of unique TABS gene names
+        If as_df=True: DataFrame with original data (deduplicated by gene)
     """
     if version == 1:
-        path = _get_data_path('annotation/TABs_Antibody_Count.20230323.xlsx')
-        df = pd.read_excel(path)
+        path = _get_data_path('annotation/TABs_Antibody_Count.20230323.parquet')
+        df = pd.read_parquet(path)
+        
+        # Deduplicate by final_gene
+        df = df.drop_duplicates(subset=['final_gene'], keep='first')
+        
+        if as_df:
+            return df.reset_index(drop=True)
+        
         genes = df['final_gene'].dropna().tolist()
         genes = sorted(set(genes + ['SLC34A2']))
         return genes
     
     elif version == 2:
-        path = _get_data_path('annotation/TABS_Antibody_Clinical.20250815.xlsx')
-        df = pd.read_excel(path, sheet_name='all_clinical_symbol')
+        path = _get_data_path('annotation/TABS_Antibody_Clinical.20250815.parquet')
+        df = pd.read_parquet(path)
+        
+        # Deduplicate by symbol
+        df = df.drop_duplicates(subset=['symbol'], keep='first')
+        
+        if as_df:
+            return df.reset_index(drop=True)
+        
         genes = df['symbol'].dropna().tolist()
         genes = sorted(set(genes + ['SLC34A2', 'FOLR1']))
         return genes
