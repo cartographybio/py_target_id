@@ -403,6 +403,7 @@ def target_id_v1(
     healthy_adata,
     device: Optional[str] = None,
     surface_evidence_path: Optional[str] = "surface_evidence.v1.20240715.csv",
+    pos_mat = None,
     version: str = "1.02"
 ) -> pd.DataFrame:
     """
@@ -428,6 +429,7 @@ def target_id_v1(
     """
     
     from scipy.sparse import issparse
+    from py_target_id import run
 
     print(f"Starting Target ID v{version}...")
     
@@ -438,6 +440,10 @@ def target_id_v1(
     # Subset data
     malig_subset = malig_adata[:, genes].copy()
     healthy_subset = healthy_adata[:, genes].copy()
+
+    # Compute Positivity Quickly
+    if pos_mat is None:
+        pos_mat = run.compute_positivity_matrix(malig_adata)
     
     # Extract matrices
     mat_malig = malig_subset.X.T if hasattr(malig_subset.X, 'T') else malig_subset.X.T

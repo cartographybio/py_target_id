@@ -6,7 +6,7 @@ from Google Cloud Storage for genomics workflows.
 __version__ = "0.1.0"
 __author__ = "Jeffrey Granja"
 
-from . import data
+from . import infra
 from . import run
 from . import utils
 from . import plot
