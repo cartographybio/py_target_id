@@ -165,7 +165,7 @@ def tabs_genes(version: int = 2, as_df: bool = False) -> list[str] | pd.DataFram
         raise ValueError(f"Unknown version: {version}")
 
 
-def valid_genes(version: str = "20240715") -> List[str]:
+def valid_genes(version: str = "20240715") -> list[str]:
     """
     Load list of valid genes for analysis.
     
@@ -180,11 +180,10 @@ def valid_genes(version: str = "20240715") -> List[str]:
         List of valid gene names
     """
     if version == "20240715":
-        # Assuming CSV format since .rds doesn't exist
-        # Adjust based on your actual file format
-        path = _get_data_path('annotation/sc_valid_genes.cellranger.20240715.csv')
-        df = pd.read_csv(path)
-        return df['gene_name'].tolist() if 'gene_name' in df.columns else df.iloc[:, 0].tolist()
+        path = _get_data_path('annotation/sc_valid_genes.cellranger.20240715.txt')
+        with open(path, 'r') as f:
+            genes = [line.strip() for line in f if line.strip()]
+        return genes
     else:
         raise ValueError(f"Unknown version: {version}")
 

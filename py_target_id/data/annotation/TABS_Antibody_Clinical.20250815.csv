@@ -1,0 +1,2431 @@
+Name,Internal Name,Antigen,Company,Trials ▼,Patents,Papers,Seq,Activity by Year,symbol
+utomilumab,"1635395-25-3 , PF-05082566, MOR-7480.1",4-1BB,"Morphosys, Pfizer",14.0,10.0,11.0,✓,,TNFRSF9
+selicrelumab,"21.4.1, CP-870, 893, CP-870893, RG7876",CD40,"Abgenix, Amgen, Genentech, Pfizer, VLST",8.0,12.0,4.0,✓,,CD40
+bivatuzumab mertansine,"BIWI 1, BIWA 4",CD44v6,Boehringer,7.0,7.0,8.0,✓,,CD44
+apolizumab,"Remitogen, 1D10, HU1D10, K8-355",HLA-DR β,"Facet, PDL",6.0,7.0,7.0,?,,HLA-DRB1
+apamistamab   ==,"iodine (131I) apamistamab, 90Y-BC8, Iomab-B, BC8",CD45,Actinium,6.0,26.0,3.0,✓,,PTPRC
+tuparstobart,"INCAGN2385, INCAGN02385",LAG-3,"Agenus, Incyte, Xoma",6.0,11.0,,✓,,LAG3
+verzistobart   ==,"INCAGN02390, INCAGN-2390",TIM-3,"Agenus, Incyte",6.0,,,nan,,HAVCR2
+budigalimab,"ABBV-181, PR-1648817",PD-1,Abbvie,6.0,8.0,4.0,✓,,PDCD1
+zeluvalimab,AMG404,PD-1,Amgen,6.0,7.0,1.0,nan,,PDCD1
+peresolimab,LY3462817,PD-1,Lilly,6.0,6.0,1.0,nan,,PDCD1
+IBI322,IBI-322,CD47,Innovent,5.0,2.0,1.0,nan,,CD47
+IBI322,IBI-322,PD-L1,Innovent,5.0,2.0,1.0,nan,,CD274
+AMG 811,nan,IFN-γ,"Amgen, Medarex",4.0,16.0,2.0,✓,,IFNG
+dusigitumab,MEDI-573,IGF-1,Medimmune,4.0,8.0,4.0,✓,,IGF1
+dusigitumab,MEDI-573,IGF-2,Medimmune,4.0,8.0,4.0,✓,,IGF2
+sibrotuzumab,"BIBH 1, humanized F19",FAP,"Boehringer, LSP",4.0,8.0,7.0,✓,,FAP
+depatuxizumab   >>   ==,"mAb806, LICR 806, ABT-806, ch806",EGFR,"Abbott, LSP, Ludwig Inst.",4.0,19.0,14.0,✓,,EGFR
+RO5323441,C9.V2,PLGF,"Genentech, Roche",4.0,1.0,4.0,nan,,PGF
+vantictumab,OMP-18R5,FZD,"Bayer, Morphosys, OncoMed",4.0,31.0,4.0,✓,,FZD1
+brontictuzumab,"13M57, OMP-52M51, OMP-A2G1",Notch1,OncoMed,4.0,26.0,4.0,✓,,NOTCH1
+City of Hope patent anti-CEA,"T84.66, M5A, Ac225-DOTA-M5A",CEACAM5,City of Hope,4.0,3.0,7.0,nan,,CEACAM5
+2141-V11   ==,BMS patent anti-CD40,CD40,"BMS, Rockefeller U., Sloan-Kettering",4.0,42.0,1.0,nan,,CD40
+cibisatamab   <<,"RO6958688, RG7802, CEA TCB",CD3,Glycart,4.0,35.0,5.0,✓,,CD3E
+cibisatamab   <<,"RO6958688, RG7802, CEA TCB",CEACAM5,Glycart,4.0,35.0,5.0,✓,,CEACAM5
+AGT-181   <<,HIRMAb-IDUA,INSR,ArmaGen,4.0,,1.0,nan,,INSR
+MVT-5873,"BNT321, HuMab-5B1, MVT-1075, [89Zr]DFO-HuMab-5B1, MVT-2163",Sialyl-Lewis A,"BioNTech, MabVax",4.0,8.0,4.0,nan,,FUT3
+GSK3174998   ==,nan,OX40,"GSK, MD Anderson",4.0,,1.0,nan,,TNFRSF4
+Baylor Coll.Med. anti-GD2 CAR,iC9-GD2-CD28-OX40,GD2,Baylor Coll.Med.,4.0,4.0,,nan,,nan
+NCI anti-CD19 CAR,FMC63 71,CD19,NCI,4.0,2.0,4.0,nan,,CD19
+UCART19   <<,Cellectis patent anti-CD19 CAR,CD19,"Allogene, Cellectis",4.0,14.0,,nan,,CD19
+lodapolimab,LY3300054,PD-L1,Lilly,4.0,6.0,4.0,✓,,CD274
+CDP1   ••,BC001,EGFR,"Dragonboat Biopharma, Guilin Sanjin Pharma",4.0,,,nan,,EGFR
+VRDN-002   >>,"AVE1642, AVE-1642, EM164, VRDN-001",IGF-1R,"Fusion Pharma, ImmunoGen, Viridian",3.0,41.0,,?,,IGF1R
+BIIB022   ==,M14,IGF-1R,Biogen,3.0,9.0,1.0,?,,IGF1R
+IMA-026   ==,nan,IL-13,"Pfizer, Wyeth",3.0,2.0,3.0,✓,,IL13
+AMG 211,"MT111, MEDI-565, A5B7",CD3,"Medimmune, Micromet",3.0,12.0,4.0,nan,,CD3E
+AMG 211,"MT111, MEDI-565, A5B7",CEACAM5,"Medimmune, Micromet",3.0,12.0,4.0,nan,,CEACAM5
+KHK6640,Oncotherapy patent anti-Amyloid Beta,Amyloid beta,"Immunas, KHK, Oncotherapy",3.0,15.0,,nan,,APP
+CSL324,nan,G-CSF,CSL,3.0,12.0,2.0,nan,,CSF3
+JNJ-42915925   ==,"CNTO 3157, PRV-300",TLR3,"Centocor Ortho, Janssen Biotech, Morphosys, Provention Bio",3.0,,,nan,,TLR3
+lumretuzumab   >>,"RG7116, Mab 205, GE-huMab-HER3, RO5479599",HER3,"Glycart, Roche",3.0,21.0,10.0,✓,,ERBB3
+crebankitug,"RN168, ZB-168, PF-06342674",IL-7RA,"Pfizer, Rinat, zurabio",3.0,13.0,3.0,✓,,IL7R
+cirmtuzumab   >>,UC-961,ROR1,U.California,3.0,35.0,5.0,nan,,ROR1
+hu14.18K322A   <<,nan,GD2,St. Jude Hospital,3.0,1.0,4.0,nan,,nan
+CC-90002   ==,INBRX-103,CD47,"Celgene, Inhibrx",3.0,27.0,2.0,nan,,CD47
+MEDI0680,AMP-514,PD-1,"Amplimmune, Medimmune",3.0,3.0,3.0,nan,,PDCD1
+MEN1309,OBT076,DEC-205,Oxford Bio,3.0,10.0,2.0,nan,,LY75
+RG7876,RO7009789,CD40,Genentech,3.0,,,nan,,CD40
+CM-101,nan,Eotaxin-2,ChemomAb,3.0,13.0,2.0,nan,,CCL24
+U.Penn. patent anti-Mesothelin CAR,nan,Mesothelin,"Novartis, U.Penn.",3.0,6.0,1.0,nan,,MSLN
+imvotamab,IGM-2323,CD20,IGM Bio,3.0,2.0,,nan,,MS4A1
+imvotamab,IGM-2323,CD3,IGM Bio,3.0,2.0,,nan,,CD3E
+falbikitug,"AZD0171, MSC-1",LIF,"AstraZeneca, Mosaic Bio, Northern Biologics",3.0,8.0,2.0,nan,,LIF
+petosemtamab,MCLA-158,EGFR,Merus,3.0,11.0,2.0,✓,,EGFR
+petosemtamab,MCLA-158,GPR49,Merus,3.0,11.0,2.0,✓,,LGR5
+gatipotuzumab   >>,"PankoMab, GT-MAB 2.5-GEX",MUC1,Glycotope,3.0,15.0,7.0,✓,,MUC1
+Sym021,Symphogen patent anti-PD-1,PD-1,"Les Laboratoires Servier , Symphogen",3.0,13.0,1.0,nan,,PDCD1
+TK006,nan,RANKL,Jiangsu T-mab,3.0,,,nan,,TNFSF11
+SAR439459,nan,TGF-β,Sanofi,3.0,10.0,,nan,,TGFB1
+gatralimab   ==,"GLD52, GLD-52, GZ402668",CD52,"Genzyme, Sanofi",3.0,4.0,2.0,✓,,CD52
+letaplimab,"IBI-188, IBI188",CD47,Innovent,3.0,11.0,1.0,✓,,CD47
+izastobart,"HIB210, MOR210, TJ210, TJ210001, MOR044254, WBP2191",C5aR,"Biogen, I-Mab Biopharma, Morphosys",3.0,6.0,,✓,,C5AR1
+anzurstobart,"CC-95251, BMS-986351",SIRPA,"BMS, Celgene",3.0,4.0,1.0,✓,,SIRPA
+eltivutabart,TTX-030,CD39,"Abbvie, Tizona, Trishula",3.0,16.0,,nan,,ENTPD1
+NG-350A,nan,CD40,PsiOxus,3.0,,1.0,nan,,CD40
+porustobart,"HBM4003, HCAb 4003-2",CTLA4,Harbour Biomed Ltd.,3.0,6.0,2.0,✓,,CTLA4
+ONO-4685,nan,CD3,Ono,3.0,11.0,,nan,,CD3E
+ONO-4685,nan,PD-1,Ono,3.0,11.0,,nan,,PDCD1
+vonsetamig   ==,REGN5459,BCMA,Regeneron,3.0,12.0,,nan,,TNFRSF17
+vonsetamig   ==,REGN5459,CD3,Regeneron,3.0,12.0,,nan,,CD3E
+dalnicastobart,LVGN7409,CD40,Lyvgen Biopharma,3.0,7.0,,✓,,CD40
+cevostamab   ==,"BFCR4350A, RO-7187797, RG6160",CD3,Genentech,3.0,17.0,2.0,✓,,CD3E
+cevostamab   ==,"BFCR4350A, RO-7187797, RG6160",IRTA2,Genentech,3.0,17.0,2.0,✓,,FCRL5
+rezetamig   ==,JNJ-75348780,CD22,"Janssen Biotech, TeneoBio",3.0,4.0,,✓,,CD22
+rezetamig   ==,JNJ-75348780,CD3,"Janssen Biotech, TeneoBio",3.0,4.0,,✓,,CD3E
+acapatamab,AMG 160,CD3,nan,3.0,4.0,1.0,✓,,CD3E
+acapatamab,AMG 160,PSMA,nan,3.0,4.0,1.0,✓,,FOLH1
+firastotug   ==,ADG116,CTLA4,Adagene,3.0,,,nan,,CTLA4
+CM326,nan,TSLP,Keymed,3.0,1.0,1.0,nan,,TSLP
+AM712   ==,ASKG712,VEGF,"AffaMed, AskGene",3.0,1.0,,nan,,VEGFA
+JNJ-80948543,nan,CD3,Janssen Biotech,3.0,,,nan,,CD3E
+JNJ-80948543,nan,Undisclosed,Janssen Biotech,3.0,,,nan,,nan
+TQB2223,TQB2252,LAG-3,Chia Tai Tianqing Pharma,3.0,4.0,,nan,,LAG3
+DR-0201,nan,CD20,"Dren, Sanofi",3.0,,,nan,,MS4A1
+DR-0201,nan,Undisclosed,"Dren, Sanofi",3.0,,,nan,,nan
+TQB2928,nan,CD47,Chia Tai Tianqing Pharma,3.0,1.0,,nan,,CD47
+GNC-077,nan,CD3,Sichuan Baili Pharma,3.0,,,nan,,CD3E
+GNC-077,nan,Undisclosed,Sichuan Baili Pharma,3.0,,,nan,,nan
+AMG 167,"Scl-mAb, Scl-Ab",Sclerostin,"Amgen, UCB",2.0,5.0,28.0,?,,SOST
+ASG-5ME,"AGS-5, AGS-5M2.1vcMMAE",SLC44A4,"Astellas, Seattle Genetics",2.0,8.0,3.0,✓,,SLC44A4
+vesencumab,"Genentech Anti-NRP1, RG7347, MNRP1685A",NRP1,Genentech,2.0,14.0,5.0,✓,,NRP1
+HeFi-1,nan,CD30,NCI,2.0,1.0,,nan,,TNFRSF8
+ifabotuzumab,"KB004, IIIA4, FA225-C10, fibatuzumab",EphA3,"Humanigen, KaloBios",2.0,21.0,4.0,✓,,EPHA3
+lexatumumab,"ETR2-ST01, HGS-ETR2, HGS1018",DR5,HGS,2.0,4.0,6.0,✓,,TNFRSF10B
+MDX-1342,nan,CD19,Medarex,2.0,3.0,1.0,?,,CD19
+MDX-1411,MDX2H5,CD70,Medarex,2.0,8.0,,nan,,CD70
+MEDI3617,MEDI-3617,Angiopoietin 2,"AstraZeneca, Medimmune",2.0,24.0,3.0,✓,,ANGPT2
+MM-151,"P1X, P2X, P3X",EGFR,"Adimab, Merrimack",2.0,17.0,1.0,nan,,EGFR
+MORAb-028,MT228,GD2,"Micromet, Morphotek",2.0,6.0,,?,,nan
+vorsetuzumab mafodotin   ==,"SGN-75, h1F6-mcMMAF(4)",CD70,Seattle Genetics,2.0,36.0,7.0,nan,,CD70
+XmAb 7195,nan,Fc-gamma-R2B (CD32b),Xencor,2.0,7.0,,?,,FCGR2B
+XmAb 7195,nan,IgE,Xencor,2.0,7.0,,?,,nan
+AGS-8M4,nan,AGS-8,Agensys,2.0,,,nan,,FNDC5
+eblasakimab,"MK-6105, 10G5, 10G5H6, ASLAN004",IL-13Rα1,"Aslan, CSL, Merck (MSD)",2.0,38.0,4.0,?,,IL13RA1
+AFM11,nan,CD19,Affimed,2.0,2.0,4.0,nan,,CD19
+AFM11,nan,CD3,Affimed,2.0,2.0,4.0,nan,,CD3E
+afasevikumab,"RG7624, NI-1401, MCAF5352A",IL-17,"Genentech, NovImmune",2.0,12.0,,✓,,IL17A
+afasevikumab,"RG7624, NI-1401, MCAF5352A",IL-17F,"Genentech, NovImmune",2.0,12.0,,✓,,IL17F
+MEDI-570,JMab-136,ICOS,Medimmune,2.0,10.0,,✓,,ICOS
+XOMA 213,LFA102,PRLR,"Novartis, Xoma",2.0,6.0,1.0,?,,PRLR
+GSK1995057   >>,"DOM1h-131-206, GSK 1995057",TNFR1,"Domantis, GSK",2.0,26.0,3.0,✓,,TNFRSF1A
+DS-8895,DS-8895a,EphA2,Daiichi Sankyo,2.0,7.0,3.0,?,,EPHA2
+IGN002,nan,CD20,"ImmunGene, Valor Bio",2.0,5.0,,nan,,MS4A1
+PF-04382923,RN6G,Amyloid beta,Pfizer,2.0,1.0,1.0,nan,,APP
+BAY 79-4620,"CA9-ADC, MN-IC",CAIX,"Bayer, Morphosys, Seattle Genetics",2.0,2.0,1.0,nan,,CA9
+RO5429083   ==,H460-16-2,CD44,Roche,2.0,11.0,,?,,CD44
+GSK2618960,nan,IL-7RA,GSK,2.0,7.0,2.0,?,,IL7R
+MK-4166,nan,GITR,"Merck (MSD), Schering-Plough",2.0,7.0,2.0,nan,,TNFRSF18
+IMGN779,"My9-6, AVE9633, Z4681A",CD33,"ImmunoGen, Jazz Pharma",2.0,29.0,1.0,✓,,CD33
+tabituximab barzuxetan,"tabituximab, OTSA101",FZD10,Oncotherapy,2.0,6.0,2.0,✓,,FZD10
+GSK2849330,"15D5, M5.15D5.2A1.1H10, 1D9",HER3,Glaxo Group,2.0,4.0,3.0,?,,ERBB3
+crotedumab,REGN1193,GCGR,Regeneron,2.0,27.0,2.0,✓,,GCGR
+Duke U. D2C7   >>,D2C7,EGFR,Duke U.,2.0,5.0,1.0,✓,,EGFR
+BI 836880,nan,Angiopoietin 2,"Ablynx, Boehringer",2.0,8.0,2.0,nan,,ANGPT2
+BI 836880,nan,VEGF,"Ablynx, Boehringer",2.0,8.0,2.0,nan,,VEGFA
+eluvixtamab   ==,"AMG330, AMG 330",CD3,Amgen,2.0,11.0,7.0,✓,,CD3E
+eluvixtamab   ==,"AMG330, AMG 330",CD33,Amgen,2.0,11.0,7.0,✓,,CD33
+MK-8808   ••,nan,CD20,Merck (MSD),2.0,,,nan,,MS4A1
+RG7882   ==,"DMOT4039A, MMOT0530A, RG7600",Mesothelin,"Genentech, Seattle Genetics",2.0,6.0,4.0,nan,,MSLN
+pavurutamab,"BI 836908, AMG 701, AMG701",BCMA,"Amgen, Boehringer, Micromet",2.0,13.0,3.0,✓,,TNFRSF17
+pavurutamab,"BI 836908, AMG 701, AMG701",CD3,"Amgen, Boehringer, Micromet",2.0,13.0,3.0,✓,,CD3E
+GSK3050002,KANAb071,CK-B4,"Eisai, GSK, Morphotek",2.0,4.0,2.0,nan,,KRT4
+ARX517,JNJ-95298177,PSMA,"Ambrx, Janssen Biotech",2.0,11.0,1.0,nan,,FOLH1
+MGD007,nan,A33,MacroGenics,2.0,1.0,1.0,nan,,GPA33
+MGD007,nan,CD3,MacroGenics,2.0,1.0,1.0,nan,,CD3E
+cofetuzumab pelidotin   <<,PF-06647020,PTK7,"Pfizer, StemCentRx",2.0,11.0,3.0,nan,,PTK7
+AV-380,nan,MIC-1,"AVEO, Novartis",2.0,21.0,,nan,,GDF15
+CM-24,nan,CEACAM1,"cCam Bio, Famewave, Kitov, Tel-Aviv U.",2.0,21.0,,nan,,CEACAM1
+AMG 570,MEDI0700,B7RP-1,"Amgen, AstraZeneca, Medimmune, Viela Bio",2.0,1.0,,nan,,ICOS
+AMG 570,MEDI0700,BAFF,"Amgen, AstraZeneca, Medimmune, Viela Bio",2.0,1.0,,nan,,TNFSF13B
+zeripatamig   ==,"NI-1701, TG-1801",CD19,"Light Chain Bio, NovImmune, TG Therapeutics",2.0,5.0,3.0,nan,,CD19
+zeripatamig   ==,"NI-1701, TG-1801",CD47,"Light Chain Bio, NovImmune, TG Therapeutics",2.0,5.0,3.0,nan,,CD47
+fazpilodemab,"BFKB8488A, RG7992",Beta-Klotho,Genentech,2.0,14.0,1.0,✓,,KLB
+fazpilodemab,"BFKB8488A, RG7992",FGFR1,Genentech,2.0,14.0,1.0,✓,,FGFR1
+onvatilimab,"VSTB112, JNJ-61610588, CI-8993",B7-H5,"Curis, Dartmouth, ImmuNext, Janssen Biotech",2.0,54.0,1.0,✓,,VSIR
+cergutuzumab amunaleukin,"GA504, CEA-IL2v, RG7813, RO6895882",CEACAM5,Glycart,2.0,6.0,1.0,✓,,CEACAM5
+zanidatamab zovodotin,"ZW49, MEDI4276, Medimmune patent anti-Her2 Bispecific",HER2/neu,Medimmune,2.0,4.0,2.0,✓,,ERBB2
+tavolimab   ==,"MEDI0562, MEDI-0562, tavolixizumab",OX40,Medimmune,2.0,5.0,1.0,✓,,TNFRSF4
+TK001,TMAB001,VEGF,Jiangsu T-mab,2.0,,2.0,nan,,VEGFA
+tilvestamab   ==,"BGB101, BGB149",AXL,BerGenBio,2.0,26.0,1.0,✓,,AXL
+AMV564,"T550, T564",CD3,"Affimed, Amphivena",2.0,6.0,2.0,nan,,CD3E
+AMV564,"T550, T564",CD33,"Affimed, Amphivena",2.0,6.0,2.0,nan,,CD33
+Baylor Coll.Med. anti-Her2 CAR,HER2-CAR,HER2/neu,Baylor Coll.Med.,2.0,1.0,,nan,,ERBB2
+CAR-T NKR-2,CM-CS1,NKG2D,"Celdara, Celyad",2.0,,3.0,nan,,KLRK1
+CSG-GPC3,nan,Glypican 3,"Carsgen, Shanghai Cancer Inst.",2.0,5.0,,nan,,GPC3
+PF-05236812   <<,AAB-003,Amyloid beta,Pfizer,2.0,,1.0,nan,,APP
+ERY974   <<,Chugai patent anti-GPC3 / CD3,CD3,Chugai,2.0,9.0,6.0,nan,,CD3E
+ERY974   <<,Chugai patent anti-GPC3 / CD3,Glypican 3,Chugai,2.0,9.0,6.0,nan,,GPC3
+obrindatamab   ==,MGD009,B7-H3,MacroGenics,2.0,1.0,1.0,✓,,CD276
+obrindatamab   ==,MGD009,CD3,MacroGenics,2.0,1.0,1.0,✓,,CD3E
+tidutamab,XmAb18087,CD3,Xencor,2.0,7.0,,✓,,CD3E
+tidutamab,XmAb18087,SSTR2,Xencor,2.0,7.0,,✓,,SSTR2
+UCART123,Cellectis patent anti-IL-3Ra CAR,IL-3Rα,Cellectis,2.0,9.0,,nan,,IL3RA
+MG1113,nan,TFPI,"Green Cross, MOGAM Biotech",2.0,7.0,1.0,nan,,TFPI
+resugosbart,SHR-1222,Sclerostin,Jiangsu Hengrui,2.0,8.0,1.0,nan,,SOST
+ALXN1830,SYNT001,FcRn,Syntimmune,2.0,8.0,1.0,nan,,FCGRT
+MEDI4920,MR1,CD40L,Medimmune,2.0,,1.0,nan,,CD40LG
+Baylor anti-CD30 CAR,nan,CD30,Baylor Coll.Med.,2.0,2.0,1.0,nan,,TNFRSF8
+duvortuxizumab,"MGD011, JNJ-64052781",CD19,"Janssen Biotech, MacroGenics",2.0,3.0,,✓,,CD19
+duvortuxizumab,"MGD011, JNJ-64052781",CD3,"Janssen Biotech, MacroGenics",2.0,3.0,,✓,,CD3E
+PMN310,5000,Amyloid beta,"Aptevo, ProMIS, U.British Columbia",2.0,33.0,1.0,nan,,APP
+ASP8374,PTZ-201,TIGIT,"Astellas, Potenza",2.0,2.0,,nan,,TIGIT
+RPH-001   ••,"RPH101, RPH-101",VEGF-A,"R-Pharm, TRPharm",2.0,,,nan,,VEGFA
+pradusinstobart,LVGN3616,PD-1,Lyvgen Biopharma,2.0,3.0,,nan,,PDCD1
+APVO436,APVO437,CD3,Aptevo,2.0,1.0,,nan,,CD3E
+APVO436,APVO437,IL-3Rα,Aptevo,2.0,1.0,,nan,,IL3RA
+ALX-1141,M6495,ADAMTS5,"Ablynx, Merck Serono, Novartis",2.0,1.0,,nan,,ADAMTS5
+SEA-BCMA   ==,"hSG16.17, hSG16.45",BCMA,Seattle Genetics,2.0,11.0,,nan,,TNFRSF17
+betifisolimab,"MSB-2311, MSB2311",PD-L1,"Mabspace, Transcenta",2.0,4.0,1.0,nan,,CD274
+vopikitug,"RO7296682, RG6292",IL-2Rα,"Cancer Research Technology, Roche, Tusk",2.0,40.0,2.0,nan,,IL2RA
+Gentuximab,nan,VEGFR-2,GeneScience,2.0,,,nan,,KDR
+BI 765063   ==,"OSE-172, BI765063",SIRPA,"Boehringer, OSE Immunotherapeutics",2.0,18.0,,nan,,SIRPA
+nofazinlimab,CS1003,PD-1,CStone Pharma,2.0,4.0,4.0,✓,,PDCD1
+CS1002,nan,CTLA4,CStone Pharma,2.0,,1.0,nan,,CTLA4
+ASP1948,PTZ-239,NRP1,"Astellas, Potenza",2.0,3.0,,nan,,NRP1
+IBI939,IBI-939,TIGIT,Innovent,2.0,5.0,,nan,,TIGIT
+IBI315   ==,IBI-315,HER2/neu,"Beijing Hanmi, Innovent",2.0,9.0,1.0,nan,,ERBB2
+IBI315   ==,IBI-315,PD-1,"Beijing Hanmi, Innovent",2.0,9.0,1.0,nan,,PDCD1
+PAR650097,"MEDI2344, MEDI0618",PAR-2,"AstraZeneca, Medimmune",2.0,6.0,2.0,nan,,F2RL1
+pelgifatamab,"BAY 2315497, BAY2315497, PSMA-TTC, BAY3546828, Actinium-225-macropa-pelgifatamab",PSMA,Bayer,2.0,,3.0,nan,,FOLH1
+SHR-1703,nan,IL-5,Jiangsu Hengrui,2.0,7.0,1.0,nan,,IL5
+lesabelimab,"LDP, BC003",PD-L1,Dragonboat Biopharma,2.0,,,nan,,CD274
+AK111,nan,IL-17,Akeso,2.0,2.0,1.0,nan,,IL17A
+alpitatug satetraxetan (225Ac),"actinium (225Ac) alpitatug satetraxetan, h5A10, h11B6",Kallikrein-2,"Diaprost, Janssen Biotech",2.0,15.0,1.0,✓,,KLK2
+muzastotug   ==,ADG126,CTLA4,Adagene,2.0,17.0,,nan,,CTLA4
+A-319,nan,CD19,"Generon, ITabMed",2.0,6.0,1.0,nan,,CD19
+A-319,nan,CD3,"Generon, ITabMed",2.0,6.0,1.0,nan,,CD3E
+SYS6023,DP303c,HER2/neu,CSPC Pharma,2.0,1.0,1.0,nan,,ERBB2
+BAT2506   ••,nan,TNF-alpha,Bio-Thera Solutions,2.0,2.0,1.0,nan,,TNF
+REGN6490,nan,IL1RL2,Regeneron,2.0,6.0,,nan,,IL1RL2
+YH004,nan,4-1BB,Eucure,2.0,5.0,,nan,,TNFRSF9
+BYON4228,nan,SIRPA,Byondis,2.0,6.0,,nan,,SIRPA
+PTX-35   ==,nan,DR3,"Heat Bio, Pelican",2.0,3.0,,nan,,TNFRSF25
+OKT10-B10,211At-OKT10-B10,CD38,FHCRC,2.0,,,nan,,CD38
+HS-20090   ••,nan,RANKL,Hansoh Pharma,2.0,,,nan,,TNFSF11
+PersonGen anti-CD276 CAR,nan,B7-H3,PersonGen,2.0,4.0,,nan,,CD276
+JS006,TAB006,TIGIT,Shanghai Junshi,2.0,4.0,,nan,,TIGIT
+CLN-619,nan,MICA,Cullinan Oncology,2.0,6.0,1.0,nan,,MICA
+CLN-619,nan,MICB,Cullinan Oncology,2.0,6.0,1.0,nan,,MICB
+VIS954,nan,C5aR,Visterra,2.0,14.0,,nan,,C5AR1
+SYSA1801,CPO102,CLDN18,CSPC Pharma,2.0,2.0,1.0,nan,,CLDN18
+MRG001,nan,CD20,Shanghai Miracogen,2.0,2.0,,nan,,MS4A1
+IBI325,nan,NT5E,Innovent,2.0,2.0,1.0,nan,,NT5E
+TORL-2-307-ADC,"TORL-2-307-ADC, TORL-2-307-MAB",CLDN18,TORL Bio,2.0,,,nan,,CLDN18
+BAT7104   ==,nan,CD47,Bio-Thera Solutions,2.0,4.0,,nan,,CD47
+BAT7104   ==,nan,PD-L1,Bio-Thera Solutions,2.0,4.0,,nan,,CD274
+HLX35,HLX035,4-1BB,Shanghai Henlius,2.0,1.0,,nan,,TNFRSF9
+HLX35,HLX035,EGFR,Shanghai Henlius,2.0,1.0,,nan,,EGFR
+JS019,nan,CD39,Shanghai Junshi,2.0,,,nan,,ENTPD1
+Cyramza   ••,"CYRAMZA, Chia Tai Tianqing Pharma bevacizumab biosimilar",VEGF,Chia Tai Tianqing Pharma,2.0,,,nan,,VEGFA
+HLX60,nan,GARP,Shanghai Henlius,2.0,,,nan,,LRRC32
+ONC-841,nan,Siglec-10,"Merck (MSD), OncoC4",2.0,2.0,,nan,,SIGLEC10
+AK006,nan,Siglec-6,Allakos,2.0,4.0,,nan,,SIGLEC6
+PF-07329640,nan,LT Beta R,Pfizer,2.0,2.0,,nan,,LTBR
+GR2002,GR-2002,TSLP,Genrix Biopharma,2.0,,1.0,nan,,TSLP
+BMS-986393,CC‑95266,GPRC5D,BMS,2.0,,,nan,,GPRC5D
+BAY3547922,nan,Undisclosed,Bayer,2.0,,,nan,,nan
+TQB2101,nan,ROR1,"Chia Tai Tianqing Pharma, Nanjing Shunxin Pharma",2.0,1.0,,nan,,ROR1
+IBI3020,nan,CEACAM5,Innovent,2.0,,,nan,,CEACAM5
+pasritamig,JNJ-78278343,CD3,Janssen Biotech,2.0,,1.0,nan,,CD3E
+pasritamig,JNJ-78278343,Kallikrein-2,Janssen Biotech,2.0,,1.0,nan,,KLK2
+XmAb 2513,AC10,CD30,"Seattle Genetics, Xencor",1.0,6.0,2.0,?,,TNFRSF8
+BIIB015,Anti-Cripto Mab + DM4,Cripto,"Biogen, ImmunoGen",1.0,10.0,1.0,?,,TDGF1
+citatuzumab bogatox,"VB6-845, 4D5MOC-B",EpCAM,"Univ. Zurich, Viventia",1.0,18.0,1.0,✓,,EPCAM
+priliximab,"Centara, cM-T412, M-T412, CEN 000029, MT 412, cMT 412",CD4,Centocor,1.0,,,nan,,CD4
+CNTO 5825,nan,IL-13,Centocor Ortho,1.0,,3.0,nan,,IL13
+enavatuzumab,PDL192,TWEAKR,"Abbvie, Facet, PDL",1.0,5.0,4.0,✓,,TNFRSF12A
+MTRX1011A   <<,Genentech Anti-CD4,CD4,"Genentech, Tolerx",1.0,6.0,3.0,nan,,CD4
+flanvotumab,"IMC-20D7S, TA99, 20D7",TYRP1,ImClone,1.0,4.0,4.0,✓,,TYRP1
+LY3022856,"IMC-3C5, hF4-3C5",FLT4,"Circadian, ImClone, Lilly",1.0,5.0,2.0,✓,,FLT4
+IMC-EB10,nan,FLT3,ImClone,1.0,5.0,6.0,✓,,FLT3
+narnatumab,"IMC-RON8, LY3012219",RON,ImClone,1.0,4.0,2.0,✓,,MST1R
+IMGN388   <<,nan,Integrin αV,ImmunoGen,1.0,1.0,,nan,,ITGAV
+ING-1,heMab,EpCAM,Xoma,1.0,2.0,4.0,nan,,EPCAM
+MDX-1203,MDX69A7,CD70,Medarex,1.0,6.0,,nan,,CD70
+MDX-1401,nan,CD30,"BioWa, Medarex",1.0,1.0,1.0,nan,,TNFRSF8
+MEDI-547,"1C1, EP101",EphA2,"AstraZeneca, Medimmune",1.0,13.0,11.0,✓,,EPHA2
+MiK-Beta-1,hu MiK-Beta-1,IL-2RB,Roche,1.0,,,nan,,IL2RB
+PG110   <<,"ABT-110, frunevetmab",NGF,"Abbott, PanGenetics, Zoetis",1.0,34.0,1.0,✓,,NGF
+enoticumab,"SAR153192, REGN421",DLL4,"Regeneron, Sanofi",1.0,35.0,2.0,✓,,DLL4
+SAR566658   ==,huDS6-DM4,CA6,"ImmunoGen, Sanofi",1.0,9.0,2.0,nan,,CA6
+SAR566658   ==,huDS6-DM4,MUC1,"ImmunoGen, Sanofi",1.0,9.0,2.0,nan,,MUC1
+taplitumomab paptox,B43,CD19,NCI,1.0,,,nan,,CD19
+VGX100,nan,VEGF-C,Circadian,1.0,2.0,,✓,,VEGFC
+PF-05230905   ==,ATN-192,TNF-alpha,"Ablynx, Pfizer",1.0,,,nan,,TNF
+ALX-0651,nan,CXCR4,Ablynx,1.0,4.0,,nan,,CXCR4
+PF-04605412,"PF-4605412, PF-5412",Integrin α5β1,"Pfizer, Xencor",1.0,,2.0,nan,,ITGA5
+CEP-37250,KHK2804,Undisclosed,"Cephalon, KHK, Teva",1.0,,,nan,,nan
+AGS-16M18   ==,nan,ENPP3,"Agensys, Astellas",1.0,,1.0,nan,,ENPP3
+GSK2434735,DOM-0910,IL-13,Domantis,1.0,3.0,,nan,,IL13
+GSK2434735,DOM-0910,IL-4,Domantis,1.0,3.0,,nan,,IL4
+CSL360   ==,"7G3, TLA",IL-3Rα,CSL,1.0,18.0,1.0,nan,,IL3RA
+NI-0701,nan,RANTES,NovImmune,1.0,6.0,,✓,,CCL5
+PAT-SM6,SAM-6,GRP78,Patrys,1.0,8.0,4.0,✓,,HSPA5
+telisotuzumab   >>,"h224G11, ABT-700",cMet,"Abbott, Abbvie, Pierre Fabre",1.0,56.0,7.0,✓,,MET
+perakizumab,"RG4934, RO5310074, huMAb IL-17, 3C1",IL-17,Roche,1.0,5.0,,✓,,IL17A
+HuMax-IL8,"HuMax-Inflam, MDX-018, HumMax-IL8",IL-8,"BMS, Cormorant, Genmab",1.0,19.0,1.0,✓,,CXCL8
+TAK-701,"TAK701, HuL2G7",HGF/SF,"Galaxy Bio, Millennium",1.0,17.0,4.0,✓,,HGF
+AV-203,nan,HER3,"AVEO, Biogen",1.0,14.0,,nan,,ERBB3
+solitomab,"MT110, AMG 110",CD3,Micromet,1.0,10.0,17.0,✓,,CD3E
+solitomab,"MT110, AMG 110",EpCAM,Micromet,1.0,10.0,17.0,✓,,EPCAM
+MT112,"BAY 2010112, BAY2010112, AMG 212",PSMA,"Amgen, Bayer, Micromet",1.0,,1.0,nan,,FOLH1
+MT293,"TRA093, TRC093",Collagen,"Micromet, Tracon",1.0,,,nan,,nan
+HGS004,"CCR5 mab, CCR5mAb004",CCR5,HGS,1.0,5.0,5.0,nan,,CCR5
+CVX-241,PF-05057459,Angiopoietin 2,"CovX, Pfizer",1.0,2.0,1.0,nan,,ANGPT2
+CVX-241,PF-05057459,VEGF-A,"CovX, Pfizer",1.0,2.0,1.0,nan,,VEGFA
+REGN728,nan,Undisclosed,"Regeneron, Sanofi",1.0,,,nan,,nan
+KHK2866,nan,HB-EGF,KHK,1.0,10.0,2.0,✓,,HBEGF
+sofituzumab vedotin   <<,"3A5, DMUC5754A, RG7458, DMUC4064A",CA125,"Genentech, Seattle Genetics",1.0,14.0,4.0,✓,,MUC16
+samrotamab vedotin,"ABBV-085, M25",LFL2,"Abbvie, PDL",1.0,14.0,4.0,✓,,nan
+MDX1201-A488,MDX1201,PSMA,Medarex,1.0,10.0,,nan,,FOLH1
+MEDI 5117,"MEDI5117, CAT6001",IL-6,"AstraZeneca, Medimmune",1.0,16.0,2.0,✓,,IL6
+MEDI4212,nan,IgE,"AstraZeneca, Medimmune",1.0,8.0,2.0,nan,,nan
+MINT1526A,7H5,Integrin α5β1,Genentech,1.0,15.0,1.0,✓,,ITGA5
+LY3076226,"D11, IMC-D11",FGFR3,"ImClone, ImmunoGen, Lilly",1.0,8.0,2.0,✓,,FGFR3
+PF-08046049,SGN-CD228A,Melanotransferrin,"Pfizer, Seattle Genetics",1.0,10.0,2.0,nan,,MFI2
+atinumab,ATI355,Nogo-A,Novartis,1.0,,,✓,,RTN4
+FGI-101-1A6,nan,TSG101,"Func. Genetics, Lilly",1.0,5.0,,nan,,TSG101
+MEDI-578,MEDI578,NGF,Medimmune,1.0,,3.0,✓,,NGF
+SAR228810,SAR255952,Amyloid beta,"Innogenetics, Sanofi",1.0,14.0,2.0,nan,,APP
+RO5458640   ==,RG7212,TWEAK,Roche,1.0,10.0,3.0,✓,,TNFSF12
+IMMU-114   >>,L243,HLA-DR,Immunomedics,1.0,37.0,1.0,✓,,HLA-DRA
+LY2928057,nan,Ferroportin,Lilly,1.0,5.0,,✓,,SLC40A1
+BMS-981164,Zymogenetics patent anti-IL-31,IL-31,"BMS, Merck Serono, Zymogenetics",1.0,61.0,1.0,?,,IL31
+SAIT301   >>,AbF46,cMet,Samsung,1.0,50.0,2.0,✓,,MET
+KHK2898,nan,CD98,KHK,1.0,7.0,,nan,,SLC3A2
+U.Tennessee patent anti-Amyloid Beta   >>,"c11-1F4, CAEL-101",Amyloid beta,U.Tennessee,1.0,7.0,4.0,nan,,APP
+PF-03732010   >>,nan,P-cadherin,Pfizer,1.0,6.0,1.0,✓,,CDH3
+PF-05230900,"Ab-01, Ab-02, ATR 107, ATR-107",IL-21R,Pfizer,1.0,,6.0,nan,,IL21R
+AGS-16M8F   ==,"AGS-16F, AGS16F",ENPP3,"Agensys, Astellas",1.0,,2.0,nan,,ENPP3
+camoteskimab,nan,IL-18,Medimmune,1.0,2.0,,✓,,IL18
+MEDI7814,nan,C5,Medimmune,1.0,1.0,1.0,nan,,C5
+MEDI0639,nan,DLL4,Medimmune,1.0,10.0,,?,,DLL4
+lodelcizumab,"LFU720, pJG04, LGT209, LGT-209",PCSK9,"Cyon, Novartis",1.0,8.0,,✓,,PCSK9
+lupartumab amadotin,BAY1129980,C4.4a,Bayer,1.0,3.0,1.0,✓,,LYPD3
+LY2624587,nan,CXCR4,Lilly,1.0,5.0,1.0,?,,CXCR4
+AGS-009,"ACO-1, ACO-2",IFNA1,"Argos, Novo Nordisk",1.0,8.0,,✓,,IFNA1
+LY2787106,JXB7,Hepcidin,Lilly,1.0,10.0,,✓,,HAMP
+TAS266,TAS266,DR5,"Ablynx, Novartis",1.0,2.0,,?,,TNFRSF10B
+Merck patent anti-CD19,"B4, DI-B4",CD19,Merck Serono,1.0,7.0,,?,,CD19
+AbGn-7,nan,Sialyl-Lewis A,AltruBio,1.0,,,nan,,FUT3
+AbGn-107,Ab1-18Hr1,nan,AltruBio,1.0,,1.0,nan,,nan
+LY3022859,IMC-TR1,TGFβRII,"ImClone, Lilly",1.0,6.0,1.0,✓,,TGFBR2
+K1-70,RSR patent anti-TSHR,TSHR,"AV7, RSR",1.0,19.0,1.0,?,,TSHR
+DFRF4539A   ==,"RG7598, hu10A8.v1",IRTA2,Genentech,1.0,24.0,,✓,,FCRL5
+KHK2823,KHK patent anti-IL-3Rα,IL-3Rα,KHK,1.0,7.0,,nan,,IL3RA
+AMG 780,nan,Angiopoietin 1,Amgen,1.0,8.0,1.0,nan,,ANGPT1
+AMG 780,nan,Angiopoietin 2,Amgen,1.0,8.0,1.0,nan,,ANGPT2
+HGS1025,nan,CCR5,HGS,1.0,,,nan,,CCR5
+CDX-0158,KTN0158,c-Kit,"Celldex, Kolltan",1.0,37.0,1.0,?,,KIT
+GMA161,3G8,Fc gamma R3b,Genzyme,1.0,,1.0,nan,,FCGR3B
+ARGX-111,nan,cMet,argenx,1.0,14.0,,?,,MET
+AMG 172,nan,CD70,"Amgen, ImmunoGen",1.0,7.0,1.0,nan,,CD70
+AMG 595,AMG-595,EGFR,"Amgen, ImmunoGen",1.0,2.0,1.0,nan,,EGFR
+Chi Lob 7/4,nan,CD40,Cancer Res UK,1.0,,1.0,nan,,CD40
+ATM001,"Atrosimab, ATROSAB, H398",TNFR1,"Baliopharm, U.Stuttgart",1.0,9.0,2.0,nan,,TNFRSF1A
+AG01,AG1,GP88,A&G Pharma,1.0,2.0,,nan,,PGRMC1
+U3-1565,nan,HB-EGF,"Amgen, Daiichi Sankyo, U3 Pharma",1.0,5.0,2.0,nan,,HBEGF
+PF-06263507,A1mcMMAF,TPBG,Pfizer,1.0,1.0,6.0,✓,,TPBG
+FF-21101,nan,P-cadherin,"Fujifilm, Perseus, U. Tokyo",1.0,22.0,5.0,nan,,CDH3
+TCN-202,nan,CMV - unspecified,Theraclone,1.0,,,nan,,nan
+RO5469754,nan,Undisclosed,Roche,1.0,,,nan,,nan
+GBR 900,BXL1H5,TrkA,Glenmark / Ichnos,1.0,7.0,,nan,,NTRK1
+PF-06688992,R24,GD3,"Pfizer, Sloan-Kettering",1.0,6.0,,nan,,nan
+NIH patent anti-EGFR CAR   >>   <<,"139, 40H3",EGFR,"NCI, NIH",1.0,14.0,1.0,nan,,EGFR
+AMP-224,nan,PD-L1,"Amplimmune, GSK, Medimmune",1.0,5.0,,nan,,CD274
+BMS-986090,nan,CD40,"BMS, Domantis",1.0,11.0,,nan,,CD40
+NCI Hu-Mikβ1,Hu-Mikβ1,IL-2RB,NCI,1.0,,1.0,nan,,IL2RB
+NKTT120,nan,TCR,NKT,1.0,3.0,1.0,nan,,nan
+AVX-470,nan,TNF-alpha,Avaxia,1.0,6.0,3.0,nan,,TNF
+MEN1112,"OBT357NF, OBT357",BST1,"Menarini, Oxford Bio",1.0,9.0,1.0,nan,,BST1
+GEM3PSCA,MB1,CD3,"GEMoaB, U.Dresden",1.0,3.0,1.0,nan,,CD3E
+GEM3PSCA,MB1,PSCA,"GEMoaB, U.Dresden",1.0,3.0,1.0,nan,,PSCA
+REGN1154,nan,Undisclosed,Regeneron,1.0,,,nan,,nan
+laprituximab emtansine,"IMGN289, J2898A, huEGFR-7R-SMCC-DM1",EGFR,ImmunoGen,1.0,13.0,,✓,,EGFR
+Shanghai Cancer Inst patent anti-EGFRvIII,"CH12, CSG-EGFR",EGFR,"Carsgen, Shanghai Cancer Inst., Shanghai Yile Biotech",1.0,7.0,5.0,✓,,EGFR
+IGN523,nan,CD98,Igenica,1.0,1.0,1.0,nan,,SLC3A2
+APX001,SSS07,TNF-alpha,"3SBio, Apexigen",1.0,,2.0,nan,,TNF
+MOR209,ES414,CD3,"Aptevo, Emergent, Morphosys",1.0,9.0,1.0,nan,,CD3E
+MOR209,ES414,PSMA,"Aptevo, Emergent, Morphosys",1.0,9.0,1.0,nan,,FOLH1
+sirtratumab vedotin,"ASG-15ME, AGS15E, AGS15ME",SLITRK6,"Agensys, Seattle Genetics",1.0,,2.0,✓,,SLITRK6
+nezutatug,REGN1400,HER3,Regeneron,1.0,14.0,,?,,ERBB3
+pegrizeprument,"CD28.3, VEL-101, FR104",CD28,"Effimmune, INSERM, Janssen Biotech, OSE Immunotherapeutics, Veloxis",1.0,18.0,5.0,✓,,CD28
+DEDN6526A,RG7636,ETB-R,"Genentech, Seattle Genetics",1.0,8.0,1.0,nan,,EDNRB
+BNC101,nan,GPR49,Bionomics,1.0,26.0,,nan,,LGR5
+HuL001,nan,ENO1,"Development Center for Biotech., HuniLife Bio, Taipei Med.U.",1.0,15.0,,nan,,ENO1
+aprutumab ixadotin   ==,"BAY1187982, BAY1179470 ADC",FGFR2,"Bayer, Seattle Genetics",1.0,3.0,1.0,nan,,FGFR2
+GSK2800528,nan,TNF-alpha,Glaxo Group,1.0,,,nan,,TNF
+REGN2009,nan,Undisclosed,"Regeneron, Sanofi",1.0,,,nan,,nan
+ABBV-011,nan,SEZ6,"Abbvie, StemCentRx",1.0,24.0,3.0,nan,,SEZ6
+NI-071   ••,nan,TNF-alpha,Nichi-iko Pharma,1.0,,,nan,,TNF
+AM-928,"EpAb2-6, OCAb9-1",EpCAM,"AcadeMab, Academia Sinica",1.0,6.0,2.0,nan,,EPCAM
+LY3114062   ==,Lilly patent anti-BAFF/IL-17,BAFF,Lilly,1.0,5.0,,nan,,TNFSF13B
+LY3114062   ==,Lilly patent anti-BAFF/IL-17,IL-17,Lilly,1.0,5.0,,nan,,IL17A
+RG7841,DLYE5953A,Ly6E,"Genentech, Seattle Genetics",1.0,16.0,4.0,nan,,LY6E
+DISC-0974,nan,RGM C,"Abbvie, Disc Medicine",1.0,16.0,,nan,,nan
+MEDI1814,"MEDI-1814, MEDI 1814",Amyloid beta,"Lilly, Medimmune",1.0,14.0,1.0,nan,,APP
+rosmantuzumab,OMP-131R10,RSPO3,"Celgene, OncoMed",1.0,9.0,1.0,✓,,RSPO3
+ralpancizumab,"RN317, PF-05335810",PCSK9,"Pfizer, Rinat",1.0,,1.0,✓,,PCSK9
+imaprelimab   ==,PRX003,MUC18,Prothena,1.0,23.0,,✓,,MCAM
+encelimab   ==,TSR-033,LAG-3,"AnaptysBio, Tesaro",1.0,8.0,2.0,✓,,LAG3
+aprutumab   ==,"BAY1179470, BAY 2304058",FGFR2,Bayer,1.0,1.0,1.0,✓,,FGFR2
+PF-08046040   <<,SGN-CD70A,CD70,"Pfizer, Seattle Genetics",1.0,6.0,3.0,nan,,CD70
+AGS67E,"AGS-67E, HvCD37-6b15.1.1",CD37,Agensys,1.0,6.0,1.0,✓,,CD37
+PF-06647263,Stem Centrx patent anti-EFNA4,EFNA4,"Pfizer, StemCentRx",1.0,17.0,2.0,nan,,EFNA4
+tepoditamab,MCLA-117,CD3,Merus,1.0,21.0,,✓,,CD3E
+tepoditamab,MCLA-117,CLEC12A,Merus,1.0,21.0,,✓,,CLEC12A
+ADCT-502   <<,ADC Therapeutics patent anti-Her2,HER2/neu,"ADC Therapeutics, Medimmune",1.0,6.0,,nan,,ERBB2
+BTH1704,nan,MUC1,"Biothera, U.Illinois",1.0,,,nan,,MUC1
+PF-06650808,nan,Notch3,Pfizer,1.0,4.0,1.0,nan,,NOTCH3
+FS102,Fcab H10-03-6,HER2/neu,"BMS, f-star",1.0,11.0,3.0,nan,,ERBB2
+AMG 224,nan,BCMA,Amgen,1.0,10.0,1.0,nan,,TNFRSF17
+hPV19,nan,VEGF,Suzhou Stainwei Bio,1.0,3.0,,nan,,VEGFA
+GBR1302   ==,HBM9302,CD3,"Glenmark / Ichnos, Harbour Biomed Ltd.",1.0,3.0,,nan,,CD3E
+GBR1302   ==,HBM9302,HER2/neu,"Glenmark / Ichnos, Harbour Biomed Ltd.",1.0,3.0,,nan,,ERBB2
+rolinsatamab talirine,"ABBV-176, h16f, PR-1594804, ABT-176",PRLR,Abbvie,1.0,13.0,2.0,✓,,PRLR
+SAR428926,nan,LAMP1,"ImmunoGen, Sanofi",1.0,4.0,1.0,nan,,LAMP1
+OS2966,nan,Integrin β1,Oncosynergy,1.0,6.0,3.0,nan,,ITGB1
+LOP628,LMJ729,c-Kit,Novartis,1.0,22.0,3.0,nan,,KIT
+PCA062,nan,P-cadherin,"ImmunoGen, Novartis",1.0,7.0,2.0,nan,,CDH3
+LY3164530,nan,cMet,Lilly,1.0,6.0,2.0,nan,,MET
+LY3164530,nan,EGFR,Lilly,1.0,6.0,2.0,nan,,EGFR
+JNJ-55920839,nan,IFNA1,Janssen Biotech,1.0,15.0,1.0,nan,,IFNA1
+JNJ-55920839,nan,IFNω,Janssen Biotech,1.0,15.0,1.0,nan,,IFNW1
+RG7386   ==,RO6874813,DR5,Glycart,1.0,11.0,1.0,nan,,TNFRSF10B
+RG7386   ==,RO6874813,FAP,Glycart,1.0,11.0,1.0,nan,,FAP
+ICT01,nan,Butyrophilin 3A1,"ImCheck, INSERM",1.0,23.0,2.0,nan,,BTN3A1
+DS-7011,nan,TLR7,"Daiichi Sankyo, U. Tokyo",1.0,9.0,1.0,nan,,TLR7
+vibecotamab,XmAb14045,CD3,"Novartis, Xencor",1.0,14.0,1.0,✓,,CD3E
+vibecotamab,XmAb14045,IL-3Rα,"Novartis, Xencor",1.0,14.0,1.0,✓,,IL3RA
+W0180,K01401-020,B7-H5,"Igenica, Pierre Fabre",1.0,19.0,,nan,,VSIR
+ATOR-1015,ADC-1015,CTLA4,Alligator,1.0,6.0,2.0,nan,,CTLA4
+ATOR-1015,ADC-1015,OX40,Alligator,1.0,6.0,2.0,nan,,TNFRSF4
+MEDI3726   ==,ADCT-401,PSMA,"ADC Therapeutics, Medimmune",1.0,13.0,3.0,nan,,FOLH1
+YAH627,HS627,EGFR,Second Military Med Univ,1.0,,2.0,nan,,EGFR
+AMG 228,nan,GITR,Amgen,1.0,4.0,1.0,nan,,TNFRSF18
+AGX101,nan,TM4SF1,"Angiex, Beth Israel, Pfizer",1.0,27.0,2.0,nan,,TM4SF1
+Kyiv Clinical Cancer Hospital anti-CD47,nan,CD47,nan,1.0,,,nan,,CD47
+bapotulimab,BAY 1905254,ILDR2,"Bayer, Compugen",1.0,8.0,,✓,,ILDR2
+tamrintamab pamozirine,"SC-003, sc34.28SS1",DPEP3,"Abbvie, StemCentRx",1.0,5.0,1.0,✓,,DPEP3
+BMO-2   ••,nan,TNF-alpha,Mylan,1.0,,,nan,,TNF
+MT-2990,nan,IL-33,Mitsubishi Tanabe,1.0,10.0,,nan,,IL33
+M802,nan,CD3,Wuhan YZY Biopharma,1.0,9.0,1.0,nan,,CD3E
+M802,nan,HER2/neu,Wuhan YZY Biopharma,1.0,9.0,1.0,nan,,ERBB2
+trastuzumab-TCMC,TCMC-trastuzumab,HER2/neu,NCI,1.0,,1.0,nan,,ERBB2
+MEDI4166,MEDI-4166,PCSK9,Medimmune,1.0,1.0,1.0,nan,,PCSK9
+DS-7080a,nan,Undisclosed,Daiichi Sankyo,1.0,,,nan,,nan
+MEDI7836,nan,IL-13,Medimmune,1.0,3.0,,nan,,IL13
+SC-002,nan,DLL3,"Abbvie, StemCentRx",1.0,,,nan,,DLL3
+plamotamab,"XmAb13676, XENP13676",CD20,"Novartis, Xencor",1.0,9.0,,✓,,MS4A1
+plamotamab,"XmAb13676, XENP13676",CD3,"Novartis, Xencor",1.0,9.0,,✓,,CD3E
+epacmarstobart   >>,"KWAR23, FSI-189, GS-0189",SIRPA,"Forty Seven, Gilead, Stanford",1.0,19.0,1.0,✓,,SIRPA
+GEM333   <<,nan,CD3,"GEMoaB, U.Dresden",1.0,2.0,2.0,nan,,CD3E
+GEM333   <<,nan,CD33,"GEMoaB, U.Dresden",1.0,2.0,2.0,nan,,CD33
+SGN-CD19B   ==,nan,CD19,Seattle Genetics,1.0,,1.0,nan,,CD19
+SGN-CD123A,h7G3,IL-3Rα,Seattle Genetics,1.0,7.0,1.0,nan,,IL3RA
+ASP1235,AGS62P1,FLT3,"Agensys, Astellas",1.0,5.0,2.0,nan,,FLT3
+BAY1862864   <<,"BAY 1862864, CD22-TTC",CD22,Bayer,1.0,,1.0,nan,,CD22
+MEDI1873,MEDI-1873,GITR,Medimmune,1.0,,1.0,nan,,TNFRSF18
+HLX05   ==   ••,nan,EGFR,Shanghai Henlius,1.0,4.0,,nan,,EGFR
+vulinacimab,HLX06,VEGFR-2,Henlix,1.0,1.0,,✓,,KDR
+MOv18-IgE,MOv18-IgG1,FRA,"Cancer Res UK, Epsilogen",1.0,,4.0,nan,,FOSL1
+MYL-1402O   ••,"Abevmy, Lextemy",VEGF-A,"Mylan, Viatris",1.0,,3.0,nan,,VEGFA
+SYN004   <<,LR004,EGFR,Synermore,1.0,3.0,1.0,nan,,EGFR
+MT-3724,nan,CD20,Molecular Templates,1.0,,,nan,,MS4A1
+RGB-03   ••,nan,CD20,Gedeon Richter,1.0,,,nan,,MS4A1
+ALT-P7,HM2-MMAE,HER2/neu,"3SBio, Alteogen",1.0,3.0,,nan,,ERBB2
+XMT-1522   ==,HT-19,HER2/neu,"Adimab, Mersana, Takeda",1.0,13.0,2.0,nan,,ERBB2
+PF-06671008   <<,Pfizer patent anti-P-Cadherin / CD3,CD3,"MacroGenics, Pfizer",1.0,1.0,,nan,,CD3E
+PF-06671008   <<,Pfizer patent anti-P-Cadherin / CD3,P-cadherin,"MacroGenics, Pfizer",1.0,1.0,,nan,,CDH3
+U3-1784,nan,FGFR4,"Daiichi Sankyo, U3 Pharma",1.0,1.0,1.0,nan,,FGFR4
+lipustobart,"LZM009, LZM 009",PD-1,Livzon,1.0,3.0,,✓,,PDCD1
+JCAR018   <<,M971 CAR,CD22,"Juno, NCI",1.0,7.0,1.0,nan,,CD22
+JCAR023,nan,L1-CAM,Juno,1.0,,,nan,,L1CAM
+idecabtagene vicleucel,"BCMA02, bb2121, Ide-cel",BCMA,"Bluebird, BMS, Celgene",1.0,11.0,3.0,nan,,TNFRSF17
+Chinese PLA Gen.Hosp. anti-Prominin-1 CAR,CART133,Prominin-1,"Chinese PLA Gen.Hosp., Guangzhou Bainifu Biotech",1.0,1.0,,nan,,PROM1
+U.Penn. anti-CD22 CAR,CART22,CD22,U.Penn.,1.0,,,nan,,CD22
+NCI anti-GD2 CAR,GD2-CAR.OX40.28.z.ICD9,GD2,NCI,1.0,,,nan,,nan
+Duke U. anti-EGFRvIII CAR   <<,nan,EGFR,Duke U.,1.0,,1.0,nan,,EGFR
+Baylor Coll.Med. anti-CD19 CAR,nan,CD19,Baylor Coll.Med.,1.0,,,nan,,CD19
+King's College anti-Her2 CAR,T1E28z,HER2/neu,King's College,1.0,1.0,1.0,nan,,ERBB2
+U.Zurich anti-FAP CAR,nan,FAP,Univ. Zurich,1.0,,2.0,nan,,FAP
+U.Penn. anti-BCMA CAR,nan,BCMA,U.Penn.,1.0,,,nan,,TNFRSF17
+U.Penn. patent anti-EGFRvIII CAR,nan,EGFR,U.Penn.,1.0,2.0,1.0,nan,,EGFR
+SC-005,SC57.32,Melanotransferrin,"Abbvie, StemCentRx",1.0,3.0,1.0,nan,,MFI2
+JNJ-63709178   ==,Ab-178,CD3,"Genmab, Janssen Biotech",1.0,1.0,1.0,nan,,CD3E
+JNJ-63709178   ==,Ab-178,IL-3Rα,"Genmab, Janssen Biotech",1.0,1.0,1.0,nan,,IL3RA
+NEO-201,nan,CEACAM6,"NCI, Precision Biologics",1.0,12.0,5.0,nan,,CEACAM6
+A-337,Generon anti-EpCam / CD3,CD3,Generon,1.0,3.0,,nan,,CD3E
+A-337,Generon anti-EpCam / CD3,EpCAM,Generon,1.0,3.0,,nan,,EPCAM
+trabikibart,CSL311,CSF2RB,CSL,1.0,7.0,1.0,✓,,CSF2RB
+SGN-CD352A,nan,SLAMF6,Seattle Genetics,1.0,11.0,,nan,,SLAMF6
+CBT124   ••,nan,VEGF-A,Cipla,1.0,,,nan,,VEGFA
+BCD-121   <<,nan,IL-17,Biocad,1.0,3.0,,nan,,IL17A
+BCD-121   <<,nan,TNF-alpha,Biocad,1.0,3.0,,nan,,TNF
+UCB patent anti-CD22 CAR,nan,CD22,"Autolus, UCB",1.0,4.0,1.0,nan,,CD22
+polzastobart,JTX-8064,LILRB2,"Celgene, Jounce",1.0,10.0,1.0,✓,,LILRB2
+MEDI6383,nan,OX40,Medimmune,1.0,4.0,1.0,nan,,TNFRSF4
+MEDI9314   ==,nan,IL-4Rα,Medimmune,1.0,,,nan,,IL4R
+prafnosbart,DS-6016a,ActRI,Daiichi Sankyo,1.0,10.0,,✓,,ACVR1
+BMS-986184,nan,IP-10,BMS,1.0,6.0,,nan,,CXCL10
+STI-6643,nan,CD47,Sorrento,1.0,5.0,,nan,,CD47
+SGN-CD48A,Seattle Genetics patent anti-CD48,CD48,Seattle Genetics,1.0,4.0,,nan,,CD48
+BMS-986253,nan,IL-8,BMS,1.0,3.0,,nan,,CXCL8
+tinurilimab,"BAY1834942, BAY 1834942, TPP-3310",CEACAM6,Bayer,1.0,10.0,2.0,✓,,CEACAM6
+VHsquared patent anti-TNF alpha,V565,TNF-alpha,VHsquared,1.0,3.0,3.0,nan,,TNF
+mipasetamab uzoptirine   ==,"ADCT-601, BGB601",AXL,"ADC Therapeutics, BerGenBio, Medimmune",1.0,17.0,1.0,✓,,AXL
+SHR-A1403,nan,cMet,"Jiangsu Hengrui, Shanghai Hengrui",1.0,9.0,3.0,nan,,MET
+JNJ-63898081,nan,CD3,"Genmab, Janssen Biotech",1.0,14.0,2.0,nan,,CD3E
+JNJ-63898081,nan,PSMA,"Genmab, Janssen Biotech",1.0,14.0,2.0,nan,,FOLH1
+DMB-3113   ••,DNB3113,TNF-alpha,Meiji Seika,1.0,,,nan,,TNF
+DMB-3111   ••,DMB3111,HER2/neu,Meiji Seika,1.0,,,nan,,ERBB2
+ABBV-428,LB-1,CD40,Abbvie,1.0,5.0,1.0,nan,,CD40
+ABBV-428,LB-1,Mesothelin,Abbvie,1.0,5.0,1.0,nan,,MSLN
+ABBV-428,LB-1,Undisclosed,Abbvie,1.0,5.0,1.0,nan,,nan
+ABBV-927,nan,Undisclosed,Abbvie,1.0,,,nan,,nan
+MCLA-145,nan,4-1BB,Merus,1.0,2.0,1.0,nan,,TNFRSF9
+MCLA-145,nan,PD-L1,Merus,1.0,2.0,1.0,nan,,CD274
+azintuxizumab vedotin   ==,ABBV-838,SLAMF7,Abbvie,1.0,5.0,1.0,✓,,SLAMF7
+losatuxizumab vedotin   <<   ==,ABBV-221,EGFR,Abbvie,1.0,,2.0,✓,,EGFR
+timigutuzumab   <<,"TrasGEX, TrastuzuMab-GEX, GT-Mab 7.3-GEX",HER2/neu,Glycotope,1.0,5.0,2.0,✓,,ERBB2
+UB-921   ••,nan,HER2/neu,United Biopharma,1.0,,,nan,,ERBB2
+bepranemab,UCB0107,Tau,"Genentech, Roche, UCB",1.0,18.0,,✓,,MAPT
+amlenetug,"Lu AF82422, 2E6",Alpha-synuclein,"Genmab, H. Lundbeck",1.0,45.0,1.0,nan,,SNCA
+APVO210,ES210,CD86,Aptevo,1.0,,,nan,,CD86
+etevritamab,"AMG 596, AMG-596",CD3,Amgen,1.0,8.0,,✓,,CD3E
+etevritamab,"AMG 596, AMG-596",EGFR,Amgen,1.0,8.0,,✓,,EGFR
+OBI-833   ==,OBI-822,Globo H,"Academia Sinica, Obi Pharma",1.0,21.0,,nan,,B3GALT5
+emirodatamab,"AMG 427, FLT3 HLE BITE®",CD3,Amgen,1.0,5.0,1.0,nan,,CD3E
+emirodatamab,"AMG 427, FLT3 HLE BITE®",FLT3,Amgen,1.0,5.0,1.0,nan,,FLT3
+MRG004A,nan,TF,"Fudan U., Shanghai Miracogen",1.0,9.0,,nan,,TF
+NCI anti-CD30 CAR,nan,CD30,NCI,1.0,1.0,,nan,,TNFRSF8
+Shanghai GeneChem anti-CD19 CAR,nan,CD19,Shanghai GeneChem,1.0,,,nan,,CD19
+ABBV-368,nan,Undisclosed,Abbvie,1.0,,,nan,,nan
+LY4101174,"14A5.2, ETx-22",Nectin-4,"Emergence, INSERM, Lilly",1.0,22.0,1.0,nan,,NECTIN4
+ASN004,nan,TPBG,"Asana Bio, Mersana",1.0,,1.0,nan,,TPBG
+LY3321367,nan,TIM-3,"Innovent, Lilly",1.0,10.0,2.0,nan,,HAVCR2
+AMG 529,nan,ASGR1,Amgen,1.0,6.0,,nan,,ASGR1
+ASKB1202   ••,nan,EGFR,Jiangsu Aosaikang Pharma,1.0,,,nan,,EGFR
+FS118,nan,LAG-3,"f-star, Merck Serono",1.0,6.0,3.0,nan,,LAG3
+FS118,nan,PD-L1,"f-star, Merck Serono",1.0,6.0,3.0,nan,,CD274
+idactamab,MEDI7247,ASCT2,Medimmune,1.0,7.0,,✓,,SLC1A5
+SYD1875,nan,TPBG,"Byondis, Synthon",1.0,8.0,,nan,,TPBG
+AMG 424,nan,CD3,"Amgen, Xencor",1.0,5.0,1.0,nan,,CD3E
+AMG 424,nan,CD38,"Amgen, Xencor",1.0,5.0,1.0,nan,,CD38
+SC-006,nan,Undisclosed,"Abbvie, StemCentRx",1.0,,,nan,,nan
+evunzekibart,ATOR-1017,4-1BB,Alligator,1.0,11.0,2.0,✓,,TNFRSF9
+JNJ-61178104,nan,IL-17,"Genmab, Janssen Biotech",1.0,3.0,1.0,nan,,IL17A
+JNJ-61178104,nan,TNF-alpha,"Genmab, Janssen Biotech",1.0,3.0,1.0,nan,,TNF
+NTX1088,NTX-1088,CD155,"Nectin, Yissum Res.Dev.",1.0,8.0,,nan,,PVR
+PZ01,nan,CD19,Pinze Lifetech,1.0,,,nan,,CD19
+linavonkibart,SRK-181,TGF-β1,Scholar Rock,1.0,20.0,2.0,✓,,TGFB1
+NGM120,NGM 120,GFRAL,NGM Biopharma,1.0,12.0,,nan,,GFRAL
+Sym023,nan,TIM-3,Symphogen,1.0,8.0,,nan,,HAVCR2
+alsevalimab,FPA150,B7-H4,Five Prime,1.0,20.0,,✓,,VTCN1
+CPGJ602   ==,nan,EGFR,"3SBio, Sunshine Guojian Pharma",1.0,,,nan,,EGFR
+iladatuzumab vedotin,"DCDS0780A, RO7032005",CD79b,Roche,1.0,1.0,1.0,✓,,CD79B
+MEDI2228,nan,BCMA,Medimmune,1.0,8.0,5.0,nan,,TNFRSF17
+TRPH-222,"CD22-4AP, CAT-02-106, RFB4",CD22,"Catalent, Redwood, R.P.Scherer Tech., Triphase",1.0,14.0,1.0,nan,,CD22
+mirzotamab clezutoclax,ABBV-155,B7-H3,Abbvie,1.0,8.0,,✓,,CD276
+REGN6569,nan,GITR,Regeneron,1.0,11.0,,nan,,TNFRSF18
+SHR-1802,nan,LAG-3,Jiangsu Hengrui,1.0,8.0,,nan,,LAG3
+STT-5058,nan,ApoC3,"Novo Nordisk, Staten Bio",1.0,19.0,1.0,nan,,APOC3
+AB011,nan,CLDN18,"Carsgen, Shanghai Cancer Inst.",1.0,3.0,,nan,,CLDN18
+ADU-1604,nan,CTLA4,Aduro,1.0,3.0,,nan,,CTLA4
+COM902   >>,nan,TIGIT,Compugen,1.0,25.0,2.0,nan,,TIGIT
+TAK-164,nan,GCC,Millennium,1.0,,3.0,nan,,GUCY2C
+BCD-135   ==,nan,PD-L1,Biocad,1.0,3.0,,nan,,CD274
+opucolimab,"HLX20, HLX09",PD-L1,Henlix,1.0,1.0,,✓,,CD274
+BCD-145,Q3W,CTLA4,Biocad,1.0,,,nan,,CTLA4
+MBRC-101,nan,EphA5,"Los Alamos, MBrace Thera, Rutgers U.",1.0,8.0,1.0,nan,,EPHA5
+Sym022,nan,LAG-3,Symphogen,1.0,8.0,,nan,,LAG3
+TR1801-ADC,P3D12-vc-MMAF,cMet,Mitsubishi Tanabe,1.0,2.0,2.0,nan,,MET
+ADCT-701,nan,DLK-1,ADC Therapeutics,1.0,2.0,1.0,nan,,DLK1
+HPN424   ==,nan,CD3,Harpoon,1.0,7.0,,nan,,CD3E
+HPN424   ==,nan,PSMA,Harpoon,1.0,7.0,,nan,,FOLH1
+NI-1801,nan,CD47,NovImmune,1.0,4.0,1.0,nan,,CD47
+NI-1801,nan,Mesothelin,NovImmune,1.0,4.0,1.0,nan,,MSLN
+EDC-129,nan,CEACAM6,Singapore ASTR,1.0,9.0,,nan,,CEACAM6
+CID-103,TSK011010,CD38,"Black Belt, CASI, Tusk",1.0,20.0,,nan,,CD38
+REGN4659,nan,CTLA4,Regeneron,1.0,11.0,,nan,,CTLA4
+BAY2287411,nan,Mesothelin,Bayer,1.0,,1.0,nan,,MSLN
+lemzoparlimab,"TJ011133, TJC4",CD47,"Abbvie, I-Mab Biopharma",1.0,19.0,1.0,✓,,CD47
+SC-007,nan,Undisclosed,"Abbvie, StemCentRx",1.0,,,nan,,nan
+CB307   ==,nan,4-1BB,Crescendo,1.0,5.0,,nan,,TNFRSF9
+CB307   ==,nan,PSMA,Crescendo,1.0,5.0,,nan,,FOLH1
+IKS03   ==,LCB73,CD19,"Iksuda, LegoChem, NovImmune",1.0,6.0,,nan,,CD19
+AMG 562,AMG562,CD19,Amgen,1.0,1.0,,nan,,CD19
+AMG 562,AMG562,CD3,Amgen,1.0,1.0,,nan,,CD3E
+OBI-888   >>   ==,OBI-999,Globo H,Obi Pharma,1.0,,1.0,nan,,B3GALT5
+izeltabart tapatansine,"IMGC936, AEX6003",ADAM9,"ImmunoGen, MacroGenics",1.0,12.0,1.0,✓,,ADAM9
+DS-6157,nan,GPR20,Daiichi Sankyo,1.0,8.0,2.0,nan,,GPR20
+cudarolimab,"IBI-101, IBI101",OX40,Innovent,1.0,4.0,1.0,✓,,TNFRSF4
+IBI319   <<,IBI-319,PD-1,"Innovent, Lilly",1.0,,,nan,,PDCD1
+IBI319   <<,IBI-319,Undisclosed,"Innovent, Lilly",1.0,,,nan,,nan
+IBI323,IBI-323,LAG-3,Innovent,1.0,4.0,,nan,,LAG3
+IBI323,IBI-323,PD-L1,Innovent,1.0,4.0,,nan,,CD274
+dilpacimab   ==,"PR-1283233, ABT-165",DLL4,Abbvie,1.0,3.0,,✓,,DLL4
+dilpacimab   ==,"PR-1283233, ABT-165",VEGF-A,Abbvie,1.0,3.0,,✓,,VEGFA
+CBS001,nan,LIGHT,Capella,1.0,6.0,,nan,,TNFSF14
+ZL1201,ZL-1201,CD47,Zai Lab,1.0,4.0,,nan,,CD47
+JBH492,nan,CCR7,Novartis,1.0,7.0,,nan,,CCR7
+RG6194,BTRC4017A,HER2/neu,Genentech,1.0,,,nan,,ERBB2
+RG6109,DCLL9718S,Undisclosed,Genentech,1.0,,,nan,,nan
+RG6148,DHES0815A,HER2/neu,Genentech,1.0,,2.0,nan,,ERBB2
+U.Virginia anti-Her2 / CD3,Her2Bi,CD3,U.Virginia,1.0,1.0,2.0,nan,,CD3E
+U.Virginia anti-Her2 / CD3,Her2Bi,HER2/neu,U.Virginia,1.0,1.0,2.0,nan,,ERBB2
+Pregene Bio anti-BCMA CAR,nan,BCMA,Pregene Bio,1.0,6.0,,nan,,TNFRSF17
+JHL1149   ••,nan,VEGF-A,JHL Biotech,1.0,,,nan,,VEGFA
+PF-06664178,nan,TACSTD-2,Pfizer,1.0,,1.0,nan,,TACSTD2
+NJH395,nan,HER2/neu,Novartis,1.0,5.0,1.0,nan,,ERBB2
+LY3415244,nan,PD-L1,"Lilly, Zymeworks",1.0,5.0,1.0,nan,,CD274
+LY3415244,nan,TIM-3,"Lilly, Zymeworks",1.0,5.0,1.0,nan,,HAVCR2
+MK-4830,nan,LILRB2,"Agenus, Merck (MSD)",1.0,14.0,1.0,nan,,LILRB2
+RO7300490,212,CD40,Roche,1.0,13.0,1.0,nan,,CD40
+RO7300490,212,FAP,Roche,1.0,13.0,1.0,nan,,FAP
+JY028,nan,VEGF,nan,1.0,,,nan,,VEGFA
+ADU-1805,nan,SIRPA,"Aduro, Sairopa",1.0,4.0,1.0,nan,,SIRPA
+WVT078,nan,BCMA,Novartis,1.0,7.0,2.0,nan,,TNFRSF17
+WVT078,nan,CD3,Novartis,1.0,7.0,2.0,nan,,CD3E
+GR1405,nan,PD-L1,Genrix Biopharma,1.0,,,nan,,CD274
+indemakitug,EI-001,IFN-γ,Elixiron,1.0,6.0,,✓,,IFNG
+FPI-1434   <<,"FPI-1175, FPI-1547",IGF-1R,Fusion Pharma,1.0,,,nan,,IGF1R
+izuralimab,"XmAb23104, XmAb104",ICOS,Xencor,1.0,7.0,,✓,,ICOS
+izuralimab,"XmAb23104, XmAb104",PD-1,Xencor,1.0,7.0,,✓,,PDCD1
+bavunalimab,"XmAb22841, pavunalimab",CTLA4,Xencor,1.0,3.0,,✓,,CTLA4
+bavunalimab,"XmAb22841, pavunalimab",LAG-3,Xencor,1.0,3.0,,✓,,LAG3
+AGEN1223,nan,Undisclosed,"Agenus, Gilead",1.0,,,nan,,nan
+NZV930,nan,NT5E,"Novartis, Surface Oncology",1.0,12.0,,nan,,NT5E
+CTX-471,CTX471,4-1BB,Compass,1.0,28.0,1.0,nan,,TNFRSF9
+Shanghai Cell Therapy Res.Inst. patent anti-Mesothelin CAR,nan,Mesothelin,Shanghai Cell Therapy Res.Inst.,1.0,2.0,,nan,,MSLN
+BAT0806,"BAT0807, BAT0808, BAT8003",TACSTD-2,Bio-Thera Solutions,1.0,6.0,,nan,,TACSTD2
+CDX-527   ==,nan,CD27,Celldex,1.0,7.0,1.0,nan,,CD27
+CDX-527   ==,nan,PD-L1,Celldex,1.0,7.0,1.0,nan,,CD274
+FS120,nan,4-1BB,"f-star, Invox",1.0,3.0,2.0,nan,,TNFRSF9
+FS120,nan,OX40,"f-star, Invox",1.0,3.0,2.0,nan,,TNFRSF4
+CBA-1205,nan,DLK-1,Chiome,1.0,4.0,1.0,nan,,DLK1
+FS222,nan,4-1BB,"f-star, Invox",1.0,3.0,1.0,nan,,TNFRSF9
+FS222,nan,PD-L1,"f-star, Invox",1.0,3.0,1.0,nan,,CD274
+BCD-147,BDC-147,HER2/neu,Biocad,1.0,1.0,,nan,,ERBB2
+vixtimotamab,JNJ-67571244,CD3,"Genmab, Janssen Biotech",1.0,5.0,1.0,nan,,CD3E
+vixtimotamab,JNJ-67571244,CD33,"Genmab, Janssen Biotech",1.0,5.0,1.0,nan,,CD33
+LYN00101,nan,VEGF,Lynkcell,1.0,,,nan,,VEGFA
+TRS003   ••,nan,VEGF-A,Zhejiang Teruisi,1.0,,,nan,,VEGFA
+Zutrab   ••,nan,VEGF-A,Laboratorios Richmond,1.0,,,nan,,VEGFA
+F0002-ADC,CD30-MCC-DM1,CD30,Shanghai Fudan-Zhangjiang Bio,1.0,2.0,1.0,nan,,TNFRSF8
+B003   ==,nan,HER2/neu,Shanghai Pharma Holdings,1.0,,,nan,,ERBB2
+City of Hope patent anti-CD19 CAR,nan,CD19,City of Hope,1.0,2.0,,nan,,CD19
+INA03,nan,TfR,Inatherys,1.0,,1.0,nan,,TFRC
+PF-06835375,nan,CXCR5,"Pfizer, U.California",1.0,6.0,1.0,nan,,CXCR5
+Sunshine Guojian 304   ••,nan,CD20,Sunshine Guojian Pharma,1.0,,,nan,,MS4A1
+Asclepius Technology patent anti-Robo1 CAR,nan,Robo1,Asclepius Technology,1.0,7.0,,nan,,ROBO1
+PY314,nan,TREM-2,"Gilead, Pionyr",1.0,10.0,2.0,nan,,TREM2
+AMG 119,nan,DLL3,Amgen,1.0,4.0,1.0,nan,,DLL3
+serclutamab talirine   ==,"ABBV-321, PR1594407",EGFR,nan,1.0,,1.0,✓,,EGFR
+RO7283420,nan,CD3,Roche,1.0,7.0,2.0,nan,,CD3E
+RO7283420,nan,WT1,Roche,1.0,7.0,2.0,nan,,WT1
+City of Hope IL-13Ra2 CAR,nan,IL-13Rα2,City of Hope,1.0,1.0,,nan,,IL13RA2
+ispectamab debotansine,CC-99712,BCMA,Celgene,1.0,9.0,,nan,,TNFRSF17
+AMG 199,AMG199,CD3,Amgen,1.0,3.0,,nan,,CD3E
+AMG 199,AMG199,MUC17,Amgen,1.0,3.0,,nan,,MUC17
+MIL93,nan,CLDN18,Beijing Mabworks,1.0,2.0,,nan,,CLDN18
+casdozokitug,SRF388,IL-27,"Adimab, Surface Oncology",1.0,17.0,,✓,,IL27
+HMBD-002,nan,B7-H5,Hummingbird Bio,1.0,6.0,,nan,,VSIR
+KN044,nan,CTLA4,Changchun Intelli-Crown,1.0,,,nan,,CTLA4
+luvagrobart,AK115,NGF,Akeso,1.0,5.0,,✓,,NGF
+BAY2701439,BAY2701438,HER2/neu,Bayer,1.0,,,nan,,ERBB2
+GFB-024,nan,CB1,"Goldfinch, Takeda",1.0,4.0,,nan,,CNR1
+PT217   <<,nan,CD47,Phanes Thera,1.0,6.0,,nan,,CD47
+PT217   <<,nan,DLL3,Phanes Thera,1.0,6.0,,nan,,DLL3
+HLX55,nan,cMet,Henlix,1.0,,,nan,,MET
+GB222,nan,EGFR,Genor,1.0,,1.0,nan,,EGFR
+GB223,nan,RANKL,Genor,1.0,,1.0,nan,,TNFSF11
+LM-102,nan,CLDN18,"Bridge Health, Lanova",1.0,14.0,,nan,,CLDN18
+cabotamig   <<,ARB202,Cadherin-17,Arbele,1.0,4.0,,✓,,CDH17
+cabotamig   <<,ARB202,CD3,Arbele,1.0,4.0,,✓,,CD3E
+ciduvectamig   <<,JNJ-70218902,CD3,Janssen Biotech,1.0,7.0,1.0,nan,,CD3E
+ciduvectamig   <<,JNJ-70218902,TMEFF2,Janssen Biotech,1.0,7.0,1.0,nan,,TMEFF2
+CS5001   ==,nan,ROR1,"ABL Bio, CStone Pharma, LegoChem",1.0,9.0,,nan,,ROR1
+BI764532,BI 764532,CD3,Boehringer,1.0,1.0,2.0,nan,,CD3E
+BI764532,BI 764532,DLL3,Boehringer,1.0,1.0,2.0,nan,,DLL3
+KIN-1901,nan,Undisclosed,Kinevant,1.0,,,nan,,nan
+REGN9533,nan,Factor XII,Regeneron,1.0,4.0,,nan,,F12
+SIBP-03,nan,HER3,Shanghai Inst.Bio. Products,1.0,3.0,1.0,nan,,ERBB3
+SHR-1707,nan,Amyloid beta,"Atridia, Jiangsu Hengrui",1.0,3.0,1.0,nan,,APP
+alextatug,ATRC-101,PABPC1,Atreca,1.0,2.0,1.0,✓,,PABPC1
+gresonitamab,"AMG 910, AMG910",CD3,Amgen,1.0,4.0,1.0,✓,,CD3E
+gresonitamab,"AMG 910, AMG910",CLDN18,Amgen,1.0,4.0,1.0,✓,,CLDN18
+pertuzumab zuvotolimod,SBT6050,HER2/neu,Silverback,1.0,2.0,,nan,,ERBB2
+TTX-080,nan,HLA-G,Tizona,1.0,8.0,,nan,,HLA-G
+SAR442257,nan,CD28,Sanofi,1.0,11.0,2.0,nan,,CD28
+SAR442257,nan,CD3,Sanofi,1.0,11.0,2.0,nan,,CD3E
+SAR442257,nan,CD38,Sanofi,1.0,11.0,2.0,nan,,CD38
+HS632   ••,nan,IgE,Zhejiang Hisun,1.0,,,nan,,nan
+B002   ==,nan,HER2/neu,Shanghai Pharma Holdings,1.0,,,nan,,ERBB2
+VP301,18E4x11F2,CD38,"U.California, Virtuoso",1.0,5.0,1.0,nan,,CD38
+VP301,18E4x11F2,ICAM-1,"U.California, Virtuoso",1.0,5.0,1.0,nan,,ICAM1
+ragistomig   ==,"ABL503, TJ-L14B",4-1BB,"ABL Bio, I-Mab Biopharma",1.0,5.0,1.0,✓,,TNFRSF9
+ragistomig   ==,"ABL503, TJ-L14B",PD-L1,"ABL Bio, I-Mab Biopharma",1.0,5.0,1.0,✓,,CD274
+denikitug,"JTX-1811, GS-1811",CCR8,"Gilead, Jounce",1.0,7.0,,nan,,CCR8
+LY3475766,nan,ANGPTL3,Lilly,1.0,10.0,2.0,nan,,ANGPTL3
+LY3475766,nan,ANGPTL8,Lilly,1.0,10.0,2.0,nan,,ANGPTL8
+CAP-100,nan,CCR7,Catapult,1.0,4.0,2.0,nan,,CCR7
+REGN5837,nan,CD22,Regeneron,1.0,6.0,1.0,nan,,CD22
+REGN5837,nan,CD28,Regeneron,1.0,6.0,1.0,nan,,CD28
+Hu8F4,nan,HLA-A2,"Astellas, MD Anderson",1.0,,1.0,nan,,HLA-A
+GQ1001,nan,HER2/neu,GeneQuantum,1.0,3.0,1.0,nan,,ERBB2
+SPX-101   >>,nan,CLDN18,Sparx,1.0,3.0,,nan,,CLDN18
+SKB315,MK-1200,CLDN18,"Merck (MSD), Sichuan Kelun Pharma",1.0,6.0,,nan,,CLDN18
+TUR01   ••,nan,TNF-alpha,Turgut Ilaclari,1.0,,,nan,,TNF
+NI006,"ALXN2220, NI-301",Transthyretin,"Alexion, Neurimmune",1.0,14.0,5.0,nan,,TTR
+AMG 256,nan,PD-L1,Amgen,1.0,1.0,,nan,,CD274
+MSB0254,nan,VEGFR-2,Mabspace,1.0,,1.0,nan,,KDR
+SAR442085,nan,CD38,Sanofi,1.0,,2.0,nan,,CD38
+GIGA-564,nan,CTLA4,GigaGen,1.0,2.0,,nan,,CTLA4
+MW11,nan,PD-1,Mabwell,1.0,3.0,,nan,,PDCD1
+PF-06804103,nan,HER2/neu,Pfizer,1.0,3.0,2.0,nan,,ERBB2
+ZM008,nan,LLT1,Zumutor,1.0,4.0,,nan,,CLEC2D
+MK-1248,nan,GITR,Merck (MSD),1.0,,1.0,nan,,TNFRSF18
+JS014,nan,Serum Albumin,"Anwita Bio, Shanghai Junshi",1.0,3.0,,nan,,ALB
+M1231,nan,EGFR,"Merck Serono, Sutro",1.0,3.0,,nan,,EGFR
+M1231,nan,MUC1,"Merck Serono, Sutro",1.0,3.0,,nan,,MUC1
+GNR-051,nan,PD-1,IBC Generium,1.0,,,nan,,PDCD1
+XmAb819,XmAb30819,CD3,Xencor,1.0,4.0,,nan,,CD3E
+XmAb819,XmAb30819,ENPP3,Xencor,1.0,4.0,,nan,,ENPP3
+AK109,nan,VEGFR-2,Akeso,1.0,1.0,1.0,nan,,KDR
+AP505,nan,PD-L1,AP Bio,1.0,3.0,,nan,,CD274
+AP505,nan,VEGF,AP Bio,1.0,3.0,,nan,,VEGFA
+AMG 340,TNB-585,CD3,"Amgen, TeneoBio",1.0,5.0,,nan,,CD3E
+AMG 340,TNB-585,PSMA,"Amgen, TeneoBio",1.0,5.0,,nan,,FOLH1
+IBC-Ab002,nan,PD-L1,"ImmunoBrain, Yeda R&D",1.0,8.0,,nan,,CD274
+ALTB-268   <<,"AbGn-268, Leiolizumab",PSGL-1,AltruBio,1.0,6.0,,nan,,SELPLG
+barecetamab,ISU104,HER3,Isu Abxis,1.0,3.0,2.0,✓,,ERBB3
+emerfetamab   ==,"AMG 673, AMG673",CD3,Amgen,1.0,,,✓,,CD3E
+emerfetamab   ==,"AMG 673, AMG673",CD33,Amgen,1.0,,,✓,,CD33
+PNT001,nan,Tau,Pinteon,1.0,3.0,,nan,,MAPT
+Q-1802,nan,CLDN18,QureBio,1.0,2.0,1.0,nan,,CLDN18
+Q-1802,nan,PD-L1,QureBio,1.0,2.0,1.0,nan,,CD274
+IASO-782,RD126,CD19,Iaso,1.0,2.0,,nan,,CD19
+PersonGen anti-BCMA CAR,nan,BCMA,PersonGen,1.0,,,nan,,TNFRSF17
+MIL95,nan,Undisclosed,Beijing Mabworks,1.0,,,nan,,nan
+NM-02,nan,HER2/neu,Suzhou Nanomab,1.0,1.0,1.0,nan,,ERBB2
+ansipastobart,"ansipastobartcancer, BR101",NT5E,"Bioray Pharma, Zhejiang Hisun",1.0,1.0,,✓,,NT5E
+TLX592,nan,PSMA,Telix,1.0,2.0,,nan,,FOLH1
+EX103,nan,CD20,Guangzhou Excelmab,1.0,2.0,,nan,,MS4A1
+EX103,nan,CD3,Guangzhou Excelmab,1.0,2.0,,nan,,CD3E
+TAVO101,nan,TSLP,Tavotek,1.0,2.0,1.0,nan,,TSLP
+BND-35,nan,LILRB4,Biond,1.0,3.0,,nan,,LILRB4
+ADEL-Y01,nan,Tau,Adel,1.0,4.0,,nan,,MAPT
+SOL-116,nan,BSSL,Lipum,1.0,3.0,,nan,,CEL
+MYTX-011,nan,cMet,Mythic Thera,1.0,8.0,2.0,nan,,MET
+SIM1811-03,nan,TNFR2,Jiangsu Simcere,1.0,4.0,,nan,,TNFRSF1B
+givastomig,"ABL111, TJ033721, TJ-CD4B",4-1BB,"ABL Bio, I-Mab Biopharma",1.0,4.0,,nan,,TNFRSF9
+givastomig,"ABL111, TJ033721, TJ-CD4B",CLDN18,"ABL Bio, I-Mab Biopharma",1.0,4.0,,nan,,CLDN18
+Y101D,YM101,PD-L1,Wuhan YZY Biopharma,1.0,,5.0,nan,,CD274
+Y101D,YM101,TGF-β,Wuhan YZY Biopharma,1.0,,5.0,nan,,TGFB1
+PSB102,nan,CD20,Sound Biologics,1.0,2.0,,nan,,MS4A1
+PSB107,nan,CD37,Sound Biologics,1.0,1.0,,nan,,CD37
+Remegen RC98,nan,PD-L1,RemeGen,1.0,2.0,1.0,nan,,CD274
+eurestobart,"ES002, ES002023",CD39,Elpiscience,1.0,3.0,,nan,,ENTPD1
+BSI-045B,nan,TSLP,Biosion,1.0,2.0,,nan,,TSLP
+LCAR-C18S,nan,CLDN18,"Genscript, Nanjing Legend Bio",1.0,6.0,,nan,,CLDN18
+JS108,nan,TACSTD-2,Shanghai Junshi,1.0,,,nan,,TACSTD2
+ralzapastotug   ==,AB308,TIGIT,Arcus,1.0,,,✓,,TIGIT
+FAZ053,nan,PD-L1,"Laekna, Novartis",1.0,2.0,1.0,nan,,CD274
+NG004,nan,Nogo-A,NovaGo,1.0,2.0,,nan,,RTN4
+PF-07257876,nan,CD47,Pfizer,1.0,5.0,2.0,nan,,CD47
+PF-07257876,nan,PD-L1,Pfizer,1.0,5.0,2.0,nan,,CD274
+CA9hu-1,nan,CAIX,Mabpro,1.0,4.0,,nan,,CA9
+BMS-986442,AGEN1777,CD96,"Agenus, BMS",1.0,,,nan,,CD96
+BMS-986442,AGEN1777,TIGIT,"Agenus, BMS",1.0,,,nan,,TIGIT
+Swiss Biopharma Med sB24,nan,CD47,Swiss Biopharma Med GmbH,1.0,,,nan,,CD47
+garetatug rezetecan,SHR-A1904,CLDN18,Shanghai Hengrui,1.0,,1.0,✓,,CLDN18
+CMAB818   ••,nan,VEGF-A,BioMab,1.0,,,nan,,VEGFA
+BAT4706,nan,CTLA4,Bio-Thera Solutions,1.0,4.0,,nan,,CTLA4
+nuvustotug,HFB301001,OX40,"HiFiBio, Nankai U.",1.0,4.0,,✓,,TNFRSF4
+QLS31901,nan,PD-L1,Qilu Pharma,1.0,,,nan,,CD274
+QLS31901,nan,TGF-β,Qilu Pharma,1.0,,,nan,,TGFB1
+uprevstobart,INCA00186,NT5E,Incyte,1.0,9.0,,✓,,NT5E
+TST005,nan,CLDN18,Transcenta,1.0,,,nan,,CLDN18
+TST005,nan,TGF-β,Transcenta,1.0,,,nan,,TGFB1
+emunkitug,HFB200301,TNFR2,HiFiBio,1.0,4.0,,✓,,TNFRSF1B
+JNJ-78306358,nan,CD3,Janssen Biotech,1.0,3.0,2.0,nan,,CD3E
+JNJ-78306358,nan,HLA-G,Janssen Biotech,1.0,3.0,2.0,nan,,HLA-G
+IPH4502,nan,Nectin-4,Innate,1.0,4.0,,nan,,NECTIN4
+iparomlimab,nan,PD-1,Sound Biologics,1.0,,1.0,✓,,PDCD1
+IO-108,nan,LILRB2,"Immune-Onc, U.Texas",1.0,9.0,1.0,nan,,LILRB2
+ABL501,ABL 501,LAG-3,ABL Bio,1.0,2.0,1.0,nan,,LAG3
+ABL501,ABL 501,PD-L1,ABL Bio,1.0,2.0,1.0,nan,,CD274
+JNJ-67484703,nan,Undisclosed,Janssen Biotech,1.0,,,nan,,nan
+Y150,nan,CD3,Wuhan YZY Biopharma,1.0,,,nan,,CD3E
+Y150,nan,CD38,Wuhan YZY Biopharma,1.0,,,nan,,CD38
+SAR443216,nan,CD28,Sanofi,1.0,,1.0,nan,,CD28
+SAR443216,nan,CD3,Sanofi,1.0,,1.0,nan,,CD3E
+SAR443216,nan,HER2/neu,Sanofi,1.0,,1.0,nan,,ERBB2
+AMT-151,nan,FRA,Multitude,1.0,2.0,,nan,,FOSL1
+HOT-1030,nan,4-1BB,Huabo Biopharm,1.0,,,nan,,TNFRSF9
+STI-3258,nan,TACSTD-2,Sorrento,1.0,,,nan,,TACSTD2
+WM-A1-3389,nan,IGSF1,Wellmarker,1.0,5.0,,nan,,IGSF1
+Y-mAbs anti-CD33 / CD3,nan,CD3,Y-mAbs,1.0,,,nan,,CD3E
+Y-mAbs anti-CD33 / CD3,nan,CD33,Y-mAbs,1.0,,,nan,,CD33
+AK131,nan,NT5E,Akeso,1.0,2.0,,nan,,NT5E
+AK131,nan,PD-1,Akeso,1.0,2.0,,nan,,PDCD1
+TORL-1-23,nan,CLDN6,TORL Bio,1.0,,,nan,,CLDN6
+CAN10   ==,nan,IL-1RAP,Cantargia,1.0,,,nan,,IL1RAP
+BAT6021   ==,nan,TIGIT,Bio-Thera Solutions,1.0,3.0,,nan,,TIGIT
+IGM-2644,nan,CD3,IGM Bio,1.0,1.0,,nan,,CD3E
+IGM-2644,nan,CD38,IGM Bio,1.0,1.0,,nan,,CD38
+BAT6005   ==,nan,TIGIT,Bio-Thera Solutions,1.0,3.0,,nan,,TIGIT
+SSGJ-706,nan,PD-1,Sunshine Guojian Pharma,1.0,5.0,,nan,,PDCD1
+SSGJ-706,nan,PD-L1,Sunshine Guojian Pharma,1.0,5.0,,nan,,CD274
+HB0030,nan,TIGIT,"Huabo Biopharm, Shanghai Huaota",1.0,4.0,,nan,,TIGIT
+NC525,nan,LAIR1,NextCure,1.0,5.0,,nan,,LAIR1
+BNA035,nan,4-1BB,Binacea,1.0,,,nan,,TNFRSF9
+BNA035,nan,EGFR,Binacea,1.0,,,nan,,EGFR
+DCBY02,nan,CD93,Dynamicure Biotechnology LLC,1.0,6.0,,nan,,CD93
+BAY3375968,TPP-23411,CCR8,Bayer,1.0,12.0,,nan,,CCR8
+FDA018-ADC,nan,TACSTD-2,Shanghai Fudan-Zhangjiang Bio,1.0,,1.0,nan,,TACSTD2
+CLN-418,HBM7008,4-1BB,"Cullinan Oncology, Harbour Biomed Ltd.",1.0,2.0,,nan,,TNFRSF9
+CLN-418,HBM7008,B7-H4,"Cullinan Oncology, Harbour Biomed Ltd.",1.0,2.0,,nan,,VTCN1
+JYB1904   <<,nan,IgE,Jemincare,1.0,2.0,,nan,,nan
+JS007,nan,CTLA4,Shanghai Junshi,1.0,3.0,2.0,nan,,CTLA4
+Gentulizumab,GenSci059,CD47,GeneScience,1.0,,1.0,nan,,CD47
+PUR001,nan,CD39,Purinomia,1.0,,,nan,,ENTPD1
+SGN-ALPV,nan,Undisclosed,Seattle Genetics,1.0,,,nan,,nan
+XmAb808,nan,B7-H3,Xencor,1.0,6.0,1.0,nan,,CD276
+XmAb808,nan,CD28,Xencor,1.0,6.0,1.0,nan,,CD28
+ABL103,nan,4-1BB,ABL Bio,1.0,2.0,,nan,,TNFRSF9
+ABL103,nan,B7-H4,ABL Bio,1.0,2.0,,nan,,VTCN1
+EMB-09,nan,OX40,EpimAb,1.0,1.0,1.0,nan,,TNFRSF4
+EMB-09,nan,PD-L1,EpimAb,1.0,1.0,1.0,nan,,CD274
+EMB-07,nan,CD3,EpimAb,1.0,2.0,,nan,,CD3E
+EMB-07,nan,ROR1,EpimAb,1.0,2.0,,nan,,ROR1
+SG2501,nan,CD38,Hangzhou Sumgen Biotech,1.0,,,nan,,CD38
+SG2501,nan,CD47,Hangzhou Sumgen Biotech,1.0,,,nan,,CD47
+IBI-389   ==,IBI389,CD3,Innovent,1.0,3.0,,nan,,CD3E
+IBI-389   ==,IBI389,CLDN18,Innovent,1.0,3.0,,nan,,CLDN18
+inezetamab,AMG-994,CD40,Amgen,1.0,4.0,,✓,,CD40
+inezetamab,AMG-994,Mesothelin,Amgen,1.0,4.0,,✓,,MSLN
+KM257,nan,Undisclosed,Xuanzhu Bio,1.0,,,nan,,nan
+HS627   ••,nan,HER2/neu,Zhejiang Hisun,1.0,,,nan,,ERBB2
+BYON3521,nan,cMet,Byondis,1.0,2.0,1.0,nan,,MET
+AMG 794,AMG794,CLDN6,Amgen,1.0,,,nan,,CLDN6
+AGEN1571,nan,LILRB1,Agenus,1.0,3.0,,nan,,LILRB1
+HBT-708,nan,PD-1,Sunshine Guojian Pharma,1.0,1.0,,nan,,PDCD1
+HBT-708,nan,TGF-β,Sunshine Guojian Pharma,1.0,1.0,,nan,,TGFB1
+SSGJ-709,nan,LAG-3,"Shenyang Sunshine Pharma, Sunshine Guojian Pharma",1.0,1.0,,nan,,LAG3
+SSGJ-709,nan,PD-1,"Shenyang Sunshine Pharma, Sunshine Guojian Pharma",1.0,1.0,,nan,,PDCD1
+meperizumab,nan,Undisclosed,Chia Tai Tianqing Pharma,1.0,,,nan,,nan
+BAT8006,nan,FRA,Bio-Thera Solutions,1.0,2.0,,nan,,FOSL1
+ES014,nan,CD39,Elpiscience,1.0,,,nan,,ENTPD1
+PIT565,nan,Undisclosed,Novartis,1.0,,,nan,,nan
+BAT8009,nan,B7-H3,Bio-Thera Solutions,1.0,2.0,,nan,,CD276
+ADL-018   ••,nan,IgE,Kashiv Bio,1.0,,,nan,,nan
+HLX6018,nan,GARP,"Shanghai Aosaiersi, Shanghai Henlius",1.0,2.0,,nan,,LRRC32
+HLX6018,nan,TGF-β,"Shanghai Aosaiersi, Shanghai Henlius",1.0,2.0,,nan,,TGFB1
+NAV-240,IMB-101,OX40L,"IMBiologics , Y-Biologics",1.0,2.0,,nan,,TNFSF4
+NAV-240,IMB-101,TNF-alpha,"IMBiologics , Y-Biologics",1.0,2.0,,nan,,TNF
+HB0043   <<,nan,IL-17,"Shanghai Aosaiersi, Shanghai Huaota",1.0,2.0,1.0,nan,,IL17A
+HB0043   <<,nan,IL1RL2,"Shanghai Aosaiersi, Shanghai Huaota",1.0,2.0,1.0,nan,,IL1RL2
+FZ-AD004,nan,TACSTD-2,Shanghai Fudan-Zhangjiang Bio,1.0,3.0,,nan,,TACSTD2
+NM26-2198   <<,nan,IL-31,Numab,1.0,1.0,1.0,nan,,IL31
+NM26-2198   <<,nan,IL-4Rα,Numab,1.0,1.0,1.0,nan,,IL4R
+emiltatug ledadotin,XMT-1660,B7-H4,Mersana,1.0,6.0,1.0,nan,,VTCN1
+QLS31904,nan,CD3,Qilu Pharma,1.0,,,nan,,CD3E
+QLS31904,nan,DLL3,Qilu Pharma,1.0,,,nan,,DLL3
+BHV-1530,"AMB302, AMB-302, GR1017",FGFR3,"Aimedbio, Biohaven",1.0,2.0,,nan,,FGFR3
+PT886,nan,CD47,Phanes Thera,1.0,2.0,,nan,,CD47
+PT886,nan,CLDN18,Phanes Thera,1.0,2.0,,nan,,CLDN18
+XMT-2056,nan,HER2/neu,"GSK, Mersana",1.0,,1.0,nan,,ERBB2
+NM32-2668,nan,CD3,Numab,1.0,2.0,,nan,,CD3E
+NM32-2668,nan,ROR1,Numab,1.0,2.0,,nan,,ROR1
+NM32-2668,nan,Serum Albumin,Numab,1.0,2.0,,nan,,ALB
+ORM-5029,nan,HER2/neu,Orum,1.0,,,nan,,ERBB2
+IMGN151,nan,FRA,ImmunoGen,1.0,,,nan,,FOSL1
+Lanzhou Inst.Bio.Products anti-CD52,nan,CD52,Lanzhou Inst.Bio.Products,1.0,,,nan,,CD52
+INCA32459,nan,LAG-3,Incyte,1.0,2.0,,nan,,LAG3
+INCA32459,nan,PD-1,Incyte,1.0,2.0,,nan,,PDCD1
+PYX-201,nan,Fibronectin,Pyxis,1.0,,3.0,nan,,FN1
+TQB2934,nan,BCMA,Chia Tai Tianqing Pharma,1.0,3.0,,nan,,TNFRSF17
+TQB2934,nan,CD3,Chia Tai Tianqing Pharma,1.0,3.0,,nan,,CD3E
+NB002,nan,TIM-3,Suzhou Neologics,1.0,3.0,,nan,,HAVCR2
+SHR-2010,nan,MASP-2,Jiangsu Hengrui,1.0,3.0,1.0,nan,,MASP2
+KM501,nan,HER2/neu,Xuanzhu Bio,1.0,2.0,,nan,,ERBB2
+ADG206   <<,nan,4-1BB,Adagene,1.0,,,nan,,TNFRSF9
+BAT2206   ••,nan,IL-12,Bio-Thera Solutions,1.0,,2.0,nan,,IL12A
+BAT2206   ••,nan,IL-23,Bio-Thera Solutions,1.0,,2.0,nan,,IL23A
+AZD9592,nan,cMet,"AstraZeneca, Fusion Pharma",1.0,6.0,,nan,,MET
+AZD9592,nan,EGFR,"AstraZeneca, Fusion Pharma",1.0,6.0,,nan,,EGFR
+JNJ-79635322,nan,Undisclosed,Janssen Biotech,1.0,,,nan,,nan
+YKST02,nan,BCMA,Excyte,1.0,2.0,,nan,,TNFRSF17
+YKST02,nan,CD3,Excyte,1.0,2.0,,nan,,CD3E
+JMT203,nan,GFRAL,Shanghai JMT,1.0,2.0,,nan,,GFRAL
+HLX15,nan,CD38,Shanghai Henlius,1.0,,,nan,,CD38
+NHS76,nan,DNA/Histone H1,NCI,1.0,,1.0,nan,,HIST1H1A
+PRTH-101,nan,DDR1,"Incendia, Parthenon",1.0,2.0,,nan,,DDR1
+Chia Tai Tianqing Pharma trastuzumab biosimilar   ••,nan,HER2/neu,Chia Tai Tianqing Pharma,1.0,2.0,1.0,nan,,ERBB2
+BAT8007,nan,Nectin-4,Bio-Thera Solutions,1.0,3.0,,nan,,NECTIN4
+IMM2520,nan,CD47,ImmuneOnco,1.0,2.0,1.0,nan,,CD47
+IMM2520,nan,PD-L1,ImmuneOnco,1.0,2.0,1.0,nan,,CD274
+donitabart,BCD-245,GD2,Biocad,1.0,1.0,,nan,,nan
+HLX51,nan,OX40,Shanghai Henlius,1.0,4.0,,nan,,TNFRSF4
+TG6050,nan,CTLA4,Transgene Biotek,1.0,,,nan,,CTLA4
+HFB200603,nan,BTLA,HiFiBio,1.0,2.0,,nan,,BTLA
+CDX-585,nan,LILRB2,Celldex,1.0,,,nan,,LILRB2
+CDX-585,nan,PD-L1,Celldex,1.0,,,nan,,CD274
+ZW191,nan,FRA,Zymeworks,1.0,3.0,,nan,,FOSL1
+felmetatug vedotin,"SGN-B7H4V, PF-08046048",B7-H4,Seattle Genetics,1.0,3.0,2.0,✓,,VTCN1
+BA3182,nan,CD3,BioAtla,1.0,,,nan,,CD3E
+BA3182,nan,EpCAM,BioAtla,1.0,,,nan,,EPCAM
+CUSP06,AMT-707,CDH6,"Multitude, OnCusp",1.0,3.0,,nan,,CDH6
+HBM1020,nan,HHLA2,Harbour Biomed Ltd.,1.0,2.0,,nan,,HHLA2
+OT-A201,nan,Undisclosed,"Biomunex, Onward Thera",1.0,,,nan,,nan
+TAVO412,nan,cMet,Tavotek,1.0,2.0,,nan,,MET
+TAVO412,nan,EGFR,Tavotek,1.0,2.0,,nan,,EGFR
+TAVO412,nan,VEGF,Tavotek,1.0,2.0,,nan,,VEGFA
+ESG206,nan,BAFFR,Shanghai Escugen,1.0,,,nan,,TNFRSF13C
+NILK-2301,nan,CD3,"LamKap, Light Chain Bio, NovImmune",1.0,3.0,1.0,nan,,CD3E
+NILK-2301,nan,CEACAM5,"LamKap, Light Chain Bio, NovImmune",1.0,3.0,1.0,nan,,CEACAM5
+TQB2103,nan,CLDN18,Chia Tai Tianqing Pharma,1.0,3.0,,nan,,CLDN18
+AI-025,AI-061,PD-1,OncoC4,1.0,1.0,,nan,,PDCD1
+ZL-1218,nan,CCR8,Zai Lab,1.0,3.0,,nan,,CCR8
+caxmotabart entudotin   <<,"IKS014, LCB14-0110",HER2/neu,"Iksuda, LegoChem, Ligachem",1.0,1.0,,✓,,ERBB2
+AB598,nan,CD39,"Arcus, WuXi Biologics",1.0,5.0,1.0,nan,,ENTPD1
+CEL383,nan,TREM-1,Celsius,1.0,1.0,,nan,,TREM1
+BA1202,nan,CD3,Shandong Boan Bio.,1.0,,,nan,,CD3E
+BA1202,nan,CEACAM5,Shandong Boan Bio.,1.0,,,nan,,CEACAM5
+QLS32015,nan,CD3,Qilu Pharma,1.0,,,nan,,CD3E
+QLS32015,nan,GPRC5D,Qilu Pharma,1.0,,,nan,,GPRC5D
+BGB-A3055,nan,Undisclosed,BeiGene,1.0,,,nan,,nan
+TORL-3-600,nan,Cadherin-17,TORL Bio,1.0,,,nan,,CDH17
+CPO301,nan,EGFR,Conjupro Bio,1.0,,,nan,,EGFR
+ZMA001,BC-NKA-20008,Undisclosed,NIH,1.0,,,nan,,nan
+EO-3021,nan,CLDN18,"Elevation Oncology,",1.0,,,nan,,CLDN18
+DKTK CC-3,nan,B7-H3,German CRC,1.0,,,nan,,CD276
+DKTK CC-3,nan,CD3,German CRC,1.0,,,nan,,CD3E
+TORL-4-500,nan,DLK-1,TORL Bio,1.0,,,nan,,DLK1
+ES009,nan,LILRB2,Elpiscience,1.0,1.0,,nan,,LILRB2
+SAR443809,SAR-443809,Complement Factor B,Sanofi,1.0,,1.0,nan,,CFB
+XJ101,nan,Undisclosed,Starmab,1.0,,,nan,,nan
+TAVO103A,nan,IL-1β,Tavotek,1.0,,1.0,nan,,IL1B
+XJ103,nan,Undisclosed,Starmab,1.0,,,nan,,nan
+ADRX-0706,nan,Nectin-4,Adcentrx,1.0,1.0,,nan,,NECTIN4
+forimtamig,"RO7425781, RG6234",CD3,Genentech,1.0,,1.0,✓,,CD3E
+forimtamig,"RO7425781, RG6234",GPRC5D,Genentech,1.0,,1.0,✓,,GPRC5D
+COM503,nan,IL-18BP,"Compugen, Gilead",1.0,3.0,,nan,,IL18BP
+BSI-082,nan,SIRPA,Biosion,1.0,2.0,,nan,,SIRPA
+BAT3306,nan,PD-1,Bio-Thera Solutions,1.0,,,nan,,PDCD1
+JNJ-88549968,nan,Calreticulin,Janssen Biotech,1.0,1.0,,nan,,CALR
+JNJ-88549968,nan,CD3,Janssen Biotech,1.0,1.0,,nan,,CD3E
+AKIR001,177Lu-AKIR001,CD44v6,"Akiram, Karolinska Inst.",1.0,1.0,,nan,,CD44
+GQ1005,nan,HER2/neu,GeneQuantum,1.0,1.0,,nan,,ERBB2
+PF-07868489,nan,BMP9,Pfizer,1.0,2.0,,nan,,GDF2
+AK132   ==,nan,CD47,Akeso,1.0,1.0,,nan,,CD47
+AK132   ==,nan,CLDN18,Akeso,1.0,1.0,,nan,,CLDN18
+HBM9033,SGN-MesoC2,Mesothelin,"Harbour Biomed Ltd., Pfizer, Seattle Genetics",1.0,,,nan,,MSLN
+SIM0500,nan,BCMA,"Abbvie, Jiangsu Simcere",1.0,1.0,,nan,,TNFRSF17
+SIM0500,nan,CD3,"Abbvie, Jiangsu Simcere",1.0,1.0,,nan,,CD3E
+SIM0500,nan,GPRC5D,"Abbvie, Jiangsu Simcere",1.0,1.0,,nan,,GPRC5D
+JNJ-87890387,nan,CD3,Janssen Biotech,1.0,,,nan,,CD3E
+JNJ-87890387,nan,ENPP3,Janssen Biotech,1.0,,,nan,,ENPP3
+ABBV-319,nan,CD19,Abbvie,1.0,6.0,1.0,nan,,CD19
+HLX42,nan,EGFR,Shanghai Henlius,1.0,,,nan,,EGFR
+DXC006,nan,Undisclosed,Hangzhou DAC Bio,1.0,,,nan,,nan
+zifibancimig,"RO-7250284, RG6120",Angiopoietin 2,Roche,1.0,,,nan,,ANGPT2
+zifibancimig,"RO-7250284, RG6120",VEGF-A,Roche,1.0,,,nan,,VEGFA
+LNF1901,nan,CD40,Shandong New Time Pharma,1.0,,,nan,,CD40
+BG-C9074,nan,B7-H4,BeiGene,1.0,,,nan,,VTCN1
+NPX887,nan,HHLA2,NextPoint Thera,1.0,,,nan,,HHLA2
+SPX-303,nan,LILRB2,Sparx,1.0,,,nan,,LILRB2
+SPX-303,nan,PD-L1,Sparx,1.0,,,nan,,CD274
+JNJ-79032421,nan,CD3,Janssen Biotech,1.0,1.0,,nan,,CD3E
+JNJ-79032421,nan,Mesothelin,Janssen Biotech,1.0,1.0,,nan,,MSLN
+XmAb541,nan,CD3,Xencor,1.0,,,nan,,CD3E
+XmAb541,nan,CLDN6,Xencor,1.0,,,nan,,CLDN6
+ABD-147,225Ac-ABD147,DLL3,Abdera,1.0,3.0,,nan,,DLL3
+SAIL66,SAIL-66,4-1BB,Chugai,1.0,1.0,1.0,nan,,TNFRSF9
+SAIL66,SAIL-66,CD3,Chugai,1.0,1.0,1.0,nan,,CD3E
+SAIL66,SAIL-66,CLDN6,Chugai,1.0,1.0,1.0,nan,,CLDN6
+NBL-028   ==,nan,4-1BB,"CSPC Pharma, NovaRock",1.0,1.0,,nan,,TNFRSF9
+NBL-028   ==,nan,CLDN6,"CSPC Pharma, NovaRock",1.0,1.0,,nan,,CLDN6
+BAY3630942,nan,Undisclosed,Bayer,1.0,,,nan,,nan
+BYON4413,nan,IL-3Rα,Byondis,1.0,,,nan,,IL3RA
+SM17,nan,IL-17RB,SinoMab,1.0,1.0,1.0,nan,,IL17RB
+BITR2101,nan,TNFR2,"BeiGene, Bosotom Immune",1.0,,,nan,,TNFRSF1B
+MTX-463,nan,WISP-1,Mediar,1.0,2.0,,nan,,WISP1
+MTX-474,nan,EphB2,Mediar,1.0,,,nan,,EPHB2
+LY4170156,nan,FRA,Lilly,1.0,,,nan,,FOSL1
+FTL008.16,nan,4-1BB,Sound Biologics,1.0,,,nan,,TNFRSF9
+FTL008.16,nan,TPBG,Sound Biologics,1.0,,,nan,,TPBG
+IBI-3002,IBI3002,IL-4Rα,Innovent,1.0,2.0,,nan,,IL4R
+IBI-3002,IBI3002,TSLP,Innovent,1.0,2.0,,nan,,TSLP
+IBI-345,IBI345,CLDN18,Innovent,1.0,,,nan,,CLDN18
+BGB-C354,nan,B7-H3,BeiGene,1.0,4.0,,nan,,CD276
+satricabtagene autoleucel,CT041,CLDN18,Peking U. Cancer Hosp.,1.0,,1.0,nan,,CLDN18
+PHN-010,nan,Undisclosed,Pheon,1.0,,,nan,,nan
+LY4052031,nan,Nectin-4,Lilly,1.0,,,nan,,NECTIN4
+DNP002,nan,CEACAM6,Kumho,1.0,1.0,,nan,,CEACAM6
+UB-312,nan,Alpha-synuclein,Vaxxinity,1.0,,1.0,nan,,SNCA
+GNR-068,nan,IL-12,IBC Generium,1.0,,,nan,,IL12A
+GNR-068,nan,IL-23,IBC Generium,1.0,,,nan,,IL23A
+IBR854,nan,TPBG,Imbioray,1.0,1.0,,nan,,TPBG
+QLS4131,nan,Undisclosed,Qilu Pharma,1.0,,,nan,,nan
+PF-08046054,SGN-PDL1V,PD-L1,"Pfizer, Seattle Genetics",1.0,,,nan,,CD274
+PF-08046050,SGN-CEACAM5C,CEACAM5,"Pfizer, Seattle Genetics",1.0,,,nan,,CEACAM5
+BC3195,nan,P-cadherin,BioCity,1.0,,,nan,,CDH3
+SY001,nan,Mesothelin,CellOrigin Bio,1.0,,,nan,,MSLN
+SHR-2004,nan,Factor XI,Jiangsu Hengrui,1.0,,1.0,nan,,F11
+GEN1057,nan,Undisclosed,Genmab,1.0,,,nan,,nan
+QXL138AM,nan,Syndecan 1,Nammi,1.0,,,nan,,SDC1
+SHR-4849,IDE849,DLL3,"Ideaya Bio, Jiangsu Hengrui, Suzhou Suncadia",1.0,2.0,,nan,,DLL3
+IBI3009,IBI-3009,DLL3,"Innovent, Roche",1.0,,,nan,,DLL3
+HB0056,nan,Undisclosed,Huabo Biopharm,1.0,1.0,,nan,,nan
+SAR446523,nan,GPRC5D,Sanofi,1.0,4.0,,nan,,GPRC5D
+Anitocabtagene autoleucel,ACLX-001,BCMA,Arcellx,1.0,,,nan,,TNFRSF17
+BG-C137,nan,FGFR2,BeiGene,1.0,2.0,,nan,,FGFR2
+IM-1021,nan,ROR1,Immunome,1.0,,,nan,,ROR1
+IMP761,nan,LAG-3,Immutep,1.0,,,nan,,LAG3
+M3554,nan,GD2,Merck Serono,1.0,2.0,,nan,,nan
+ALIA-1758,nan,Amyloid beta,"Abbvie, Aliada",1.0,,,nan,,APP
+ALIA-1758,nan,TfR,"Abbvie, Aliada",1.0,,,nan,,TFRC
+ADRX-0405,nan,STEAP1,Adcentrx,1.0,,,nan,,STEAP1
+CDX-622,nan,SCF,Celldex,1.0,,1.0,nan,,KITLG
+CDX-622,nan,TSLP,Celldex,1.0,,1.0,nan,,TSLP
+AK137,nan,LAG-3,Akeso,1.0,,,nan,,LAG3
+AK137,nan,NT5E,Akeso,1.0,,,nan,,NT5E
+PRX019,nan,Undisclosed,"BMS, Prothena",1.0,,,nan,,nan
+TQB2029,nan,CD3,Chia Tai Tianqing Pharma,1.0,,,nan,,CD3E
+TQB2029,nan,GPRC5D,Chia Tai Tianqing Pharma,1.0,,,nan,,GPRC5D
+MGC028,nan,ADAM9,MacroGenics,1.0,,,nan,,ADAM9
+JNJ-87801493,nan,CD20,Janssen Biotech,1.0,,,nan,,MS4A1
+JNJ-87801493,nan,CD28,Janssen Biotech,1.0,,,nan,,CD28
+CS2009,nan,CTLA4,CStone Pharma,1.0,,,nan,,CTLA4
+CS2009,nan,PD-1,CStone Pharma,1.0,,,nan,,PDCD1
+CS2009,nan,VEGF-A,CStone Pharma,1.0,,,nan,,VEGFA
+DAY301,nan,PTK7,Day One,1.0,,,nan,,PTK7
+BAY 3547926,BAY3547926,GPC4,Bayer,1.0,,,nan,,GPC4
+SYS6010,"SYS-6010, CPO301",EGFR,CSPC Dophen,1.0,,,nan,,EGFR
+GB268,nan,CTLA4,Genor,1.0,1.0,,nan,,CTLA4
+GB268,nan,PD-1,Genor,1.0,1.0,,nan,,PDCD1
+GB268,nan,VEGF,Genor,1.0,1.0,,nan,,VEGFA
+NN3201,nan,CK8,Novelty Nobility,1.0,,,nan,,KRT8
+AT03,"AT-03-65, AT65474",CLDN6,Axcynsis,1.0,,,nan,,CLDN6
+IBI356,nan,OX40L,Innovent,1.0,1.0,,nan,,TNFSF4
+PF-08046032,nan,IL-2Rα,"Pfizer, Seattle Genetics",1.0,,1.0,nan,,IL2RA
+EOS006215,EOS-215,TREM-2,iTeos,1.0,1.0,,nan,,TREM2
+KH815,nan,Undisclosed,Chengdu Kanghong,1.0,,,nan,,nan
+TQB2210,nan,FGFR2,Chia Tai Tianqing Pharma,1.0,,,nan,,FGFR2
+AK146D1,nan,Nectin-4,Akeso,1.0,,,nan,,NECTIN4
+AK146D1,nan,TACSTD-2,Akeso,1.0,,,nan,,TACSTD2
+QLS5132,nan,CLDN6,Qilu Pharma,1.0,,,nan,,CLDN6
+JST-010,nan,Undisclosed,Just-Evotec,1.0,,,nan,,nan
+SSS59,nan,MUC17,Shenyang Sunshine Pharma,1.0,,,nan,,MUC17
+OX118,nan,OX40L,Oxion Bio,1.0,1.0,,nan,,TNFSF4
+DR-0202,nan,Undisclosed,"Dren, Novartis",1.0,,,nan,,nan
+P1801,nan,PD-1,Pharmaessentia,1.0,1.0,,nan,,PDCD1
+CT1192,nan,CD19,Carsgen,1.0,,,nan,,CD19
+CT1192,nan,CD20,Carsgen,1.0,,,nan,,MS4A1
+TQB6411,nan,cMet,Chia Tai Tianqing Pharma,1.0,,,nan,,MET
+TQB6411,nan,EGFR,Chia Tai Tianqing Pharma,1.0,,,nan,,EGFR
+LY4175408,nan,PTK7,Lilly,1.0,,,nan,,PTK7
+GB-7624,nan,IL-13,Generate Bio,1.0,2.0,,nan,,IL13
+OM336,nan,BCMA,Ouro,1.0,,,nan,,TNFRSF17
+OM336,nan,CD3,Ouro,1.0,,,nan,,CD3E
+ALX2004,nan,EGFR,ALX Oncology,1.0,,,nan,,EGFR
+AL101,GSK4527226,GP88,"Alector, GSK",1.0,,1.0,nan,,PGRMC1
+LY4152199,nan,BAFFR,Lilly,1.0,,,nan,,TNFRSF13C
+LY4152199,nan,CD3,Lilly,1.0,,,nan,,CD3E
+TQB2825,nan,CD20,Chia Tai Tianqing Pharma,1.0,,,nan,,MS4A1
+TQB2825,nan,CD3,Chia Tai Tianqing Pharma,1.0,,,nan,,CD3E
+ALX-0141,EDP 406,RANKL,"Ablynx, Eddingpharm",,2.0,,✓,,TNFSF11
+vorsetuzumab   >>   ==,"SGN-70, h1F6",CD70,Seattle Genetics,,29.0,4.0,✓,,CD70
+CDP484,IC8,IL-1β,"Celltech, UCB",,3.0,,✓,,IL1B
+1D09C3,MS-GPC-8-27-4.1,HLA-DR β,"GPC Biotech, Morphosys",,2.0,3.0,nan,,HLA-DRB1
+ABX-PTH,ABX10241,PTH,Abgenix,,2.0,,nan,,PTH
+PF-04840082,TAM-163,DKK1,"Pfizer, Rinat",,5.0,1.0,?,,DKK1
+MDX-1097   >>,"K121, KappaMab",KMA,"IST, Medarex, Monash U.",,5.0,4.0,nan,,nan
+BI 1034020,BI1034020,Amyloid beta,"Ablynx, Boehringer",,2.0,,nan,,APP
+ONS-3010   ••,nan,TNF-alpha,Oncobiologics,,,,nan,,TNF
+ONS-1045   ••,nan,VEGF-A,Oncobiologics,,,,nan,,VEGFA
+ZW49   <<,nan,HER2/neu,Zymeworks,,,,nan,,ERBB2
+varlilumab   ==,"1F5, CDX-1127",CD27,Celldex,13.0,22.0,8.0,✓,,CD27
+conatumumab,"AMG 655, XG1-048, TRAIL-R2 mAb",DR5,"Amgen, Millennium",11.0,10.0,15.0,✓,,TNFRSF10B
+monalizumab   <<,"IPH 2201, NN8765, NNC141-0100",NKG2A,"AstraZeneca, Innate, Novo Nordisk",11.0,26.0,11.0,✓,,KLRC1
+AK117,nan,CD47,Akeso,10.0,4.0,1.0,nan,,CD47
+cetrelimab,JNJ-63723283,PD-1,Janssen Biotech,9.0,8.0,3.0,✓,,PDCD1
+Immunomedics TF2   ==,TF2,CEACAM5,Immunomedics,8.0,2.0,5.0,nan,,CEACAM5
+labetuzumab   >>   ==,"CEA-Cide, hMN14, hMN-14",CEACAM5,Immunomedics,6.0,30.0,9.0,✓,,CEACAM5
+milatuzumab   >>,"MEDI-115, hLL1, IMMU-115",MHC,Immunomedics,6.0,53.0,15.0,✓,,HLA-A
+F16-IL2,"F16IL2, Teleukin",Tenascin C,"Philochem, Philogen",6.0,19.0,,nan,,TNC
+ulocuplumab,"MDX-1338, BMS-936564, F7",CXCR4,Medarex,6.0,14.0,3.0,✓,,CXCR4
+elgemtumab,"LJM716, MOR09825",HER3,"Ariad, Morphosys, Novartis",6.0,17.0,4.0,?,,ERBB3
+mezagitamab,"TAK 079, TAK-079",CD38,Takeda,6.0,35.0,4.0,✓,,CD38
+MEDI6469   ==,nan,OX40,"AgonOx, Medimmune",6.0,3.0,1.0,nan,,TNFRSF4
+STI-6129   ==,LNDS1001,CD38,Sorrento,6.0,21.0,,nan,,CD38
+Chinese PLA Gen.Hosp. anti-PD-1,nan,PD-1,Chinese PLA Gen.Hosp.,6.0,,,nan,,PDCD1
+greziprubart,STSA-1002,C5,Staidson,6.0,4.0,,✓,,C5
+briquilimab,"JSP191, AMG191, AMG 191",c-Kit,"Amgen, Jasper",5.0,11.0,3.0,✓,,KIT
+LY3022855,IMC-CS4,CSF-1R,ImClone,5.0,6.0,3.0,✓,,CSF1R
+MDX-1105,"BMS-936559, 12A4",PD-L1,Medarex,5.0,39.0,5.0,?,,CD274
+mitazalimab,"B44, JNJ-64457107, JNJ-7107, ADC-1013, vanalimab",CD40,"Alligator, BioInvent, Janssen Biotech",5.0,29.0,5.0,✓,,CD40
+vunakizumab,SHR-1314,IL-17,"Jiangsu Hengrui, Shanghai Hengrui, Suzhou Suncadia",5.0,5.0,3.0,✓,,IL17A
+lancastotug,AK127,TIGIT,Akeso,5.0,1.0,,✓,,TIGIT
+indatuximab ravtansine,"BT-062, BT062, B-B4",Syndecan 1,"Biotest, ImmunoGen",4.0,16.0,7.0,✓,,SDC1
+lucatumumab   ==,"HCD122, CHIR-12.12, 5H7",CD40,"Novartis, Xoma",4.0,74.0,5.0,✓,,CD40
+ozoralizumab   ==,ATN-103,TNF-alpha,"Ablynx, Pfizer, Taisho Pharma",4.0,15.0,8.0,✓,,TNF
+81C6,Neuradiab,Tenascin C,"Bradmer, Duke U.",4.0,2.0,,nan,,TNC
+nadunolimab   ==,"CAN04, nidanilimab",IL-1RAP,Cantargia,4.0,34.0,4.0,✓,,IL1RAP
+FOR46,"YS5FL, YS5",CD46,"Fortis, U.California",4.0,22.0,3.0,nan,,CD46
+renvistobart,"BMS-986207, 22G2",TIGIT,"BMS, Ono",4.0,9.0,1.0,nan,,TIGIT
+pivekimab sunirine,IMGN632,IL-3Rα,"ImmunoGen, Jazz Pharma, Mythic Thera",4.0,23.0,6.0,✓,,IL3RA
+ALLO-647,nan,CD52,Allogene,4.0,,,nan,,CD52
+nezastomig,REGN5678,CD28,Regeneron,4.0,12.0,2.0,✓,,CD28
+nezastomig,REGN5678,PSMA,Regeneron,4.0,12.0,2.0,✓,,FOLH1
+AK119,nan,NT5E,Akeso,4.0,9.0,,nan,,NT5E
+emfizatamab,GNC-038,4-1BB,"Sichuan Baili Pharma, Systimmune",4.0,1.0,,nan,,TNFRSF9
+emfizatamab,GNC-038,CD19,"Sichuan Baili Pharma, Systimmune",4.0,1.0,,nan,,CD19
+emfizatamab,GNC-038,CD3,"Sichuan Baili Pharma, Systimmune",4.0,1.0,,nan,,CD3E
+emfizatamab,GNC-038,PD-L1,"Sichuan Baili Pharma, Systimmune",4.0,1.0,,nan,,CD274
+sabestomig,AZD7789,PD-1,AstraZeneca,4.0,1.0,,nan,,PDCD1
+sabestomig,AZD7789,TIM-3,AstraZeneca,4.0,1.0,,nan,,HAVCR2
+nebratamig,GNC-035,4-1BB,"Sichuan Baili Pharma, Systimmune",4.0,,,nan,,TNFRSF9
+nebratamig,GNC-035,CD3,"Sichuan Baili Pharma, Systimmune",4.0,,,nan,,CD3E
+nebratamig,GNC-035,PD-L1,"Sichuan Baili Pharma, Systimmune",4.0,,,nan,,CD274
+nebratamig,GNC-035,ROR1,"Sichuan Baili Pharma, Systimmune",4.0,,,nan,,ROR1
+cugrastomig,AK129,LAG-3,Akeso,4.0,3.0,,✓,,LAG3
+cugrastomig,AK129,PD-1,Akeso,4.0,3.0,,✓,,PDCD1
+BT02,nan,Undisclosed,Shanghai Biotroy,4.0,,,nan,,nan
+modakafusp alfa,TAK-573,CD38,Takeda,4.0,,1.0,nan,,CD38
+efungumab,Mycograb,HSP90,"NeuTec, Novartis",3.0,8.0,1.0,✓,,HSP90AA1
+intetumumab   >>,CNTO 95,Integrin αV,Centocor Ortho,3.0,23.0,9.0,✓,,ITGAV
+tarextumab   ==,"OMP-59R5, 59M07, 13M57",Notch2,"GSK, OncoMed",3.0,27.0,3.0,✓,,NOTCH2
+tarextumab   ==,"OMP-59R5, 59M07, 13M57",Notch3,"GSK, OncoMed",3.0,27.0,3.0,✓,,NOTCH3
+bexmarilimab,"FP-1305, FP-1302, Clevergen",STAB1,Faron,3.0,9.0,4.0,✓,,STAB1
+BMS-986178   ==,BMS986178,OX40,"BMS, Pfizer",3.0,17.0,4.0,✓,,TNFRSF4
+BI-1206   ==,nan,Fc-gamma-R2B (CD32b),"BioInvent, CASI, U.Southampton",3.0,12.0,1.0,nan,,FCGR2B
+ANX005,ANX007,C1q,Annexon,3.0,28.0,,nan,,C1QA
+NP137,Netris patent anti-Netrin 1,Netrin 1,Netris,3.0,15.0,2.0,nan,,NTN1
+surzebiclimab,BGB-A425,TIM-3,BeiGene,3.0,8.0,,nan,,HAVCR2
+ragifilimab   ==,"INCAGN1876, INCAGN01876, AGEN1876, CM701",GITR,"4-Antibody, Agenus, Incyte, Ludwig Inst., Sloan-Kettering",3.0,26.0,1.0,✓,,TNFRSF18
+Ningbo Cancer Hosp. anti-PD-1 CAR,HerinCAR-PD1,PD-1,Ningbo Cancer Hosp.,3.0,,,nan,,PDCD1
+INCAGN1949   ==,INCAGN01949,OX40,"Agenus, Incyte, Ludwig Inst., Sloan-Kettering",3.0,21.0,,nan,,TNFRSF4
+HMBD-001,10D1F,HER3,"Cancer Research Technology, Hummingbird Bio",3.0,6.0,2.0,nan,,ERBB3
+KD6001,nan,CTLA4,Kanda Bio,3.0,2.0,,nan,,CTLA4
+enristomig,"ES101, INBRX-105",4-1BB,"Elpiscience, Inhibrx",3.0,1.0,,✓,,TNFRSF9
+enristomig,"ES101, INBRX-105",PD-L1,"Elpiscience, Inhibrx",3.0,1.0,,✓,,CD274
+plonmarlimab,"TJ003234, TJM2",GM-CSF,I-Mab Biopharma,3.0,9.0,1.0,✓,,CSF2
+ADG106   >>,nan,4-1BB,Adagene,3.0,22.0,1.0,nan,,TNFRSF9
+PE0116,PEO116,4-1BB,"ChemPartner, Jiangsu Hyamab",3.0,3.0,,nan,,TNFRSF9
+DKTK CC-1   <<,CC-1,CD3,German CRC,3.0,,2.0,nan,,CD3E
+DKTK CC-1   <<,CC-1,PSMA,German CRC,3.0,,2.0,nan,,FOLH1
+SCT510A   ••,nan,VEGF,Sinocelltech,3.0,5.0,2.0,nan,,VEGFA
+IMM0306,nan,CD20,ImmuneOnco,3.0,,,nan,,MS4A1
+IMM0306,nan,CD47,ImmuneOnco,3.0,,,nan,,CD47
+vilamakitug,"Hutukrin, XB2001",IL-1α,XBiotech,3.0,,2.0,nan,,IL1A
+RC118,nan,CLDN18,RemeGen,3.0,,,nan,,CLDN18
+BAT6026,nan,OX40,Bio-Thera Solutions,3.0,6.0,1.0,nan,,TNFRSF4
+S095029,nan,NKG2A,Les Laboratoires Servier,3.0,3.0,,nan,,KLRC1
+BL-M02D1-ADC,nan,TACSTD-2,Systimmune,3.0,2.0,,nan,,TACSTD2
+BC3402,nan,TIM-3,"AstraZeneca, BioCity",3.0,,,nan,,HAVCR2
+KB001,1A8,PcrV,KaloBios,2.0,4.0,2.0,nan,,nan
+KRN330,nan,A33,KHK,2.0,4.0,1.0,nan,,GPA33
+FFP104,"PG102, CH5D12, FFP102",CD40,"Diabetes-Free, Fast Forward Pharma, PanGenetics",2.0,8.0,1.0,nan,,CD40
+samalizumab,"Anti-CD200, ALXN6000",CD200,Alexion,2.0,42.0,5.0,✓,,CD200
+stamulumab,MYO-029,Myostatin,"Pfizer, Wyeth",2.0,41.0,3.0,?,,MSTN
+TB-403   ==,"RG7334, 16D3",PLGF,"BioInvent, Oncurious, Roche, Thrombogenics",2.0,12.0,3.0,nan,,PGF
+TRX518,nan,GITR,"GITR, Leap Thera, Tolerx",2.0,10.0,3.0,nan,,TNFRSF18
+ocaratuzumab,"AME 33, AME-133v, LY2469298",CD20,"AME, Lilly, Mentrik",2.0,3.0,4.0,✓,,MS4A1
+PRO131921,nan,CD20,Genentech,2.0,,1.0,nan,,MS4A1
+REGN846,SAR302352,Undisclosed,"Regeneron, Sanofi",2.0,,,nan,,nan
+BMS-986148,6A4,Mesothelin,BMS,2.0,15.0,2.0,✓,,MSLN
+vandortuzumab vedotin,"RG7450, 89Zr-DFO-MSTP2109A, DSTP3086S",STEAP1,"Genentech, Seattle Genetics",2.0,18.0,4.0,✓,,STEAP1
+TL011   ••,nan,CD20,Teva,2.0,,,nan,,MS4A1
+SFN68,"YYB-101, YYB101",HGF/SF,"Yonsei U., Yooyoung Pharma",2.0,1.0,3.0,nan,,HGF
+AO-176,nan,CD47,"Arch Oncology, BioAtla, Tioma",2.0,38.0,2.0,nan,,CD47
+avizakimab,"9F11, 19E3, MEDI7169, BOS161721",IL-21,"Boston Pharma, Medimmune",2.0,8.0,2.0,✓,,IL21
+JCAR014   ==,nan,CD19,Juno,2.0,,1.0,nan,,CD19
+PersonGen anti-MUC1 CAR,nan,MUC1,PersonGen,2.0,,,nan,,MUC1
+Chinese PLA Gen.Hosp. anti-CD19 CAR,CART-19,CD19,Chinese PLA Gen.Hosp.,2.0,,,nan,,CD19
+"Southwest Hosp., China anti-CD19 CAR","Southwest Hosp., China anti-CD19 CAR",CD19,"Southwest Hosp., China",2.0,,,nan,,CD19
+AFM24,Affimed anti-EGFR / Fc gamma RIIIA,EGFR,Affimed,2.0,2.0,,nan,,EGFR
+AFM24,Affimed anti-EGFR / Fc gamma RIIIA,Fc-gamma-RIIIA,Affimed,2.0,2.0,,nan,,FCGR3A
+COM701,nan,CD112R,Compugen,2.0,49.0,,nan,,PVRIG
+etigilimab,"OMP-313M32, MPH-313",TIGIT,"Celgene, Mereo, OncoMed",2.0,13.0,2.0,✓,,TIGIT
+letolizumab,BMS-986004,CD40L,"BMS, Domantis",2.0,32.0,2.0,✓,,CD40LG
+davutamig,"REGN5093, REGN5093-M114",cMet,Regeneron,2.0,13.0,3.0,nan,,MET
+BMS-986218   <<,nan,CTLA4,BMS,2.0,,,nan,,CTLA4
+A166,Sichuan Kelun Pharma patent anti-Her2,HER2/neu,"Klus Pharma, Sichuan Kelun Pharma",2.0,10.0,2.0,nan,,ERBB2
+nelmastobart,"hSTC810, STT-003",BTN1A1,"STCube, U.Texas",2.0,19.0,,✓,,BTN1A1
+CHO-H01,nan,CD20,Cho Pharma,2.0,,,nan,,MS4A1
+NC318,nan,Siglec-15,"Lilly, NextCure",2.0,4.0,,nan,,SIGLEC15
+Guangzhou Anjie Biomed.Tech. anti-Muc1 CAR,nan,MUC1,Guangzhou Anjie Biomed.Tech.,2.0,,,nan,,MUC1
+BC8-B10   ==,211At-BC8-B10,CD45,FHCRC,2.0,1.0,3.0,nan,,PTPRC
+AGEN2373,nan,4-1BB,"Agenus, Gilead",2.0,6.0,,nan,,TNFRSF9
+EMB01,"EMB-101, EMB-01",cMet,EpimAb,2.0,,1.0,nan,,MET
+EMB01,"EMB-101, EMB-01",EGFR,EpimAb,2.0,,1.0,nan,,EGFR
+LYT-200,nan,Galectin-9,"NYU, Puretech Health",2.0,29.0,,nan,,LGALS9
+LB1410,nan,PD-1,L & L Biopharma,2.0,2.0,,nan,,PDCD1
+LB1410,nan,TIM-3,L & L Biopharma,2.0,2.0,,nan,,HAVCR2
+evalstotug,BA3701,CTLA4,BioAtla,2.0,4.0,1.0,✓,,CTLA4
+YH001,nan,CTLA4,Eucure,2.0,,,nan,,CTLA4
+YK012,nan,CD19,Excyte,2.0,2.0,,nan,,CD19
+YK012,nan,CD3,Excyte,2.0,2.0,,nan,,CD3E
+S095024,Sym024,NT5E,"Les Laboratoires Servier , Symphogen",2.0,4.0,,nan,,NT5E
+omoprubart,CAN106,C5,"CANbridge, WuXi Biologics",2.0,,,✓,,C5
+IBI321,IBI-321,PD-1,Innovent,2.0,1.0,,nan,,PDCD1
+IBI321,IBI-321,TIGIT,Innovent,2.0,1.0,,nan,,TIGIT
+IMM2902,nan,HER2/neu,ImmuneOnco,2.0,,1.0,nan,,ERBB2
+IMM2902,nan,SIRPA,ImmuneOnco,2.0,,1.0,nan,,SIRPA
+GT90001,nan,ALK-1,Kintor,2.0,1.0,1.0,nan,,ACVRL1
+HLX301,nan,PD-L1,Shanghai Henlius,2.0,,,nan,,CD274
+HLX301,nan,TIGIT,Shanghai Henlius,2.0,,,nan,,TIGIT
+BI-1607   ==,nan,Fc-gamma-R2B (CD32b),BioInvent,2.0,2.0,,nan,,FCGR2B
+precemtabart tocentecan,M9140,CEACAM5,Merck Serono,2.0,5.0,2.0,nan,,CEACAM5
+dibotatug,DR-01,NKG2A,Dren,2.0,2.0,,✓,,KLRC1
+ANV419,nan,IL-2RB,Anaveon,2.0,,1.0,nan,,IL2RB
+GENA-104A16,EP0089,CNTN4,"Ellipses, Genome and Co.",2.0,5.0,,nan,,CNTN4
+PE0105,nan,PD-1,Shanghai HyaMab,2.0,,,nan,,PDCD1
+DB-1311,BNT324,B7-H3,"BioNTech, DualityBio",2.0,2.0,,nan,,CD276
+HB0045,nan,NT5E,Huabo Biopharm,2.0,1.0,,nan,,NT5E
+LM-302,TPX-4589,CLDN18,"Lanova, Turning Point",2.0,,,nan,,CLDN18
+YL201,nan,B7-H3,Medilink,2.0,3.0,1.0,nan,,CD276
+velinotamig,GR1803,BCMA,"Cullinan Oncology, Genrix Biopharma",2.0,,,nan,,TNFRSF17
+velinotamig,GR1803,CD3,"Cullinan Oncology, Genrix Biopharma",2.0,,,nan,,CD3E
+brivestobart,GLS-012,LAG-3,Guangzhou Gloria Bio,2.0,,,✓,,LAG3
+BIW-8962,nan,GM2,KHK,1.0,12.0,1.0,?,,nan
+metelimumab,CAT-192,TGF-β1,"CAT, Genzyme",1.0,5.0,3.0,nan,,TGFB1
+TOL101,nan,TCR,Tolera,1.0,9.0,2.0,✓,,nan
+radretumab,"L19 I131 SIP, L19SIP",Fibronectin,"Bayer, Philogen",1.0,6.0,2.0,✓,,FN1
+ASK8007,ASK-8007,osteopontin,Astellas,1.0,4.0,1.0,✓,,SPP1
+glenzocimab,"ACT017, 9O12.2",GPVI,"Acticor, INSERM",1.0,17.0,10.0,✓,,GP6
+SCH708980,nan,IL-10,"Merck (MSD), Schering-Plough",1.0,13.0,,?,,IL10
+Synimmune patent anti-FLT3   ==,nan,FLT3,Synimmune,1.0,3.0,1.0,nan,,FLT3
+IMAB 027,"IMAB027, IMAB027-vcMMAE",CLDN6,"Astellas, Ganymed",1.0,32.0,1.0,nan,,CLDN6
+CRX-014,"CR014-vcMMAE, CDX-014",TIM-1,"Abgenix, Celldex, Curagen, Seattle Genetics",1.0,7.0,2.0,nan,,HAVCR1
+3F8BiAb,nan,CD3,Wayne State U.,1.0,,2.0,nan,,CD3E
+3F8BiAb,nan,GD2,Wayne State U.,1.0,,2.0,nan,,nan
+AGT-182   >>,HIRMab,INSR,ArmaGen,1.0,34.0,2.0,nan,,INSR
+benufutamab   ==,"Hx-DR5-01/05, HexaBody-DR5/DR5, GEN1029",DR5,"Genmab, IDD-Tech",1.0,21.0,2.0,✓,,TNFRSF10B
+nivatrotamab   ==,Hu3F8-BsAb,CD3,"Sloan-Kettering, Y-mAbs",1.0,,2.0,✓,,CD3E
+nivatrotamab   ==,Hu3F8-BsAb,GD2,"Sloan-Kettering, Y-mAbs",1.0,,2.0,✓,,nan
+enapotamab vedotin,HuMax-AXL-ADC,AXL,"Genmab, Seattle Genetics",1.0,28.0,1.0,✓,,AXL
+lilotomab satetraxetan (lutetium (177Lu) )   <<,"Humalutin, lutetium (177Lu) lilotomab satetraxetan, Betalutin, tetulomab, NNV003, 177Lu-NNV003",CD37,Nordic Nanovector,1.0,3.0,7.0,nan,,CD37
+lepunafusp alfa,JR-141,TfR,JCR Pharma,1.0,32.0,2.0,nan,,TFRC
+CHO-A04,nan,SSEA4,"Academia Sinica, Cho Pharma",1.0,21.0,1.0,nan,,ST3GAL2
+COVA322   <<,nan,IL-17,Covagen,1.0,,1.0,nan,,IL17A
+COVA322   <<,nan,TNF-alpha,Covagen,1.0,,1.0,nan,,TNF
+REGN4336,nan,CD3,Regeneron,1.0,12.0,1.0,nan,,CD3E
+REGN4336,nan,PSMA,Regeneron,1.0,12.0,1.0,nan,,FOLH1
+LMG324,nan,VEGF,Novartis,1.0,,,nan,,VEGFA
+BMS-986156,nan,GITR,BMS,1.0,27.0,2.0,nan,,TNFRSF18
+Sym015,"Hu9006, Hu9338",cMet,Symphogen,1.0,4.0,2.0,nan,,MET
+garivulimab,BGB-A333,PD-L1,BeiGene,1.0,7.0,,✓,,CD274
+Vrije Universiteit Brussel patent anti-Her2,131 I-GMIB-Anti-HER2-VHH1,HER2/neu,Vrije Universiteit Brussel,1.0,9.0,8.0,nan,,ERBB2
+MAR001,Novartis patent anti-ANGPTL4,ANGPTL4,"Marea, Novartis",1.0,11.0,1.0,nan,,ANGPTL4
+Uppsala U. anti-CD19 CAR,nan,CD19,Uppsala U.,1.0,,1.0,nan,,CD19
+Chinese PLA Gen.Hosp. anti-CD138 CAR,nan,Syndecan 1,Chinese PLA Gen.Hosp.,1.0,,,nan,,SDC1
+Chinese PLA Gen.Hosp. anti-EGFR CAR,nan,EGFR,Chinese PLA Gen.Hosp.,1.0,,,nan,,EGFR
+Chinese PLA Gen.Hosp. anti-CD30 CAR,CART30,CD30,Chinese PLA Gen.Hosp.,1.0,,,nan,,TNFRSF8
+Chinese PLA Gen.Hosp. anti-CD33 CAR,CART33,CD33,Chinese PLA Gen.Hosp.,1.0,,1.0,nan,,CD33
+Chinese PLA Gen.Hosp. anti-Her2 CAR,CART-HER-2,HER2/neu,Chinese PLA Gen.Hosp.,1.0,,,nan,,ERBB2
+Chinese PLA Gen.Hosp. anti-Mesothelin CAR,CART-meso,Mesothelin,Chinese PLA Gen.Hosp.,1.0,,,nan,,MSLN
+Second Mil.Med.U. China anti-CD19 CAR,nCAR19-T,CD19,Second Military Med Univ,1.0,,,nan,,CD19
+Beijing Cancer Hosp. anti-CD19 CAR 4th Gen.,nan,CD19,Beijing Cancer Hosp.,1.0,,,nan,,CD19
+BMS-986179,nan,NT5E,BMS,1.0,15.0,,nan,,NT5E
+Sinobioway Cell Therapy anti-EpCAM CAR,nan,EpCAM,Sinobioway Cell Therapy,1.0,,,nan,,EPCAM
+iCarTAB anti-CD19 CAR,nan,CD19,"iCarTAB, Xuzhou Med.Coll.",1.0,,2.0,nan,,CD19
+iCarTAB anti-CD22 CAR,nan,CD22,"iCarTAB, Xuzhou Med.Coll.",1.0,,,nan,,CD22
+PF582   ••,nan,VEGF-A,"Hospira, Pfenex, Pfizer",1.0,,,nan,,VEGFA
+PCAR-019   ==,nan,CD19,PersonGen,1.0,,1.0,nan,,CD19
+Sym013,Pan-Her,EGFR,Symphogen,1.0,8.0,4.0,nan,,EGFR
+Sym013,Pan-Her,HER2/neu,Symphogen,1.0,8.0,4.0,nan,,ERBB2
+Sym013,Pan-Her,HER3,Symphogen,1.0,8.0,4.0,nan,,ERBB3
+CX-2029,nan,TfR,CytomX,1.0,5.0,3.0,nan,,TFRC
+APV-527,"ATOR-1016, ALG.APV-527",4-1BB,"Alligator, Aptevo",1.0,9.0,1.0,nan,,TNFRSF9
+APV-527,"ATOR-1016, ALG.APV-527",TPBG,"Alligator, Aptevo",1.0,9.0,1.0,nan,,TPBG
+pamlectabart tismanitin,"HDP-101, J22.9-IST",BCMA,Heidelberg Pharma,1.0,1.0,1.0,✓,,TNFRSF17
+RO7122290,FAP-4-1BBL,4-1BB,Roche,1.0,17.0,3.0,nan,,TNFRSF9
+RO7122290,FAP-4-1BBL,FAP,Roche,1.0,17.0,3.0,nan,,FAP
+CCW702,Calibr patent anti-PSMA / CD3,CD3,"Calibr, Scripps",1.0,1.0,1.0,nan,,CD3E
+CCW702,Calibr patent anti-PSMA / CD3,PSMA,"Calibr, Scripps",1.0,1.0,1.0,nan,,FOLH1
+ADCE-D01,nan,MRC2,"Adcendo, Copenhagen Rigshospitalet, U.Copenhagen",1.0,11.0,1.0,nan,,MRC2
+ibentatug,ZB131,Plectin,"iTi Health, ZielBio",1.0,9.0,,✓,,PLEC
+W0101,nan,Undisclosed,Pierre Fabre,1.0,,,nan,,nan
+sovipostobart   <<,BMS-986249,CTLA4,BMS,1.0,,,nan,,CTLA4
+opelkibart elmanitin,"CD117-ADC, MGTA-C100, MGTA-117",c-Kit,"Dianthus, Heidelberg Pharma, Magenta Thera",1.0,26.0,1.0,✓,,KIT
+GEN1042,BNT312,4-1BB,"BioNTech, Genmab",1.0,19.0,1.0,nan,,TNFRSF9
+GEN1042,BNT312,CD40,"BioNTech, Genmab",1.0,19.0,1.0,nan,,CD40
+acrixolimab,YBL-006,PD-1,Y-Biologics,1.0,4.0,,✓,,PDCD1
+alomfilimab   >>,"KY1044, SAR445256",ICOS,"Kymab, Sanofi",1.0,14.0,1.0,✓,,ICOS
+HPN536,nan,CD3e,Harpoon,1.0,3.0,,nan,,CD3E
+HPN536,nan,Mesothelin,Harpoon,1.0,3.0,,nan,,MSLN
+HPN536,nan,Serum Albumin,Harpoon,1.0,3.0,,nan,,ALB
+ADCT-602,nan,CD22,ADC Therapeutics,1.0,2.0,1.0,nan,,CD22
+NS101,nan,FAM19A5,Neuracle Science,1.0,46.0,,nan,,FAM19A5
+RM-1929   <<,nan,EGFR,Aspyrian,1.0,,1.0,nan,,EGFR
+EU101   >>,1801-11-01 00:00:00,4-1BB,"Eutilex, Samsung",1.0,9.0,,nan,,TNFRSF9
+TY101,nan,PD-1,Tayu Huaxia,1.0,10.0,,nan,,PDCD1
+TQB2303   ••,nan,CD20,Chia Tai Tianqing Pharma,1.0,,,nan,,MS4A1
+GEN3009,DuoHexaBody-CD37,CD37,"Abbvie, Genmab",1.0,17.0,2.0,nan,,CD37
+IMC-C103C,nan,CD3,"Genentech, Immunocore",1.0,5.0,,nan,,CD3E
+IMC-C103C,nan,MAGE-A4,"Genentech, Immunocore",1.0,5.0,,nan,,MAGEA4
+HPN217,nan,BCMA,"Abbvie, Harpoon",1.0,8.0,,nan,,TNFRSF17
+HPN217,nan,CD3,"Abbvie, Harpoon",1.0,8.0,,nan,,CD3E
+HPN217,nan,Serum Albumin,"Abbvie, Harpoon",1.0,8.0,,nan,,ALB
+cemacabtagene ansegedleucel,"ALLO-501A, ALLO-501",CD19,Allogene,1.0,,1.0,nan,,CD19
+CT053   <<,nan,BCMA,Carsgen,1.0,,,nan,,TNFRSF17
+AT101,nan,CD19,Abclon,1.0,8.0,1.0,nan,,CD19
+NC762,LNCB74,B7-H4,NextCure,1.0,4.0,,nan,,VTCN1
+OBI-999   <<,nan,Globo H,Obi Pharma,1.0,,,nan,,B3GALT5
+GEN1044,DuoBody®-CD3x5T4,CD3,Genmab,1.0,11.0,1.0,nan,,CD3E
+GEN1044,DuoBody®-CD3x5T4,TPBG,Genmab,1.0,11.0,1.0,nan,,TPBG
+ALMB-0168,nan,Connexin Cx43,Alamab Therapeutics Inc.,1.0,19.0,,nan,,GJA1
+fanastomig,EMB-02,LAG-3,EpimAb,1.0,3.0,2.0,✓,,LAG3
+fanastomig,EMB-02,PD-1,EpimAb,1.0,3.0,2.0,✓,,PDCD1
+AK101,nan,IL-12,Akeso,1.0,2.0,,nan,,IL12A
+AK101,nan,IL-23p40,Akeso,1.0,2.0,,nan,,IL12B
+DS-3939a,nan,MUC1,Daiichi Sankyo,1.0,7.0,1.0,nan,,MUC1
+HPN328,nan,CD3e,Harpoon,1.0,2.0,,nan,,CD3E
+HPN328,nan,DLL3,Harpoon,1.0,2.0,,nan,,DLL3
+HPN328,nan,Serum Albumin,Harpoon,1.0,2.0,,nan,,ALB
+YH003,YH 003,CD40,Eucure,1.0,7.0,,nan,,CD40
+ASKB589,nan,CLDN18,"AskGene, Jiangsu Aosaikang Pharma",1.0,5.0,,nan,,CLDN18
+BT-001,TG6030,CTLA4,"BioInvent, Transgene",1.0,6.0,,nan,,CTLA4
+HY-0102,nan,NKG2A,Shanghai HyaMab,1.0,2.0,,nan,,KLRC1
+XKH001,nan,IL-25,Suzhou Kanova Biopharma,1.0,3.0,1.0,nan,,IL25
+REGN7257,nan,IL-2RG,Regeneron,1.0,4.0,,nan,,IL2RG
+ALLO-605,nan,BCMA,"Allogene, Pfizer",1.0,3.0,,nan,,TNFRSF17
+BPX-601,PSCA GoCAR-T,PSCA,Bellicum,1.0,1.0,,nan,,PSCA
+NM21-1480,CS2006,4-1BB,"CStone Pharma, Numab",1.0,,,nan,,TNFRSF9
+NM21-1480,CS2006,PD-L1,"CStone Pharma, Numab",1.0,,,nan,,CD274
+NM21-1480,CS2006,Serum Albumin,"CStone Pharma, Numab",1.0,,,nan,,ALB
+NBE-002,nan,ROR1,NBE-Therapeutics,1.0,2.0,,nan,,ROR1
+REGN5668,nan,CA125,Regeneron,1.0,5.0,,nan,,MUC16
+REGN5668,nan,CD28,Regeneron,1.0,5.0,,nan,,CD28
+REGN7075,nan,CD28,Regeneron,1.0,6.0,,nan,,CD28
+REGN7075,nan,EGFR,Regeneron,1.0,6.0,,nan,,EGFR
+OSE-279   ==,nan,PD-1,OSE Immunotherapeutics,1.0,12.0,,nan,,PDCD1
+vilastobart,XTX101,CTLA4,Xilio,1.0,8.0,1.0,✓,,CTLA4
+XMT-1592   ==,nan,NaPi2b,Mersana,1.0,1.0,,nan,,SLC34A2
+VB119,nan,CD19,"Cancer Res UK, ValenzaBio",1.0,,,nan,,CD19
+JAB-BX102,nan,NT5E,Jacobio,1.0,4.0,,nan,,NT5E
+mavrostobart,PT199,NT5E,Phanes Thera,1.0,3.0,,nan,,NT5E
+BND-22,nan,LILRB1,"Biond, Sanofi",1.0,9.0,,nan,,LILRB1
+YH32367,nan,4-1BB,"ABL Bio, Yuhan",1.0,8.0,,nan,,TNFRSF9
+YH32367,nan,HER2/neu,"ABL Bio, Yuhan",1.0,8.0,,nan,,ERBB2
+YH32364,nan,4-1BB,"ABL Bio, Yuhan",1.0,4.0,,nan,,TNFRSF9
+YH32364,nan,EGFR,"ABL Bio, Yuhan",1.0,4.0,,nan,,EGFR
+zovostotug,OR2805,CD163,OncoResponse,1.0,16.0,,nan,,CD163
+cizutamig,"EMB-06, CND106",BCMA,"Candid Thera, EpimAb",1.0,2.0,1.0,✓,,TNFRSF17
+cizutamig,"EMB-06, CND106",CD3,"Candid Thera, EpimAb",1.0,2.0,1.0,✓,,CD3E
+DS-1594b,nan,Undisclosed,Daiichi Sankyo,1.0,,,nan,,nan
+BI-1808   ==,nan,TNFR2,BioInvent,1.0,,,nan,,TNFRSF1B
+NVG-111,nan,CD3,NovalGen,1.0,,,nan,,CD3E
+NVG-111,nan,ROR1,NovalGen,1.0,,,nan,,ROR1
+BAT5906,nan,VEGF,Bio-Thera Solutions,1.0,1.0,,nan,,VEGFA
+erzotabart   ==,GEN3014,CD38,Genmab,1.0,,,nan,,CD38
+LAVA-051,nan,CD1d,Lava Thera,1.0,4.0,,nan,,CD1D
+LAVA-051,nan,TCRGD2,Lava Thera,1.0,4.0,,nan,,TRGC2
+NGM707,nan,LILRB2,NGM Biopharma,1.0,10.0,,nan,,LILRB2
+NGM707,nan,LILRB4,NGM Biopharma,1.0,10.0,,nan,,LILRB4
+SOT102,nan,CLDN18,Sotio,1.0,8.0,,nan,,CLDN18
+PBI-410,GQ1010,TACSTD-2,"GeneQuantum, Pyramid",1.0,3.0,,nan,,TACSTD2
+SBT6290,nan,Nectin-4,Silverback,1.0,3.0,,nan,,NECTIN4
+GEN1047,nan,B7-H4,Genmab,1.0,7.0,,nan,,VTCN1
+GEN1047,nan,CD3,Genmab,1.0,7.0,,nan,,CD3E
+VY7523,nan,Tau,Voyager,1.0,13.0,,nan,,MAPT
+BDC-3042,nan,CLEC6A,Bolt Bio,1.0,5.0,,nan,,CLEC6A
+ESG401,nan,TACSTD-2,"Levena, Shanghai Escugen",1.0,2.0,1.0,nan,,TACSTD2
+GTB-3550,nan,CD160,GT Biopharma,1.0,,1.0,nan,,CD160
+GTB-3550,nan,CD3,GT Biopharma,1.0,,1.0,nan,,CD3E
+BIO-106   ==,nan,TACSTD-2,BiOneCure,1.0,4.0,,nan,,TACSTD2
+BI-1910   ==,nan,TNFR2,BioInvent,1.0,2.0,,nan,,TNFRSF1B
+PRS-344,S095012,4-1BB,Pieris,1.0,,,nan,,TNFRSF9
+PRS-344,S095012,PD-L1,Pieris,1.0,,,nan,,CD274
+LBL-019,nan,TNFR2,Nanjing Leads Bio,1.0,3.0,,nan,,TNFRSF1B
+BB-1705,nan,Undisclosed,Bliss Bio,1.0,,,nan,,nan
+TAK-280,MVC-280,Undisclosed,Takeda,1.0,,,nan,,nan
+AU-007,nan,IL-2,Aulos,1.0,11.0,,nan,,IL2
+REGN7945,nan,CD28,Regeneron,1.0,4.0,,nan,,CD28
+REGN7945,nan,CD38,Regeneron,1.0,4.0,,nan,,CD38
+ISB 1442,nan,CD38,Glenmark / Ichnos,1.0,6.0,2.0,nan,,CD38
+ISB 1442,nan,CD47,Glenmark / Ichnos,1.0,6.0,2.0,nan,,CD47
+GB263T,nan,cMet,Genor,1.0,,,nan,,MET
+GB263T,nan,EGFR,Genor,1.0,,,nan,,EGFR
+CMG1A46,nan,CD19,Chimagen,1.0,,,nan,,CD19
+CMG1A46,nan,CD20,Chimagen,1.0,,,nan,,MS4A1
+CMG1A46,nan,CD3,Chimagen,1.0,,,nan,,CD3E
+AZD8853,nan,MIC-1,AstraZeneca,1.0,,1.0,nan,,GDF15
+TAC-001,nan,CD22,Tallac,1.0,3.0,,nan,,CD22
+MBS303,MSC303,CD20,Beijing Mabworks,1.0,4.0,,nan,,MS4A1
+MBS303,MSC303,CD3,Beijing Mabworks,1.0,4.0,,nan,,CD3E
+IBI-129,nan,B7-H3,Innovent,1.0,3.0,,nan,,CD276
+IBI-3003,nan,BCMA,Innovent,1.0,3.0,,nan,,TNFRSF17
+IBI-3003,nan,CD3,Innovent,1.0,3.0,,nan,,CD3E
+IBI-3003,nan,GPRC5D,Innovent,1.0,3.0,,nan,,GPRC5D
+BT8009,nan,Nectin-4,Bicycle Thera,1.0,,2.0,nan,,NECTIN4
+BT5228,nan,EphA2,Bicycle Thera,1.0,,,nan,,EPHA2
+rezorstobart,IMT-009,KLRB1,Immunitas,1.0,8.0,,nan,,KLRB1
+rinatabart sesutecan,"Rina-S, PRO1184, GEN1184",FRA,"Genmab, ProfoundBio",1.0,3.0,,nan,,FOSL1
+JK08,nan,CTLA4,Salubris,1.0,,,nan,,CTLA4
+IBI-354,IBI354,HER2/neu,Innovent,1.0,,,nan,,ERBB2
+UCB4594,nan,HLA-G,UCB,1.0,2.0,,nan,,HLA-G
+GEN1053,"BNT313, HexaBody-CD27",CD27,"BioNTech, Genmab",1.0,4.0,1.0,nan,,CD27
+solnerstotug,SNS-101,B7-H5,Sensei,1.0,3.0,,✓,,VSIR
+AZD5335,nan,FRA,AstraZeneca,1.0,5.0,,nan,,FOSL1
+vedicitumomab,RC48,HER2/neu,nan,1.0,,1.0,nan,,ERBB2
+LCB84,Hu2G10,TACSTD-2,LegoChem,1.0,1.0,,nan,,TACSTD2
+SAR445514,IPH6401,BCMA,"Innate, Sanofi",1.0,3.0,,nan,,TNFRSF17
+SAR445514,IPH6401,Fc-gamma-RIIIA,"Innate, Sanofi",1.0,3.0,,nan,,FCGR3A
+SAR445514,IPH6401,NKp46,"Innate, Sanofi",1.0,3.0,,nan,,NCR1
+AZD5863   ==,nan,CD3,AstraZeneca,1.0,,,nan,,CD3E
+AZD5863   ==,nan,CLDN18,AstraZeneca,1.0,,,nan,,CLDN18
+BNT314,GEN1059,4-1BB,"BioNTech, Genmab",1.0,2.0,,nan,,TNFRSF9
+BNT314,GEN1059,EpCAM,"BioNTech, Genmab",1.0,2.0,,nan,,EPCAM
+OR502,nan,LILRB2,OncoResponse,1.0,4.0,,nan,,LILRB2
+S095018,nan,TIM-3,Les Laboratoires Servier,1.0,1.0,,nan,,HAVCR2
+IBI-334,"IBI334, IBI3001",B7-H3,Innovent,1.0,2.0,,nan,,CD276
+IBI-334,"IBI334, IBI3001",EGFR,Innovent,1.0,2.0,,nan,,EGFR
+HMB-001,nan,Factor VIIa,Hemab,1.0,,,nan,,F7
+HMB-001,nan,TREML1,Hemab,1.0,,,nan,,TREML1
+budoprutug,"SLRN-517, NN2802",c-Kit,"Acelyrin, Novelty Nobility",1.0,2.0,,✓,,KIT
+MBS314,nan,BCMA,"Beijing Mabworks, KYinno",1.0,1.0,,nan,,TNFRSF17
+MBS314,nan,CD3,"Beijing Mabworks, KYinno",1.0,1.0,,nan,,CD3E
+MBS314,nan,GPRC5D,"Beijing Mabworks, KYinno",1.0,1.0,,nan,,GPRC5D
+MHB309A,nan,Undisclosed,Minghui,1.0,,,nan,,nan
+MRG006A,nan,Glypican 3,Shanghai Miracogen,1.0,1.0,,nan,,GPC3
+CABA-201,nan,CD19,Cabaletta,1.0,,,nan,,CD19
+MHB306C,nan,TACSTD-2,Minghui,1.0,,,nan,,TACSTD2
+QLF31907,nan,4-1BB,Qilu Pharma,1.0,,,nan,,TNFRSF9
+QLF31907,nan,PD-L1,Qilu Pharma,1.0,,,nan,,CD274
+IBI-130,nan,TACSTD-2,Innovent,1.0,,,nan,,TACSTD2
+OBI-992   ==,nan,TACSTD-2,Obi Pharma,1.0,1.0,3.0,nan,,TACSTD2
+BDC-4182,nan,CLDN18,Bolt Bio,1.0,2.0,,nan,,CLDN18
+DB-1419,nan,B7-H3,DualityBio,1.0,1.0,1.0,nan,,CD276
+DB-1419,nan,PD-L1,DualityBio,1.0,1.0,1.0,nan,,CD274
+HB0036,nan,PD-L1,Huabo Biopharm,1.0,,,nan,,CD274
+HB0036,nan,TIGIT,Huabo Biopharm,1.0,,,nan,,TIGIT
+AI-081,nan,PD-1,OncoC4,1.0,,,nan,,PDCD1
+AI-081,nan,VEGF,OncoC4,1.0,,,nan,,VEGFA
+JK06,nan,TPBG,Salubris,1.0,1.0,,nan,,TPBG
+AMT-116,nan,CD44,Multitude,1.0,1.0,,nan,,CD44
+AZD9793,nan,CD8,AstraZeneca,1.0,,,nan,,CD8A
+AZD9793,nan,Glypican 3,AstraZeneca,1.0,,,nan,,GPC3
+AZD9793,nan,TCR,AstraZeneca,1.0,,,nan,,nan
+IMC-R117C,nan,CD3,Immunocore,1.0,,,nan,,CD3E
+IMC-R117C,nan,PIWIL1,Immunocore,1.0,,,nan,,PIWIL1
+AZD4360   ==,nan,CD3,AstraZeneca,1.0,,,nan,,CD3E
+AZD4360   ==,nan,CLDN18,AstraZeneca,1.0,,,nan,,CLDN18
+KY-0301,nan,cMet,Novatim,1.0,1.0,,nan,,MET
+KY-0301,nan,EGFR,Novatim,1.0,1.0,,nan,,EGFR
+ENV-501,nan,HER3,Endeavor,1.0,,,nan,,ERBB3
+HB0052,nan,NT5E,Huabo Biopharm,1.0,1.0,,nan,,NT5E
+SSS40,nan,NGF,Shenyang Sunshine Pharma,1.0,,,nan,,NGF
+TQB2922,nan,cMet,Chia Tai Tianqing Pharma,1.0,,,nan,,MET
+TQB2922,nan,EGFR,Chia Tai Tianqing Pharma,1.0,,,nan,,EGFR
+SOA101,nan,CD3,Shine-On Bio,1.0,,,nan,,CD3E
+SOA101,nan,HLA-G,Shine-On Bio,1.0,,,nan,,HLA-G
+SOA101,nan,PD-L1,Shine-On Bio,1.0,,,nan,,CD274
+AZD6750,nan,CD8,AstraZeneca,1.0,1.0,,nan,,CD8A
+A5B7,nan,CEACAM5,"AstraZeneca, CRC",,1.0,11.0,nan,,CEACAM5
+Type,Any Antibody Antibody drug conjugate Fab fragment Vhh Scfv Nanobody Domain antibody Smip Darpin Bispecific antibody Trispecific antibody Pegylated antibody Radiolabeled antibody Polyclonal antibodies Other Chimeric antigen receptor,Phase,Any Preclinical Phase 1 Phase 1/2 Phase 2 Phase 2a Phase 2/3 Phase 3 Phase 4 Approved,,,,nan,,nan
+Advanced Search,nan,nan,nan,,,,nan,,nan
+cixutumumab,"IMC-A12, NSC742460",IGF-1R,ImClone,43.0,11.0,43.0,✓,,IGF1R
+dalotuzumab,"MK-0646, MK0646, h7C10",IGF-1R,Merck (MSD),22.0,17.0,11.0,✓,,IGF1R
+lintuzumab   >>,"Zamyl, SGN-33, HuM195, Actimab-A, Lintuzumab-Ac-225",CD33,"Actinium, Seattle Genetics",21.0,34.0,23.0,nan,,CD33
+siplizumab   <<,"MEDI-507, TCD601",CD2,"BioTransplant, ITB-Med, Medimmune",20.0,2.0,11.0,✓,,CD2
+lirilumab,"IPH 2101, IPH2101, 1-7F9, IPH 2102, IPH2102, BMS-986015",KIR,"BMS, Innate, Novo Nordisk",19.0,48.0,13.0,✓,,nan
+oleclumab,MEDI9447,NT5E,Medimmune,19.0,19.0,10.0,✓,,NT5E
+teclistamab-cqyv,"TECVAYLI, teclistamab, JNJ-63483043, JNJ-64007957, JNJ-7957",BCMA,Janssen Biotech,18.0,25.0,54.0,✓,,TNFRSF17
+teclistamab-cqyv,"TECVAYLI, teclistamab, JNJ-63483043, JNJ-64007957, JNJ-7957",CD3,Janssen Biotech,18.0,25.0,54.0,✓,,CD3E
+urelumab,BMS-663513,4-1BB,BMS,17.0,24.0,15.0,✓,,TNFRSF9
+elranatamab-bcmm   ==,"Elrexfio, elranatamab, PF-06863135, RN613",BCMA,Pfizer,17.0,20.0,17.0,✓,,TNFRSF17
+elranatamab-bcmm   ==,"Elrexfio, elranatamab, PF-06863135, RN613",CD3,Pfizer,17.0,20.0,17.0,✓,,CD3E
+anetumab ravtansine   ==,"BAY 94-9343, BAY94-9343, MF-T-SPDB-DM4",Mesothelin,"Bayer, ImmunoGen, Morphosys",16.0,16.0,12.0,✓,,MSLN
+sasanlimab,"PF-06801591, RN-888",PD-1,Pfizer,16.0,2.0,6.0,✓,,PDCD1
+pidilizumab,"CT-011, hBat-1, MDV9300",PD-1,"CureTech, Medivation, Teva",15.0,15.0,8.0,✓,,PDCD1
+dectrekumab   ==,"QAX576, QBX258",IL-13,Novartis,15.0,9.0,2.0,✓,,IL13
+atibuclimab,IC14,CD14,"Icos, Implicit, Lilly, Line 6 Bio",14.0,11.0,2.0,✓,,CD14
+seribantumab,"MM-121, SAR256212",HER3,"Merrimack, Sanofi",14.0,34.0,16.0,✓,,ERBB3
+pimurutamab   ==,HLX07,EGFR,Henlix,13.0,5.0,2.0,✓,,EGFR
+tizetatug rezetecan,SHR-A1921,TACSTD-2,"Jiangsu Hengrui, Shanghai Hengrui",13.0,5.0,,✓,,TACSTD2
+olokizumab,CDP6038,IL-6,"R-Pharm, UCB",12.0,12.0,8.0,✓,,IL6
+oregovomab,"OvaRex, MAb-B43.13",CA125,"Paladin, Quest, ViRexx",12.0,12.0,14.0,nan,,MUC16
+tigatuzumab,"CS-1008, TRA-8, DS-8273",DR5,"Daiichi Sankyo, Seattle Genetics, UAB Research",12.0,27.0,21.0,✓,,TNFRSF10B
+nipocalimab,M281,FcRn,Momenta,12.0,21.0,12.0,✓,,FCGRT
+fresolimumab   >>,GC1008,TGF-β,"CAT, Genzyme",11.0,19.0,14.0,✓,,TGFB1
+glembatumumab vedotin,"glembatumumab, CR011, CR011-vcMMAE, CDX-011",GPNMB,"Amgen, Celldex, Curagen, Seattle Genetics",11.0,14.0,15.0,✓,,GPNMB
+mavrilimumab,"CAM-3001, KPL-301",GM-CSF2RA,"CAT, CSL, Kiniksa, Medimmune",11.0,22.0,17.0,✓,,CSF2RA
+simtuzumab,"AB0023, AB0024, GS-6624",LOXL2,Gilead,11.0,15.0,8.0,✓,,LOXL2
+cabiralizumab,"FPA008, BMS-986227",CSF-1R,"BMS, Five Prime",11.0,57.0,1.0,✓,,CSF1R
+bintrafusp alfa   <<,"M7824, MSB0011359C",PD-L1,"Merck Serono, NCI",11.0,9.0,7.0,✓,,CD274
+bintrafusp alfa   <<,"M7824, MSB0011359C",TGFβRII,"Merck Serono, NCI",11.0,9.0,7.0,✓,,TGFBR2
+erfonrilimab,KN046,CTLA4,Alphamab,11.0,7.0,7.0,✓,,CTLA4
+erfonrilimab,KN046,PD-L1,Alphamab,11.0,7.0,7.0,✓,,CD274
+ezabenlimab,"BI754091, BI 754091",PD-1,Boehringer,11.0,9.0,4.0,✓,,PDCD1
+vibostolimab,"MK-7684, MK-7684A",TIGIT,Merck (MSD),11.0,28.0,4.0,✓,,TIGIT
+botensilimab   ==,AGEN1181,CTLA4,Agenus,11.0,,4.0,nan,,CTLA4
+volociximab,M200,Integrin α5β1,"Biogen, Facet, Icos, PDL",10.0,15.0,6.0,✓,,ITGA5
+etaracizumab,"Abegrin, MEDI-522, hLM609, Vitaxin, LM609",Integrin αVβ3,"AME, Medimmune",10.0,9.0,11.0,✓,,nan
+foralumab,"NI-0401, 28F11-AE, TZLS-401",CD3e,"Amgen, Medarex, NovImmune, Tiziana",10.0,40.0,6.0,✓,,CD3E
+RG1507,R1507,IGF-1R,"Genmab, Roche",10.0,,12.0,nan,,IGF1R
+ficlatuzumab,"SCH 900105, AV-299",HGF/SF,"AVEO, Merck (MSD), Schering-Plough, Xoma",10.0,6.0,8.0,✓,,HGF
+veltuzumab   >>   ==,"hA20, IMMU-106",CD20,"Immunomedics, Nycomed, Takeda",10.0,36.0,9.0,✓,,MS4A1
+sotigalimab,"APX005, R-8, APX005M, EPI-0050",CD40,Apexigen,10.0,25.0,8.0,✓,,CD40
+SCT200,SCT-200,EGFR,Sinocelltech,10.0,4.0,5.0,nan,,EGFR
+iscalimab   ==,"CFZ-533, CFZ533",CD40,Novartis,10.0,15.0,8.0,✓,,CD40
+danvilostomig,SI-B003,CTLA4,"Sichuan Baili Pharma, Systimmune",10.0,1.0,,✓,,CTLA4
+danvilostomig,SI-B003,PD-1,"Sichuan Baili Pharma, Systimmune",10.0,1.0,,✓,,PDCD1
+semzuvolimab,UB-421,CD4,UBI,10.0,2.0,3.0,nan,,CD4
+alcestobart,LBL-007,LAG-3,Nanjing Leads Bio,10.0,3.0,2.0,✓,,LAG3
+dacetuzumab   >>,"SGN-40, huS2C6, anti-huCD40, SGN-14, PRO64553",CD40,"Genentech, Seattle Genetics",9.0,13.0,15.0,✓,,CD40
+aletekitug,"GSK1070806, GSK 1070806, A18110040, 2C10",IL-18,GSK,9.0,15.0,1.0,✓,,IL18
+pepinemab,"VX15, VX15/2503, MAb 2503",SEMA4D,Vaccinex,9.0,43.0,10.0,✓,,SEMA4D
+anvatabart opadotin,ARX788,HER2/neu,"Ambrx, NovoCodex, Zhejiang Medicine",9.0,2.0,9.0,✓,,ERBB2
+zalifrelimab   ==,AGEN1884,CTLA4,"Agenus, Ludwig Inst., Sloan-Kettering",9.0,24.0,3.0,✓,,CTLA4
+CDX-1140,nan,CD40,Celldex,9.0,11.0,1.0,nan,,CD40
+volrustomig,MEDI5752,CTLA4,Medimmune,9.0,4.0,2.0,nan,,CTLA4
+volrustomig,MEDI5752,PD-1,Medimmune,9.0,4.0,2.0,nan,,PDCD1
+HLX43,nan,PD-L1,Shanghai Henlius,9.0,6.0,,nan,,CD274
+tegoprubart,AT-1501,CD40L,"Anelixis, Eledon",9.0,1.0,1.0,nan,,CD40LG
+TQB2618,nan,TIM-3,Chia Tai Tianqing Pharma,9.0,8.0,,nan,,HAVCR2
+namilumab,"AMG203, MT203, 22E9",GM-CSF,"Micromet, Nycomed, Takeda, U.Melbourne",8.0,35.0,9.0,✓,,CSF2
+sifalimumab,"MEDI-545, CP145, MDX-1103, 13H5",IFNA1,Medimmune,8.0,13.0,12.0,✓,,IFNA1
+vilobelimab,"IFX-1, CaCP29, INab308",C5,InflaRx,8.0,13.0,7.0,✓,,C5
+tesnatilimab,"JNJ-64304500, NNC0142-0002, NNC 0142-0000-0002, NN8555, NNC142",NKG2D,Novo Nordisk,8.0,12.0,3.0,✓,,KLRK1
+CDX-1401,nan,DEC-205,Celldex,8.0,8.0,,?,,LY75
+tesidolumab,LFG316,C5,Novartis,8.0,15.0,4.0,✓,,C5
+ALTB-168   >>,"AbGn-168H, Neihulizumab",PSGL-1,"AltruBio, Bioalliance, Boehringer",8.0,30.0,,✓,,SELPLG
+quetmolimab,"E6011, KANAb001",CX3CL1,"Eisai, KAN Res.Inst.",8.0,8.0,8.0,✓,,CX3CL1
+geptanolimab,"CBT-501, GB226, GB 226, Genolimzumab, Genormab",PD-1,"CBT Pharma, Genor",8.0,1.0,3.0,✓,,PDCD1
+Benhealth Biopharma anti-CD3 / MUC1,nan,CD3,Benhealth Biopharma,8.0,,,nan,,CD3E
+Benhealth Biopharma anti-CD3 / MUC1,nan,MUC1,Benhealth Biopharma,8.0,,,nan,,MUC1
+quavonlimab,MK-1308,CTLA4,Merck (MSD),8.0,17.0,2.0,✓,,CTLA4
+amatuximab,MORAb-009,Mesothelin,Morphotek,7.0,15.0,9.0,✓,,MSLN
+ordesekimab,"HuMax-IL15, AMG 714, 146B7, PRV-015",IL-15,"Amgen, Genmab, Provention Bio",7.0,9.0,4.0,✓,,IL15
+enokizumab,"MEDI-528, 7F3com-2H2",IL-9,"AstraZeneca, Medimmune",7.0,9.0,5.0,✓,,IL9
+lorvotuzumab mertansine,"IMGN901, huN901-DM1, BB-10901",NCAM,ImmunoGen,7.0,6.0,6.0,✓,,NCAM1
+mapatumumab,"HGS-ETR1, TRM-1",TRAIL-R1,HGS,7.0,13.0,23.0,?,,TNFRSF10A
+ponezumab,"PF-04360365, RN-1219, RN1219, 9TL, Ab2",Amyloid beta,"Pfizer, Rinat",7.0,19.0,6.0,✓,,APP
+plozalizumab,"MLN1202, 1D9",CCR2,"Millennium, Takeda",7.0,25.0,2.0,✓,,CCR2
+xentuzumab,BI 836845,IGF-1,Boehringer,7.0,17.0,10.0,✓,,IGF1
+xentuzumab,BI 836845,IGF-2,Boehringer,7.0,17.0,10.0,✓,,IGF2
+demcizumab   >>,OMP-21M18,DLL4,OncoMed,7.0,21.0,4.0,✓,,DLL4
+Wyeth patent anti-Lewis Y,"hu3S193, Rebmab 100",Lewis Y,"Ludwig Inst., Recepta, Wyeth",7.0,7.0,10.0,nan,,FUT1
+omburtamab,"8H9, Burtomab",B7-H3,"Sloan-Kettering, Y-mAbs",7.0,25.0,12.0,✓,,CD276
+emibetuzumab,LY2875358,cMet,Lilly,7.0,16.0,10.0,✓,,MET
+ALD1910,Lu AG09222,PACAP-38,"Alder, H. Lundbeck",7.0,44.0,7.0,nan,,ADCYAP1
+oloctinebart,TB006,Galectin-3,TrueBinding,7.0,25.0,,nan,,LGALS3
+tebotelimab   <<   ==,MGD013,LAG-3,MacroGenics,7.0,3.0,3.0,✓,,LAG3
+tebotelimab   <<   ==,MGD013,PD-1,MacroGenics,7.0,3.0,3.0,✓,,PDCD1
+vobarilizumab,ALX-0061,IL-6R,"Abbvie, Ablynx",6.0,13.0,1.0,✓,,IL6R
+prezalumab,"AMG 557, MEDI5872",B7RP-1,"Amgen, Medimmune, Viela Bio",6.0,9.0,1.0,✓,,ICOS
+AMG 820,"AMB-05X, AMB-051, AMB-053, AMB-055",CSF-1R,"Amgen, AmMax Bio",6.0,24.0,1.0,nan,,CSF1R
+ontuxizumab,MORAb-004,Endosialin,Morphotek,6.0,11.0,9.0,✓,,CD248
+coltuximab ravtansine   >>,"coltuximab ravtansine , SAR3419, huB4-DM4",CD19,"ImmunoGen, Sanofi",6.0,8.0,11.0,✓,,CD19
+sevirumab,"Protovir, MSL-109, SDZ MSL 109, EV2 7",CMV glycoprotein B,"Novartis, PDL, Sandoz",6.0,1.0,3.0,✓,,nan
+SGN-30   ==,SGN-CD30C,CD30,Seattle Genetics,6.0,7.0,10.0,nan,,TNFRSF8
+L19-IL2,Darleukin,Fibronectin,Philogen,6.0,23.0,3.0,nan,,FN1
+acimtamig,AFM13,CD30,"Affimed, MD Anderson",6.0,11.0,6.0,nan,,TNFRSF8
+acimtamig,AFM13,Fc-gamma-RIIIA,"Affimed, MD Anderson",6.0,11.0,6.0,nan,,FCGR3A
+imgatuzumab,"RG7160, GA201, RO5083945, ICR62",EGFR,"Glycart, Roche",6.0,27.0,6.0,✓,,EGFR
+SGN-15,"BMS-182248, BR96-DOX",Lewis Y/B antigen,"BMS, Seattle Genetics",6.0,1.0,5.0,nan,,FUT1
+ontamalimab,"7.16.6, PF-00547659, SHP647",MAdCAM-1,"Amgen, Pfizer, Shire",6.0,26.0,17.0,✓,,MADCAM1
+ascrinvacumab,PF-03446962,ALK-1,"Amgen, Pfizer",6.0,5.0,6.0,✓,,ACVRL1
+fletikumab,"NNC0109-0012, NN8226",IL-20,Novo Nordisk,6.0,10.0,3.0,✓,,IL20
+lacnotuzumab,"RX1, MCS110",M-CSF,"Chiron, Novartis, Xoma",6.0,24.0,2.0,✓,,CSF1
+cusatuzumab,ARGX-110,CD70,"argenx, Janssen-Cilag",6.0,26.0,8.0,✓,,CD70
+emactuzumab,"RO5509554, RG7155",CSF-1R,"Celleron, Roche",6.0,71.0,8.0,✓,,CSF1R
+NN8828,"NNC114-0005, NNC114-0006, NNC0114-0006, NNC0114-0000-0005",IL-21,Novo Nordisk,6.0,11.0,2.0,?,,IL21
+BI 655064,nan,CD40,Boehringer,6.0,20.0,7.0,nan,,CD40
+gosuranemab   ==,"BIIB092, IPN007, BMS-986168",Tau,"Biogen, BMS, Ipierian",6.0,31.0,3.0,✓,,MAPT
+trevogrumab   ==,"SAR391786, REGN1033",Myostatin,"Regeneron, Sanofi",6.0,21.0,1.0,✓,,MSTN
+enibarcimab,"Adrecizumab, HAM8101",Adrenomedullin,"Adrenomed, Sphingotec",6.0,40.0,12.0,✓,,ADM
+astegolimab,"AMG 282, MSTT1041A, RG6149, RO7187807",IL-1RL1,"Amgen, Genentech",6.0,12.0,3.0,✓,,IL1RL1
+favezelimab,"ADI-12126, MK-4280",LAG-3,"Adimab, Merck (MSD)",6.0,36.0,3.0,✓,,LAG3
+ivuxolimab   ==,"PF-04518600, PF04518600, PF-8600",OX40,Pfizer,6.0,1.0,2.0,✓,,TNFRSF4
+luveltamab tazevibulin,"STRO-002, SP8166",FRA,Sutro,6.0,18.0,3.0,nan,,FOSL1
+rulonilimab,F520,PD-1,Shandong New Time Pharma,6.0,,,nan,,PDCD1
+LMB-100,nan,Mesothelin,NCI,6.0,,2.0,nan,,MSLN
+tozorakimab,MEDI3506,IL-33,"AstraZeneca, Medimmune",6.0,14.0,6.0,✓,,IL33
+tirelizumab,nan,PD-1,nan,6.0,,,nan,,PDCD1
+CM336,CM-336,BCMA,Keymed,6.0,1.0,,nan,,TNFRSF17
+CM336,CM-336,CD3,Keymed,6.0,1.0,,nan,,CD3E
+lumrotatug,CM313,CD38,Keymed,6.0,1.0,1.0,✓,,CD38
+verekitug,UPB-101,TSLPR,Upstream,6.0,4.0,,✓,,CRLF2
+LBL-024   <<,nan,4-1BB,Nanjing Leads Bio,6.0,1.0,,nan,,TNFRSF9
+LBL-024   <<,nan,PD-L1,Nanjing Leads Bio,6.0,1.0,,nan,,CD274
+IMVT-1402,nan,FcRn,Immunovant,6.0,,,nan,,FCGRT
+anrukinzumab   ==,IMA-638,IL-13,"Pfizer, Wyeth",5.0,7.0,8.0,✓,,IL13
+bleselumab   >>   ==,"ASKP1240, 4D11, IgG2-AAS(341)",CD40,"Astellas, KHK",5.0,17.0,10.0,✓,,CD40
+BIIB023,Biogen Anti-TWEAK,TWEAK,Biogen,5.0,6.0,2.0,?,,TNFSF12
+drozitumab,"Apomab, PRO95780, anti-DR5, rhuMAb DR5, chDAB4",DR5,Genentech,5.0,22.0,17.0,✓,,TNFRSF10B
+fezakinumab,ILV-094,IL-22,"Pfizer, Wyeth",5.0,13.0,1.0,✓,,IL22
+lumiliximab,"gomiliximab, IDEC-152, P5E8",CD23,Biogen,5.0,5.0,7.0,✓,,FCER2
+matuzumab,"EMD72000, MAb 425",EGFR,Takeda,5.0,15.0,24.0,✓,,EGFR
+eldelumab,"MDX-1100, BMS-936557",IP-10,Medarex,5.0,12.0,3.0,✓,,CXCL10
+vofatamab,"R3Mab, RG7444, MFGR1877S, 184.6, B-701, MFGR1877A",FGFR3,"BioClin, Genentech, Rainier, Roche",5.0,21.0,3.0,✓,,FGFR3
+sonepcizumab,"iSONEP, aSONEP, LT1009, humanized Sphingomab",Sphingosine-1-P,Lpath,5.0,31.0,7.0,✓,,SPHK1
+TB-402,Krix-1,Factor VIII,"BioInvent, Thrombogenics",5.0,2.0,3.0,nan,,F8
+duligotuzumab,"duligotumab, RG7597, Anti-HER3/EGFR DAF, MEHD7945A, MEHD",EGFR,"Genentech, Roche",5.0,13.0,6.0,✓,,EGFR
+duligotuzumab,"duligotumab, RG7597, Anti-HER3/EGFR DAF, MEHD7945A, MEHD",HER3,"Genentech, Roche",5.0,13.0,6.0,✓,,ERBB3
+opicinumab,"Li81, Li33, BIIB033",LINGO-1,Biogen,5.0,38.0,9.0,✓,,LINGO1
+nesvacumab,"REGN910, SAR307746",Angiopoietin 2,"Regeneron, Sanofi",5.0,25.0,3.0,✓,,ANGPT2
+PF-04236921,nan,IL-6,Pfizer,5.0,,3.0,nan,,IL6
+lulizumab pegol,"BMS-931699, dAb 1h-239-891(D70C)",CD28,"BMS, Domantis",5.0,22.0,5.0,✓,,CD28
+Progenics PSMA ADC,"PSMA ADC, AB-PG1-XG1",PSMA,"Progenics, Seattle Genetics",5.0,2.0,5.0,nan,,FOLH1
+blosozumab,LY2541546,Sclerostin,Lilly,5.0,7.0,6.0,✓,,SOST
+imalumab   >>,"BAX69, BAX 069, BAX069, BaxB01",MIF,"Baxalta, Baxter, Dyax",5.0,21.0,4.0,✓,,MIF
+landogrozumab,LY2495655,Myostatin,Lilly,5.0,13.0,3.0,✓,,MSTN
+BMS-986012,nan,Fucosyl GM1,Medarex,5.0,21.0,2.0,✓,,nan
+abrilumab,"AMG 181, AMG181, MEDI-7183, MEDI7813",Integrin α4β7,"Amgen, Medimmune",5.0,15.0,2.0,✓,,nan
+BI 836858,nan,CD33,Boehringer,5.0,4.0,5.0,nan,,CD33
+talacotuzumab   ==,"JNJ-56022473, CSL362",IL-3Rα,CSL,5.0,4.0,6.0,✓,,IL3RA
+fepixnebart,"mAb41, LY3016859",Epiregulin,Lilly,5.0,8.0,3.0,✓,,EREG
+ABT-122,ABBV-257,IL-17,Abbvie,5.0,4.0,5.0,nan,,IL17A
+ABT-122,ABBV-257,TNF-alpha,Abbvie,5.0,4.0,5.0,nan,,TNF
+DKN-01,nan,DKK1,"Dekkun, Leap Thera",5.0,7.0,8.0,nan,,DKK1
+CDX-3379,"2C2, MEDI3379, KTN3379",HER3,"Bulldog Pharma, Celldex, Kolltan, Medimmune",5.0,16.0,4.0,nan,,ERBB3
+cobolimab,"TSR-022, WBP 296A",TIM-3,"AnaptysBio, Tesaro",5.0,18.0,1.0,✓,,HAVCR2
+flotetuzumab,"MGD006, S80880, RES234, MGD024",CD3,MacroGenics,5.0,4.0,5.0,✓,,CD3E
+flotetuzumab,"MGD006, S80880, RES234, MGD024",IL-3Rα,MacroGenics,5.0,4.0,5.0,✓,,IL3RA
+eltrekibart,LY3041658,CXC-ELR,Lilly,5.0,15.0,,✓,,nan
+sabatolimab,"MBG453, MGB-453",TIM-3,"Dana-Farber, Novartis",5.0,23.0,3.0,✓,,HAVCR2
+vudalimab,XmAb20717,CTLA4,Xencor,5.0,11.0,,✓,,CTLA4
+vudalimab,XmAb20717,PD-1,Xencor,5.0,11.0,,✓,,PDCD1
+volagidemab,REMD-477,GCGR,REMD,5.0,16.0,4.0,✓,,GCGR
+miptenalimab,"496G6, BI754111",LAG-3,Boehringer,5.0,6.0,1.0,✓,,LAG3
+reozalimab,"LY3434172, IBI318",PD-1,"Innovent, Lilly, Zymeworks",5.0,4.0,3.0,nan,,PDCD1
+reozalimab,"LY3434172, IBI318",PD-L1,"Innovent, Lilly, Zymeworks",5.0,4.0,3.0,nan,,CD274
+exlinkibart,LVGN6051,4-1BB,Lyvgen Biopharma,5.0,10.0,,✓,,TNFRSF9
+danburstotug   ==,"IMC-001, STI-3031",PD-L1,Sorrento,5.0,,1.0,✓,,CD274
+amlitelimab,"SAR445229, KY1005",OX40L,"Kymab, Sanofi",5.0,35.0,4.0,✓,,TNFSF4
+Sunshine Guojian 601,nan,VEGF,Sunshine Guojian Pharma,5.0,,,nan,,VEGFA
+vixticibart,REGN5381,NPR1,Regeneron,5.0,15.0,,✓,,NPR1
+LM-108,nan,CCR8,Lanova,5.0,5.0,,nan,,CCR8
+derlotuximab biotin - iodine (131I),"Cotara, iodine (131I) derlotuximab biotin, 131I-chTNT-1/B MAb, 131ichtnt-1, chTNT-1/B MAb (131I)",DNA/Histone H1,Peregrine,4.0,,2.0,✓,,HIST1H1A
+AMG 108,AMG108,IL-1R1,"Amgen, Medarex",4.0,16.0,1.0,?,,IL1R1
+carlumab,CNTO 888,MCP-1,"Centocor Ortho, J&J, Morphosys",4.0,13.0,6.0,✓,,CCL2
+ertumaxomab,"Rexomun, 2502A/TP- A-02/TPBs03",CD3,Fresenius,4.0,1.0,4.0,nan,,CD3E
+ertumaxomab,"Rexomun, 2502A/TP- A-02/TPBs03",HER2/neu,Fresenius,4.0,1.0,4.0,nan,,ERBB2
+parsatuzumab,"RG7414, MEGF0444A",EGFL7,Genentech,4.0,15.0,2.0,✓,,EGFL7
+GSK 933776,"GSK933776, GSK719556A, 6F6",Amyloid beta,GSK,4.0,14.0,2.0,✓,,APP
+icrucumab,"IMC-18F1, IMC18F1",FLT1,ImClone,4.0,5.0,6.0,✓,,FLT1
+tovetumab,MEDI-575,PDGFRA,Medimmune,4.0,7.0,5.0,✓,,PDGFRA
+MM-111   ==,nan,HER2/neu,Merrimack,4.0,10.0,1.0,✓,,ERBB2
+MM-111   ==,nan,HER3,Merrimack,4.0,10.0,1.0,✓,,ERBB3
+pagibaximab,"BSYX-A110, A110, HU96-110",LTA,"Altor, Biosynexus, GSK",4.0,3.0,4.0,nan,,LTA
+robatumumab,"SCH 717454, 19D12",IGF-1R,"Merck (MSD), Schering-Plough",4.0,19.0,4.0,✓,,IGF1R
+SBI-087,"PF-05230895, 2LM20-4",CD20,"Pfizer, Trubion",4.0,,1.0,nan,,MS4A1
+denintuzumab mafodotin   ==,"denintuzumab mafodotin , SGN-19A, SGN-CD19A, BU12",CD19,Seattle Genetics,4.0,14.0,1.0,✓,,CD19
+otlertuzumab,"TRU-016, CAS-024, SMIP-016",CD37,"Aptevo, Emergent, Facet, Trubion",4.0,13.0,5.0,✓,,CD37
+ozanezumab,"GSK 1223249, GSK1223249",Nogo-A,GSK,4.0,11.0,1.0,✓,,RTN4
+EMD 273063   <<,hu14.18-IL2,GD2,"EMD, Merck Serono",4.0,13.0,9.0,✓,,nan
+ladiratuzumab vedotin,"SGN-LIV1A, anti-LIV-1-vcMMAE, hLIV22",LIV-1,"Genentech, Seattle Genetics",4.0,23.0,2.0,✓,,SLC39A6
+lutikizumab,ABT-981,IL-1α,Abbvie,4.0,15.0,2.0,✓,,IL1A
+lutikizumab,ABT-981,IL-1β,Abbvie,4.0,15.0,2.0,✓,,IL1B
+BI 836826,BI836826,CD37,Boehringer,4.0,23.0,5.0,?,,CD37
+solrikitug,"MK-8226, NSI-8226",TSLP,"Merck (MSD), Schering-Plough, Uniquity Bio",4.0,15.0,,✓,,TSLP
+TRK-950,nan,CAPRIN-1,Toray,4.0,92.0,2.0,✓,,CAPRIN1
+olinvacimab,"TTAC-0001, TTAC0001, Tanibirumab, SSS23",VEGFR-2,"3SBio, PharmAbcine",4.0,7.0,7.0,✓,,KDR
+frovocimab,LY3015014,PCSK9,Lilly,4.0,3.0,3.0,✓,,PCSK9
+domagrozumab,"PF-06252616, mRK35",Myostatin,Pfizer,4.0,7.0,10.0,✓,,MSTN
+NM8074,nan,Complement Factor B,NovelMed,4.0,16.0,,nan,,CFB
+melrilimab,"GSK3772847, CNTO3914, CNTO5516, CNTO7160, CNTO 7160",IL-1RL1,"GSK, Janssen Biotech",4.0,6.0,3.0,✓,,IL1RL1
+etokimab,ANB020,IL-33,AnaptysBio,4.0,13.0,1.0,✓,,IL33
+camidanlumab tesirine   <<,"HuMax-TAC-ADC, ADCT-301",IL-2Rα,"ADC Therapeutics, Genmab, Medimmune",4.0,34.0,9.0,✓,,IL2RA
+GSK2330811   ==,nan,OSM,GSK,4.0,,3.0,nan,,OSM
+JSKN003   <<,KN026,HER2/neu,Alphamab,4.0,12.0,4.0,nan,,ERBB2
+lendalizumab,"olendalizumab, ALXN1007, ALXN-1007",C5,Alexion,4.0,1.0,1.0,✓,,C5
+JCAR015   ==,nan,CD19,"Juno, Sloan-Kettering",4.0,15.0,2.0,nan,,CD19
+elezanumab,ABT-555,RGM A,Abbvie,4.0,28.0,8.0,✓,,RGMA
+vobramitamab duocarmazine   ==,MGC018,B7-H3,"MacroGenics, Synthon",4.0,1.0,1.0,nan,,CD276
+lorigerlimab,MGD019,CTLA4,MacroGenics,4.0,8.0,1.0,nan,,CTLA4
+lorigerlimab,MGD019,PD-1,MacroGenics,4.0,8.0,1.0,nan,,PDCD1
+zaltenibart,OMS906,MASP-3,"Omeros, U.Leicester",4.0,14.0,,nan,,MASP1
+uliledlimab   ==,"TJ004309, TJD5",NT5E,"I-Mab Biopharma, Tracon",4.0,10.0,,✓,,NT5E
+Sunshine Guojian patent anti-PD-1   ==,609A,PD-1,Sunshine Guojian Pharma,4.0,4.0,,nan,,PDCD1
+venanprubart,LY3361237,BTLA,Lilly,4.0,5.0,,✓,,BTLA
+pamvatamig,MCLA-129,cMet,"Betta Pharma, Merus",4.0,9.0,,✓,,MET
+pamvatamig,MCLA-129,EGFR,"Betta Pharma, Merus",4.0,9.0,,✓,,EGFR
+ziltivekimab,COR-001,IL-6,"Corvidia, Novo Nordisk",4.0,4.0,8.0,✓,,IL6
+FB825,"4B12, LP0201",IgE,"Fountain, Leo Pharma, Oneness",4.0,5.0,,nan,,nan
+Sunshine Guojian patent anti-IL-5,610,IL-5,Sunshine Guojian Pharma,4.0,4.0,,nan,,IL5
+ucenprubart,LY3454738,CD200R,Lilly,4.0,5.0,1.0,✓,,CD200R1
+LP002,nan,PD-L1,Taizhou HoudeAoke Bio,4.0,,1.0,nan,,CD274
+ponsegromab,PF-06946860,MIC-1,Pfizer,4.0,3.0,2.0,✓,,GDF15
+farletuzumab ecteribulin   <<,MORAb-202,FRA,"BMS, Eisai, Morphotek",4.0,1.0,3.0,nan,,FOSL1
+BNT326,YL202,HER3,"BioNTech, Medilink",4.0,1.0,,nan,,ERBB3
+ABBV-154   <<,nan,TNF-alpha,Abbvie,4.0,,2.0,nan,,TNF
+lunsekimig,SAR443765,IL-13,Sanofi,4.0,,1.0,✓,,IL13
+lunsekimig,SAR443765,Serum Albumin,Sanofi,4.0,,1.0,✓,,ALB
+lunsekimig,SAR443765,TSLP,Sanofi,4.0,,1.0,✓,,TSLP
+bersanlimab,BI-505,ICAM-1,BioInvent,3.0,16.0,3.0,✓,,ICAM1
+placulumab,"CEP-37247, ART621, PN0621, compound 170 dAb",TNF-alpha,"Cephalon/Arana, Domantis, Teva",3.0,11.0,1.0,✓,,TNF
+ensituximab,"NPC-1C, NEO-101, NEO-102",MU5AC,"Neogenix, Precision Biologics",3.0,20.0,5.0,✓,,MUC5AC
+orticumab,"Anti-oxLDL, RG7418, BI-204, MLDL1278A",oxLDL,"Abcentra, BioInvent, Genentech",3.0,13.0,3.0,✓,,nan
+refanezumab,"GSK 249320, GSK249320",MAG,GSK,3.0,9.0,3.0,✓,,MAG
+iratumumab,"MDX-060, 5F11",CD30,Medarex,3.0,11.0,4.0,nan,,TNFRSF8
+itolizumab,"ALZUMAb, T1h, EQ001",CD6,"Biocon, CMI Cuba, Equillium",3.0,37.0,20.0,✓,,CD6
+oportuzumab monatox-qqrs,"Vicinium, Proxinium, Vysyneum, VB4-845",EpCAM,"Sesen Bio, Viventia",3.0,12.0,5.0,✓,,EPCAM
+racotumomab,10000000000,GM3,Recombio,3.0,10.0,8.0,✓,,ST3GAL5
+rafivirumab   ==,CR57,Rabies virus GP,Crucell,3.0,14.0,3.0,✓,,nan
+inclacumab,"RG1512, R1512, RO4905417, LC1004-002",P-selectin,"Genmab, Roche",3.0,14.0,5.0,✓,,SELP
+sontuzumab   ==,"huHMFG-1, AS1402, R1550, Therex",MUC1,"Antisoma, Roche",3.0,2.0,3.0,nan,,MUC1
+TRU-015   <<,PF-5212374,CD20,"Pfizer, Trubion",3.0,4.0,3.0,✓,,MS4A1
+tucotuzumab celmoleukin,"EMD 273066, huKS-IL2",EpCAM,"EMD, Merck Serono",3.0,6.0,1.0,nan,,EPCAM
+quilizumab,"RG7449, MEMP1972A, 47H4",IgE M1 prime,Genentech,3.0,2.0,3.0,✓,,nan
+AGS-1C4D4,H16-7.8,PSCA,Agensys,3.0,13.0,2.0,✓,,PSCA
+lacutamab,"IPH4102, IPH 4101, IPH41",KIR3DL2,Innate,3.0,40.0,3.0,✓,,KIR3DL2
+STX-100,BG00011,Integrin αvβ6,"Biogen, Stromedix",3.0,16.0,2.0,nan,,nan
+paridiprubart,"NI-0101, 15C1, EB05",TLR4,"Edesa, Light Chain Bio, NovImmune",3.0,39.0,4.0,nan,,TLR4
+codrituzumab   >>,"RG7686, GC33, Chugai anti-Glypican, RO5137382",Glypican 3,"Chugai, Roche",3.0,39.0,10.0,✓,,GPC3
+BHQ880,nan,DKK1,"Morphosys, Novartis",3.0,6.0,5.0,✓,,DKK1
+TNX-832,"ALT-836, cH36, H36.D2.B7",TF,"Altor, Genentech, Tanox",3.0,16.0,2.0,✓,,TF
+timolumab   <<,"BTT1023, BTT-1023",VAP-1,"Biotie, Roche",3.0,5.0,2.0,nan,,AOC3
+labetuzumab govitecan   <<,"IMMU-130, hMN-14-SN38",CEACAM5,Immunomedics,3.0,24.0,2.0,✓,,CEACAM5
+PD-0360324,"9.14.4I, 8.10.3, PD-360, 324, PD-360324",M-CSF,"Abgenix, Pfizer, Warner-Lambert",3.0,16.0,1.0,?,,CSF1
+sotevtamab,AB-16B5,Clusterin,"Alethia, Goodwin, IBC Generium",3.0,11.0,,nan,,CLU
+ieramilimab,"IMP701, LAG525, NVS250617",LAG-3,"Immutep, INSERM, Novartis",3.0,27.0,,✓,,LAG3
+TAB08   ==,nan,CD28,TheraMab,3.0,16.0,1.0,?,,CD28
+indusatumab vedotin   <<,"MLN0264, TAK-264",GCC,"Amgen, Crescendo, Millennium",3.0,19.0,4.0,✓,,GUCY2C
+daxdilimab   ==,"VIB7734, MEDI7734",ILT7,"Medimmune, SBI Biotech, Viela Bio",3.0,10.0,,✓,,LILRA4
+istiratumab,MM-141,HER3,"Dyax, Merrimack",3.0,24.0,4.0,✓,,ERBB3
+istiratumab,MM-141,IGF-1R,"Dyax, Merrimack",3.0,24.0,4.0,✓,,IGF1R
+semorinemab,"RG6100, ACI-5400, RO7105705, MTAU9937A",Tau,"AC Immune, Genentech, Katholieke U. Leuven",3.0,49.0,7.0,✓,,MAPT
+vatelizumab,"SAR339658, GBR500",VLA-2,"Glenmark / Ichnos, Sanofi",3.0,14.0,1.0,✓,,ITGA2
+vanucizumab   <<   ==,"RG7221, RO5520985",Angiopoietin 2,Roche,3.0,49.0,7.0,✓,,ANGPT2
+vanucizumab   <<   ==,"RG7221, RO5520985",VEGF,Roche,3.0,49.0,7.0,✓,,VEGFA
+gruticibart,"AB023, aximab, 14E11, AB022, xisomab 3G3",Factor XI,"Aronora, OHSU, Vanderbilt U., Xoma",3.0,20.0,4.0,✓,,F11
+vonlerizumab,"pogalizumab, MOXR0916, RG7888",OX40,Genentech,3.0,21.0,2.0,✓,,TNFRSF4
+befovacimab,BAY1093884,TFPI,Bayer,3.0,38.0,2.0,✓,,TFPI
+GC1118,"ER2, GC-1118",EGFR,Green Cross,3.0,10.0,8.0,nan,,EGFR
+dezamizumab,GSK2398852,SAP,Glaxo Group,3.0,6.0,4.0,✓,,PSAP
+romilkimab   ==,SAR156597,IL-13,Sanofi,3.0,37.0,3.0,✓,,IL13
+romilkimab   ==,SAR156597,IL-4,Sanofi,3.0,37.0,3.0,✓,,IL4
+nisevokitug,"XOMA 089, NIS793",TGF-β,"Novartis, Xoma",3.0,26.0,1.0,✓,,TGFB1
+avdoralimab,"IPH5401, NN8209, NN8210",C5aR,"Innate, Novo Nordisk",3.0,12.0,2.0,✓,,C5AR1
+prasinezumab,"PRX002, 9E4, 1H7, 5C1, RG7935",Alpha-synuclein,"Elan, Neotope, Prothena, Roche",3.0,78.0,6.0,✓,,SNCA
+lifastuzumab vedotin,"RG7599, DNIB0600A",NaPi2b,"Genentech, Seattle Genetics",3.0,14.0,3.0,✓,,SLC34A2
+osocimab   ==,BAY1213790,Factor XI,"Bayer, Xoma",3.0,17.0,5.0,✓,,F11
+CNTO 6785,CNTO6785,IL-17,"Janssen-Cilag, Morphosys",3.0,,2.0,nan,,IL17A
+tusamitamab ravtansine,SAR408701,CEACAM5,"ImmunoGen, Sanofi, Seattle Genetics",3.0,29.0,9.0,✓,,CEACAM5
+GSK2831781,nan,LAG-3,"GSK, Immutep",3.0,9.0,2.0,nan,,LAG3
+GT103,nan,Complement Factor H,Duke U.,3.0,12.0,4.0,nan,,CFH
+MGD010,PRV-3279,CD79b,"MacroGenics, Provention Bio, Takeda",3.0,3.0,,nan,,CD79B
+MGD010,PRV-3279,Fc-gamma-R2B (CD32b),"MacroGenics, Provention Bio, Takeda",3.0,3.0,,nan,,FCGR2B
+IBI302,nan,VEGF,Innovent,3.0,2.0,,nan,,VEGFA
+NGM313,MK-3655,Beta-Klotho,"Merck (MSD), NGM Biopharma",3.0,16.0,1.0,nan,,KLB
+MEDI7352,nan,NGF,Medimmune,3.0,4.0,,nan,,NGF
+MEDI7352,nan,TNF-alpha,Medimmune,3.0,4.0,,nan,,TNF
+posdinemab   ==,JNJ-63733657,Tau,Janssen Biotech,3.0,37.0,,✓,,MAPT
+AL002,nan,TREM-2,Alector,3.0,23.0,1.0,nan,,TREM2
+vopratelimab,JTX-2011,ICOS,Jounce,3.0,16.0,2.0,✓,,ICOS
+golocdacimab,MEDI6570,OLR1,Medimmune,3.0,8.0,1.0,nan,,OLR1
+mecbotamab vedotin,"CAB-AXL-ADC, BA3011",AXL,BioAtla,3.0,7.0,,✓,,AXL
+zagotenemab,"LY3303560, MCI-1",Tau,Lilly,3.0,15.0,1.0,✓,,MAPT
+tomuzotuximab   <<,"CetuGEX, GT-MAB 5.2-GEX",EGFR,Glycotope,3.0,10.0,3.0,✓,,EGFR
+UB-221,nan,IgE,United Biopharma,3.0,2.0,2.0,nan,,nan
+UB-221,nan,IL-3Rα,United Biopharma,3.0,2.0,2.0,nan,,IL3RA
+frexalimab,"INX-021, SAR 441344, SAR441344",CD40L,"ImmuNext, Sanofi",3.0,6.0,2.0,✓,,CD40LG
+LCAR-B38M,nan,BCMA,Nanjing Legend Bio,3.0,10.0,,nan,,TNFRSF17
+ozuriftamab vedotin,"CAB-ROR2- ADC, BA3021, BA 3021",ROR2,BioAtla,3.0,10.0,1.0,✓,,ROR2
+Singapore ASTR patent anti-PRL-3   ==,PRL3-zumab,PTP4A3,"Intra-IMMUSG, Singapore ASTR",3.0,4.0,6.0,nan,,PTP4A3
+ALX148,evorpacept,CD47,ALX Oncology,3.0,5.0,,nan,,CD47
+pimivalimab,JTX-4014,PD-1,Jounce,3.0,9.0,1.0,✓,,PDCD1
+negalstobart,"IBI110, IBI-110",LAG-3,Innovent,3.0,6.0,1.0,✓,,LAG3
+BP102   ••,nan,VEGF-A,Jiangsu Hengrui,3.0,,,nan,,VEGFA
+tobemstomig   <<,"RO7247669, RG6139",LAG-3,Roche,3.0,12.0,1.0,nan,,LAG3
+tobemstomig   <<,"RO7247669, RG6139",PD-1,Roche,3.0,12.0,1.0,nan,,PDCD1
+rosnilimab,ANB030,PD-1,AnaptysBio,3.0,,,nan,,PDCD1
+HX009,nan,CD47,HanX Bio,3.0,3.0,1.0,nan,,CD47
+HX009,nan,PD-1,HanX Bio,3.0,3.0,1.0,nan,,PDCD1
+GSK5733584,HS-20089,B7-H4,"GSK, Hansoh Pharma",3.0,6.0,1.0,nan,,VTCN1
+BGB-A445,nan,OX40,BeiGene,3.0,19.0,,nan,,TNFRSF4
+SSGJ-705   <<   ==,nan,HER2/neu,Sunshine Guojian Pharma,3.0,3.0,,nan,,ERBB2
+SSGJ-705   <<   ==,nan,PD-1,Sunshine Guojian Pharma,3.0,3.0,,nan,,PDCD1
+nelistotug,GSK6097608,CD96,"23andMe, GSK",3.0,5.0,,nan,,CD96
+abiprubart,"KPL404, KPL-404",CD40,Kiniksa,3.0,10.0,4.0,✓,,CD40
+REGN9933   ==,nan,Factor XI,Regeneron,3.0,5.0,,nan,,F11
+TQC2938,nan,IL-1RL1,Chia Tai Tianqing Pharma,3.0,2.0,,nan,,IL1RL1
+ART5803,nan,NR1,"Arialys, Astellas",3.0,4.0,,nan,,GRIN1
+MHB088C,nan,B7-H3,"Minghui, Qilu Pharma",3.0,2.0,,nan,,CD276
+TQB2858,nan,PD-L1,Chia Tai Tianqing Pharma,3.0,,1.0,nan,,CD274
+TQB2858,nan,TGF-β,Chia Tai Tianqing Pharma,3.0,,1.0,nan,,TGFB1
+CM338,nan,Undisclosed,Keymed,3.0,,,nan,,nan
+SHR-A2009,nan,HER3,Jiangsu Hengrui,3.0,4.0,,nan,,ERBB3
+duvakitug,"TEV-48574, C03V",VEGI,"Sanofi, Teva",3.0,12.0,1.0,nan,,TNFSF15
+BMS-986446,nan,Tau,BMS,3.0,,,nan,,MAPT
+BCD-261,nan,Undisclosed,Biocad,3.0,,,nan,,nan
+tregalizumab,"BT-061, BT061",CD4,"Abbott, Biotest, T-Balance Therapeutics GmbH",2.0,10.0,2.0,✓,,CD4
+cantuzumab mertansine   ==,"SB408075, SB-408075, huC242-DMI, C242",C242,"ImmunoGen, SKB",2.0,2.0,5.0,✓,,nan
+ecromeximab,"KW2871, KW-2871, KM871",GD3,"KHK, LSP",2.0,11.0,3.0,nan,,nan
+fontolizumab,"HuZAF, flintozumab",IFN-γ,"Facet, PDL",2.0,4.0,5.0,✓,,IFNG
+foravirumab   ==,CR4098,Rabies virus GP,Crucell,2.0,3.0,2.0,✓,,nan
+GSK 679586,"GSK679586A, 6A1",IL-13,GSK,2.0,5.0,,✓,,IL13
+bezlotoxumab,"MDX-1388, CDA-2, MBL-CDA2",Cdiff Toxin B,"Medarex, Merck (MSD)",2.0,,4.0,✓,,nan
+gimsilumab,MORAb-022,GM-CSF,Morphotek,2.0,12.0,2.0,✓,,CSF2
+oxelumab,"RO4989991, RG4930, huMAb OX40L",OX40L,"Genentech, Roche",2.0,8.0,1.0,✓,,TNFSF4
+pascolizumab,SB-240683,IL-4,"Facet, SKB",2.0,,2.0,nan,,IL4
+RAV12,nan,RAAG12,MacroGenics,2.0,,4.0,nan,,nan
+rontalizumab,"rhuMAb IFN alpha, RG7415",IFNA1,Genentech,2.0,11.0,4.0,✓,,IFNA1
+ruplizumab,"Antova, Biogen Anti-CD40L, BG9588, hu5c8",CD40L,Biogen,2.0,13.0,10.0,✓,,CD40LG
+tefibazumab,"Aurexis, INH-H2002",SA ClfA,Inhibitex,2.0,,6.0,nan,,nan
+F8-IL10   ==,Dekavil,Fibronectin,Philogen,2.0,1.0,2.0,nan,,FN1
+NI-0801,HuAIP12,IP-10,NovImmune,2.0,11.0,,✓,,CXCL10
+pinatuzumab vedotin,"RG7593, DCDT2980S, 10F4",CD22,"Genentech, Medimmune, Seattle Genetics",2.0,21.0,9.0,✓,,CD22
+LY2189102,nan,IL-1β,"AME, Lilly",2.0,6.0,2.0,?,,IL1B
+MEDI8968,KENB061,IL-1R1,Medimmune,2.0,10.0,2.0,?,,IL1R1
+BG9924,"LTβR-Ig, Baminercept alfa, CBEll",LT Beta R,Biogen,2.0,16.0,,nan,,LTBR
+naratuximab emtansine,"IMGN529, K7153A-SMCC-DM1, Debio 1562",CD37,"Debiopharm, ImmunoGen",2.0,27.0,6.0,✓,,CD37
+tomaralimab,"OPN-305, NM-101, NM-103",TLR2,"Neuramedy, Opsona",2.0,13.0,4.0,✓,,TLR2
+pateclizumab,"Anti-LTa, RG7416, MLTA3698A, PRO283698",LT alpha,Genentech,2.0,7.0,3.0,✓,,LTA
+IPH5201,"BY40, IPH52",CD39,"Innate, INSERM, Medimmune, Orega",2.0,23.0,1.0,nan,,ENTPD1
+cinpanemab,"BIIB054, NI-202",Alpha-synuclein,"Biogen, Univ. Zurich",2.0,20.0,4.0,✓,,SNCA
+sonelokimab,"M1095, MSB0010841, ALX-0761",IL-17,"Ablynx, Merck Serono",2.0,4.0,3.0,✓,,IL17A
+sonelokimab,"M1095, MSB0010841, ALX-0761",IL-17F,"Ablynx, Merck Serono",2.0,4.0,3.0,✓,,IL17F
+sonelokimab,"M1095, MSB0010841, ALX-0761",Serum Albumin,"Ablynx, Merck Serono",2.0,4.0,3.0,✓,,ALB
+murlentamab   ==,"GM102, 3C23K, 12G4",AMHR2,"Exelixis, GamaMabs, INSERM, LFB",2.0,22.0,4.0,✓,,AMHR2
+ATH3G10,PC-mAb,Phosphorylcholine,"Athera, Dyax",2.0,18.0,,?,,nan
+CJM112,nan,IL-17,Novartis,2.0,,2.0,nan,,IL17A
+MOR106,"MOR12743, MOR03207",IL-17C,"Galapagos, Morphosys, Novartis",2.0,18.0,1.0,?,,IL17C
+telazorlimab,"GBR 830, VH6/VL9",OX40,Glenmark / Ichnos,2.0,22.0,3.0,✓,,TNFRSF4
+ASP5094,MA9-413,Integrin α9,"Astellas, CSTRI",2.0,5.0,2.0,nan,,ITGA9
+tilavonemab,"ABBV-8E12, C2N-8E12, PR-1649264",Tau,"Abbvie, C2N Diagnostics, WUSTL",2.0,14.0,3.0,✓,,MAPT
+nadecnemab,"REGN5069, REGN 5069",GFR-alpha-3,Regeneron,2.0,10.0,,✓,,GFRA3
+rinucumab,REGN2176-3,PDGFRB,Regeneron,2.0,11.0,,✓,,PDGFRB
+cifurtilimab   <<,SEA-CD40,CD40,Seattle Genetics,2.0,18.0,,nan,,CD40
+GSK2862277   <<,GSK 2862277,TNFR1,Glaxo Group,2.0,,2.0,nan,,TNFRSF1A
+licaminlimab   ==,"LME636, OCS-02, ESBA 1622",TNF-alpha,"ESBATech, Novartis, oculis",2.0,9.0,1.0,✓,,TNF
+bezetabart debotansine,"STRO-001, SP7676, SP7675 , SP7219, BN-301, BN301",MHC,Sutro,2.0,12.0,3.0,✓,,HLA-A
+coramitug,PRX004,Transthyretin,"Neotope, Novo Nordisk, Prothena",2.0,40.0,2.0,✓,,TTR
+pacmilimab,CX-072,PD-L1,CytomX,2.0,16.0,1.0,✓,,CD274
+praluzatamab ravtansine,"CX-2009, CX-191",ALCAM,CytomX,2.0,19.0,1.0,✓,,ALCAM
+RO6874281   ==,"RG7461, aFAP-IL2v RO6874281",FAP,Roche,2.0,1.0,,nan,,FAP
+lomvastomig   ==,"RO7121661, RG7769",PD-1,Roche,2.0,11.0,,✓,,PDCD1
+lomvastomig   ==,"RO7121661, RG7769",TIM-3,Roche,2.0,11.0,,✓,,HAVCR2
+AVTX-002   ==,"AEVI-002, MDGN-002, CERC-002",LIGHT,"Aevi, Avalo, Cerecor",2.0,7.0,1.0,nan,,TNFSF14
+AGS-16C3F   ==,nan,ENPP3,Agenus,2.0,,3.0,nan,,ENPP3
+MK-2060,nan,Factor XI,"Adimab, Merck (MSD)",2.0,18.0,,nan,,F11
+NM01,NM-01,PD-L1,Suzhou Nanomab,2.0,5.0,1.0,nan,,CD274
+boserolimab,"MK-5890, MK5890",CD27,Merck (MSD),2.0,8.0,,✓,,CD27
+ubamatamab   ==,REGN4018,CA125,Regeneron,2.0,23.0,1.0,nan,,MUC16
+ubamatamab   ==,REGN4018,CD3,Regeneron,2.0,23.0,1.0,nan,,CD3E
+orilanolimab,"SYNT1001, ALXN1830",FcRn,"Alexion, Syntimmune",2.0,2.0,,✓,,FCGRT
+denecimig,"Mim8, NNC0365-3769",Factor IX,Novo Nordisk,2.0,12.0,2.0,nan,,F9
+denecimig,"Mim8, NNC0365-3769",Factor X,Novo Nordisk,2.0,12.0,2.0,nan,,F10
+BAT1306   ==,nan,PD-1,Bio-Thera Solutions,2.0,6.0,,nan,,PDCD1
+TRS005,nan,CD20,Zhejiang Teruisi,2.0,8.0,,nan,,MS4A1
+HS-20093,GSK5764227,B7-H3,"GSK, Hansoh Pharma, Jiangsu Hengrui, Shanghai Hengrui",2.0,11.0,,nan,,CD276
+ozekibart,INBRX-109,DR5,Inhibrx,2.0,,1.0,nan,,TNFRSF10B
+vipalanebart,LY3451838,PACAP-38,Lilly,2.0,6.0,,✓,,ADCYAP1
+perenostobart,SRF617,CD39,"Adimab, Surface Oncology",2.0,15.0,,✓,,ENTPD1
+NGM621,nan,C3,NGM Biopharma,2.0,7.0,,nan,,C3
+remzistotug,"SRF813, GSK4381562",CD112R,"Adimab, GSK, Surface Oncology",2.0,9.0,,✓,,PVRIG
+JK07,nan,HER3,Salubris,2.0,1.0,,nan,,ERBB3
+BDC-1001,nan,HER2/neu,"Bolt Bio, Stanford",2.0,12.0,,nan,,ERBB2
+VHB937,nan,TREM-2,Novartis,2.0,6.0,,nan,,TREM2
+AK120,nan,IL-4Rα,Akeso,2.0,3.0,1.0,nan,,IL4R
+dargistotug,M6223,TIGIT,Merck Serono,2.0,,,✓,,TIGIT
+HB0025,nan,PD-L1,Huabo Biopharm,2.0,3.0,,nan,,CD274
+HB0025,nan,VEGF,Huabo Biopharm,2.0,3.0,,nan,,VEGFA
+OSE-127,S95011,IL-7RA,"Les Laboratoires Servier , OSE Immunotherapeutics",2.0,,1.0,nan,,IL7R
+RC108,RC108-ADC,cMet,RemeGen,2.0,2.0,,nan,,MET
+visugrumab,CTL-002,MIC-1,"CatalYm, JMU Wurzburg",2.0,21.0,2.0,nan,,GDF15
+SCT650C,nan,IL-17,Sinocelltech,2.0,2.0,,nan,,IL17A
+MEDI5884,REG-101,Endothelial lipase,"AstraZeneca, Medimmune, Regio Bio",2.0,4.0,2.0,nan,,LIPG
+imzokitug,BMS-986340,CCR8,BMS,2.0,3.0,,✓,,CCR8
+MIL97,nan,CD40,Beijing Mabworks,2.0,,,nan,,CD40
+SHR-1918,nan,ANGPTL3,Jiangsu Hengrui,2.0,4.0,2.0,nan,,ANGPTL3
+FB704A,nan,IL-6,Oneness,2.0,,,nan,,IL6
+TQB2916,nan,CD40,Chia Tai Tianqing Pharma,2.0,4.0,,nan,,CD40
+BB-1701,nan,HER2/neu,"Bliss Bio, Eisai",2.0,1.0,,nan,,ERBB2
+REGN7999,nan,TMPRSS6,Regeneron,2.0,2.0,,nan,,TMPRSS6
+FDA022-BB05,nan,HER2/neu,Shanghai Fudan-Zhangjiang Bio,2.0,,1.0,nan,,ERBB2
+B1962,nan,PD-1,Tasly Biopharma,2.0,,,nan,,PDCD1
+B1962,nan,VEGF,Tasly Biopharma,2.0,,,nan,,VEGFA
+MG-ZG122,nan,TSLP,Shanghai MabGeek,2.0,2.0,,nan,,TSLP
+REGN7544,nan,NPR1,Regeneron,2.0,,,nan,,NPR1
+TQB2868,nan,PD-1,Chia Tai Tianqing Pharma,2.0,,,nan,,PDCD1
+TQB2868,nan,TGF-β1,Chia Tai Tianqing Pharma,2.0,,,nan,,TGFB1
+RC148,nan,PD-1,RemeGen,2.0,2.0,,nan,,PDCD1
+RC148,nan,VEGF,RemeGen,2.0,2.0,,nan,,VEGFA
+JS207,nan,PD-1,Shanghai Junshi,2.0,1.0,,nan,,PDCD1
+JS207,nan,VEGF,Shanghai Junshi,2.0,1.0,,nan,,VEGFA
+ABX-IL8,nan,IL-8,"Abgenix, Amgen",1.0,6.0,3.0,✓,,CXCL8
+adecatumumab,MT201,EpCAM,"Merck Serono, Micromet",1.0,8.0,15.0,✓,,EPCAM
+alacizumab pegol,"CDP791, g165 DFM-PEG",VEGFR-2,UCB,1.0,4.0,1.0,✓,,KDR
+ALX-0681   ==,nan,VWF,Ablynx,1.0,9.0,1.0,nan,,VWF
+bertilimumab,"CAT-213, CAT213, iCo-008, CAT-212",CCL11,"CAT, iCo, Immune Pharma, Medimmune",1.0,15.0,,nan,,CCL11
+besilesomab,"Scintimun, BW 250/183, TLX66, TLX66-CDx",CEA related,"CIS bio, Telix",1.0,1.0,2.0,nan,,CEACAM5
+GSK315234   ==,"GSK 315234, GSK315234A",OSM,GSK,1.0,13.0,1.0,nan,,OSM
+actoxumab,"MDX-066, CDA-1, MBL-CDA1",Cdiff Toxin A,Medarex,1.0,,2.0,✓,,nan
+Sym001,Rozrolimupab,Rhesus D,Symphogen,1.0,7.0,6.0,nan,,RHD
+AMG 317,AMG-317,IL-4Rα,"Amgen, Takeda",1.0,,2.0,nan,,IL4R
+NG-101,"ATI355, 7B12, 11C7, NG101",Nogo-A,"Novartis, Univ. Zurich",1.0,6.0,5.0,✓,,RTN4
+pritoxaximab,"Shigamabs, cαStx1/cαStx2",Shiga toxin,"LFB, Thallion",1.0,2.0,,✓,,nan
+LY2525623   ==,nan,IL-23,Lilly,1.0,13.0,,✓,,IL23A
+SAN-300,nan,VLA-1,"Biogen, Santarus",1.0,24.0,,nan,,ITGA1
+LY2382770,nan,TGF-β,"Boehringer, Lilly",1.0,8.0,1.0,?,,TGFB1
+ersodetug   ==,"XMetD, XOMA 358, RX358, RZ358",INSR,"Rezolute, Xoma",1.0,17.0,2.0,nan,,INSR
+RYI-008,"Gerilimzumab, ARGX-109, GB224",IL-6,"argenx, Bird Rock Bio, Genor, RuiYi",1.0,10.0,2.0,nan,,IL6
+SAR279356,F598,PNAG,"Alopexx, Sanofi",1.0,,,nan,,nan
+reflocibart,"CSL346, CSL-346",VEGF-B,CSL,1.0,9.0,2.0,✓,,VEGFB
+VPI-2690B,nan,Integrin αVβ3,"Janssen Biotech, Vascular",1.0,2.0,,nan,,nan
+RG7652,"MPSK3169A, YW508.20.33b",PCSK9,Genentech,1.0,7.0,2.0,✓,,PCSK9
+Axon patent anti-Tau,DC8E8,Tau,Axon,1.0,18.0,2.0,nan,,MAPT
+lixudebart,"ALE.F02, 6F6C3mAb, OM-7D3-B3",CLDN1,"Alentis, INSERM, U.Strasbourg",1.0,23.0,1.0,nan,,CLDN1
+zelminemab   >>,"AMG301, AMG 301",PAC1,"Amgen, Novartis",1.0,23.0,2.0,✓,,ADCYAP1R1
+Metuzumab,"Licartin, metuximab, Mehuzumab",BSG2,Fourth Military Med.U.,1.0,7.0,8.0,nan,,BSG
+OpSCF,nan,SCF,"Opsidio, U.Michigan",1.0,21.0,,nan,,KITLG
+GSK5784283,nan,TSLP,GSK,1.0,2.0,,nan,,TSLP
+varokibart,"hu39D10, TEV-53275",IL-5,Teva,1.0,3.0,,nan,,IL5
+THR-317   ==,nan,PLGF,Thrombogenics,1.0,,,nan,,PGF
+MBS301   <<,nan,HER2/neu,Beijing Mabworks,1.0,4.0,,nan,,ERBB2
+A167,KL-A167,PD-L1,"Harbour Biomed Ltd., Sichuan Kelun Pharma",1.0,9.0,,nan,,CD274
+zuberitamab,"HS006, RHCACD20MA",CD20,Zhejiang Hisun,1.0,,2.0,✓,,MS4A1
+ASP1650,nan,CLDN6,Astellas,1.0,4.0,1.0,nan,,CLDN6
+Cartesian patent anti-BCMA CAR,Descartes-08,BCMA,Cartesian,1.0,1.0,,nan,,TNFRSF17
+ABBV-3373,nan,TNF-alpha,Abbvie,1.0,1.0,4.0,nan,,TNF
+sindelizumab,nan,PD-1,Nanjing Medical U.,1.0,,1.0,nan,,PDCD1
+MB-CART2019.1,nan,CD19,Miltenyi Biotec,1.0,,,nan,,CD19
+MB-CART2019.1,nan,CD20,Miltenyi Biotec,1.0,,,nan,,MS4A1
+HMI-115,nan,PRLR,Hope Medicine,1.0,,,nan,,PRLR
+F007   ••,nan,CD20,Shandong New Time Pharma,1.0,,,nan,,MS4A1
+ABBV-382,nan,Integrin α4β7,Abbvie,1.0,3.0,,nan,,nan
+iluzanebart,VGL101,TREM-2,Vigil Neuro,1.0,5.0,1.0,✓,,TREM2
+zadoprubart,ANB032,BTLA,AnaptysBio,1.0,1.0,,✓,,BTLA
+SHR-A2102,nan,Nectin-4,Jiangsu Hengrui,1.0,3.0,,nan,,NECTIN4
+Ametumumab,nan,EGFR,Tasly Biopharma,1.0,,,nan,,EGFR
+ZL-1102,nan,IL-17,Zai Lab,1.0,1.0,1.0,nan,,IL17A
+TS23,nan,A2AP,Translational Sciences,1.0,,,nan,,SERPINF2
+APG777,nan,IL-13,Apogee,1.0,6.0,1.0,nan,,IL13
+HLX53,nan,TIGIT,Shanghai Henlius,1.0,,,nan,,TIGIT
+RLYB212,nan,HPA-1a,Rallybio,1.0,1.0,2.0,nan,,ITGB3
+Natrunix,nan,IL-1α,XBiotech,1.0,,,nan,,IL1A
+RC28-E,nan,FGF2,RemeGen,1.0,,2.0,nan,,FGF2
+RC28-E,nan,VEGF,RemeGen,1.0,,2.0,nan,,VEGFA
+IBI363,IBI 363,PD-1,Innovent,1.0,,,nan,,PDCD1
+FG-3246,nan,CD46,FibroGen,1.0,,1.0,nan,,CD46
+WIN378,"HBM9378, SKB378",TSLP,"Harbour Biomed Ltd., Windward",1.0,,,nan,,TSLP
+aselizumab,"HuDreg-55, HuEP5C7, SMART Anti-L Selectin",L-selectin,Facet,,1.0,1.0,nan,,SELL
+talizumab,"TNX-901, Hu901, CGP-5101, CL-5I",IgE,Tanox,,10.0,,✓,,nan
+HLX26,nan,LAG-3,Shanghai Henlius,4.0,2.0,,nan,,LAG3
+leronlimab,"PRO 140, PRO140, PA14",CCR5,"Cytodyn, PDL, Progenics",22.0,22.0,17.0,✓,,CCR5
+visilizumab,"Nuvion, HuM291, SMART Anti-CD3",CD3,PDL,14.0,5.0,8.0,✓,,CD3E
+PM8002,BNT327,PD-L1,"BioNTech, Biotheus",12.0,3.0,,nan,,CD274
+PM8002,BNT327,VEGF,"BioNTech, Biotheus",12.0,3.0,,nan,,VEGFA
+bimagrumab   >>,"BYM338, LY3985863",ActRIIB,"Lilly, Morphosys, Novartis, Versanis",11.0,38.0,15.0,✓,,ACVR2B
+enoblituzumab   ==,MGA271,B7-H3,"I-Mab Biopharma, MacroGenics",9.0,32.0,1.0,✓,,CD276
+SHR-1701,nan,PD-L1,Jiangsu Hengrui,7.0,,2.0,nan,,CD274
+abituzumab,"EMD525797, EMD 525797, DI-17E6, DI17E6",Integrin αV,Merck Serono,6.0,20.0,5.0,✓,,ITGAV
+recibokibart   >>,HB0034,IL1RL2,"Huabo Biopharm, Shanghai Huaota",6.0,2.0,1.0,✓,,IL1RL2
+naptumomab estafenatox,"Anyara, ABR-217620",TPBG,Active Biotech,5.0,2.0,5.0,✓,,TPBG
+tibulizumab   <<   ==,"LY3090106, ZB-106",BAFF,"Lilly, zurabio",5.0,5.0,1.0,✓,,TNFSF13B
+tibulizumab   <<   ==,"LY3090106, ZB-106",IL-17,"Lilly, zurabio",5.0,5.0,1.0,✓,,IL17A
+tovecimig   <<   ==,"HD105, CTX-009, ABL001",DLL4,"ABL Bio, Compass, Hanwha",4.0,3.0,4.0,nan,,DLL4
+tovecimig   <<   ==,"HD105, CTX-009, ABL001",VEGF,"ABL Bio, Compass, Hanwha",4.0,3.0,4.0,nan,,VEGFA
+INBRX-106,ES102,OX40,"Elpiscience, Inhibrx",4.0,1.0,,nan,,TNFRSF4
+BAT1308   ==,nan,PD-1,Bio-Thera Solutions,4.0,,,nan,,PDCD1
+B001,nan,CD20,Shanghai Pharma Holdings,3.0,,,nan,,MS4A1
+2B8T2M   <<,"nogapendekin alfa, ALT-803",CD20,Altor,3.0,26.0,3.0,nan,,MS4A1
+2B8T2M   <<,"nogapendekin alfa, ALT-803",IL-15,Altor,3.0,26.0,3.0,nan,,IL15
+ulviprubart,"ABC008, ABC015",KLRG1,"Abcuro, Brigham and Women's",3.0,16.0,,nan,,KLRG1
+abagovomab,"OC125, ACA125, clone 3D5",anti-CA125,Menarini,2.0,2.0,9.0,✓,,MUC16
+gancotamab   ==,"MM-302, MM-001",HER2/neu,Merrimack,2.0,10.0,5.0,✓,,ERBB2
+raludotatug deruxtecan,DS-6000a,CDH6,Daiichi Sankyo,2.0,16.0,1.0,✓,,CDH6
+QL1604,nan,PD-1,Qilu Pharma,2.0,,,nan,,PDCD1
+EYE103,"Restoret, AntlerA patent anti-FZD / LRP5/6",FZD,"AntlerA, EyeBiotech",2.0,5.0,,nan,,FZD1
+EYE103,"Restoret, AntlerA patent anti-FZD / LRP5/6",LRP5,"AntlerA, EyeBiotech",2.0,5.0,,nan,,LRP5
+EYE103,"Restoret, AntlerA patent anti-FZD / LRP5/6",LRP6,"AntlerA, EyeBiotech",2.0,5.0,,nan,,LRP6
+HS-20117,nan,cMet,Hansoh Pharma,2.0,,,nan,,MET
+HS-20117,nan,EGFR,Hansoh Pharma,2.0,,,nan,,EGFR
+gavilimomab,ABX-CBL,BSG2,"Abgenix, Amgen",1.0,,3.0,nan,,BSG
+roledumab,nan,Rhesus D,nan,1.0,9.0,1.0,✓,,RHD
+PBO-326   ••,nan,CD20,Probiomed,1.0,,,nan,,MS4A1
+Southern Med.U. anti-IL-2Ralpha,nan,IL-2Rα,Southern Med.U.,1.0,,,nan,,IL2RA
+Beijing Dongfang Biotech patent anti-VEGFR-2,nan,VEGFR-2,Beijing Dongfang Biotech,1.0,3.0,,nan,,KDR
+MW02,nan,VEGF,Mabwell,1.0,1.0,,nan,,VEGFA
+tremelimumab,"ticilimumab, CP-675206, clone 11.2.1",CTLA4,"Amgen, Medimmune, Pfizer",176.0,59.0,67.0,✓,,CTLA4
+camrelizumab,SHR-1210,PD-1,"Incyte, Jiangsu Hengrui, Shanghai Hengrui",171.0,34.0,84.0,✓,,PDCD1
+tislelizumab,BGB-A317,PD-1,"BeiGene, Celgene, Novartis",130.0,37.0,57.0,✓,,PDCD1
+cadonilimab   <<,"AK104, cardonilizumab",CTLA4,"Akeso, Kangfang Bio",72.0,14.0,27.0,✓,,CTLA4
+cadonilimab   <<,"AK104, cardonilizumab",PD-1,"Akeso, Kangfang Bio",72.0,14.0,27.0,✓,,PDCD1
+nimotuzumab   >>,"Theracim, Theraloc, BIOMAb EGFR, hR3",EGFR,"CMI Cuba, Daiichi Sankyo, Gilead, Innokeys Pte Ltd, NRC Canada, YM BioSciences",67.0,13.0,78.0,✓,,EGFR
+serplulimab,HLX10,PD-1,Henlix,53.0,1.0,12.0,✓,,PDCD1
+spartalizumab,"PDR001, BAP049",PD-1,"Dana-Farber, Novartis",42.0,49.0,15.0,✓,,PDCD1
+epratuzumab   >>,"Lymphocide, AMG 412, hLL2",CD22,"Amgen, Immunomedics, UCB",35.0,53.0,43.0,✓,,CD22
+benmelstobart,"TQB2450, CBT-502",PD-L1,"CBT Pharma, Chia Tai Tianqing Pharma",35.0,23.0,11.0,nan,,CD274
+tanezumab,"RN624, RI-624, PF-04383119, muMab-911",NGF,"Pfizer, Rinat",30.0,61.0,42.0,✓,,NGF
+disitamab vedotin,"Aidixi, Remegen RC48, RC48-ADC, Hertuzumab-vc-MMAE",HER2/neu,RemeGen,29.0,19.0,43.0,✓,,ERBB2
+ganitumab,AMG 479,IGF-1R,"Amgen, Millennium",28.0,22.0,22.0,✓,,IGF1R
+zimberelimab   >>   ==,"WBP3055, GLS-010, AB122",PD-1,"Arcus, Guangzhou Gloria Bio, Harbin Gloria Pharma, WuXi Biologics",28.0,12.0,7.0,✓,,PDCD1
+adebrelimab,SHR-1316,PD-L1,"Jiangsu Hengrui, Shanghai Hengrui, Suzhou Suncadia",28.0,13.0,6.0,✓,,CD274
+gevokizumab,"XOMA-052, XOMA 052, AB7",IL-1β,"Les Laboratoires Servier , Xoma",27.0,71.0,11.0,✓,,IL1B
+izalontamab brengitecan,"SI-B001, BL-B01D1",EGFR,"BMS, Sichuan Baili Pharma, Systimmune",26.0,6.0,3.0,nan,,EGFR
+izalontamab brengitecan,"SI-B001, BL-B01D1",HER3,"BMS, Sichuan Baili Pharma, Systimmune",26.0,6.0,3.0,nan,,ERBB3
+bavituximab,ch3G4,Phosphatidylserine,Peregrine,25.0,9.0,15.0,✓,,nan
+carotuximab   ==,"TRC105, TRA105, TRC-105",CD105,Tracon,22.0,30.0,22.0,✓,,ENG
+bococizumab,"PF-04950615, RN316, RN-316, L1L3",PCSK9,"Pfizer, Rinat",22.0,26.0,24.0,✓,,PCSK9
+balstilimab,"AGEN2034, AGEN-2034",PD-1,"Agenus, Ludwig Inst., Sloan-Kettering",22.0,9.0,6.0,✓,,PDCD1
+girentuximab,"Rencarex, WX-G250, cG250, 89Zr-TLX250",CAIX,"Telix, Wilex",21.0,18.0,23.0,✓,,CA9
+tabalumab   >>   ==,LY2127399,BAFF,"AME, Lilly",21.0,3.0,19.0,✓,,TNFSF13B
+AMG 386,"Trebananib, AMG-386, 2xCon4C, H4L4, LI-7",Angiopoietin 2,"Amgen, Takeda",21.0,8.0,1.0,✓,,ANGPT2
+tiragolumab,"RG6058, MTIG7192A, RO7092284",TIGIT,Genentech,21.0,37.0,14.0,✓,,TIGIT
+QL1706,"iparomlimab, tuvonralimab, PSB205, Alpaloritovorelli",CTLA4,Sound Biologics,21.0,12.0,2.0,nan,,CTLA4
+QL1706,"iparomlimab, tuvonralimab, PSB205, Alpaloritovorelli",PD-1,Sound Biologics,21.0,12.0,2.0,nan,,PDCD1
+stapokibart,CM310,IL-4Rα,"CSPC Dophen, Keymed",21.0,,11.0,nan,,IL4R
+anifrolumab-fnia,"Saphnelo, anifrolumab, MEDI-546",IFNAR-1,"AstraZeneca, Medimmune",20.0,19.0,39.0,✓,,IFNAR1
+magrolimab   >>,Hu5F9-G4,CD47,"Forty Seven, Stanford",20.0,80.0,26.0,✓,,CD47
+rosopatamab tetraxetan   ==,"MLN2704, DM1-conjugated MLN591, J591, TLX581",PSMA,"ADC Therapeutics, BZL, Millennium, Telix",19.0,13.0,17.0,✓,,FOLH1
+rocatinlimab,"KHK4083, AMG 451, AMG451",OX40,"Amgen, KHK, Kirin Pharma",18.0,14.0,3.0,?,,TNFRSF4
+gantenerumab   >>,"R1450, R04909832, RG1450, 7.9H7, Mab 31",Amyloid beta,"Morphosys, Roche",17.0,16.0,25.0,✓,,APP
+rilotumumab,"AMG 102, AMG102, 2.12.1, Rmab",HGF/SF,Amgen,17.0,2.0,19.0,✓,,HGF
+pucotenlimab,"Puyouheng, HX008",PD-1,"Lepu Bio, Taizhou Hanzhong Bio, Taizhou HoudeAoke Bio",17.0,,2.0,nan,,PDCD1
+clazakizumab,"ALD518, BMS-945429, BMS945429, CSL300",IL-6,"Alder, BMS, CSL, Vitaeris",15.0,146.0,13.0,✓,,IL6
+sirukumab   <<,"CNTO 136, AME-19A",IL-6,"AME, Centocor, GSK, Janssen Biotech, J&J",15.0,19.0,21.0,✓,,IL6
+pamrevlumab,"FG-3019, FG3019",CTGF,FibroGen,15.0,36.0,16.0,✓,,CTGF
+IBI-310   ••,IBI310,CTLA4,Innovent,15.0,3.0,1.0,nan,,CTLA4
+bapineuzumab   >>,"AAB-001, 3D-6, 3D6",Amyloid beta,"Elan, PDL, Pfizer, Wyeth",14.0,41.0,31.0,✓,,APP
+bermekimab,"JNJ-77474462, MABp1, Xilonix™, CA-18C3, CV-18C3, RA-18C3, T2-18C3",IL-1α,"Janssen Biotech, XBiotech",14.0,55.0,8.0,✓,,IL1A
+andecaliximab,"AB0045, GS-5745",MMP-9,Gilead,14.0,27.0,13.0,✓,,MMP9
+HLX04   ••,nan,VEGF,Shanghai Henlius,14.0,,4.0,nan,,VEGFA
+talquetamab,JNJ-64407564,CD3,"Genmab, Janssen Biotech",14.0,19.0,32.0,✓,,CD3E
+talquetamab,JNJ-64407564,GPRC5D,"Genmab, Janssen Biotech",14.0,19.0,32.0,✓,,GPRC5D
+figitumumab,"CP-751871, CP-751, 871",IGF-1R,"Amgen, Pfizer, Schering-Plough",13.0,36.0,29.0,✓,,IGF1R
+ligelizumab,QGE031,IgE,Novartis,13.0,7.0,17.0,✓,,nan
+afimkibart,"PF-06480605, RG6631, RO7790121",VEGI,"BMS, Pfizer, Roche, Wyeth",13.0,12.0,2.0,✓,,TNFSF15
+etrolizumab,"rhuMAb Beta7, Anti-beta7, PRO145223, RG7413, FIB504",Integrin α4β7,Genentech,12.0,3.0,30.0,✓,,nan
+fulranumab,"JNJ-42160443, AMG 403",NGF,"Amgen, J&J, Takeda",12.0,7.0,8.0,✓,,NGF
+lirentelimab,"AK002, antolimab",Siglec-8,Allakos,12.0,32.0,6.0,✓,,SIGLEC8
+lisocabtagene maraleucel   ==,"JCAR017, liso-cel",CD19,"BMS, Juno",12.0,,1.0,nan,,CD19
+TQB2102,nan,HER2/neu,Chia Tai Tianqing Pharma,12.0,4.0,,nan,,ERBB2
+briakinumab,"ABT-874, J695, BSF 415977, LU 415977, WAY-165772, A-796874.0",IL-12,"Abbott, CAT",11.0,37.0,20.0,✓,,IL12A
+motavizumab,"Numax, MEDI-524",RSV-F,"Abbott, AstraZeneca, Medimmune, PDL",11.0,13.0,14.0,✓,,nan
+fasinumab,"SAR164877, REGN475",NGF,"Regeneron, Sanofi",11.0,34.0,5.0,✓,,NGF
+otilimab,"GSK3196165, MOR103, MOR04357, MOR04252",GM-CSF,"GSK, Morphosys",11.0,30.0,8.0,✓,,CSF2
+Sunshine Guojian patent anti-IL-4R,611,IL-4Rα,Sunshine Guojian Pharma,11.0,4.0,1.0,nan,,IL4R
+farletuzumab   >>,"MORAb-003, LK26",FRA,Morphotek,10.0,30.0,21.0,✓,,FOSL1
+otelixizumab,"TRX4, ChAglyCD3, GSK2136525",CD3,"Abbott, GSK, Tolerx",10.0,9.0,13.0,✓,,CD3E
+solanezumab,"LY2062430, m266, 10D5",Amyloid beta,"AME, Lilly, PDL",10.0,46.0,27.0,✓,,APP
+Sym004   ==,nan,EGFR,"Merck Serono, Symphogen",10.0,17.0,7.0,nan,,EGFR
+zalutumumab,"HuMax-EGFR, 2F8",EGFR,Genmab,10.0,16.0,7.0,✓,,EGFR
+L19-TNF,L19TNFα,Fibronectin,Philogen,10.0,13.0,,nan,,FN1
+nemolizumab,CIM331,IL-31RA,"Chugai, Galderma",10.0,16.0,24.0,✓,,IL31RA
+MRG003,MYK-3,EGFR,Shanghai Miracogen,10.0,5.0,1.0,nan,,EGFR
+Remegen RC18,"RC18, Tai’ai",Undisclosed,RemeGen,10.0,,,nan,,nan
+etentamig,"ABBV-383, TNB-383B",BCMA,"Abbvie, TeneoBio",10.0,37.0,1.0,nan,,TNFRSF17
+etentamig,"ABBV-383, TNB-383B",CD3,"Abbvie, TeneoBio",10.0,37.0,1.0,nan,,CD3E
+becotatug,JMT101,EGFR,Shanghai JMT,10.0,,1.0,✓,,EGFR
+icatolimab,"JS004, TAB004, tifcemalimab",BTLA,"Shanghai Junshi, TopAlliance Bio",10.0,7.0,2.0,✓,,BTLA
+crenezumab,"Anti-Abeta, MABT5102A, RG7412, ACI-24-Ab-3, C2",Amyloid beta,"AC Immune, Genentech, Roche",9.0,61.0,18.0,✓,,APP
+onartuzumab   ==,"MetMAb, PRO143966, RG3638, OA5D5",cMet,Genentech,9.0,13.0,23.0,✓,,MET
+tisotumab vedotin-tftv,"TIVDAK, tisotumab vedotin, TF-011-vcMMAE, TF-011, HuMax-TF",TF,"Genmab, Seattle Genetics",9.0,51.0,23.0,✓,,TF
+felzartamab,"MOR202, MOR03087, TJ202",CD38,"Celgene, I-Mab Biopharma, Morphosys",9.0,62.0,11.0,✓,,CD38
+setrusumab,"MOR05813, BPS804, BPS-804",Sclerostin,"Mereo, Novartis, Ultragenyx",9.0,29.0,2.0,✓,,SOST
+ianalumab,"VAY-736, VAY736",BAFFR,"Morphosys, Novartis",9.0,37.0,3.0,✓,,TNFRSF13C
+rovalpituzumab tesirine   >>,"SC16LD6.5, Rova-T, rovalpituzumab, 89Zr-DFO-SC16.56",DLL3,"Abbvie, StemCentRx",9.0,79.0,23.0,✓,,DLL3
+socazolimab   ==,"ZKAB001, STI-1014",PD-L1,"Lee's Pharm, Sorrento",9.0,17.0,4.0,✓,,CD274
+patritumab deruxtecan   <<,"U3-1402, MK-1022",HER3,"Daiichi Sankyo, Merck (MSD), U3 Pharma",9.0,8.0,14.0,nan,,ERBB3
+tarcocimab tedromer,"tarcocimab, KSI-301",VEGF-A,Kodiak Sci.,9.0,13.0,1.0,nan,,VEGFA
+domvanalimab   ==,"AB154, JN Bio patent anti-TIGIT",TIGIT,"Abmuno, Arcus, JN Bio",9.0,12.0,2.0,✓,,TIGIT
+MRG002,nan,HER2/neu,Shanghai Miracogen,9.0,3.0,1.0,nan,,ERBB2
+barzolvolimab,CDX-0159,c-Kit,Celldex,9.0,8.0,4.0,nan,,KIT
+comekibart,MG-K10,IL-4Rα,Shanghai MabGeek,9.0,5.0,,nan,,IL4R
+trastuzumab rezetecan   <<,SHR-A1811,HER2/neu,Jiangsu Hengrui,9.0,1.0,6.0,nan,,ERBB2
+telisotuzumab adizutecan   <<,ABBV-400,cMet,Abbvie,9.0,,,nan,,MET
+patritumab   >>,"AMG 888, U3-1287",HER3,"Amgen, Daiichi Sankyo, U3 Pharma",8.0,22.0,17.0,✓,,ERBB3
+itepekimab,"REGN3500, SAR440340",IL-33,"Regeneron, Sanofi",8.0,26.0,6.0,✓,,IL33
+sacituzumab tirumotecan,"SKB264, MK-2870, Sac-TMT",TACSTD-2,"Klus Pharma, Merck (MSD), Sichuan Kelun Pharma",8.0,9.0,4.0,nan,,TACSTD2
+belrestotug,"EOS884448, EOS-448, GSK4428859",TIGIT,"GSK, iTeos",8.0,11.0,,✓,,TIGIT
+HcHAb18-DM1,"Ketantin, Meplazumab",BSG2,"Air Force Med.U., Jiangsu Pacific Meinuoke Bio",8.0,6.0,7.0,nan,,BSG
+ociperlimab,BGB-A1217,TIGIT,"BeiGene, Novartis",8.0,13.0,2.0,✓,,TIGIT
+galiximab,"IDEC-114, 16C10",CD80,Biogen,7.0,14.0,12.0,✓,,CD80
+lampalizumab,"Anti-Factor D, RG7417, 166-32, FCFD4514S",Complement Factor D,Genentech,7.0,50.0,8.0,✓,,CFD
+zanolimumab,"HuMax-CD4, 6G5.2",CD4,"Genmab, TenX",7.0,6.0,7.0,✓,,CD4
+feladilimab,"GSK3359609, 88-2, 53-3, 92-17, IgG4PE",ICOS,"GSK, INSERM",7.0,62.0,3.0,✓,,ICOS
+netakimab   >>,BCD-085,IL-17,Biocad,7.0,10.0,4.0,✓,,IL17A
+imsidolimab,"ANB019, APE6155",IL1RL2,AnaptysBio,7.0,12.0,1.0,✓,,IL1RL2
+fianlimab,REGN3767,LAG-3,"Regeneron, Sanofi",7.0,20.0,3.0,✓,,LAG3
+ongericimab,JS002,PCSK9,"Junmeng Biosciences, Shanghai Junshi",7.0,5.0,3.0,✓,,PCSK9
+dazukibart,PF-06823859,IFN-B1a,"Brigham and Women's, Pfizer",7.0,6.0,3.0,nan,,IFNB1
+rademikibart,CBP-201,IL-4Rα,Suzhou Connect Biopharma,7.0,11.0,3.0,nan,,IL4R
+MIL62   <<,nan,CD20,Beijing Mabworks,7.0,5.0,1.0,nan,,MS4A1
+narlumosbart,JMT103,RANKL,Shanghai JMT,7.0,,1.0,✓,,TNFSF11
+prolgolimab,BCD-100,PD-1,Biocad,7.0,5.0,2.0,✓,,PDCD1
+batoclimab,"RVT-1401, HL161, IMVT-1401",FcRn,"Hanall, Immunovant",7.0,26.0,5.0,✓,,FCGRT
+tafolecimab,"SINTBILO, IBI-306",PCSK9,Innovent,7.0,7.0,8.0,✓,,PCSK9
+drotokibart,SHR-1819,IL-4Rα,"Atridia, Jiangsu Hengrui",7.0,7.0,2.0,✓,,IL4R
+picankibart,"IBI112, IBI-112",IL-23,Innovent,7.0,9.0,,nan,,IL23A
+rilvegostomig   <<,AZD2936,PD-1,"AstraZeneca, Compugen",7.0,,,✓,,PDCD1
+rilvegostomig   <<,AZD2936,TIGIT,"AstraZeneca, Compugen",7.0,,,✓,,TIGIT
+riliprubart   ==,"SAR445088, BIVV020",C1s,Sanofi,7.0,,5.0,nan,,C1S
+telikibart,GR1802,IL-4Rα,Genrix Biopharma,7.0,,1.0,✓,,IL4R
+lenzilumab   ==,KB003,GM-CSF,"Humanigen, KaloBios",6.0,21.0,5.0,✓,,CSF2
+cendakimab,"ABT-308, 13C5.5, RPC4046, CC-93538",IL-13,"Abbott, Abbvie, Celgene, Receptos",6.0,39.0,4.0,✓,,IL13
+CMAB302   ••,"Cipterbin, Saiputing, inetetamab",HER2/neu,Shanghai CP Guojian,6.0,2.0,6.0,nan,,ERBB2
+bemarituzumab,"HGS1036, HGS 1036, FP-1039, FPA144, GSK3052230",FGFR2,"Five Prime, GSK, HGS, Zai Lab",6.0,20.0,7.0,✓,,FGFR2
+apitegromab,SRK-015,Myostatin,Scholar Rock,6.0,42.0,4.0,✓,,MSTN
+SGM-101,nan,CEACAM5,INSERM,6.0,2.0,4.0,nan,,CEACAM5
+MAS825   ==,nan,IL-18,Novartis,6.0,7.0,1.0,nan,,IL18
+MAS825   ==,nan,IL-1β,Novartis,6.0,7.0,1.0,nan,,IL1B
+roconkibart,JS005,IL-17,Shanghai Junshi,6.0,5.0,1.0,✓,,IL17A
+tulisokibart   ==,"PRA023, MK-7240",VEGI,"Merck (MSD), Prometheus",6.0,,2.0,nan,,TNFSF15
+TQH2722,nan,IL-4Rα,Chia Tai Tianqing Pharma,6.0,4.0,1.0,nan,,IL4R
+bulumtatug fuvedotin,9MW2821,Nectin-4,Mabwell,6.0,6.0,3.0,nan,,NECTIN4
+TQC2731,nan,TSLP,Chia Tai Tianqing Pharma,6.0,2.0,,nan,,TSLP
+clivatuzumab tetraxetan   ==,"hPAM4-Cide, yttrium (Y90) clivatuzumab tetraxetan, Y-90 hPAM4, hPAM4-DOTA, IMMU-107",MUC1,Immunomedics,5.0,31.0,6.0,✓,,MUC1
+dapirolizumab pegol,CDP7657,CD40L,"Biogen, Nektar, UCB",5.0,17.0,1.0,✓,,CD40LG
+birtamimab,"NEOD001, 2A4, 7D8",Amyloid Alpha,"Elan, Onclave (Elan), Prothena",5.0,30.0,4.0,✓,,APP
+trastuzumab-pkrb   ••,"Herzuma, CT-P06, CT-P6",HER2/neu,Celltrion,5.0,1.0,8.0,nan,,ERBB2
+brazikumab,"AMG 139, MEDI2070, MEDI-2070",IL-23,"Amgen, AstraZeneca, Medimmune",5.0,28.0,6.0,✓,,IL23A
+vadastuximab talirine,"SGN-CD33A, 2H12",CD33,Seattle Genetics,5.0,22.0,5.0,✓,,CD33
+ifinatamab deruxtecan,"M30, DS-5573a, DS-5573, DS-7300a",B7-H3,Daiichi Sankyo,5.0,18.0,3.0,✓,,CD276
+sigvotatug vedotin,"SGN-B6A, PF-08046876",ITGB6,"Pfizer, Seattle Genetics",5.0,11.0,1.0,✓,,ITGB6
+depatuxizumab mafodotin   <<,"ABT-414, Depatux-M",EGFR,"Abbvie, Seattle Genetics",5.0,22.0,19.0,nan,,EGFR
+narsoplimab,OMS721,MASP-2,"Omeros, U.Leicester",5.0,33.0,5.0,✓,,MASP2
+trastuzumab duocarmazine   <<   ==,"SYD985, trastuzumab vc-seco-DUBA",HER2/neu,Synthon,5.0,11.0,13.0,nan,,ERBB2
+vamikibart,"RO7200220, EBI-031",IL-6,"Eleven Bio, Roche, Sesen Bio",5.0,10.0,,nan,,IL6
+ripertamab   ••,SCT400,CD20,Sinocelltech,5.0,,2.0,✓,,MS4A1
+BEVZ92   ••,"MB02, MB02-SP, MB02-DM",VEGF-A,mAbxience,5.0,,4.0,nan,,VEGFA
+gotistobart,"ONC-392, BNT316",CTLA4,"BioNTech, OncoC4, Pfizer",5.0,17.0,,nan,,CTLA4
+VDJ001,nan,IL-6R,Beijing VDJBio,5.0,6.0,,nan,,IL6R
+betinukibart   >>,HB0017,IL-17,"Huabo Biopharm, Shanghai Huaota",5.0,6.0,2.0,✓,,IL17A
+depemokimab,GSK3511294,IL-5,GSK,5.0,,4.0,✓,,IL5
+SSGJ-613,nan,IL-1β,Sunshine Guojian Pharma,5.0,1.0,,nan,,IL1B
+osemitamab,TST001,CLDN18,"Mabspace, Transcenta",5.0,10.0,1.0,✓,,CLDN18
+SSGJ-707,nan,PD-1,"3SBio, Pfizer, Shenyang Sunshine Pharma",5.0,,,nan,,PDCD1
+SSGJ-707,nan,VEGF,"3SBio, Pfizer, Shenyang Sunshine Pharma",5.0,,,nan,,VEGFA
+obexelimab   ==,XmAb 5871,CD19,"Amgen, Xencor, Zenas Bio",4.0,18.0,5.0,?,,CD19
+SB3   ••,ONTRUZANT,HER2/neu,"Merck (MSD), Samsung Bioepis",4.0,4.0,10.0,nan,,ERBB2
+suvemcitug,"APX003, EPI0030, BD0801, Sevacizumab",VEGF,"Apexigen, Jiangsu Simcere",4.0,5.0,2.0,?,,VEGFA
+navicixizumab   <<,OMP-305B83,DLL4,"Celgene, Mereo, OncoMed",4.0,27.0,3.0,✓,,DLL4
+navicixizumab   <<,OMP-305B83,VEGF,"Celgene, Mereo, OncoMed",4.0,27.0,3.0,✓,,VEGFA
+BI 695500   ••,nan,CD20,Boehringer,4.0,,,nan,,MS4A1
+coprelotamab,"GB221, GB235-019",HER2/neu,"Genor, Shanghai Escugen",4.0,4.0,2.0,✓,,ERBB2
+litifilimab,BIIB059,BDCA-2,Biogen,4.0,8.0,9.0,✓,,CLEC4C
+M701,nan,CD3,Wuhan YZY Biopharma,4.0,4.0,2.0,nan,,CD3E
+M701,nan,EpCAM,Wuhan YZY Biopharma,4.0,4.0,2.0,nan,,EPCAM
+garetosmab   ==,REGN2477,Activin A,Regeneron,4.0,14.0,5.0,✓,,INHBA
+mibavademab   ==,REGN4461,LEPR,Regeneron,4.0,21.0,1.0,✓,,LEPR
+sibeprenlimab,"VIS649, VIS624",APRIL,Visterra,4.0,23.0,2.0,✓,,TNFSF13
+maridebart cafraglutide,"2G10, AMG 133",GIPr,Amgen,4.0,16.0,,nan,,GIPR
+Sunshine Guojian 608,608,IL-17,Sunshine Guojian Pharma,4.0,3.0,,nan,,IL17A
+AVT02   ••,"Hukyndra, Libmyris",TNF-alpha,"Alvotech, Teva",4.0,,3.0,nan,,TNF
+zilovertamab vedotin   >>   <<,"VLS-101, MK-2140",ROR1,"Merck (MSD), Oncternal, VelosBio",4.0,14.0,2.0,nan,,ROR1
+finotonlimab,SCT-I10A,PD-1,Sinocelltech,4.0,5.0,3.0,✓,,PDCD1
+SG301,SG003,CD38,Hangzhou Sumgen Biotech,4.0,4.0,1.0,nan,,CD38
+ciltacabtagene autoleucel,JNJ-68284528,BCMA,"Janssen Biotech, Nanjing Legend Bio",4.0,9.0,7.0,nan,,TNFRSF17
+AZD0486,TNB-486,CD19,"AstraZeneca, TeneoBio",4.0,,1.0,nan,,CD19
+AZD0486,TNB-486,CD3,"AstraZeneca, TeneoBio",4.0,,1.0,nan,,CD3E
+xaluritamig,AMG 509,CD3,Amgen,4.0,2.0,2.0,✓,,CD3E
+xaluritamig,AMG 509,STEAP1,Amgen,4.0,2.0,2.0,✓,,STEAP1
+alnuctamab   ==,"ALNUC, BMS-986349, CC-93269, EM901",BCMA,"BMS, Celgene, Engmab",4.0,17.0,,✓,,TNFRSF17
+alnuctamab   ==,"ALNUC, BMS-986349, CC-93269, EM901",CD3,"BMS, Celgene, Engmab",4.0,17.0,,✓,,CD3E
+CT-P17   ••,nan,TNF-alpha,Celltrion,4.0,,6.0,nan,,TNF
+armocibart,"H7G6, KN057",TFPI,Alphamab,4.0,3.0,,✓,,TFPI
+IBI343   ==,IBI-343,CLDN18,Innovent,4.0,7.0,1.0,nan,,CLDN18
+gefurulimab,ALXN1720,C5,Alexion,4.0,,1.0,✓,,C5
+gefurulimab,ALXN1720,Serum Albumin,Alexion,4.0,,1.0,✓,,ALB
+REGN7508   ==,nan,Factor XI,Regeneron,4.0,5.0,,nan,,F11
+DB-1303   <<,BNT323,HER2/neu,"BioNTech, DualityBio",4.0,2.0,,nan,,ERBB2
+IBI311,nan,IGF-1R,Innovent,4.0,,1.0,nan,,IGF1R
+CT-P47   ••,nan,IL-6R,Celltrion,4.0,,2.0,nan,,IL6R
+pexelizumab   <<,h5G1.1-scFv,C5,Alexion,3.0,38.0,10.0,nan,,C5
+zigakibart,BION-1301,APRIL,"Aduro, Bionovion, Chinook, TI Pharma",3.0,21.0,,✓,,TNFSF13
+BCD-021   ••,BCD021,VEGF-A,Biocad,3.0,,1.0,nan,,VEGFA
+temtokibart,"ARGX-112, LP0145, LEO 138559",IL-22RA,"argenx, Leo Pharma",3.0,10.0,,nan,,IL22RA1
+BAT8001   <<,nan,HER2/neu,Bio-Thera Solutions,3.0,9.0,1.0,nan,,ERBB2
+IBI305   ••,IBI-305,VEGF,Innovent,3.0,,1.0,nan,,VEGFA
+BAX 923   ••,M923,TNF-alpha,"Baxalta, Momenta",3.0,2.0,,nan,,TNF
+upifitamab rilsodotin   <<,"XMT-1535, XMT-1536",NaPi2b,Mersana,3.0,12.0,1.0,nan,,SLC34A2
+levilimab,BCD-089,IL-6R,Biocad,3.0,5.0,1.0,✓,,IL6R
+SM03   <<,"SM06, Suciraslimab",CD22,SinoMab,3.0,12.0,3.0,nan,,CD22
+mupadolimab,"CPI-006, 1E9",NT5E,"BioAtla, Corvus",3.0,18.0,,✓,,NT5E
+JHL1101   ••,nan,CD20,JHL Biotech,3.0,,,nan,,MS4A1
+HLX22,"AC101, HLX 22, 1E11",HER2/neu,"Abclon, Alligator, Shanghai Henlius",3.0,8.0,6.0,nan,,ERBB2
+Henan Cancer Hospital anti-PD-1,Teripalimab,PD-1,Henan Cancer Hospital,3.0,,,nan,,PDCD1
+QL1206   ••,nan,RANKL,Qilu Pharma,3.0,,,nan,,TNFSF11
+empasiprubart,ARGX-117,C2,argenx,3.0,12.0,2.0,✓,,C2
+seniprutug,BCD-180,TRBV9,Biocad,3.0,10.0,1.0,✓,,TRBV9
+divozilimab,"BCD 132, BCD-132",CD20,Biocad,3.0,3.0,,✓,,MS4A1
+GNR-044   ••,"Genolar, Genolair",IgE,IBC Generium,3.0,,,nan,,nan
+acasunlimab,"GEN1046, BNT311",4-1BB,"BioNTech, Genmab",3.0,21.0,3.0,✓,,TNFRSF9
+acasunlimab,"GEN1046, BNT311",PD-L1,"BioNTech, Genmab",3.0,21.0,3.0,✓,,CD274
+AZD0901,CMG901,CLDN18,"AstraZeneca, Keymed",3.0,6.0,2.0,nan,,CLDN18
+TQB2930,nan,HER2/neu,Chia Tai Tianqing Pharma,3.0,,,nan,,ERBB2
+veligrotug   >>,VRDN-001,IGF-1R,Viridian,3.0,,,nan,,IGF1R
+remternetug,LY3372993,Amyloid beta,Lilly,3.0,1.0,,nan,,APP
+VRDN-003   <<,nan,IGF-1R,Viridian,3.0,,,nan,,IGF1R
+edrecolomab,"Panorex, 17-1A",EpCAM,"Centocor, GSK",2.0,7.0,11.0,nan,,EPCAM
+Reditux   ••,DRL_RI,CD20,Dr. Reddy's,2.0,,2.0,nan,,MS4A1
+BCD-055   ••,BCD055,TNF-alpha,Biocad,2.0,,1.0,nan,,TNF
+BCD-057   ••,BCD057,TNF-alpha,Biocad,2.0,,,nan,,TNF
+IBI301   ••,IBI301-A,CD20,"Innovent, Lilly",2.0,1.0,1.0,nan,,MS4A1
+HLX03   ••,nan,TNF-alpha,Shanghai Henlius,2.0,,3.0,nan,,TNF
+HLX11   ••,nan,HER2/neu,Shanghai Henlius,2.0,,1.0,nan,,ERBB2
+MSB11022   ••,nan,TNF-alpha,"Fresenius, Merck Serono",2.0,,1.0,nan,,TNF
+CMAB008   ••,nan,TNF-alpha,"BioMab, Shanghai Zhangjiang Bio.",2.0,6.0,2.0,✓,,TNF
+GB241   ••,nan,CD20,Genor,2.0,,,nan,,MS4A1
+LBAL   ••,nan,TNF-alpha,LG Life Sci.,2.0,,1.0,nan,,TNF
+QL1101   ••,nan,VEGF-A,Qilu Pharma,2.0,1.0,,nan,,VEGFA
+HD201   ••,Tuznue,HER2/neu,Prestige BioPharma,2.0,,2.0,nan,,ERBB2
+BAT1706   ••,nan,VEGF-A,"BeiGene, Bio-Thera Solutions",2.0,5.0,2.0,nan,,VEGFA
+LY01008   ••,nan,VEGF,"Luye Pharma, Shandong Boan Bio.",2.0,,3.0,nan,,VEGFA
+TAB014   ••,nan,VEGF,"Lee's Pharm, TOT Biopharm",2.0,,,nan,,VEGFA
+CT-P16   ••,nan,VEGF-A,Celltrion,2.0,,1.0,nan,,VEGFA
+CMAB807   ••,nan,RANKL,BioMab,2.0,,,nan,,TNFSF11
+LY01011   ••,LY06006,RANKL,"Luye Pharma, Shandong Boan Bio.",2.0,,1.0,nan,,TNFSF11
+FS-1502   <<,Trastuzumab Monomethyl Auristatin F,HER2/neu,Fosun Pharma,2.0,,1.0,nan,,ERBB2
+CT-P39   ••,nan,IgE,Celltrion,2.0,,,nan,,nan
+Generium Eculizumab biosimilar   ••,Elizaria,C5,IBC Generium,2.0,,2.0,nan,,C5
+BAT2306   ••,nan,IL-17,Bio-Thera Solutions,2.0,2.0,,nan,,IL17A
+M108,nan,CLDN18,Futuregen Bio,2.0,2.0,,nan,,CLDN18
+puxitatug samrotecan,AZD8205,B7-H4,"AstraZeneca, Medimmune",2.0,1.0,4.0,nan,,VTCN1
+MW031   ••,nan,RANKL,Mabwell,2.0,,1.0,nan,,TNFSF11
+HLX13   ••,nan,CTLA4,Shanghai Henlius,2.0,,,nan,,CTLA4
+IBC Generium anti-IL-6R   ••,Complarate,IL-6R,IBC Generium,2.0,,,nan,,IL6R
+CT-P55   ••,nan,IL-17,Celltrion,2.0,,,nan,,IL17A
+inolimomab,"Leukotac, BT563",IL-2Rα,"EUSA, OPi",1.0,,12.0,nan,,IL2RA
+CMAB304   ••,Retuxira,CD20,Shanghai CP Guojian,1.0,,,nan,,MS4A1
+Arvestin   ••,nan,VEGF-A,Aryogen,1.0,,1.0,nan,,VEGFA
+BOW015   ••,BOW-015,TNF-alpha,Epirus,1.0,,1.0,nan,,TNF
+BCD-022   ••,HERtiCAD,HER2/neu,Biocad,1.0,,1.0,nan,,ERBB2
+begelomab,"Begedina, CDina26",CD26,Adienne,1.0,15.0,2.0,✓,,DPP4
+MabionCD20   ••,nan,CD20,Mabion,1.0,,,nan,,MS4A1
+RTXM83   ••,nan,CD20,mAbxience,1.0,,3.0,nan,,MS4A1
+SAIT101   ••,nan,CD20,Samsung Bioepis,1.0,,,nan,,MS4A1
+FKB238   ••,nan,VEGF-A,"Centus, Fujifilm Kyowa Kirin",1.0,,4.0,nan,,VEGFA
+ABP 959   ••,nan,C5,Amgen,1.0,2.0,2.0,nan,,C5
+PB006   ••,Polpharma Natalizumab biosimilar,Integrin α4,Polpharma,1.0,2.0,2.0,nan,,ITGA4
+KL-140   ••,A140,EGFR,Sichuan Kelun Pharma,1.0,,1.0,nan,,EGFR
+HD204   ••,nan,VEGF-A,Prestige BioPharma,1.0,1.0,,nan,,VEGFA
+MIL60   ••,nan,VEGF-A,Beijing Mabworks,1.0,,2.0,nan,,VEGFA
+SIBP-01   ••,nan,HER2/neu,Shanghai Inst.Bio. Products,1.0,,1.0,nan,,ERBB2
+BCD-148   ••,nan,C5,Biocad,1.0,,,nan,,C5
+TX05   ••,nan,HER2/neu,Tanvex,1.0,,,nan,,ERBB2
+GB242   ••,nan,TNF-alpha,Genor,1.0,,1.0,nan,,TNF
+FYB202   ••,nan,IL-12,"Formycon, FYB202 Project",1.0,4.0,1.0,nan,,IL12A
+QL1209   ••,nan,HER2/neu,"Qilu Pharma, Sound Biologics",1.0,3.0,1.0,nan,,ERBB2
+GNR-067   ••,nan,VEGF-A,IBC Generium,1.0,,,nan,,VEGFA
+LZM012,XKH004,IL-17,Livzon,1.0,3.0,,nan,,IL17A
+LZM012,XKH004,IL-17F,Livzon,1.0,3.0,,nan,,IL17F
+TQB2440   ••,nan,HER2/neu,Chia Tai Tianqing Pharma,1.0,,1.0,nan,,ERBB2
+SIBP-04   ••,nan,VEGF,Shanghai Inst.Bio. Products,1.0,,,nan,,VEGFA
+HLX14,nan,RANKL,Shanghai Henlius,1.0,,,nan,,TNFSF11
+AVT03   ••,nan,RANKL,Alvotech,1.0,,,nan,,TNFSF11
+Tehran U.Med.Sci Denosumab biosimilar   ••,Arylia,RANKL,Tehran U.Med.Sci.,1.0,,1.0,nan,,TNFSF11
+Zerafil   ••,nan,IgE,CinnaGen,1.0,,,nan,,nan
+TAB008   ••,nan,EGFR,TOT Biopharm,1.0,,1.0,nan,,EGFR
+PERT-IJS   ••,nan,HER2/neu,Biocon,1.0,,,nan,,ERBB2
+HS628   ••,nan,IL-6R,Zhejiang Hisun,1.0,,,nan,,IL6R
+BCD-264   ••,nan,CD38,Biocad,1.0,,,nan,,CD38
+GNR-086,nan,IL-1β,IBC Generium,1.0,,,nan,,IL1B
+HS-20137,nan,IL-23,Hansoh Pharma,1.0,,,nan,,IL23A
+HLX17   ••,nan,PD-1,Shanghai Henlius,1.0,,,nan,,PDCD1
+CT-P44   ••,nan,CD38,Celltrion,1.0,,,nan,,CD38
+STI-001   ••,nan,EGFR,"Mabtech, Sorrento",,2.0,,nan,,EGFR
+STI-002   ••,nan,TNF-alpha,"Mabtech, Sorrento",,1.0,,nan,,TNF
+rituximab   >>   ==   ••,"MabThera, Rituxan, C2B8, IDEC-C2B8, IDEC-102, RG105",CD20,"Biogen, Roche",1346.0,132.0,1717.0,✓,,MS4A1
+bevacizumab   >>   ==   ••,"Avastin, Altuzan, rhuMab-VEGF, RG435, A4.6.1",VEGF-A,Genentech,1031.0,281.0,1108.0,✓,,VEGFA
+nivolumab   ••,"Opdivo, ONO-4538, MDX-1106, BMS-936558, 5C4",PD-1,"BMS, Medarex, Ono",914.0,263.0,907.0,✓,,PDCD1
+pembrolizumab   >>   ••,"Keytruda, MK-3475, SCH 900475, lambrolizumab",PD-1,"Merck (MSD), Schering-Plough",911.0,197.0,790.0,✓,,PDCD1
+ipilimumab   >>   ••,"Yervoy, MDX-010, MDX101, 10D1, BMS-734016",CTLA4,Medarex,465.0,146.0,456.0,✓,,CTLA4
+durvalumab,"Imfinzi, MEDI-4736, MEDI4736",PD-L1,"AstraZeneca, Celgene, Medimmune",447.0,84.0,154.0,✓,,CD274
+atezolizumab   >>   ==,"Tecentriq, MPDL3280A, RG7446, YW243.55.S70, RO5541267",PD-L1,Genentech,428.0,104.0,293.0,✓,,CD274
+trastuzumab   >>   ==   ••,"Herceptin, RG597, anti-p185-HER2, huMAb4D5-8, rhuMAb HER2",HER2/neu,"Genentech, Roche",413.0,333.0,922.0,✓,,ERBB2
+ranibizumab   ==   ••,"Lucentis, Susvimo, rhuFAB V2, RG3645",VEGF-A,"Genentech, Novartis",329.0,56.0,177.0,✓,,VEGFA
+cetuximab   >>   ••,"Erbitux, IMC-C225",EGFR,"BMS, ImClone",329.0,61.0,728.0,✓,,EGFR
+adalimumab   >>   ••,"Humira, Trudexa, D2E7",TNF-alpha,"Abbott, CAT",327.0,380.0,630.0,✓,,TNF
+alemtuzumab   >>   ==,"Campath, MabCampath, Lemtrada, Campath-1H, LDP-03",CD52,"CAT, Genzyme, Ilex, Sanofi",277.0,50.0,276.0,✓,,CD52
+tocilizumab   >>   <<   ••,"Actemra, RoActemra, MRA, RG1569, hPM-1",IL-6R,"Chugai, Roche",236.0,145.0,683.0,✓,,IL6R
+daratumumab   >>   ==   ••,"Darzalex, HuMax-CD38, 3003-005, JNJ-54767414",CD38,"Genmab, Janssen Biotech",200.0,169.0,384.0,✓,,CD38
+panitumumab   >>   ==,"Vectibix, ABX-EGF, clone E7.6.3, Pmab, 139",EGFR,"Abgenix, Amgen",179.0,44.0,218.0,✓,,EGFR
+avelumab   >>,"Bavencio, MSB0010718C, A09-246-2",PD-L1,"Merck Serono, Pfizer",175.0,34.0,108.0,✓,,CD274
+toripalimab,"JS001, JS-001, TAB001, Triprizumab, Treprilimab",PD-1,"Junmeng Biosciences, Shanghai Junshi, TopAlliance Bio",157.0,32.0,57.0,✓,,PDCD1
+infliximab   ==   ••,"Remicade, cA2, TA-650",TNF-alpha,Centocor Ortho,155.0,42.0,772.0,✓,,TNF
+omalizumab   >>   ==   ••,"Xolair, rhuMab-E25, E25 clone pSVIE26, RG3648, 47H4",IgE,"Genentech, Novartis, PDL",141.0,54.0,348.0,✓,,nan
+obinutuzumab   >>,"Gazyvaro, Gazyva, GA101, GA-101, RO5072759, RG7159, R7159, humanized B-Ly1, afatuzumab",CD20,"Biogen, Genentech, Glycart, Roche",141.0,142.0,191.0,✓,,MS4A1
+sintilimab   >>,"Tyvyt, IBI308",PD-1,"Adimab, Innovent, Lilly",141.0,23.0,59.0,✓,,PDCD1
+brentuximab vedotin   ==,"Adcetris, SGN-35, cAC10-vcMMAE, AC10",CD30,"Millennium, Seattle Genetics",136.0,85.0,249.0,✓,,TNFRSF8
+denosumab   ••,"Prolia, Xgeva, AMG 162",RANKL,"Abgenix, Amgen",126.0,45.0,415.0,✓,,TNFSF11
+secukinumab   ••,"Cosentyx, AIN457",IL-17,Novartis,116.0,116.0,252.0,✓,,IL17A
+dupilumab   >>   ••,"Dupixent, SAR231893, REGN668",IL-4Rα,"Regeneron, Sanofi",113.0,174.0,433.0,✓,,IL4R
+ramucirumab   >>   ••,"Cyramza, IMC-1121B, KDR-1121, LY3009806",VEGFR-2,ImClone,105.0,35.0,144.0,✓,,KDR
+pertuzumab   >>   ==   ••,"Perjeta, rhuMAb 2C4, RG1273",HER2/neu,Genentech,98.0,100.0,163.0,✓,,ERBB2
+certolizumab pegol   ••,"Cimzia, CDP870, PHA-738144",TNF-alpha,"Astellas, Celltech, Dermira, UCB, Xoma",96.0,20.0,58.0,✓,,TNF
+ustekinumab   ==   ••,"Stelara, CNTO 1275, TT-20, C01275",IL-12,"Centocor Ortho, Janssen Biotech",95.0,106.0,272.0,✓,,IL12A
+ustekinumab   ==   ••,"Stelara, CNTO 1275, TT-20, C01275",IL-23,"Centocor Ortho, Janssen Biotech",95.0,106.0,272.0,✓,,IL23A
+canakinumab   ==,"Ilaris, ACZ885",IL-1β,Novartis,82.0,84.0,125.0,✓,,IL1B
+golimumab   ••,"Simponi, CNTO 148, TNV148",TNF-alpha,"Centocor Ortho, Janssen Biotech",81.0,82.0,122.0,✓,,TNF
+ibritumomab tiuxetan,"Zevalin, 2B8, C2B8, Y2B8",CD20,"Biogen, CTI Biopharma, Spectrum",81.0,5.0,33.0,✓,,MS4A1
+ofatumumab   >>   ••,"Arzerra, Kesimpta, GSK1841157, HuMax-CD20, 2F2, OMB157",CD20,"Genmab, GSK, Novartis",80.0,32.0,179.0,✓,,MS4A1
+evolocumab,"Repatha, AMG 145, AMG145",PCSK9,Amgen,79.0,71.0,135.0,✓,,PCSK9
+alirocumab,"Praluent, SAR236553, REGN727, mAb316P",PCSK9,"Regeneron, Sanofi",76.0,110.0,133.0,✓,,PCSK9
+eculizumab   >>   ••,"Soliris, h5G1.1",C5,Alexion,74.0,187.0,361.0,✓,,C5
+vedolizumab   ••,"Entyvio, MLN0002, MLN02, LDP02",Integrin α4β7,"Genentech, Millennium",69.0,122.0,229.0,✓,,nan
+blinatumomab,"BLINCYTO, AMG 103, MEDI-538, MT-103, MT103, BscCD19xCD3",CD19,"Amgen, Medimmune, Micromet",69.0,59.0,141.0,✓,,CD19
+blinatumomab,"BLINCYTO, AMG 103, MEDI-538, MT-103, MT103, BscCD19xCD3",CD3,"Amgen, Medimmune, Micromet",69.0,59.0,141.0,✓,,CD3E
+cemiplimab-rwlc,"Libtayo, cemiplimab, REGN2810",PD-1,"Regeneron, Sanofi",69.0,55.0,54.0,✓,,PDCD1
+gemtuzumab ozogamicin   >>,"Mylotarg, CMA-676, P67.6",CD33,"PDL, Pfizer, Wyeth",65.0,5.0,95.0,nan,,CD33
+mepolizumab,"Nucala, SB-240563, Bosatria",IL-5,GSK,65.0,31.0,202.0,✓,,IL5
+abciximab,"ReoPro, Clotinab, c7E3 Fab",Integrin αIIbβ3,"Centocor Ortho, Isu Abxis, Lilly",62.0,10.0,25.0,nan,,ITGA2B
+belimumab,"Benlysta, LymphoStat-B, HGS1006, GSK1550188",BAFF,"GSK, HGS",62.0,32.0,148.0,✓,,TNFSF13B
+ivonescimab,"AK112, SMT112, evoximab",PD-1,"Akeso, Summit Thera",57.0,13.0,7.0,nan,,PDCD1
+ivonescimab,"AK112, SMT112, evoximab",VEGF,"Akeso, Summit Thera",57.0,13.0,7.0,nan,,VEGFA
+risankizumab,"SKYRIZI, BI 655066, ABBV-066",IL-23p19,"Abbvie, Boehringer",49.0,35.0,81.0,✓,,IL23A
+efalizumab,"Raptiva, Xanelim, hu1124",Integrin αL,"Genentech, Xoma",48.0,5.0,16.0,✓,,ITGAL
+elotuzumab   ==,"Empliciti, HuLuc63, PDL063, PDL-063, BMS-901608",SLAMF7,"Abbott, BMS, Facet, PDL",48.0,38.0,94.0,✓,,SLAMF7
+guselkumab   ==,"Tremfya, CNTO 1959",IL-23p19,"Centocor Ortho, Janssen Biotech, Morphosys",48.0,88.0,104.0,✓,,IL23A
+erenumab   >>,"Aimovig, AMG 334, erenumab-aooe",CGRP R,"Amgen, Novartis",48.0,25.0,178.0,✓,,CALCRL
+natalizumab   ••,"Tysabri, Antegren, AN 100226",Integrin α4,"Biogen, Elan",47.0,76.0,276.0,✓,,ITGA4
+trastuzumab emtansine   <<   ••,"Kadcyla, PRO132365, trastuzumab-MCC-DM1, Trastuzumab-DM1, T-DM1, RG3502",HER2/neu,"Genentech, ImmunoGen, PDL, Roche",46.0,172.0,202.0,✓,,ERBB2
+basiliximab   ••,"Simulect, SDZ CHII621",IL-2Rα,Novartis,45.0,7.0,66.0,✓,,IL2RA
+daclizumab   ••,"Zenapax, Zinbryta, dacliximab, Ro 24-7375, anti-TAC, BIIB019, daclizumab HYP",IL-2Rα,"Abbvie, Biogen, Genentech, PDL, Roche",45.0,23.0,53.0,✓,,IL2RA
+benralizumab,"Fasenra, MEDI-563, BIW-8405, KHK4563",IL-5Rα,"BioWa, KHK, Medimmune",44.0,37.0,127.0,✓,,IL5RA
+ocrelizumab   >>   ••,"Ocrevus, 2H7.v16, rhuMAb2H7, PRO70769, RG1594",CD20,"Biogen, Genentech, Xoma",44.0,60.0,131.0,✓,,MS4A1
+trastuzumab deruxtecan-nxki   <<,"ENHERTU, DS-8201a, DS8201a",HER2/neu,"AstraZeneca, Daiichi Sankyo",44.0,45.0,167.0,nan,,ERBB2
+isatuximab-irfc,"Sarclisa, isatuximab, SAR650984, 38SB",CD38,"ImmunoGen, Sanofi",43.0,61.0,93.0,✓,,CD38
+inotuzumab ozogamicin,"BESPONSA, CMC-544, G5/44, G544, WAY-207294",CD22,"Pfizer, UCB, Wyeth",41.0,16.0,90.0,✓,,CD22
+ixekizumab   >>,"Taltz, LY2439821",IL-17,Lilly,38.0,19.0,129.0,✓,,IL17A
+sacituzumab govitecan-hziy   >>   ==,"Trodelvy, sacituzumab govitecan, hRS7-SN38, IMMU-132",TACSTD-2,"Immunomedics, Seattle Genetics",38.0,124.0,135.0,✓,,TACSTD2
+sarilumab,"Kevzara, SAR153191, REGN88, VQ8F11-21",IL-6R,"Regeneron, Sanofi",37.0,78.0,53.0,✓,,IL6R
+brodalumab,"SILIQ, Kyntheum, AMG 827, AM-14, KHK4827",IL-17RA,"Amgen, AstraZeneca, KHK, Valeant",35.0,39.0,76.0,✓,,IL17RA
+tisagenlecleucel,"Kymriah, CART-19, CART19, CTL019",CD19,"Novartis, U.Penn.",35.0,35.0,5.0,nan,,CD19
+mosunetuzumab-axgb   ==,"Lunsumio, BTCT4465A, RG7828, RO7030816",CD20,Genentech,34.0,32.0,27.0,✓,,MS4A1
+mosunetuzumab-axgb   ==,"Lunsumio, BTCT4465A, RG7828, RO7030816",CD3e,Genentech,34.0,32.0,27.0,✓,,CD3E
+siltuximab   >>,"Sylvant, CNTO-328, cCLB8",IL-6,"Centocor, Janssen Biotech",33.0,37.0,69.0,✓,,IL6
+polatuzumab vedotin-piiq   >>,"Polivy, RG7596, DCDS4501A, huMA79b.v28",CD79b,"Genentech, Roche, Seattle Genetics",32.0,79.0,62.0,✓,,CD79B
+penpulimab   >>,AK105,PD-1,"Akeso, HanX Bio, Taizhou Hanzhong Bio",32.0,14.0,10.0,✓,,PDCD1
+mogamulizumab-kpkc,"Poteligeo, mogamulizumab, KW-0761, KM8761, AMG-761",CCR4,"Amgen, KHK",30.0,46.0,120.0,✓,,CCR4
+relatlimab-rmbw   >>,"Opdualag, relatlimab, 25F7, BMS 986016, BMS-986016, BMS-986213",LAG-3,"BMS, Medarex",30.0,77.0,17.0,✓,,LAG3
+dostarlimab   ==,"Jemperli, ANB011, TSR-042, ABT1",PD-1,"AnaptysBio, GSK, Tesaro",30.0,20.0,26.0,✓,,PDCD1
+lebrikizumab,"Ebglyss, MILR1444A, PRO301444, RG3637, 228B/C, TNX-650",IL-13,"Dermira, Genentech, Roche, Tanox",29.0,34.0,46.0,✓,,IL13
+bimekizumab-bkzx   >>,"Bimzelx, bimekizumab, UCB4940",IL-17,UCB,29.0,37.0,52.0,✓,,IL17A
+bimekizumab-bkzx   >>,"Bimzelx, bimekizumab, UCB4940",IL-17F,UCB,29.0,37.0,52.0,✓,,IL17F
+tositumomab,"Bexxar, I131 tositumomab",CD20,GSK,28.0,1.0,30.0,nan,,MS4A1
+tralokinumab,"Adtralza, Adbry, CAT-354, BAK502G9",IL-13,"AstraZeneca, Leo Pharma, Medimmune",28.0,28.0,60.0,✓,,IL13
+retifanlimab-dlwr   ==,"Zynyz, retifanlimab, MGA012, INCMGA00012",PD-1,"Incyte, MacroGenics, Zai Lab",28.0,14.0,10.0,✓,,PDCD1
+belantamab mafodotin-blmf   ==,"BLENREP, GSK2857916, J6M0-mcMMAF",BCMA,"Glaxo Group, Seattle Genetics",28.0,40.0,57.0,✓,,TNFRSF17
+fremanezumab-vfrm,"Ajovy, fremanezumab, TEV-48125, PF-04427429, RN-307, LBR-101",CGRP,"Labrys, Pfizer, Rinat, Teva",27.0,99.0,108.0,✓,,CALCA
+burosumab,"Crysvita, KRN23, KRN-23, UX023, burosumab-twza",FGF23,"KHK, Ultragenyx",26.0,12.0,69.0,✓,,FGF23
+galcanezumab-gnlm,"Emgality, galcanezumab, LY2951742",CGRP,"Arteaus, Lilly",26.0,22.0,146.0,✓,,CALCA
+emicizumab-kxwh   >>,"Hemlibra, ACE910, A44/B26, XB12, SB04, RG6013, RO5534262",Factor IX,"Chugai, Genentech, Roche",25.0,59.0,164.0,✓,,F9
+emicizumab-kxwh   >>,"Hemlibra, ACE910, A44/B26, XB12, SB04, RG6013, RO5534262",Factor X,"Chugai, Genentech, Roche",25.0,59.0,164.0,✓,,F10
+eptinezumab-jjmr,"VYEPTI, eptinezumab, ALD403",CGRP,"Alder, H. Lundbeck",25.0,65.0,45.0,✓,,CALCA
+tezepelumab-ekko,"Tezspire, AMG 157, MEDI9929",TSLP,"Amgen, AstraZeneca",24.0,30.0,48.0,✓,,TSLP
+tafasitamab-cxix   >>   ==,"Minjuvi (EU) Monjuvi (US), XmAb 5574, MOR208, 4G7, 4G7SDIE , MOR00208",CD19,"Incyte, Morphosys, Xencor",23.0,67.0,35.0,✓,,CD19
+ublituximab-xiiy   ==,"BRIUMVI, ublituximab, LFB-R603, TGTX-1101, TG-1101",CD20,"LFB, TG Therapeutics",23.0,31.0,21.0,✓,,MS4A1
+glofitamab   <<,"COLUMVI, RG6026, RO7082859",CD20,Roche,23.0,31.0,24.0,✓,,MS4A1
+glofitamab   <<,"COLUMVI, RG6026, RO7082859",CD3,Roche,23.0,31.0,24.0,✓,,CD3E
+romosozumab-aqqg   >>,"Evenity, romosozumab, AMG 785, CDP7851, 785A070802",Sclerostin,"Amgen, Astellas, UCB",22.0,87.0,109.0,✓,,SOST
+enfortumab vedotin-ejfv,"PADCEV, ASG-22ME, AGS-22M6E, ASG-22CE",Nectin-4,"Agensys, Astellas, Seattle Genetics",22.0,41.0,101.0,✓,,NECTIN4
+datopotamab deruxtecan,"Datroway, DS-1062a, MAAP-9001a, TINA1, Dato-DXd",TACSTD-2,"AstraZeneca, Daiichi Sankyo",22.0,19.0,27.0,nan,,TACSTD2
+dinutuximab   >>,"Unituxin, dinutuximab beta, Ch14.18, APN311",GD2,"Apeiron, NCI, United Therapeutics",21.0,20.0,56.0,✓,,nan
+spesolimab-sbzo,"Spevigo, BI 655130",IL1RL2,Boehringer,21.0,48.0,41.0,✓,,IL1RL2
+naxitamab-gqgk   ==,"DANYELZA, naxitamab, Hu3F8, MAb-3F8",GD2,"Sloan-Kettering, United Therapeutics, Y-mAbs",20.0,14.0,24.0,✓,,nan
+necitumumab,"Portrazza, IMC-11F8, LY3012211",EGFR,ImClone,20.0,12.0,27.0,✓,,EGFR
+reslizumab,"Cinquair, Cinqaero, SCH 55700, SCH55700, CDP835, CEP-38072, hu39D10",IL-5,"Cephalon, Ception",20.0,8.0,44.0,?,,IL5
+tildrakizumab-asmn,"Ilumya, tildrakizumab, MK-3222, SCH 900222, hum13B8-b",IL-23p19,"Merck (MSD), Schering-Plough, Sun Pharma",20.0,40.0,53.0,✓,,IL23A
+brolucizumab,"Beovu, DLX1008, DLX903, ESBA1008, ESBA903, RTH258",VEGF-A,"Delenex, ESBATech, Novartis",20.0,26.0,38.0,✓,,VEGFA
+catumaxomab,"Removab, Korjuny, Ho-3/TP-A-01/TPBs01, Bi20",CD3,"Fresenius, LintonPharm, TRION Pharma",19.0,10.0,44.0,nan,,CD3E
+catumaxomab,"Removab, Korjuny, Ho-3/TP-A-01/TPBs01, Bi20",EpCAM,"Fresenius, LintonPharm, TRION Pharma",19.0,10.0,44.0,nan,,EPCAM
+envafolimab,"KN035, ASC22",PD-L1,"Alphamab, Tracon",19.0,9.0,11.0,✓,,CD274
+epcoritamab-bysp,"Epkinly, Tepkinly, GEN3013, DuoBody-CD3xCD20",CD20,"Abbvie, Genmab",19.0,49.0,25.0,✓,,MS4A1
+epcoritamab-bysp,"Epkinly, Tepkinly, GEN3013, DuoBody-CD3xCD20",CD3,"Abbvie, Genmab",19.0,49.0,25.0,✓,,CD3E
+olaratumab,"Lartruvo, IMC-3G3, IMC3G3",PDGFRA,ImClone,18.0,15.0,34.0,✓,,PDGFRA
+mirvetuximab soravtansine-gynx,"ELAHERE, mirvetuximab soravtansine, IMGN853, huFR107, huFR107-SPDB-DM4, M9346A, huMovl9",FRA,ImmunoGen,18.0,61.0,52.0,✓,,FOSL1
+Remsima   ••,"Inflectra, CT-P13",TNF-alpha,"Celltrion, Pfizer",17.0,9.0,88.0,nan,,TNF
+mirikizumab-mrkz,"Omvoh, mirikizumab, LY3074828",IL-23,Lilly,17.0,14.0,31.0,✓,,IL23A
+faricimab-svoa   ==,"Vabysmo, faricimab, RO6867461, RG7716, 5A12.1",Angiopoietin 2,Roche,17.0,10.0,38.0,✓,,ANGPT2
+faricimab-svoa   ==,"Vabysmo, faricimab, RO6867461, RG7716, 5A12.1",VEGF-A,Roche,17.0,10.0,38.0,✓,,VEGFA
+moxetumomab pasudotox,"Lumoxiti, moxetumomab pasudotox-tdfk, CAT-8015, HA22, R490A, BL22 immunotoxin",CD22,Medimmune,16.0,20.0,26.0,✓,,CD22
+teplizumab-mzwv,"TZIELD, teplizumab, MGA031, hOKT3gamma1(Ala-Ala), PRV-031",CD3e,"Lilly, MacroGenics, PDL, Provention Bio",16.0,22.0,45.0,✓,,CD3E
+ravulizumab-cwvz   <<,"Ultomiris, ravulizumab, ALXN 1210, ALXN1210, BNJ441",C5,"Alexion, AstraZeneca, Xencor",15.0,67.0,42.0,✓,,C5
+pozelimab-bbfg,"Veopoz, pozelimab, REGN3918",C5,Regeneron,15.0,20.0,7.0,✓,,C5
+inebilizumab-cdon,"Uplizna, MEDI-551, VIB551",CD19,"Medimmune, Viela Bio",14.0,26.0,33.0,✓,,CD19
+emapalumab,"Gamifant, emapalumab-lzsg, NI-0501",IFN-γ,"NovImmune, Sobi",13.0,12.0,19.0,✓,,IFNG
+lanadelumab   ==,"Takhzyro, DX-2930, lanadelumab-flyo, SHP643",Kallikrein,"Dyax, Shire, Takeda",12.0,35.0,16.0,✓,,KLK1
+odronextamab,"Ordspono, REGN1979",CD20,"Regeneron, Zai Lab",12.0,36.0,11.0,✓,,MS4A1
+odronextamab,"Ordspono, REGN1979",CD3,"Regeneron, Zai Lab",12.0,36.0,11.0,✓,,CD3E
+sugemalimab,"Cejemly, CS1001",PD-L1,"CStone Pharma, Ligand",12.0,,11.0,✓,,CD274
+teprotumumab-trbw   >>,"TEPEZZA, SYCUME, RO4858696-000, RO4858696, RV 001, RV001, HZN-001",IGF-1R,"Horizon, Roche",11.0,30.0,57.0,✓,,IGF1R
+zolbetuximab-clzb,"VYLOY, zolbetuximab, IMAB362, claudiximab",CLDN18,"Astellas, Ganymed",11.0,71.0,36.0,✓,,CLDN18
+evinacumab-dgnb,"Evkeeza, evinacumab, REGN1500",ANGPTL3,"Bayer, Regeneron, Ultragenyx",11.0,29.0,31.0,✓,,ANGPTL3
+loncastuximab tesirine-lpyl,"ZYNLONTA, ADCT-402, RB4v1.2, Lonca",CD19,"ADC Therapeutics, Medimmune",11.0,26.0,31.0,✓,,CD19
+linvoseltamab-gcpt   ==,"Lynozyfic, linvoseltamab, REGN5458",BCMA,Regeneron,11.0,17.0,4.0,nan,,TNFRSF17
+linvoseltamab-gcpt   ==,"Lynozyfic, linvoseltamab, REGN5458",CD3,Regeneron,11.0,17.0,4.0,nan,,CD3E
+crizanlizumab-tmca,"Adakveo, crizanlizumab, SelG1, SEG101",P-selectin,"Novartis, Selexys",10.0,24.0,16.0,✓,,SELP
+donanemab-azbt,"Kisunla, Lormalzi, donanemab, LY3002813",Amyloid beta,Lilly,10.0,40.0,16.0,✓,,APP
+garadacimab,"Andembry, CSL312",Factor XII,CSL,10.0,21.0,13.0,✓,,F12
+amivantamab-vmjw,"RYBREVANT, amivantamab, JNJ-61186372, EM1-mAb, JNJ-6372, CNTO4424",cMet,"Genmab, Janssen Biotech",10.0,45.0,51.0,✓,,MET
+amivantamab-vmjw,"RYBREVANT, amivantamab, JNJ-61186372, EM1-mAb, JNJ-6372, CNTO4424",EGFR,"Genmab, Janssen Biotech",10.0,45.0,51.0,✓,,EGFR
+enlonstobart,"Enshuxing, SG001",PD-1,CSPC Pharma,10.0,,2.0,nan,,PDCD1
+palivizumab,"Synagis, Abbosynagis, MEDI-493, humanized MAb1129",RSV-F,Medimmune,9.0,57.0,15.0,✓,,nan
+ibalizumab-uiyk,"Trogarzo, ibalizumab, TMB-355, TNX-355, Hu5A8",CD4,"Rockefeller U., TaiMed Biologics, Tanox",9.0,13.0,25.0,✓,,CD4
+adalimumab-adbm   ••,"Cyltezo, BI 695501",TNF-alpha,Boehringer,9.0,,7.0,nan,,TNF
+telisotuzumab vedotin-tllv   <<,"Emrelis, telisotuzumab vedotin, ABBV-399",cMet,Abbvie,9.0,11.0,7.0,nan,,MET
+tarlatamab-dlle,"Imdelltra, tarlatamab, AMG 757",CD3,Amgen,9.0,13.0,4.0,✓,,CD3E
+tarlatamab-dlle,"Imdelltra, tarlatamab, AMG 757",DLL3,Amgen,9.0,13.0,4.0,✓,,DLL3
+caplacizumab   ==,"Cablivi, caplacizumab-yhdp, ALX-0081",VWF,Ablynx,8.0,13.0,29.0,✓,,VWF
+margetuximab,"MARGENZA, MGAH22, 4D5",HER2/neu,"MacroGenics, Zai Lab",8.0,20.0,14.0,✓,,ERBB2
+aducanumab,"Aduhelm, BIIB037, BART",Amyloid beta,"Biogen, Eisai, Neurimmune",8.0,20.0,57.0,✓,,APP
+lecanemab-irmb   >>,"Leqembi, BAN2401, mAb158",Amyloid beta,"BioArctic, Biogen, Eisai",8.0,14.0,33.0,✓,,APP
+rozanolixizumab-noli,"RYSTIGGO, rozanolixizumab, UCB7665, CA170_01519.g57 IgG4P",FcRn,UCB,8.0,20.0,16.0,✓,,FCGRT
+ebronucimab,AK102,PCSK9,"AD Pharma, Akeso",8.0,8.0,2.0,✓,,PCSK9
+recaticimab,SHR-1209,PCSK9,Jiangsu Hengrui,8.0,10.0,6.0,✓,,PCSK9
+satralizumab-mwge   <<,"ENSPRYNG, SA237, RG6168",IL-6R,"Chugai, Genentech",7.0,9.0,27.0,✓,,IL6R
+axatilimab-csfr,"NIKTIMVO, axatilimab, SNDX-6352, UCB6352",CSF-1R,"Incyte, Syndax, UCB",7.0,23.0,8.0,✓,,CSF1R
+crovalimab,"PiaSky, SKY59, RG6107, RO7112689",C5,"Chugai, Roche",7.0,30.0,8.0,✓,,C5
+concizumab-mtci,"Alhemo, concizumab, mAb 2021, 4F110",TFPI,Novo Nordisk,6.0,36.0,20.0,✓,,TFPI
+GP2013   ••,"Riximyo, SDZ-RTX, Rixathon",CD20,"Novartis, Sandoz",6.0,,5.0,nan,,MS4A1
+SB5   ••,"Imraldi, Merck Adalimumab Biosimilar",TNF-alpha,"Merck (MSD), Samsung Bioepis",6.0,8.0,11.0,nan,,TNF
+HLX01   ••,Hanlikon,CD20,Shanghai Henlius,6.0,,1.0,nan,,MS4A1
+KTE-C19,"Yescarta, axicabtagene ciloleucel, KTE-X19",CD19,Kite,6.0,13.0,2.0,nan,,CD19
+marstacimab-hncq,"HYMPAVZI, marstacimab, PF-06741086",TFPI,Pfizer,6.0,14.0,10.0,✓,,TFPI
+muromonab-CD3   >>,Orthoclone OKT3,CD3,Janssen-Cilag,5.0,2.0,7.0,nan,,CD3E
+zanidatamab-hrii   >>   ==,"Ziihera, zanidatamab, ZW25, ZW-25",HER2/neu,"Jazz Pharma, Zymeworks",5.0,33.0,11.0,✓,,ERBB2
+infliximab-dyyb   ••,Inflectra,TNF-alpha,"Hospira, Pfizer",5.0,,8.0,nan,,TNF
+rituximab-abbs   ••,"Truxima, Tuxella, Ritemvia, Blitzima, CT-P10",CD20,"Celltrion, Mundipharma",4.0,,19.0,nan,,MS4A1
+PF-05280014   ••,"Trazimera, Trastuzumab-Pfizer",HER2/neu,Pfizer,4.0,,5.0,nan,,ERBB2
+ABP 501   ••,"Amjevita, Amgevita, adalimumab-atto",TNF-alpha,"Amgen, Daiichi Sankyo",4.0,,8.0,nan,,TNF
+PF-06410293   ••,"Amsparity, Abrilada, Adalimumab Pfizer",TNF-alpha,Pfizer,4.0,1.0,4.0,nan,,TNF
+bevacizumab-bvzr   ••,"Zirabev, PF-06439535",VEGF-A,Pfizer,4.0,4.0,4.0,nan,,VEGFA
+sutimlimab-jome   ==,"Enjaymo, sutimlimab, TNT009, TNT003, BIVV009",C1s,"Bioverativ, True North",4.0,47.0,21.0,✓,,C1S
+efgartigimod alfa,"Vygart, ARGX-113",FcRn,argenx,4.0,25.0,2.0,nan,,FCGRT
+zenocutuzumab-zbco,"Bizengri, MCLA-128, MF3958, MF3178",HER2/neu,Merus,4.0,26.0,10.0,✓,,ERBB2
+zenocutuzumab-zbco,"Bizengri, MCLA-128, MF3958, MF3178",HER3,Merus,4.0,26.0,10.0,✓,,ERBB3
+rituximab-pvvr   ••,"Ruxience, PF-05280586",CD20,Pfizer,3.0,,5.0,nan,,MS4A1
+cosibelimab-ipdl,"UNLOXCYT, cosibelimab, CK-301, TG-1501",PD-L1,"Checkpoint Therapeutics, Dana-Farber, Novartis, TG Therapeutics",3.0,42.0,1.0,✓,,CD274
+rituximab-arrx   ••,"RIABNI, ABP798",CD20,Amgen,3.0,,4.0,nan,,MS4A1
+GP2017   ••,Hyrimoz,TNF-alpha,Sandoz,3.0,,10.0,nan,,TNF
+capromab pendetide,"Prostascint, 7E11-C5, CYT-356, CYT-500",PSMA,"Cytogen, EUSA",2.0,2.0,8.0,nan,,FOLH1
+bevacizumab-awwb   ••,"MVASI, ABP 215",VEGF-A,"Allergan, Amgen",2.0,,3.0,nan,,VEGFA
+infliximab-qbtx   ••,"IXIFI, Zessly, GP1111, PF-06438179",TNF-alpha,"Novartis, Pfizer, Sandoz",2.0,,6.0,nan,,TNF
+BCD-020   ••,"AcellBia, BCD020",CD20,Biocad,2.0,1.0,1.0,nan,,MS4A1
+IBI303   ••,SULINNO,TNF-alpha,Innovent,2.0,,1.0,nan,,TNF
+infliximab-abda   ••,"Flixabi, Renflexis, SB2",TNF-alpha,"Biogen, Merck (MSD), Samsung Bioepis",2.0,,14.0,nan,,TNF
+trastuzumab-strf   ••,"Zercepac, Hanquyou, Hercessi, HLX02, Han Quyou",HER2/neu,Shanghai Henlius,2.0,,4.0,nan,,ERBB2
+trastuzumab-dkst   ••,"Ogivri, Hercules, Myl1401O, Myl-1401O, Bmab-200, CANMAb",HER2/neu,"Biocon, Mylan",2.0,,3.0,nan,,ERBB2
+cetuximab beta   ••,"Enlituo, CMAB009",EGFR,"BioMab, Shanghai Zhangjiang Bio.",2.0,3.0,1.0,nan,,EGFR
+FKB327   ••,Hulio,TNF-alpha,"Fujifilm Kyowa Kirin, Mylan",2.0,,7.0,nan,,TNF
+Xeligekimab   ==,"Jinlixi, GR1501",IL-17,"Genrix Biopharma, Nanjing Medical U.",2.0,,6.0,nan,,IL17A
+ustekinumab-auub   ••,"Wezlana, ABP654",IL-12,Amgen,2.0,,1.0,nan,,IL12A
+ustekinumab-auub   ••,"Wezlana, ABP654",IL-23,Amgen,2.0,,1.0,nan,,IL23A
+arcitumomab,"CEA-Scan, IMMU-4, NP-4",CEACAM5,Immunomedics,1.0,1.0,6.0,nan,,CEACAM5
+infliximab-axxq   ••,"AVSOLA, ABP710, ABP 710",TNF-alpha,Amgen,1.0,,3.0,nan,,TNF
+trastuzumab-anns   ••,"Kanjinti, ABP 980",HER2/neu,"Allergan, Amgen, Byondis",1.0,,8.0,nan,,ERBB2
+adalimumab-aqvh   ••,"YUSIMRY, CHS-1420",TNF-alpha,Coherus,1.0,,,nan,,TNF
+SB8   ••,AYBINTIO,VEGF-A,Samsung Bioepis,1.0,1.0,3.0,nan,,VEGFA
+ranibizumab-nuna   ••,"Byooviz, SB11, AM002",VEGF-A,"AffaMed, Merck (MSD), Samsung Bioepis",1.0,,2.0,nan,,VEGFA
+tocilizumab-bavi   ••,"Tofidence, BAT1806, BIIB800",IL-6R,"Biogen, Bio-Thera Solutions",1.0,5.0,2.0,nan,,IL6R
+denosumab-bbdz   ••,"Jubonti, Wyost, GP2411",RANKL,Sandoz,1.0,,4.0,nan,,TNFSF11
+ustekinumab-ttwe   ••,"PYZCHIVA, SB17",IL-12,"Samsung Bioepis, Sandoz",1.0,2.0,1.0,nan,,IL12A
+ustekinumab-ttwe   ••,"PYZCHIVA, SB17",IL-23,"Samsung Bioepis, Sandoz",1.0,2.0,1.0,nan,,IL23A
+votumumab,"HumaSPECT, OncoSPECT, 88BV59",CTAA16.88,Organon Technika,,,2.0,nan,,nan
+nofetumomab merpentan,"Verluma, OncoTrac, nofetumomab merpentan (technetium (99Tc)), NR-LU-10",EpCAM,"Boehringer, NeoRx",,,,nan,,EPCAM
+DRL_TZ   ••,Hervycta,HER2/neu,Dr. Reddy's,,,1.0,nan,,ERBB2
+Razumab,nan,VEGF-A,Intas,,,3.0,nan,,VEGFA
+ranibizumab-eqrn   ••,Cimerli,VEGF,Coherus,,,,nan,,VEGFA
