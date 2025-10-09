@@ -23,48 +23,49 @@ PATTERNS = {
     'metadata': r'\.mdata\.rds$'
 }
 
+# Global variable for GCS command - set once
+_GCS_CMD = None
+
+def _init_gcs_cmd():
+    """Initialize GCS command once"""
+    global _GCS_CMD
+    if _GCS_CMD is None:
+        try:
+            from py_target_id.utils.google import GOOGLE_COPY_VERSION
+            if GOOGLE_COPY_VERSION == "gsutil":
+                _GCS_CMD = "gsutil"
+            else:
+                _GCS_CMD = "gcloud storage"
+        except:
+            _GCS_CMD = "gcloud storage"
+    return _GCS_CMD
+
 def process_path(path_info):
-
-    from py_target_id.utils import google_copy
-
     """Function to list and process files for each path"""
     path_name, path = path_info
     pattern = PATTERNS[path_name]
     
+    # Get GCS command (fast - uses global)
+    gcp_cmd = _init_gcs_cmd()
+    
     # List files from GCS
     try:
-        gcp_cmd = google_copy()
         cmd = f"{gcp_cmd} ls {path}"
         result = subprocess.run(cmd, shell=True, capture_output=True, text=True, check=True)
         files = result.stdout.strip().split('\n')
         files = [f for f in files if f]  # Remove empty strings
         
         if not files:
-            print(f"  Warning: No files found in {path_name} directory")
-            print(f"    Path: {path}")
             return pd.DataFrame()
             
-    except subprocess.CalledProcessError as e:
-        print(f"  Error accessing {path_name} directory:")
-        print(f"    Path: {path}")
-        print(f"    Command: {cmd}")
-        print(f"    Return code: {e.returncode}")
-        if e.stderr:
-            print(f"    Error output: {e.stderr}")
-        if e.stdout:
-            print(f"    Standard output: {e.stdout}")
+    except subprocess.CalledProcessError:
         return pd.DataFrame()
-    except Exception as e:
-        print(f"  Unexpected error processing {path_name}:")
-        print(f"    Path: {path}")
-        print(f"    Error: {str(e)}")
+    except Exception:
         return pd.DataFrame()
     
     # Extract sample IDs by removing file extensions
     basenames = [os.path.basename(f) for f in files]
     sample_ids = [re.sub(pattern, '', basename) for basename in basenames]
-    
-    print(f"  Found {len(files)} {path_name} files")
     
     # Return DataFrame with file type and paths
     return pd.DataFrame({
@@ -86,8 +87,9 @@ def load_manifest(latest=True, parallel=True, verbose=True):
         pandas.DataFrame: Manifest with sample information and file paths
     """
     
-    from py_target_id.utils import google_copy
-
+    # Initialize GCS command
+    gcp_cmd = _init_gcs_cmd()
+    
     # Define paths
     paths = {
         'h5map': 'gs://cartography_target_id_package/Sample_Input/20251008/processed/h5map/',
@@ -102,60 +104,28 @@ def load_manifest(latest=True, parallel=True, verbose=True):
     if verbose:
         print("="*70)
         print("Loading manifest files from GCS...")
-        print(f"Using GCS command: {google_copy()}")
+        print(f"Using GCS command: {gcp_cmd}")
         print("="*70)
     
-    # Test GCS connectivity first
-    if verbose:
-        test_cmd = f"{google_copy()} ls gs://cartography_target_id_package/"
-        test_result = subprocess.run(test_cmd, shell=True, capture_output=True, text=True)
-        if test_result.returncode != 0:
-            print("\n⚠️  WARNING: Cannot access GCS bucket")
-            print(f"Command: {test_cmd}")
-            print(f"Error: {test_result.stderr}")
-            print("\nTroubleshooting steps:")
-            print("  1. Check authentication: gcloud auth list")
-            print("  2. Login if needed: gcloud auth application-default login")
-            print("  3. Check bucket permissions")
-            print("  4. Try switching GCS command: tid.utils.set_google_copy_version('gsutil')")
-            print("="*70 + "\n")
-        else:
-            print("✓ GCS bucket accessible\n")
-    
-    # Process all paths (parallel or sequential)
+    # Process all paths
     path_items = list(paths.items())
     
-    if parallel and os.name != 'nt':  # Unix-like systems
+    if parallel and os.name != 'nt':
         if verbose:
             print("Processing directories in parallel...\n")
-        # Use parallel processing
-        with Pool(processes=min(7, cpu_count())) as pool:  # Changed from 6 to 7
+        with Pool(processes=min(7, cpu_count())) as pool:
             file_lists = pool.map(process_path, path_items)
     else:
         if verbose:
             print("Processing directories sequentially...\n")
-        # Sequential processing
         file_lists = [process_path(item) for item in path_items]
     
     # Combine all file information
-    all_files = pd.concat(file_lists, ignore_index=True)
+    all_files = pd.concat([df for df in file_lists if not df.empty], ignore_index=True)
     
     if all_files.empty:
-        print("\n" + "="*70)
-        print("❌ ERROR: No files found in any directory")
-        print("="*70)
-        print("\nPossible causes:")
-        print("  1. Wrong date in paths (currently: 20251008)")
-        print("  2. Authentication issues")
-        print("  3. Incorrect GCS command (currently: {})".format(google_copy()))
-        print("  4. Files haven't been uploaded yet")
-        print("\nDebugging steps:")
-        print("  # Check available dates:")
-        print("  subprocess.run('gcloud storage ls gs://cartography_target_id_package/Sample_Input/', shell=True)")
-        print("\n  # Try different GCS command:")
-        print("  tid.utils.set_google_copy_version('gsutil')  # or 'gcloud storage'")
-        print("  manifest = tid.utils.load_manifest()")
-        print("="*70)
+        if verbose:
+            print("\n❌ ERROR: No files found in any directory")
         warnings.warn("No files found in any directory")
         return pd.DataFrame()
     
@@ -164,27 +134,18 @@ def load_manifest(latest=True, parallel=True, verbose=True):
     
     # Count files per sample ID across all types
     file_counts = all_files.groupby('sample_id').size().reset_index(name='count')
-    complete_samples = file_counts[file_counts['count'] == 7]['sample_id'].tolist()  # Changed from 6 to 7
-    incomplete_samples = file_counts[file_counts['count'] != 7]  # Changed from 6 to 7
-    
-    if verbose and not incomplete_samples.empty:
-        print(f"\n⚠️  Warning: {len(incomplete_samples)} samples have incomplete files:")
-        print(incomplete_samples.to_string(index=False))
+    complete_samples = file_counts[file_counts['count'] == 7]['sample_id'].tolist()
     
     if not complete_samples:
-        print("\n" + "="*70)
-        print("❌ ERROR: No samples found with all 7 required file types")  # Changed from 6 to 7
-        print("="*70)
-        print("\nFile type distribution:")
-        print(all_files['type'].value_counts().to_string())
-        print("\nSamples and their file counts:")
-        print(file_counts.sort_values('count').to_string(index=False))
-        print("="*70)
-        warnings.warn("No samples found with all 7 required file types")  # Changed from 6 to 7
+        if verbose:
+            print("\n❌ ERROR: No samples found with all 7 required file types")
+            print("\nFile type distribution:")
+            print(all_files['type'].value_counts().to_string())
+        warnings.warn("No samples found with all 7 required file types")
         return pd.DataFrame()
     
     if verbose:
-        print(f"✓ Found {len(complete_samples)} samples with complete data (all 7 file types)")  # Changed from 6 to 7
+        print(f"✓ Found {len(complete_samples)} samples with complete data (all 7 file types)")
     
     # Filter to complete samples and reshape to wide format
     complete_files = all_files[all_files['sample_id'].isin(complete_samples)]
@@ -210,16 +171,12 @@ def load_manifest(latest=True, parallel=True, verbose=True):
     
     # Filter to latest versions if requested
     if latest:
-        # Convert DOC to numeric for sorting (handle potential non-numeric values)
         df['DOC_numeric'] = pd.to_numeric(df['DOC'], errors='coerce')
-        pre_filter_count = len(df)
         df = (df.sort_values('DOC_numeric', ascending=False)
                 .drop_duplicates(subset='Sample_ID', keep='first')
                 .sort_values(['Indication', 'Sample_ID'])
                 .drop('DOC_numeric', axis=1)
                 .reset_index(drop=True))
-        if verbose and pre_filter_count > len(df):
-            print(f"✓ Filtered to latest versions: {pre_filter_count} → {len(df)} samples")
     
     if verbose:
         print(f"\n{'='*70}")
