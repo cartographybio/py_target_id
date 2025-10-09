@@ -86,6 +86,8 @@ def load_manifest(latest=True, parallel=True, verbose=True):
         pandas.DataFrame: Manifest with sample information and file paths
     """
     
+    from py_target_id.utils import google_copy
+
     # Define paths
     paths = {
         'h5map': 'gs://cartography_target_id_package/Sample_Input/20251008/processed/h5map/',
