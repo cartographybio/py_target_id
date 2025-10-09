@@ -12,8 +12,6 @@ import os
 from multiprocessing import Pool, cpu_count
 import warnings
 
-from py_target_id.utils import google_copy, set_google_copy_version
-
 # File extension patterns for regex matching
 PATTERNS = {
     'h5map': r'\.h5$',
@@ -26,6 +24,9 @@ PATTERNS = {
 }
 
 def process_path(path_info):
+
+    from py_target_id.utils import google_copy
+
     """Function to list and process files for each path"""
     path_name, path = path_info
     pattern = PATTERNS[path_name]
