@@ -427,6 +427,8 @@ def target_id_v1(
         Target identification results with TargetQ scores
     """
     
+    from scipy.sparse import issparse
+
     print(f"Starting Target ID v{version}...")
     
     # Find common genes
@@ -440,6 +442,14 @@ def target_id_v1(
     # Extract matrices
     mat_malig = malig_subset.X.T if hasattr(malig_subset.X, 'T') else malig_subset.X.T
     mat_healthy = healthy_subset.X.T if hasattr(healthy_subset.X, 'T') else healthy_subset.X.T
+
+    # Convert sparse to dense
+    if issparse(mat_malig):
+        print("Converting malignant sparse matrix to dense...")
+        mat_malig = mat_malig.toarray()
+    if issparse(mat_healthy):
+        print("Converting healthy sparse matrix to dense...")
+        mat_healthy = mat_healthy.toarray()
     
     if not isinstance(mat_malig, np.ndarray):
         mat_malig = np.array(mat_malig)

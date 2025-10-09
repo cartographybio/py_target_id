@@ -238,4 +238,27 @@ system("gsutil -m cp 20250201/* gs://cartography_target_id_package/Healthy_Atlas
 #system("gsutil cp gs://cartography_target_id/Recount3/gtex.20250825.h5 gs://cartography_target_id_package/Other_Input/GTEX/gtex.bulk_rna.20250825.h5")
 #system("gsutil cp gs://cartography_target_id/Recount3/tcga.20250825.h5 gs://cartography_target_id_package/Other_Input/TCGA/tcga.bulk_rna.20250825.h5")
 
+import py_target_id as tid
+import scanpy as sc
+import os
+
+# Create output directory
+os.makedirs("AD_Malig", exist_ok=True)
+
+# List input files
+files = os.listdir("SE_Malig")
+new_files = [f.replace(".se.rds", ".h5ad") for f in files]
+
+# Convert each file
+for i in range(len(files)):  # Python equivalent of seq_along
+    
+    input_path = os.path.join("SE_Malig", files[i])  # Better than string concatenation
+    output_path = os.path.join("AD_Malig", new_files[i])
+    
+    print(f"Converting {files[i]} -> {new_files[i]}")
+    adata = tid.utils.se_rds_to_anndata(input_path)
+    adata.write(output_path)
+
+system("gsutil -m cp 20250225/* gs://cartography_target_id_package/Healthy_Atlas/FFPE/20250225/")
+
 
