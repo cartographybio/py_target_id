@@ -25,7 +25,8 @@ def surface_genes(
     tiers: list[int] = [1, 2],
     latest: bool = False,
     evidence: float = 0.1,
-    as_df: bool = False
+    as_df: bool = False,
+    include_tabs: bool = True
 ) -> list[str] | pd.DataFrame:
     """
     Load surface protein genes filtered by tier and evidence.
@@ -46,6 +47,8 @@ def surface_genes(
     as_df : bool, default=False
         If True, return DataFrame with gene_name and tier columns
         If False, return list of gene names
+    include_tabs : bool, default=True
+        If True, include TABS genes with tier="TABS"
     
     Returns
     -------
@@ -97,13 +100,29 @@ def surface_genes(
         tier_strings = [f'Tier{t}' for t in tiers]
         filtered_surface = surface[surface['Tier'].isin(tier_strings)]
         
-        # Deduplicate - keep first occurrence (or lowest tier if you prefer)
+        # Add TABS genes if requested
+        if include_tabs:
+            tabs = tabs_genes(version=2)
+            # Create DataFrame for TABS genes not already in surface
+            existing_genes = set(filtered_surface['gene_name'])
+            new_tabs_genes = [g for g in tabs if g not in existing_genes]
+            
+            if new_tabs_genes:
+                tabs_df = pd.DataFrame({
+                    'gene_name': new_tabs_genes,
+                    'Tier': 'TABS'
+                })
+                filtered_surface = pd.concat([filtered_surface, tabs_df], ignore_index=True)
+        
+        # Deduplicate - keep first occurrence
         filtered_surface = filtered_surface.drop_duplicates(subset=['gene_name'], keep='first')
         
         if as_df:
-            # Add numeric tier column
+            # Add numeric tier column (TABS stays as string "TABS")
             result_df = filtered_surface[['gene_name', 'Tier']].copy()
-            result_df['tier'] = result_df['Tier'].str.replace('Tier', '').astype(int)
+            result_df['tier'] = result_df['Tier'].apply(
+                lambda x: x if x == 'TABS' else int(x.replace('Tier', ''))
+            )
             result_df = result_df[['gene_name', 'tier']].reset_index(drop=True)
             return result_df
         else:
@@ -112,7 +131,7 @@ def surface_genes(
     
     else:
         raise ValueError(f"Unknown version: {version}")
-
+        
 def tabs_genes(version: int = 2, as_df: bool = False) -> list[str] | pd.DataFrame:
     """
     Load TABS (Therapeutically Applicable Body Site) genes.
@@ -234,4 +253,3 @@ def apical_genes(version: str = "20240715") -> List[str]:
         raise ValueError(f"Unknown version: {version}")
 
 
-        

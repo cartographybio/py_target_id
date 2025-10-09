@@ -12,7 +12,7 @@ suppressPackageStartupMessages({
 #system("gsutil cp 20250201/Healthy_Atlas.Surface_Gene_Matrix.ArchRCells.h5 gs://cartography_target_id/atlas_version/20250201/")
 #system("gsutil cp 20250225/Healthy_Atlas.Surface_Gene_Matrix.ArchRCells.h5 gs://cartography_target_id/atlas_version/20250225/")
 
-version <- "20250201"
+version <- "FFPE/20250225"
 
 h5atlas <- sprintf("%s/Healthy_Atlas.h5atlas", version)
 h5groups <- sprintf("%s/Healthy_Atlas.Custom_Groupings.lv4.csv", version)
@@ -20,7 +20,7 @@ h5groups <- sprintf("%s/Healthy_Atlas.Custom_Groupings.lv4.csv", version)
 #Out Files
 se_out <- sprintf("%s/Healthy_Atlas.Lv4.se.rds", version)
 ad_out <- sprintf("%s/Healthy_Atlas.Lv4.h5ad", version)
-h5_out <- sprintf("%s/Healthy_Atlas.Surface_Gene_Matrix.ArchRCells.v2.h5", version)
+h5_out <- sprintf("%s/Healthy_Atlas.Gene_Matrix.ArchRCells.h5", version)
 
 #Gene Sets
 sgenes <- unique(c(tabs_genes(),surface_genes()))
@@ -131,23 +131,6 @@ saveRDS(se, se_out, compress=FALSE)
 #2. H5AD for Python Easier
 ########################################################################################
 
-# # Create H5 file structure manually
-# if (file.exists(ad_out)) file.remove(ad_out)
-
-# h5createFile(ad_out)
-
-# # Write main matrix
-# h5write(as.matrix(assay(se, "median")), ad_out, "X")
-
-# # Metadata
-# h5write(as.data.frame(colData(se)), ad_out, "obs")
-
-# # Row/column names
-# h5write(rownames(colData(se)), ad_out, "obs_names")
-# h5write(rownames(rowData(se)), ad_out, "var_names")
-
-# o <- h5closeAll()
-
 ########################################################################################
 #3. Surface Gene H5
 ########################################################################################
@@ -190,31 +173,45 @@ rownames(dfGroup) <- ifelse(substr(rownames(dfGroup), nchar(rownames(dfGroup)), 
 #Check
 stopifnot(all(combos %in% rownames(dfGroup)))
 
-#Get Surface Genes
-sgenes <- unique(surface_genes())
-
-#Summarize
+#Summarize - process all combos in parallel with error handling
 healthy_mat <- parallel::mclapply(seq_along(combos), function(x){
+	tryCatch({
+		if(x %% 50 == 0) message(x, " of ", length(combos))
+		#Subset
+		dx <- df[df$combo == combos[x],]
+		#Get Matrix
+		m <- as(TENxMatrix(h5atlas, file.path(dx$x[1], "assays", "counts.counts"))[, dx$y, drop=FALSE], "dgCMatrix")
+		m <- subset_matrix(m, subsetRows = valid_genes())
+		m <- normalize_matrix(m, scaleTo = 10000)
+		# Keep sparse!
+		colnames(m) <- paste0(substr(dx$x[1], 2, 100), ":", dx$z[1], ":", colnames(m))
+		m
+	}, error = function(e) {
+		message("Error processing combo ", x, " (", combos[x], "): ", e$message)
+		return(NULL)
+	})
+}, mc.cores = 32, mc.preschedule = FALSE)
 
-	if(x %% 50 == 0) message(x, " of ", length(combos))
+message("Combining ", length(healthy_mat), " matrices...")
 
-	#Subset
-	dx <- df[df$combo == combos[x],]
+# Batched binding for speed
+batch_size <- 50  # Adjust based on memory
+n_batches <- ceiling(length(healthy_mat) / batch_size)
+batches <- vector("list", n_batches)
 
-	#Get Matrix
-	m <- as(TENxMatrix(h5atlas, file.path(dx$x[1], "assays", "counts.counts"))[, dx$y, drop=FALSE], "dgCMatrix")
-	m <- subset_matrix(m, subsetRows = valid_genes())
-	m <- normalize_matrix(m, scaleTo = 10000)
-	m <- subset_matrix(m, subsetRows = sgenes)
-	m <- as.matrix(m)
-	colnames(m) <- paste0(substr(dx$x[1], 2, 100), ":", dx$z[1], ":", colnames(m))
-	m
+for(i in seq_len(n_batches)) {
+    if(i %% 10 == 0) message("Batch ", i, " of ", n_batches)
+    start_idx <- (i - 1) * batch_size + 1
+    end_idx <- min(i * batch_size, length(healthy_mat))
+    batches[[i]] <- do.call(cbind, healthy_mat[start_idx:end_idx])
+}
 
-}, mc.cores = 32, mc.preschedule = FALSE) 
+message("Final combine...")
+healthy_mat <- do.call(cbind, batches)
 
-final_matrix <- do.call(cbind, healthy_mat)
+message("Final matrix: ", nrow(healthy_mat), " x ", ncol(healthy_mat))
 
-writeTENxMatrix(as(final_matrix, "dgCMatrix"), h5_out,  group = "RNA_Norm_Counts")
+writeTENxMatrix(as(healthy_mat, "dgCMatrix"), h5_out,  group = "RNA_Norm_Counts")
 
 ########################################################################################
 #4. Copy To Bucket
@@ -228,6 +225,8 @@ h_adata.write("20250225/Healthy_Atlas.Lv4.h5ad")
 h_adata2 = tid.utils.se_rds_to_anndata("20250201/Healthy_Atlas.Lv4.se.rds")
 h_adata2.write("20250201/Healthy_Atlas.Lv4.h5ad")
 
+system("gsutil -m cp FFPE/20250225/Healthy_Atlas.Gene_Matrix.ArchRCells.h5 gs://cartography_target_id_package/Healthy_Atlas/FFPE/20250225/")
+system("gsutil -m cp SingleCell/20250201/Healthy_Atlas.Gene_Matrix.ArchRCells.h5 gs://cartography_target_id_package/Healthy_Atlas/SingleCell/20250201/")
 
 system("gsutil -m cp 20250225/* gs://cartography_target_id_package/Healthy_Atlas/FFPE/20250225/")
 system("gsutil -m cp 20250201/* gs://cartography_target_id_package/Healthy_Atlas/SingleCell/20250201/")

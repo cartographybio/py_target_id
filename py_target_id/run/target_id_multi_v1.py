@@ -450,6 +450,7 @@ def target_id_multi_v1(
         all_results = []
         
         for batch_idx in range(n_batches):
+            
             iter_start = time.time()
             start = batch_idx * batch_size
             end = min(start + batch_size, len(gx_all))
@@ -461,10 +462,24 @@ def target_id_multi_v1(
             
             # Matrix computation
             t_matrix = time.time()
-            malig_xy = torch.minimum(malig_X[gx_t], malig_X[gy_t])
-            ha_xy = torch.minimum(ha_X[gx_t], ha_X[gy_t])
-            malig_med = compute_group_median_cached(malig_xy, m_group_indices)
-            ha_med = compute_group_median_cached(ha_xy, ha_group_indices)
+            
+            # # P xy Old
+            # malig_xy = torch.minimum(malig_X[gx_t], malig_X[gy_t])
+            # ha_xy = torch.minimum(ha_X[gx_t], ha_X[gy_t])
+            # malig_med = compute_group_median_cached(malig_xy, m_group_indices)
+            # ha_med = compute_group_median_cached(ha_xy, ha_group_indices)
+
+            # P xy Median Combined
+            malig_med = compute_group_median_cached(
+                torch.minimum(malig_X[gx_t], malig_X[gy_t]), 
+                m_group_indices
+            )
+
+            ha_med = compute_group_median_cached(
+                torch.minimum(ha_X[gx_t], ha_X[gy_t]), 
+                ha_group_indices
+            )
+            
             matrix_time = time.time() - t_matrix
             print(f"Matrix:{matrix_time:.1f}s | ", end='', flush=True)
             
@@ -579,7 +594,7 @@ def target_id_multi_v1(
             print(f"Total:{total_minutes:.1f}m")
 
             # Cleanup
-            del gx_t, gy_t, malig_xy, ha_xy, malig_med, ha_med
+            del gx_t, gy_t, malig_med, ha_med
             del target_val, target_val_T, ha_T, ha_ordered, ha_ordered_T, ha_ordered_idx
             del score_matrix, target_val_pos, n_pos, p_pos
             torch.cuda.empty_cache()
