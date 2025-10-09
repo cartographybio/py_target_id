@@ -4,6 +4,7 @@ Target ID
 
 # Define what gets exported
 __all__ = ['compute_positivity_matrix']
+
 """
 GPU-accelerated positivity matrix computation using PyTorch.
 No compilation overhead, instant execution, works on CPU or GPU.
@@ -67,28 +68,20 @@ def compute_positivity_matrix(
         matrix added as adata.layers[layer_name].
         If return_adata=False: Returns boolean numpy array (n_samples, n_genes).
     
-    Notes
-    -----
-    Performance benefits over Numba:
-    - No compilation overhead (instant first run)
-    - 2-10x faster on GPU for large matrices
-    - Similar speed on CPU
-    - Better memory efficiency with large datasets
-    
     Examples
     --------
     >>> # Returns AnnData with positivity layer
-    >>> adata = compute_positivity_matrix_torch(adata)
+    >>> adata = compute_positivity_matrix(adata)
     >>> print(adata.layers['positivity'])
     
     >>> # Return just the matrix
-    >>> pos_mat = compute_positivity_matrix_torch(adata, return_adata=False)
+    >>> pos_mat = compute_positivity_matrix(adata, return_adata=False)
     
     >>> # Custom layer name
-    >>> adata = compute_positivity_matrix_torch(adata, layer_name='pos_mat')
+    >>> adata = compute_positivity_matrix(adata, layer_name='pos_mat')
     
     >>> # Force CPU
-    >>> adata = compute_positivity_matrix_torch(adata, device='cpu')
+    >>> adata = compute_positivity_matrix(adata, device='cpu')
     """
     
     # Auto-detect device
@@ -219,21 +212,30 @@ def _process_genes_torch(gene_ranks, mat_rna, p_threshold, min_cutoff, rank_cuto
     q_lower = torch.clamp(pos_rate - p_threshold, min=0.0)
     q_upper = torch.clamp(pos_rate + p_threshold, max=1.0)
     
-    # Compute quantiles per gene (need to do this manually since torch.quantile doesn't support per-row)
+    # Compute quantiles per gene using linear interpolation (match R/NumPy default)
     # Sort each gene's expression values
     sorted_rna, _ = torch.sort(mat_rna, dim=1)
     
-    # Convert quantile to index
-    indices_upper = ((1.0 - q_lower) * (n_samples - 1)).long()
-    indices_lower = ((1.0 - q_upper) * (n_samples - 1)).long()
+    # Convert quantile to continuous index (with interpolation)
+    # R default: quantile type 7 (linear interpolation)
+    indices_upper_f = (1.0 - q_lower) * (n_samples - 1)
+    indices_lower_f = (1.0 - q_upper) * (n_samples - 1)
     
-    # Clamp indices to valid range
-    indices_upper = torch.clamp(indices_upper, 0, n_samples - 1)
-    indices_lower = torch.clamp(indices_lower, 0, n_samples - 1)
+    # Get integer parts and fractional parts for interpolation
+    idx_upper_low = indices_upper_f.long()
+    idx_upper_high = torch.clamp(idx_upper_low + 1, max=n_samples - 1)
+    frac_upper = indices_upper_f - idx_upper_low.float()
     
-    # Get bounds using advanced indexing
-    upper_bound = sorted_rna[torch.arange(n_genes, device=device), indices_upper]
-    lower_bound = sorted_rna[torch.arange(n_genes, device=device), indices_lower]
+    idx_lower_low = indices_lower_f.long()
+    idx_lower_high = torch.clamp(idx_lower_low + 1, max=n_samples - 1)
+    frac_lower = indices_lower_f - idx_lower_low.float()
+    
+    # Linear interpolation
+    arange_idx = torch.arange(n_genes, device=device)
+    upper_bound = (1 - frac_upper) * sorted_rna[arange_idx, idx_upper_low] + \
+                  frac_upper * sorted_rna[arange_idx, idx_upper_high]
+    lower_bound = (1 - frac_lower) * sorted_rna[arange_idx, idx_lower_low] + \
+                  frac_lower * sorted_rna[arange_idx, idx_lower_high]
     
     # Apply quantile bounds (vectorized)
     new_cutoff = torch.minimum(new_cutoff, upper_bound)
@@ -247,91 +249,3 @@ def _process_genes_torch(gene_ranks, mat_rna, p_threshold, min_cutoff, rank_cuto
     pos_mat = torch.where(all_pos_mask.unsqueeze(1), torch.tensor(True, device=device), pos_mat)
     
     return pos_mat
-
-
-def compute_positivity_matrix_torch_batched(
-    adata,
-    rank_layer: str = 'ranks',
-    count_layer: str = 'counts',
-    p_threshold: float = 0.05,
-    min_cutoff: float = 0.05,
-    rank_cutoff: int = 8000,
-    fallback_threshold: float = 0.1,
-    simple: bool = False,
-    device: Optional[str] = None,
-    batch_size: int = 1000
-) -> np.ndarray:
-    """
-    Memory-efficient batched version for very large datasets.
-    
-    Processes genes in batches to avoid GPU memory issues.
-    Use this if you get CUDA out of memory errors.
-    
-    Parameters
-    ----------
-    batch_size : int, default=1000
-        Number of genes to process at once. Reduce if out of memory.
-    
-    All other parameters same as compute_positivity_matrix_torch.
-    """
-    
-    if device is None:
-        device = 'cuda' if torch.cuda.is_available() else 'cpu'
-    
-    # Get data (same as above)
-    mat_rna = None
-    if count_layer in adata.layers:
-        mat_rna = adata.layers[count_layer]
-    elif 'counts' in adata.layers:
-        mat_rna = adata.layers['counts']
-    elif adata.X is not None:
-        mat_rna = adata.X
-    elif hasattr(adata, 'raw') and adata.raw is not None:
-        mat_rna = adata.raw.X
-    else:
-        raise ValueError("Could not find expression data")
-    
-    if hasattr(mat_rna, 'toarray'):
-        mat_rna = mat_rna.toarray()
-    
-    has_ranks = rank_layer in adata.layers
-    
-    if has_ranks and not simple:
-        gene_ranks = adata.layers[rank_layer]
-        if hasattr(gene_ranks, 'toarray'):
-            gene_ranks = gene_ranks.toarray()
-        
-        n_samples, n_genes = mat_rna.shape
-        pos_mat = np.zeros((n_samples, n_genes), dtype=bool)
-        
-        # Process in batches
-        for start_idx in range(0, n_genes, batch_size):
-            end_idx = min(start_idx + batch_size, n_genes)
-            
-            # Get batch
-            mat_batch = torch.from_numpy(mat_rna[:, start_idx:end_idx].astype(np.float32)).to(device)
-            rank_batch = torch.from_numpy(gene_ranks[:, start_idx:end_idx].astype(np.float32)).to(device)
-            
-            # Process batch
-            pos_batch = _process_genes_torch(
-                rank_batch.T, mat_batch.T,
-                p_threshold, min_cutoff, rank_cutoff, device
-            )
-            
-            # Store results
-            pos_mat[:, start_idx:end_idx] = pos_batch.T.cpu().numpy()
-            
-            # Clear GPU memory
-            if device == 'cuda':
-                torch.cuda.empty_cache()
-        
-        return pos_mat
-    
-    else:
-        # Simple threshold
-        if simple:
-            print(f"Using simple threshold approach: expression >= {fallback_threshold}")
-        else:
-            print(f"Warning: '{rank_layer}' layer not found. Using fallback threshold={fallback_threshold}")
-        
-        return mat_rna >= fallback_threshold
