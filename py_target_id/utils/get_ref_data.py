@@ -5,6 +5,7 @@ Reference data loading functions.
 import os
 import numpy as np
 import scanpy as sc
+import pandas as pd
 from py_target_id.utils import list_gcs_versions, select_version, download_gcs_file
 
 __all__ = [
