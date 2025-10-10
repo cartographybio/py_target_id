@@ -3,10 +3,75 @@ Reference data loading functions.
 """
 
 import os
+import numpy as np
 import scanpy as sc
 from py_target_id.utils import list_gcs_versions, select_version, download_gcs_file
 
-__all__ = ['get_ref_lv4_ffpe_med_adata']
+__all__ = [
+    'add_ref_weights',
+    'get_ref_ffpe_off_target', 'get_ref_lv4_ffpe_med_adata', 'get_ref_lv4_ffpe_h5_adata',
+    'get_ref_sc_off_target', 'get_ref_lv4_sc_med_adata', 'get_ref_lv4_sc_h5_adata' 
+]
+
+################################################################################################################################################
+# Other
+################################################################################################################################################
+
+def add_ref_weights(ref_obj, df_off, col="Off_Target.V0"):
+    
+    # Determine Type of Ref Object
+    if df_off.shape[0] == ref_obj.shape[0]:
+        CT = ref_obj.obs_names.tolist()  # Convert to list for consistency
+    else:
+        CT = ref_obj.obs["CellType"].values  # Expect Tissue:CellType Combo Lv4
+    
+    # Check for mismatches
+    mismatch_count = len(set(df_off['Combo_Lv4']) ^ set(CT))
+    if mismatch_count > 0:
+        raise ValueError(f"Mismatch: {mismatch_count} elements differ between df_off['Combo_Lv4'] and CT")
+    
+    # Match indices
+    idx = [df_off['Combo_Lv4'].tolist().index(x) for x in CT]
+    
+    # Get off-target values (use the col parameter)
+    off_vals = df_off.iloc[idx][col].values
+    off_vals_scaled = off_vals / np.max(off_vals)
+    
+    # Add to obs
+    ref_obj.obs["Weights"] = off_vals_scaled
+    
+    return ref_obj
+
+################################################################################################################################################
+# FFPE
+################################################################################################################################################
+
+def get_ref_ffpe_off_target(
+    overwrite: bool = False, 
+    version: str = "latest", 
+    gcs_base_path: str = "gs://cartography_target_id_package/Healthy_Atlas/FFPE/",
+    local_base_path: str = "temp/Healthy_Atlas/"
+):
+
+    local_file = os.path.join(local_base_path, "FFPE.Off_Target.csv")
+    
+    # Check if file exists and we don't want to overwrite
+    if os.path.exists(local_file) and not overwrite:
+        print(f"✓ Loading existing file: {local_file}")
+    else:
+        # List and select version
+        versions = list_gcs_versions(gcs_base_path)
+        print(f"Available versions: {versions}")
+        selected_version = select_version(versions, version)
+        
+        # Define paths
+        gcs_file = f"{gcs_base_path}{selected_version}/Off_Target.csv"
+        
+        # Download
+        download_gcs_file(gcs_file, local_file, overwrite)
+    
+    # Load and return
+    return pd.read_csv(local_file)
 
 
 def get_ref_lv4_ffpe_med_adata(
@@ -103,6 +168,37 @@ def get_ref_lv4_ffpe_h5_adata(
     ref_adata.obs['CellType'] = ref_adata.obs['CellType'].str.replace('α', 'a').str.replace('β', 'B')
 
     return ref_adata
+
+################################################################################################################################################
+# Single Cell
+################################################################################################################################################
+
+def get_ref_sc_off_target(
+    overwrite: bool = False, 
+    version: str = "latest", 
+    gcs_base_path: str = "gs://cartography_target_id_package/Healthy_Atlas/SingleCell/",
+    local_base_path: str = "temp/Healthy_Atlas/"
+):
+
+    local_file = os.path.join(local_base_path, "SC.Off_Target.csv")
+    
+    # Check if file exists and we don't want to overwrite
+    if os.path.exists(local_file) and not overwrite:
+        print(f"✓ Loading existing file: {local_file}")
+    else:
+        # List and select version
+        versions = list_gcs_versions(gcs_base_path)
+        print(f"Available versions: {versions}")
+        selected_version = select_version(versions, version)
+        
+        # Define paths
+        gcs_file = f"{gcs_base_path}{selected_version}/Off_Target.csv"
+        
+        # Download
+        download_gcs_file(gcs_file, local_file, overwrite)
+    
+    # Load and return
+    return pd.read_csv(local_file)
 
 
 def get_ref_lv4_sc_med_adata(

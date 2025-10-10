@@ -1,5 +1,5 @@
 """
-Target ID Multi v1 - GPU Optimized
+Target ID Multi v1 - GPU Optimized with Required Gene Pairs
 """
 
 __all__ = ['target_id_multi_v1']
@@ -13,7 +13,7 @@ import warnings
 warnings.filterwarnings('ignore', category=FutureWarning, module='torch')
 
 # ============================================================================
-# Helper functions
+# Helper functions (unchanged)
 # ============================================================================
 
 def clear_gpu_memory(verbose=True):
@@ -116,109 +116,6 @@ def compute_score_matrix_gpu(
         score_matrix[all_zero, -1] = score_matrix_raw[all_zero, -1]
     
     return score_matrix
-
-def compute_positive_patients_inline(
-    target_val: torch.Tensor,
-    malig_med: torch.Tensor,
-    ha_med: torch.Tensor,
-    ha_ordered_idx: torch.Tensor,
-    score_matrix: torch.Tensor,
-    passing_mask: torch.Tensor,
-    n_malig_groups: int,
-    device: torch.device
-) -> tuple:
-    """
-    Compute positive patients inline during main loop
-    """
-    n_genes_batch = target_val.shape[0]
-    n_ha_groups = ha_med.shape[1]
-    
-    target_val_pos = torch.full((n_genes_batch,), float('nan'), device=device)
-    n_pos = torch.zeros(n_genes_batch, dtype=torch.long, device=device)
-    p_pos = torch.zeros(n_genes_batch, dtype=torch.float32, device=device)
-    
-    if not passing_mask.any():
-        return target_val_pos, n_pos, p_pos
-    
-    # Build off-target mask
-    off_target_mask = torch.zeros((n_genes_batch, n_ha_groups), dtype=torch.bool, device=device)
-    for i in range(n_genes_batch):
-        if passing_mask[i]:
-            failing_positions = (score_matrix[i] < 0.35).nonzero(as_tuple=True)[0]
-            if len(failing_positions) > 0:
-                original_failing_indices = ha_ordered_idx[i, failing_positions]
-                off_target_mask[i, original_failing_indices] = True
-    
-    # Zero out off-targets
-    ha_med_masked = ha_med.clone()
-    ha_med_masked[off_target_mask] = 0
-    
-    # Get passing genes
-    passing_indices = passing_mask.nonzero(as_tuple=True)[0]
-    
-    # Process in sub-batches to avoid memory issues
-    sub_batch_size = 100
-    for sub_start in range(0, len(passing_indices), sub_batch_size):
-        sub_end = min(sub_start + sub_batch_size, len(passing_indices))
-        sub_indices = passing_indices[sub_start:sub_end]
-        actual_sub_batch = len(sub_indices)
-        
-        sub_targets = target_val[sub_indices]
-        sub_malig = malig_med[sub_indices]
-        sub_healthy = ha_med_masked[sub_indices]
-        
-        # Scaling factors
-        scaling_factors = torch.tensor(
-            [1e-6, 1e-5, 1e-4] + list(np.arange(0.001, 1.001, 0.005)),
-            dtype=torch.float32, device=device
-        )
-        n_tests = len(scaling_factors)
-        
-        # Build thresholds
-        thresholds = sub_targets.unsqueeze(1) * scaling_factors.unsqueeze(0)
-        thresholds_T = thresholds ** 2
-        sub_healthy_T = sub_healthy ** 2
-        
-        # Vectorized JS computation
-        combined = torch.zeros((actual_sub_batch, n_tests, n_ha_groups + 1), dtype=torch.float32, device=device)
-        combined[:, :, 0] = thresholds_T
-        combined[:, :, 1:] = sub_healthy_T.unsqueeze(1).expand(-1, n_tests, -1)
-        
-        eps = 1e-10
-        combined_sum = combined.sum(dim=2, keepdim=True).clamp(min=eps)
-        combined_norm = combined / combined_sum
-        
-        spec_vector = torch.zeros_like(combined)
-        spec_vector[:, :, 0] = 1.0
-        mid = (combined_norm + spec_vector) * 0.5
-        
-        log_norm = torch.where(combined_norm > eps, torch.log2(combined_norm.clamp(min=eps)), torch.zeros_like(combined_norm))
-        log_mid = torch.where(mid > eps, torch.log2(mid.clamp(min=eps)), torch.zeros_like(mid))
-        
-        entropy_a = (combined_norm * log_norm).sum(dim=2)
-        entropy_mid = (mid * log_mid).sum(dim=2)
-        jsdist = torch.clamp(-entropy_mid + 0.5 * entropy_a, min=0.0, max=1.0)
-        specificities = 1.0 - torch.sqrt(jsdist)
-        
-        valid_thresholds = specificities >= 0.35
-        
-        # Find first valid threshold for each gene
-        for local_i, gene_idx in enumerate(sub_indices):
-            if valid_thresholds[local_i].any():
-                first_valid = torch.argmax(valid_thresholds[local_i].float()).item()
-                final_threshold = thresholds[local_i, first_valid]
-                n_pos_count = (sub_malig[local_i] >= final_threshold).sum()
-                
-                if n_pos_count > 0:
-                    target_val_pos[gene_idx] = final_threshold
-                    n_pos[gene_idx] = n_pos_count
-                    p_pos[gene_idx] = n_pos_count.float() / n_malig_groups
-        
-        del combined, combined_norm, spec_vector, mid, log_norm, log_mid
-        del entropy_a, entropy_mid, jsdist, specificities
-    
-    return target_val_pos, n_pos, p_pos
-
 
 def compute_positive_patients_inline2(
     target_val: torch.Tensor,
@@ -392,16 +289,114 @@ def compute_target_quality_score(df: pd.DataFrame, surface_evidence_path: str) -
 def target_id_multi_v1(
     malig_adata,
     ha_adata,
+    malig_med_adata,
+    gene_pairs: list,  # Now required
     device: str = 'cuda',
     batch_size: int = 25000,
     surface_evidence_path: str = "surface_evidence.v1.20240715.csv",
     use_fp16: bool = True
 ) -> pd.DataFrame:
-    """GPU-optimized target ID pipeline"""
+    """
+    GPU-optimized target ID pipeline
     
+    Parameters:
+    -----------
+    malig_adata : AnnData
+        Malignant cell data
+    ha_adata : AnnData
+        Healthy reference cell data
+    malig_med_adata : AnnData
+        Malignant median data (for positivity)
+    gene_pairs : list of tuples
+        REQUIRED. List of (gene1, gene2) tuples to analyze.
+        Example: [('CD3D', 'CD3E'), ('CD19', 'MS4A1')]
+    device : str
+        'cuda' or 'cpu'
+    batch_size : int
+        Number of pairs per batch
+    surface_evidence_path : str
+        Path to surface evidence CSV
+    use_fp16 : bool
+        Use FP16 mixed precision
+    
+    Returns:
+    --------
+    pd.DataFrame
+        Results dataframe with target metrics
+    """
+    
+    from scipy.sparse import issparse
+    from py_target_id import run
+
+    # Validate gene_pairs
+    if gene_pairs is None or len(gene_pairs) == 0:
+        raise ValueError("gene_pairs is required and must contain at least one gene pair")
+    
+    print(f"Validating {len(gene_pairs)} gene pairs...")
+    
+    # Extract all unique genes from pairs
+    all_genes_in_pairs = set()
+    for gene1, gene2 in gene_pairs:
+        all_genes_in_pairs.add(gene1)
+        all_genes_in_pairs.add(gene2)
+    
+    # Check which genes are present in the matrices
+    available_genes = set(malig_adata.var_names)
+    missing_genes = all_genes_in_pairs - available_genes
+    
+    if missing_genes:
+        raise ValueError(f"The following genes are not found in the data: {sorted(missing_genes)}")
+    
+    print(f"All genes validated. Found {len(all_genes_in_pairs)} unique genes in pairs.")
+    
+    # Subset to only genes needed for the pairs
+    genes_to_keep = sorted(all_genes_in_pairs)
+    print(f"Subsetting matrices to {len(genes_to_keep)} genes...")
+        
+    if type(malig_adata).__name__ == 'VirtualAnnData':
+        print("  Loading malignant data to memory...")
+        malig_adata = malig_adata[:, genes_to_keep].to_memory()
+        print("  Malignant data loaded.")
+    else:
+        print("  Copying malignant data...")
+        malig_adata = malig_adata[:, genes_to_keep].copy()
+        print("  Malignant data copied.")
+
+    if type(ha_adata).__name__ == 'VirtualAnnData':
+        print("  Loading healthy data to memory...")
+        ha_adata = ha_adata[:, genes_to_keep].to_memory()
+        print("  Healthy data loaded.")
+    else:
+        print("  Copying healthy data...")
+        ha_adata = ha_adata[:, genes_to_keep].copy()
+        print("  Healthy data copied.")
+
+    print("  Copying median data...")
+    malig_med_adata = malig_med_adata[:, genes_to_keep].copy()
+    print("  Median data copied.")
+    print("Matrix subsetting complete.\n")
+    
+    # For malignant data
+    if issparse(malig_adata.X):
+        print("Converting malignant sparse matrix to dense...")
+        malig_adata.X = malig_adata.X.toarray()
+
+    # For healthy data
+    if issparse(ha_adata.X):
+        print("Converting healthy sparse matrix to dense...")
+        ha_adata.X = ha_adata.X.toarray()
+
+    # Convert and handle any problematic values
+    malig_adata.X = malig_adata.X.astype(np.float32)
+    ha_adata.X = ha_adata.X.astype(np.float32)
+
     genes = malig_adata.var_names
-    malig_adata = malig_adata[:, genes]
-    ha_adata = ha_adata[:, genes]
+
+    # Compute Positivity
+    if "positivity" not in malig_med_adata.layers:
+        print("Computing positivity matrix...")
+        malig_med_adata = run.compute_positivity_matrix(malig_med_adata)
+
     clear_gpu_memory(verbose=False)
 
     overall_start = time.time()
@@ -428,6 +423,7 @@ def target_id_multi_v1(
         
         ha_ids = (ha_adata.obs_names.str.extract(r'^([^:]+:[^:]+)', expand=False)
                   .str.replace(r'[ -]', '_', regex=True).values)
+
         ha_unique = np.unique(ha_ids)
         ha_id_to_idx = {id_val: idx for idx, id_val in enumerate(ha_unique)}
         ha_ids_encoded = torch.tensor([ha_id_to_idx[x] for x in ha_ids], dtype=torch.long, device=device)
@@ -435,11 +431,21 @@ def target_id_multi_v1(
         n_malig_groups = len(m_unique)
         n_ha_groups = len(ha_unique)
         
-        # Generate pairs
-        n = len(genes)
-        indices = np.triu_indices(n, k=0)
-        gx_all = indices[0]
-        gy_all = indices[1]
+        # Convert gene pairs to indices
+        print(f"Converting {len(gene_pairs)} gene pairs to indices...")
+
+        # Create mapping once
+        gene_to_idx = pd.Series(range(len(genes)), index=genes)
+
+        # If gene_pairs is list of tuples
+        if isinstance(gene_pairs, list):
+            gene_pairs_df = pd.DataFrame(gene_pairs, columns=['gene1', 'gene2'])
+        else:
+            gene_pairs_df = gene_pairs  # Already a DataFrame
+
+        # Vectorized lookup
+        gx_all = gene_to_idx[gene_pairs_df['gene1'].values].values
+        gy_all = gene_to_idx[gene_pairs_df['gene2'].values].values
         n_batches = int(np.ceil(len(gx_all) / batch_size))
         
         print(f"------  Running Target ID ({len(gx_all)} pairs, {n_batches} batches)")
@@ -463,13 +469,6 @@ def target_id_multi_v1(
             # Matrix computation
             t_matrix = time.time()
             
-            # # P xy Old
-            # malig_xy = torch.minimum(malig_X[gx_t], malig_X[gy_t])
-            # ha_xy = torch.minimum(ha_X[gx_t], ha_X[gy_t])
-            # malig_med = compute_group_median_cached(malig_xy, m_group_indices)
-            # ha_med = compute_group_median_cached(ha_xy, ha_group_indices)
-
-            # P xy Median Combined
             malig_med = compute_group_median_cached(
                 torch.minimum(malig_X[gx_t], malig_X[gy_t]), 
                 m_group_indices
@@ -556,6 +555,12 @@ def target_id_multi_v1(
             pos_time = time.time() - t_pos
             print(f"PosPat:{pos_time:.1f}s | ", end='', flush=True)
             
+            # Compute Positivity of Pair
+            pos_mat_xy = (malig_med_adata[:, gx_all[start:end]].layers["positivity"].astype(int) + 
+                          malig_med_adata[:, gy_all[start:end]].layers["positivity"].astype(int))
+            pos_xy = (pos_mat_xy == 2).mean(axis=0) * 100
+            pos_xy = np.asarray(pos_xy).flatten()
+
             # Storage
             t_storage = time.time()
             names = [f"{genes[i]}.{genes[j]}" for i, j in zip(gx_all[start:end], gy_all[start:end])]
@@ -578,6 +583,7 @@ def target_id_multi_v1(
                 'Target_Val_Pos': target_val_pos.cpu().numpy(),
                 'N_Pos': n_pos.cpu().numpy(),
                 'P_Pos': p_pos.cpu().numpy(),
+                'Positive_Final_v2': pos_xy,
                 **{k: v.cpu().numpy() for k, v in off_targets_gpu.items()}
             })
             
@@ -607,6 +613,11 @@ def target_id_multi_v1(
         df_all = compute_target_quality_score(df_all, surface_evidence_path)
         df_all = df_all.sort_values('TargetQ_Final_v1', ascending=False)
         
+        # Move Positive_Final_v2 to the end
+        cols = [col for col in df_all.columns if col != 'Positive_Final_v2']
+        cols.append('Positive_Final_v2')
+        df_all = df_all[cols]
+        
         print(f"------  Complete - | Total: {time.time()-overall_start:.1f}s")
         return df_all
         
@@ -617,5 +628,4 @@ def target_id_multi_v1(
             pass
         torch.cuda.empty_cache()
         gc.collect()
-
 
