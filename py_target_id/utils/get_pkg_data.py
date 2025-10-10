@@ -250,9 +250,33 @@ def surface_evidence(version: str = "20240715") -> pd.Series:
     """
     if version == "20240715":
         path = _get_data_path('annotation/surface_evidence.v1.20240715.csv')
-        df = pd.read_csv(path, index_col=0)
-        # Assuming first column is gene names, second is evidence score
-        return df.iloc[:, 0] if df.shape[1] == 1 else df.squeeze()
+        try:
+            df = pd.read_csv(path)
+            
+            # Try to find gene name and evidence columns
+            if 'gene_name' in df.columns and 'surface_evidence' in df.columns:
+                return pd.Series(
+                    data=df['surface_evidence'].values,
+                    index=df['gene_name'].values,
+                    name='surface_evidence'
+                )
+            # Fallback: assume first column is genes, second is evidence
+            elif df.shape[1] >= 2:
+                return pd.Series(
+                    data=df.iloc[:, 1].values,
+                    index=df.iloc[:, 0].values,
+                    name='surface_evidence'
+                )
+            # If only one column with index
+            elif df.shape[1] == 1:
+                df = pd.read_csv(path, index_col=0)
+                return df.squeeze()
+            else:
+                raise ValueError("Could not parse surface evidence file format")
+                
+        except FileNotFoundError:
+            print(f"Warning: {path} not found, returning empty Series")
+            return pd.Series(dtype=float, name='surface_evidence')
     else:
         raise ValueError(f"Unknown version: {version}")
 

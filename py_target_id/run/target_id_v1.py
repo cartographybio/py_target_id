@@ -333,18 +333,18 @@ def determine_positive_patients(
 
 
 def compute_target_quality_score(
-    df: pd.DataFrame,
-    surface_evidence_path: str = "surface_evidence.v1.20240715.csv"
+    df: pd.DataFrame
 ) -> pd.DataFrame:
     """Compute target quality scores with surface protein evidence"""
     
+    from py_target_id import utils
+
     # Load surface evidence if path provided
     try:
-        surface_evidence = pd.read_csv(surface_evidence_path)
-        surface_dict = dict(zip(surface_evidence['gene_name'], surface_evidence['surface_evidence']))
-        df['Surface_Prob'] = df['gene_name'].map(surface_dict).fillna(1.0)
-    except FileNotFoundError:
-        print(f"Warning: {surface_evidence_path} not found, skipping surface evidence")
+        surface_series = utils.surface_evidence()
+        df['Surface_Prob'] = df['gene_name'].map(surface_series).fillna(1.0)
+    except Exception as e:
+        print(f"Warning: Could not load surface evidence ({e}), using default value 1.0")
         df['Surface_Prob'] = 1.0
     
     # Score components
@@ -402,7 +402,6 @@ def target_id_v1(
     malig_adata,
     healthy_adata,
     device: Optional[str] = None,
-    surface_evidence_path: Optional[str] = "surface_evidence.v1.20240715.csv",
     version: str = "1.02"
 ) -> pd.DataFrame:
     """
@@ -416,8 +415,6 @@ def target_id_v1(
         Healthy atlas data (samples x genes)
     device : str, optional
         'cuda', 'cpu', or None (auto-detect)
-    surface_evidence_path : str, optional
-        Path to surface evidence CSV file
     version : str
         Version of algorithm
         
@@ -426,7 +423,8 @@ def target_id_v1(
     pd.DataFrame
         Target identification results with TargetQ scores
     """
-    
+
+    from scipy.sparse import diags    
     from scipy.sparse import issparse
     from py_target_id import run
 
@@ -435,18 +433,27 @@ def target_id_v1(
     # Find common genes
     genes = np.intersect1d(malig_adata.var_names, healthy_adata.var_names)
     print(f"Found {len(genes)} common genes")
-    
-    # Subset data
-    malig_subset = malig_adata[:, genes].copy()
-    healthy_subset = healthy_adata[:, genes].copy()
 
     # Compute Positivity Quickly
     if "positivity" not in malig_adata.layers:
         malig_adata = run.compute_positivity_matrix(malig_adata)
-    
+
+    # Apply weights first if they exist
+    if "Weights" in healthy_adata.obs.columns:
+        print("Weighting Reference Atlas...")
+        if issparse(healthy_adata.X):
+            weights_diag = diags(healthy_adata.obs["Weights"].values)
+            healthy_adata.X = weights_diag @ healthy_adata.X
+        else:
+            healthy_adata.X = healthy_adata.X * healthy_adata.obs["Weights"].values[:, np.newaxis]
+
+    # Subset data
+    malig_subset = malig_adata[:, genes].copy()
+    healthy_subset = healthy_adata[:, genes].copy()
+
     # Extract matrices
-    mat_malig = malig_subset.X.T if hasattr(malig_subset.X, 'T') else malig_subset.X.T
-    mat_healthy = healthy_subset.X.T if hasattr(healthy_subset.X, 'T') else healthy_subset.X.T
+    mat_malig = malig_subset.X.T
+    mat_healthy = healthy_subset.X.T
 
     # Convert sparse to dense
     if issparse(mat_malig):
@@ -455,12 +462,11 @@ def target_id_v1(
     if issparse(mat_healthy):
         print("Converting healthy sparse matrix to dense...")
         mat_healthy = mat_healthy.toarray()
-    
-    if not isinstance(mat_malig, np.ndarray):
-        mat_malig = np.array(mat_malig)
-    if not isinstance(mat_healthy, np.ndarray):
-        mat_healthy = np.array(mat_healthy)
-    
+
+    # Ensure numpy arrays (handles any remaining edge cases)
+    mat_malig = np.asarray(mat_malig)
+    mat_healthy = np.asarray(mat_healthy)
+
     print(f"Malignant matrix: {mat_malig.shape}")
     print(f"Healthy matrix: {mat_healthy.shape}")
     
@@ -522,13 +528,12 @@ def target_id_v1(
     )
     df['SC_2nd_Target_LFC'] = df['SC_2nd_Target_LFC'].clip(0, 10)
     df['N'] = mat_malig.shape[1]
+    df["Postivie_Final_0.1"] = (malig_adata[:, df['gene_name']].X >= 0.1).mean(axis=0) * 100    
     
     # Compute target quality scores
     print("\nComputing target quality scores...")
-    if surface_evidence_path:
-        df = compute_target_quality_score(df, surface_evidence_path)
+    df = compute_target_quality_score(df)
 
-    df["Postivie_Final_0.1"] = (malig_adata[:, df['gene_name']].X >= 0.1).mean(axis=0) * 100    
     df["Postivie_Final_v2"] = malig_adata[:, df['gene_name']].layers['positivity'].mean(axis=0) * 100    
     df = df.sort_values('TargetQ_Final_v1', ascending=False)
 

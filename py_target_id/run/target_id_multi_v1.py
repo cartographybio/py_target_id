@@ -226,17 +226,28 @@ def compute_positive_patients_inline2(
     
     return target_val_pos, n_pos, p_pos
 
-def compute_target_quality_score(df: pd.DataFrame, surface_evidence_path: str) -> pd.DataFrame:
+def compute_target_quality_score(df: pd.DataFrame) -> pd.DataFrame:
     """Compute quality scores"""
+    from py_target_id import utils
+
     try:
-        surface_evidence = pd.read_csv(surface_evidence_path)
-        surface_dict = dict(zip(surface_evidence['gene_name'], surface_evidence['surface_evidence']))
+        # Load surface evidence
+        surface_series = utils.surface_evidence()
+        
+        # Split gene pairs
         gene_splits = df['gene_name'].str.split('.', n=1, expand=True)
-        gene1 = gene_splits[0].map(surface_dict).fillna(1.0)
-        gene2 = gene_splits[1].map(surface_dict).fillna(1.0)
+        
+        # Map surface evidence for both genes
+        gene1 = gene_splits[0].map(surface_series).fillna(1.0)
+        gene2 = gene_splits[1].map(surface_series).fillna(1.0)
+        
+        # Take minimum (both genes must have surface evidence)
         df['Surface_Prob'] = np.minimum(gene1, gene2)
-    except FileNotFoundError:
+        
+    except Exception as e:
+        print(f"Warning: Could not load surface evidence ({e}), using default value 1.0")
         df['Surface_Prob'] = 1.0
+
 
     df['Score_1'] = 10
     df.loc[df['N_Off_Targets'] <= 3, 'Score_1'] = df.loc[df['N_Off_Targets'] <= 3, 'N_Off_Targets']
@@ -293,7 +304,6 @@ def target_id_multi_v1(
     gene_pairs: list,  # Now required
     device: str = 'cuda',
     batch_size: int = 25000,
-    surface_evidence_path: str = "surface_evidence.v1.20240715.csv",
     use_fp16: bool = True
 ) -> pd.DataFrame:
     """
@@ -314,8 +324,6 @@ def target_id_multi_v1(
         'cuda' or 'cpu'
     batch_size : int
         Number of pairs per batch
-    surface_evidence_path : str
-        Path to surface evidence CSV
     use_fp16 : bool
         Use FP16 mixed precision
     
@@ -324,8 +332,8 @@ def target_id_multi_v1(
     pd.DataFrame
         Results dataframe with target metrics
     """
-    
-    from scipy.sparse import issparse
+        
+    from scipy.sparse import issparse, diags
     from py_target_id import run
 
     # Validate gene_pairs
@@ -375,6 +383,15 @@ def target_id_multi_v1(
     malig_med_adata = malig_med_adata[:, genes_to_keep].copy()
     print("  Median data copied.")
     print("Matrix subsetting complete.\n")
+    
+    # Apply weights first if they exist
+    if "Weights" in ha_adata.obs.columns:
+        print("Weighting Reference Atlas...")
+        if issparse(ha_adata.X):
+            weights_diag = diags(ha_adata.obs["Weights"].values)
+            ha_adata.X = weights_diag @ ha_adata.X
+        else:
+            ha_adata.X = ha_adata.X * ha_adata.obs["Weights"].values[:, np.newaxis]
     
     # For malignant data
     if issparse(malig_adata.X):
@@ -610,7 +627,7 @@ def target_id_multi_v1(
         df_all = pd.concat(all_results, ignore_index=True)
         
         print(f"------  Computing Quality Scores - | Total: {time.time()-overall_start:.1f}s")
-        df_all = compute_target_quality_score(df_all, surface_evidence_path)
+        df_all = compute_target_quality_score(df_all)
         df_all = df_all.sort_values('TargetQ_Final_v1', ascending=False)
         
         # Move Positive_Final_v2 to the end
