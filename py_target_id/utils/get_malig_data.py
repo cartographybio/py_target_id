@@ -2,13 +2,14 @@
 Reference data loading functions.
 """
 
-__all__ = ['get_malig_adata', 'get_malig_archr_adata']
+__all__ = ['get_malig_med_adata', 'get_malig_ar_adata']
 
-def get_malig_adata(manifest, positivity = True):
+def get_malig_med_adata(manifest, positivity = True):
     import scanpy as sc
     import anndata as ad
     from tqdm import tqdm
     from py_target_id import run
+    import numpy as np
 
     # Load all files
     adata_list = []
@@ -26,8 +27,9 @@ def get_malig_adata(manifest, positivity = True):
     adata_all.obs["Patient"] = np.array([name.split('._.')[1] for name in adata_all.obs_names]) 
     return adata_all
 
-def get_malig_archr_adata(manifest):
+def get_malig_ar_adata(manifest):
     from py_target_id import infra
+    import numpy as np
     malig_adata = infra.read_h5(manifest.Local_Archr_Malig, "RNA")
     malig_meta = ~malig_adata.obs_names.str.contains("nonmalig")
     malig_adata = malig_adata[malig_meta, :]

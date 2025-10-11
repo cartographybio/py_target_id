@@ -10,8 +10,8 @@ from py_target_id.utils import list_gcs_versions, select_version, download_gcs_f
 
 __all__ = [
     'add_ref_weights',
-    'get_ref_ffpe_off_target', 'get_ref_lv4_ffpe_med_adata', 'get_ref_lv4_ffpe_h5_adata',
-    'get_ref_sc_off_target', 'get_ref_lv4_sc_med_adata', 'get_ref_lv4_sc_h5_adata' 
+    'get_ref_ffpe_off_target', 'get_ref_lv4_ffpe_med_adata', 'get_ref_lv4_ffpe_ar_adata',
+    'get_ref_sc_off_target', 'get_ref_lv4_sc_med_adata', 'get_ref_lv4_sc_ar_adata' 
 ]
 
 ################################################################################################################################################
@@ -119,7 +119,7 @@ def get_ref_lv4_ffpe_med_adata(
     print(f"Loading data from: {local_file}")
     return sc.read_h5ad(local_file)
 
-def get_ref_lv4_ffpe_h5_adata(
+def get_ref_lv4_ffpe_ar_adata(
     overwrite: bool = False, 
     version: str = "latest", 
     gcs_base_path: str = "gs://cartography_target_id_package/Healthy_Atlas/FFPE/",
@@ -246,7 +246,7 @@ def get_ref_lv4_sc_med_adata(
     print(f"Loading data from: {local_file}")
     return sc.read_h5ad(local_file)
 
-def get_ref_lv4_sc_h5_adata(
+def get_ref_lv4_sc_ar_adata(
     overwrite: bool = False, 
     version: str = "latest", 
     gcs_base_path: str = "gs://cartography_target_id_package/Healthy_Atlas/SingleCell/",

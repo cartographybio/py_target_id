@@ -50,8 +50,8 @@ def compute_group_median_cached(data: torch.Tensor, group_indices: list) -> torc
 
 def compute_score_matrix_gpu(
     target_val: torch.Tensor,
-    ref_matrix_ordered_T: torch.Tensor,
-    ref_matrix_ordered: torch.Tensor,
+    healthy_matrix_ordered_T: torch.Tensor,
+    healthy_matrix_ordered: torch.Tensor,
     test_n_off_targets: int,
     device: torch.device,
     batch_size: int = 2000,
@@ -61,8 +61,8 @@ def compute_score_matrix_gpu(
 ) -> torch.Tensor:
     """Compute specificity scores with filtering"""
     n_genes = target_val.shape[0]
-    n_ref = ref_matrix_ordered_T.shape[1]
-    test_n = min(test_n_off_targets, n_ref)
+    n_healthy = healthy_matrix_ordered_T.shape[1]
+    test_n = min(test_n_off_targets, n_healthy)
     
     score_matrix_raw = torch.zeros((n_genes, test_n), dtype=torch.float32, device=device)
     eps = 1e-10
@@ -71,16 +71,16 @@ def compute_score_matrix_gpu(
     for batch_start in range(0, n_genes, batch_size):
         batch_end = min(batch_start + batch_size, n_genes)
         target_batch = target_val[batch_start:batch_end]
-        ref_batch = ref_matrix_ordered_T[batch_start:batch_end]
+        healthy_batch = healthy_matrix_ordered_T[batch_start:batch_end]
         
         for iter_idx in range(test_n):
-            n_cols = n_ref - iter_idx
+            n_cols = n_healthy - iter_idx
             if n_cols <= 0:
                 continue
             
             combined = torch.cat([
                 target_batch.unsqueeze(1),
-                ref_batch[:, iter_idx:iter_idx + n_cols]
+                healthy_batch[:, iter_idx:iter_idx + n_cols]
             ], dim=1)
             
             combined_sum = combined.sum(dim=1, keepdim=True).clamp(min=eps)
@@ -106,9 +106,9 @@ def compute_score_matrix_gpu(
     score_matrix = score_matrix_raw.clone()
     target_val_nontransformed = torch.sqrt(target_val)
     
-    lfc = torch.log2(target_val_nontransformed.unsqueeze(1) + offset) - torch.log2(ref_matrix_ordered[:, :test_n] + offset)
+    lfc = torch.log2(target_val_nontransformed.unsqueeze(1) + offset) - torch.log2(healthy_matrix_ordered[:, :test_n] + offset)
     score_matrix[lfc < min_lfc] = 0
-    score_matrix[ref_matrix_ordered[:, :test_n] > max_off_val] = 0
+    score_matrix[healthy_matrix_ordered[:, :test_n] > max_off_val] = 0
     
     # Handle all-zero rows
     all_zero = score_matrix.sum(dim=1) == 0
@@ -120,8 +120,8 @@ def compute_score_matrix_gpu(
 def compute_positive_patients_inline2(
     target_val: torch.Tensor,
     malig_med: torch.Tensor,
-    ref_med: torch.Tensor,
-    ref_ordered_idx: torch.Tensor,
+    ha_med: torch.Tensor,
+    ha_ordered_idx: torch.Tensor,
     score_matrix: torch.Tensor,
     passing_mask: torch.Tensor,
     n_malig_groups: int,
@@ -131,7 +131,7 @@ def compute_positive_patients_inline2(
     Compute positive patients inline during main loop - fully vectorized
     """
     n_genes_batch = target_val.shape[0]
-    n_ref_groups = ref_med.shape[1]
+    n_ha_groups = ha_med.shape[1]
     
     target_val_pos = torch.full((n_genes_batch,), float('nan'), device=device)
     n_pos = torch.zeros(n_genes_batch, dtype=torch.long, device=device)
@@ -141,18 +141,18 @@ def compute_positive_patients_inline2(
         return target_val_pos, n_pos, p_pos
     
     # Build off-target mask (vectorized)
-    off_target_mask = torch.zeros((n_genes_batch, n_ref_groups), dtype=torch.bool, device=device)
+    off_target_mask = torch.zeros((n_genes_batch, n_ha_groups), dtype=torch.bool, device=device)
     passing_indices = passing_mask.nonzero(as_tuple=True)[0]
     
     for i in passing_indices:
         failing_positions = (score_matrix[i] < 0.35).nonzero(as_tuple=True)[0]
         if len(failing_positions) > 0:
-            original_failing_indices = ref_ordered_idx[i, failing_positions]
+            original_failing_indices = ha_ordered_idx[i, failing_positions]
             off_target_mask[i, original_failing_indices] = True
     
     # Zero out off-targets
-    ref_med_masked = ref_med.clone()
-    ref_med_masked[off_target_mask] = 0
+    ha_med_masked = ha_med.clone()
+    ha_med_masked[off_target_mask] = 0
     
     # Process in sub-batches for memory efficiency
     sub_batch_size = 1000
@@ -163,7 +163,7 @@ def compute_positive_patients_inline2(
         
         sub_targets = target_val[sub_indices]
         sub_malig = malig_med[sub_indices]
-        sub_ref = ref_med_masked[sub_indices]
+        sub_healthy = ha_med_masked[sub_indices]
         
         # Scaling factors
         scaling_factors = torch.tensor(
@@ -175,12 +175,12 @@ def compute_positive_patients_inline2(
         # Build thresholds
         thresholds = sub_targets.unsqueeze(1) * scaling_factors.unsqueeze(0)
         thresholds_T = thresholds ** 2
-        sub_ref_T = sub_ref ** 2
+        sub_healthy_T = sub_healthy ** 2
         
         # Vectorized JS computation
-        combined = torch.zeros((actual_sub_batch, n_tests, n_ref_groups + 1), dtype=torch.float32, device=device)
+        combined = torch.zeros((actual_sub_batch, n_tests, n_ha_groups + 1), dtype=torch.float32, device=device)
         combined[:, :, 0] = thresholds_T
-        combined[:, :, 1:] = sub_ref_T.unsqueeze(1).expand(-1, n_tests, -1)
+        combined[:, :, 1:] = sub_healthy_T.unsqueeze(1).expand(-1, n_tests, -1)
         
         eps = 1e-10
         combined_sum = combined.sum(dim=2, keepdim=True).clamp(min=eps)
@@ -299,7 +299,7 @@ def compute_target_quality_score(df: pd.DataFrame) -> pd.DataFrame:
 
 def target_id_multi_v1(
     malig_adata,
-    ref_adata,
+    ha_adata,
     malig_med_adata,
     gene_pairs: list,  # Now required
     device: str = 'cuda',
@@ -313,8 +313,8 @@ def target_id_multi_v1(
     -----------
     malig_adata : AnnData
         Malignant cell data
-    ref_adata : AnnData
-        Reference cell data (healthy atlas)
+    ha_adata : AnnData
+        Healthy reference cell data
     malig_med_adata : AnnData
         Malignant median data (for positivity)
     gene_pairs : list of tuples
@@ -370,14 +370,14 @@ def target_id_multi_v1(
         malig_adata = malig_adata[:, genes_to_keep].copy()
         print("  Malignant data copied.")
 
-    if type(ref_adata).__name__ == 'VirtualAnnData':
-        print("  Loading reference data to memory...")
-        ref_adata = ref_adata[:, genes_to_keep].to_memory()
-        print("  Reference data loaded.")
+    if type(ha_adata).__name__ == 'VirtualAnnData':
+        print("  Loading healthy data to memory...")
+        ha_adata = ha_adata[:, genes_to_keep].to_memory()
+        print("  Healthy data loaded.")
     else:
-        print("  Copying reference data...")
-        ref_adata = ref_adata[:, genes_to_keep].copy()
-        print("  Reference data copied.")
+        print("  Copying healthy data...")
+        ha_adata = ha_adata[:, genes_to_keep].copy()
+        print("  Healthy data copied.")
 
     print("  Copying median data...")
     malig_med_adata = malig_med_adata[:, genes_to_keep].copy()
@@ -385,27 +385,27 @@ def target_id_multi_v1(
     print("Matrix subsetting complete.\n")
     
     # Apply weights first if they exist
-    if "Weights" in ref_adata.obs.columns:
+    if "Weights" in ha_adata.obs.columns:
         print("Weighting Reference Atlas...")
-        if issparse(ref_adata.X):
-            weights_diag = diags(ref_adata.obs["Weights"].values)
-            ref_adata.X = weights_diag @ ref_adata.X
+        if issparse(ha_adata.X):
+            weights_diag = diags(ha_adata.obs["Weights"].values)
+            ha_adata.X = weights_diag @ ha_adata.X
         else:
-            ref_adata.X = ref_adata.X * ref_adata.obs["Weights"].values[:, np.newaxis]
+            ha_adata.X = ha_adata.X * ha_adata.obs["Weights"].values[:, np.newaxis]
     
     # For malignant data
     if issparse(malig_adata.X):
         print("Converting malignant sparse matrix to dense...")
         malig_adata.X = malig_adata.X.toarray()
 
-    # For reference data
-    if issparse(ref_adata.X):
-        print("Converting reference sparse matrix to dense...")
-        ref_adata.X = ref_adata.X.toarray()
+    # For healthy data
+    if issparse(ha_adata.X):
+        print("Converting healthy sparse matrix to dense...")
+        ha_adata.X = ha_adata.X.toarray()
 
     # Convert and handle any problematic values
     malig_adata.X = malig_adata.X.astype(np.float32)
-    ref_adata.X = ref_adata.X.astype(np.float32)
+    ha_adata.X = ha_adata.X.astype(np.float32)
 
     genes = malig_adata.var_names
 
@@ -430,7 +430,7 @@ def target_id_multi_v1(
         print(f"------  Loading Data - | Total: {time.time()-overall_start:.1f}s")
         dtype = torch.float16 if use_fp16 else torch.float32
         malig_X = torch.tensor(np.array(malig_adata.X.T), dtype=dtype, device=device)
-        ref_X = torch.tensor(np.array(ref_adata.X.T), dtype=dtype, device=device)
+        ha_X = torch.tensor(np.array(ha_adata.X.T), dtype=dtype, device=device)
         
         # Encode groups
         m_ids = malig_adata.obs_names.str.split("._.", regex=False).str[1].values
@@ -438,15 +438,15 @@ def target_id_multi_v1(
         m_id_to_idx = {id_val: idx for idx, id_val in enumerate(m_unique)}
         m_ids_encoded = torch.tensor([m_id_to_idx[x] for x in m_ids], dtype=torch.long, device=device)
         
-        ref_ids = (ref_adata.obs_names.str.extract(r'^([^:]+:[^:]+)', expand=False)
+        ha_ids = (ha_adata.obs_names.str.extract(r'^([^:]+:[^:]+)', expand=False)
                   .str.replace(r'[ -]', '_', regex=True).values)
 
-        ref_unique = np.unique(ref_ids)
-        ref_id_to_idx = {id_val: idx for idx, id_val in enumerate(ref_unique)}
-        ref_ids_encoded = torch.tensor([ref_id_to_idx[x] for x in ref_ids], dtype=torch.long, device=device)
+        ha_unique = np.unique(ha_ids)
+        ha_id_to_idx = {id_val: idx for idx, id_val in enumerate(ha_unique)}
+        ha_ids_encoded = torch.tensor([ha_id_to_idx[x] for x in ha_ids], dtype=torch.long, device=device)
         
         n_malig_groups = len(m_unique)
-        n_ref_groups = len(ref_unique)
+        n_ha_groups = len(ha_unique)
         
         # Convert gene pairs to indices
         print(f"Converting {len(gene_pairs)} gene pairs to indices...")
@@ -468,7 +468,7 @@ def target_id_multi_v1(
         print(f"------  Running Target ID ({len(gx_all)} pairs, {n_batches} batches)")
 
         m_group_indices = [(m_ids_encoded == g).nonzero(as_tuple=True)[0] for g in range(n_malig_groups)]
-        ref_group_indices = [(ref_ids_encoded == g).nonzero(as_tuple=True)[0] for g in range(n_ref_groups)]
+        ha_group_indices = [(ha_ids_encoded == g).nonzero(as_tuple=True)[0] for g in range(n_ha_groups)]
 
         all_results = []
         
@@ -491,9 +491,9 @@ def target_id_multi_v1(
                 m_group_indices
             )
 
-            ref_med = compute_group_median_cached(
-                torch.minimum(ref_X[gx_t], ref_X[gy_t]), 
-                ref_group_indices
+            ha_med = compute_group_median_cached(
+                torch.minimum(ha_X[gx_t], ha_X[gy_t]), 
+                ha_group_indices
             )
             
             matrix_time = time.time() - t_matrix
@@ -503,16 +503,16 @@ def target_id_multi_v1(
             t_target = time.time()
             target_val = torch.max(malig_med, dim=1).values
             target_val_T = target_val ** 2
-            ref_T = ref_med ** 2
+            ha_T = ha_med ** 2
             
-            ref_ordered_idx = torch.argsort(ref_T, dim=1, descending=True)
-            ref_ordered_T = torch.gather(ref_T, 1, ref_ordered_idx)
-            ref_ordered = torch.gather(ref_med, 1, ref_ordered_idx)
+            ha_ordered_idx = torch.argsort(ha_T, dim=1, descending=True)
+            ha_ordered_T = torch.gather(ha_T, 1, ha_ordered_idx)
+            ha_ordered = torch.gather(ha_med, 1, ha_ordered_idx)
             
             score_matrix = compute_score_matrix_gpu(
                 target_val=target_val_T.float(),
-                ref_matrix_ordered_T=ref_ordered_T.float(),
-                ref_matrix_ordered=ref_ordered.float(),
+                healthy_matrix_ordered_T=ha_ordered_T.float(),
+                healthy_matrix_ordered=ha_ordered.float(),
                 test_n_off_targets=10,
                 device=device,
                 batch_size=2000,
@@ -532,7 +532,7 @@ def target_id_multi_v1(
 
             off_targets_gpu = {}
             for thresh in [0.01, 0.05, 0.1, 0.25, 0.5, 1.0]:
-                off_targets_gpu[f'N_Off_Targets_{thresh}'] = (ref_med >= thresh).sum(dim=1)
+                off_targets_gpu[f'N_Off_Targets_{thresh}'] = (ha_med >= thresh).sum(dim=1)
 
             if malig_med.shape[1] > 1:
                 sc_2nd_target_val = torch.kthvalue(malig_med, k=malig_med.shape[1]-1, dim=1).values
@@ -540,10 +540,10 @@ def target_id_multi_v1(
                 sc_2nd_target_val = malig_med[:, 0]
 
             offset = 1e-8
-            corrected_off_val = torch.gather(ref_ordered, 1, corrected_idx_gpu.unsqueeze(1)).squeeze(1)
-            ref_ordered_first = ref_ordered[:, 0]
+            corrected_off_val = torch.gather(ha_ordered, 1, corrected_idx_gpu.unsqueeze(1)).squeeze(1)
+            ha_ordered_first = ha_ordered[:, 0]
 
-            log2_fc = torch.log2(target_val + offset) - torch.log2(ref_ordered_first + offset)
+            log2_fc = torch.log2(target_val + offset) - torch.log2(ha_ordered_first + offset)
             corrected_log2_fc = torch.log2(target_val + offset) - torch.log2(corrected_off_val + offset)
             sc_2nd_lfc = torch.log2(sc_2nd_target_val + offset) - torch.log2(corrected_off_val + offset)
 
@@ -562,8 +562,8 @@ def target_id_multi_v1(
             target_val_pos, n_pos, p_pos = compute_positive_patients_inline2(
                 target_val=target_val,
                 malig_med=malig_med,
-                ref_med=ref_med,
-                ref_ordered_idx=ref_ordered_idx,
+                ha_med=ha_med,
+                ha_ordered_idx=ha_ordered_idx,
                 score_matrix=score_matrix,
                 passing_mask=passing_mask,
                 n_malig_groups=n_malig_groups,
@@ -588,7 +588,7 @@ def target_id_multi_v1(
                 'Specificity': score_matrix[:, 0].cpu().numpy(),
                 'Corrected_Specificity': corrected_spec.cpu().numpy(),
                 'Corrected_Top_Off_Target_Val': corrected_off_val.cpu().numpy(),
-                'Top_Off_Target_Val': ref_ordered_first.cpu().numpy(),
+                'Top_Off_Target_Val': ha_ordered_first.cpu().numpy(),
                 'Log2_Fold_Change': log2_fc.cpu().numpy(),
                 'Corrected_Log2_Fold_Change': corrected_log2_fc.cpu().numpy(),
                 'N_Off_Targets': n_off_targets.cpu().numpy(),
@@ -617,8 +617,8 @@ def target_id_multi_v1(
             print(f"Total:{total_minutes:.1f}m")
 
             # Cleanup
-            del gx_t, gy_t, malig_med, ref_med
-            del target_val, target_val_T, ref_T, ref_ordered, ref_ordered_T, ref_ordered_idx
+            del gx_t, gy_t, malig_med, ha_med
+            del target_val, target_val_T, ha_T, ha_ordered, ha_ordered_T, ha_ordered_idx
             del score_matrix, target_val_pos, n_pos, p_pos
             torch.cuda.empty_cache()
 
@@ -640,8 +640,9 @@ def target_id_multi_v1(
         
     finally:
         try:
-            del malig_X, ref_X, m_ids_encoded, ref_ids_encoded
+            del malig_X, ha_X, m_ids_encoded, ha_ids_encoded
         except:
             pass
         torch.cuda.empty_cache()
         gc.collect()
+

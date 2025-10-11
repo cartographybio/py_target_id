@@ -51,15 +51,15 @@ def ultra_fast_js_score(a: torch.Tensor, b: torch.Tensor) -> torch.Tensor:
 
 def compute_score_matrix(
     target_val: torch.Tensor,
-    ref_matrix_ordered_T: torch.Tensor,
+    healthy_matrix_ordered_T: torch.Tensor,
     test_n_off_targets: int,
     device: torch.device,
     batch_size: int = 1000
 ) -> torch.Tensor:
     """Compute specificity score matrix"""
     n_genes = target_val.shape[0]
-    n_ref = ref_matrix_ordered_T.shape[1]
-    test_n = min(test_n_off_targets, n_ref)
+    n_healthy = healthy_matrix_ordered_T.shape[1]
+    test_n = min(test_n_off_targets, n_healthy)
     
     score_matrix = torch.zeros((n_genes, test_n), dtype=torch.float32, device=device)
     
@@ -68,10 +68,10 @@ def compute_score_matrix(
         batch_size_actual = batch_end - batch_start
         
         target_batch = target_val[batch_start:batch_end]
-        ref_batch = ref_matrix_ordered_T[batch_start:batch_end]
+        healthy_batch = healthy_matrix_ordered_T[batch_start:batch_end]
         
         for iter_idx in range(test_n):
-            n_cols_iter = n_ref - iter_idx
+            n_cols_iter = n_healthy - iter_idx
             
             if n_cols_iter <= 0:
                 continue
@@ -79,7 +79,7 @@ def compute_score_matrix(
             combined = torch.zeros((batch_size_actual, n_cols_iter + 1),
                                   dtype=torch.float32, device=device)
             combined[:, 0] = target_batch
-            combined[:, 1:] = ref_batch[:, iter_idx:iter_idx + n_cols_iter]
+            combined[:, 1:] = healthy_batch[:, iter_idx:iter_idx + n_cols_iter]
             
             spec_vector = torch.zeros_like(combined)
             spec_vector[:, 0] = 1.0
@@ -97,7 +97,7 @@ def compute_score_matrix(
 
 def specificity_summary(
     target_val: np.ndarray,
-    ref_matrix: np.ndarray,
+    healthy_matrix: np.ndarray,
     threshold: float = 0.35,
     test_n_off_targets: int = 10,
     min_lfc: float = 0.25,
@@ -124,47 +124,47 @@ def specificity_summary(
     # Apply transform
     if transform == "X^2" or transform == "X * X":
         target_val_T = torch.tensor(target_val ** 2, dtype=torch.float32, device=device)
-        ref_matrix_T = torch.tensor(ref_matrix ** 2, dtype=torch.float32, device=device)
+        healthy_matrix_T = torch.tensor(healthy_matrix ** 2, dtype=torch.float32, device=device)
     else:
         target_val_T = torch.tensor(target_val, dtype=torch.float32, device=device)
-        ref_matrix_T = torch.tensor(ref_matrix, dtype=torch.float32, device=device)
+        healthy_matrix_T = torch.tensor(healthy_matrix, dtype=torch.float32, device=device)
     
     n_genes = len(target_val)
-    n_ref = ref_matrix.shape[1]
-    test_n_off_targets = min(test_n_off_targets, n_ref - 1)
+    n_healthy = healthy_matrix.shape[1]
+    test_n_off_targets = min(test_n_off_targets, n_healthy - 1)
     
     # Order matrices
     print("Ordering matrices...")
-    ref_ordered_idx = torch.argsort(
-        torch.tensor(ref_matrix, dtype=torch.float32, device=device),
+    healthy_ordered_idx = torch.argsort(
+        torch.tensor(healthy_matrix, dtype=torch.float32, device=device),
         dim=1, descending=True
     )
-    ref_ordered = torch.gather(
-        torch.tensor(ref_matrix, dtype=torch.float32, device=device),
-        1, ref_ordered_idx
+    healthy_ordered = torch.gather(
+        torch.tensor(healthy_matrix, dtype=torch.float32, device=device),
+        1, healthy_ordered_idx
     )
     
-    ref_ordered_idx_T = torch.argsort(ref_matrix_T, dim=1, descending=True)
-    ref_ordered_T = torch.gather(ref_matrix_T, 1, ref_ordered_idx_T)
+    healthy_ordered_idx_T = torch.argsort(healthy_matrix_T, dim=1, descending=True)
+    healthy_ordered_T = torch.gather(healthy_matrix_T, 1, healthy_ordered_idx_T)
     
     # Compute scores
     print("Computing score matrix...")
-    scores = compute_score_matrix(target_val_T, ref_ordered_T, test_n_off_targets, device)
+    scores = compute_score_matrix(target_val_T, healthy_ordered_T, test_n_off_targets, device)
     
     scores_cpu = scores.cpu().numpy()
-    ref_ordered_cpu = ref_ordered.cpu().numpy()
-    ref_ordered_idx_cpu = ref_ordered_idx.cpu().numpy()
+    healthy_ordered_cpu = healthy_ordered.cpu().numpy()
+    healthy_ordered_idx_cpu = healthy_ordered_idx.cpu().numpy()
     
     score_matrix = scores_cpu.copy()
     
     # Apply LFC filter
     with np.errstate(divide='ignore', invalid='ignore'):
         lfc_check = (np.log2(target_val_np[:, None] + offset) - 
-                    np.log2(ref_ordered_cpu[:, :test_n_off_targets] + offset)) < min_lfc
+                    np.log2(healthy_ordered_cpu[:, :test_n_off_targets] + offset)) < min_lfc
     score_matrix[lfc_check] = 0
     
     # Apply max value filter
-    max_val_check = ref_ordered_cpu[:, :test_n_off_targets] > max_off_val
+    max_val_check = healthy_ordered_cpu[:, :test_n_off_targets] > max_off_val
     score_matrix[max_val_check] = 0
     
     # Handle all-zero rows
@@ -177,16 +177,16 @@ def specificity_summary(
     
     corrected_idx = np.argmax(score_matrix >= threshold, axis=1)
     corrected_specificity = score_matrix[np.arange(n_genes), corrected_idx]
-    corrected_off_val = ref_ordered_cpu[np.arange(n_genes), corrected_idx]
+    corrected_off_val = healthy_ordered_cpu[np.arange(n_genes), corrected_idx]
     
     df['Target_Val'] = target_val_np
     df['Specificity'] = score_matrix[:, 0]
     df['Corrected_Specificity'] = corrected_specificity
     df['Corrected_Top_Off_Target_Val'] = corrected_off_val
-    df['Top_Off_Target_Val'] = ref_ordered_cpu[:, 0]
+    df['Top_Off_Target_Val'] = healthy_ordered_cpu[:, 0]
     
     with np.errstate(divide='ignore', invalid='ignore'):
-        df['Log2_Fold_Change'] = np.log2(target_val_np + offset) - np.log2(ref_ordered_cpu[:, 0] + offset)
+        df['Log2_Fold_Change'] = np.log2(target_val_np + offset) - np.log2(healthy_ordered_cpu[:, 0] + offset)
         df['Corrected_Log2_Fold_Change'] = np.log2(target_val_np + offset) - np.log2(corrected_off_val + offset)
     
     df['Log2_Fold_Change'] = np.where(np.isfinite(df['Log2_Fold_Change']), 
@@ -202,11 +202,11 @@ def specificity_summary(
     
     # Build off-target masks
     print("Building off-target masks...")
-    off_target_masks = np.zeros((n_genes, n_ref), dtype=bool)
+    off_target_masks = np.zeros((n_genes, n_healthy), dtype=bool)
     
     for gene_idx in range(n_genes):
         failing_positions = np.where(score_matrix[gene_idx, :] < threshold)[0]
-        failing_original_indices = ref_ordered_idx_cpu[gene_idx, failing_positions]
+        failing_original_indices = healthy_ordered_idx_cpu[gene_idx, failing_positions]
         off_target_masks[gene_idx, failing_original_indices] = True
     
     return df, off_target_masks
@@ -215,7 +215,7 @@ def specificity_summary(
 def determine_positive_patients(
     df_summary: pd.DataFrame,
     malig_matrix: np.ndarray,
-    ref_matrix: np.ndarray,
+    healthy_matrix: np.ndarray,
     off_target_masks: np.ndarray,
     thresh: float = 0.35,
     transform: str = "X^2",
@@ -236,7 +236,7 @@ def determine_positive_patients(
     
     n_genes = len(df_summary)
     n_malig = malig_matrix.shape[1]
-    n_ref = ref_matrix.shape[1]
+    n_healthy = healthy_matrix.shape[1]
     
     valid_mask = (df_summary['Corrected_Specificity'].values >= thresh) & \
                  (~df_summary['Corrected_Specificity'].isna())
@@ -247,17 +247,17 @@ def determine_positive_patients(
     # Move to GPU
     target_vals = torch.tensor(df_summary['Target_Val'].values, dtype=torch.float32, device=device)
     malig_t = torch.tensor(malig_matrix, dtype=torch.float32, device=device)
-    ref_t = torch.tensor(ref_matrix, dtype=torch.float32, device=device)
+    healthy_t = torch.tensor(healthy_matrix, dtype=torch.float32, device=device)
     scales_t = torch.tensor(scaling_factors, dtype=torch.float32, device=device)
     
     # Apply transform and zero out off-targets
     if apply_transform:
-        ref_T = ref_t ** 2
+        healthy_T = healthy_t ** 2
     else:
-        ref_T = ref_t.clone()
+        healthy_T = healthy_t.clone()
     
     off_target_masks_t = torch.tensor(off_target_masks, dtype=torch.bool, device=device)
-    ref_T[off_target_masks_t] = 0
+    healthy_T[off_target_masks_t] = 0
     
     results = np.full((n_genes, 3), np.nan)
     results[:, 1] = 0
@@ -273,7 +273,7 @@ def determine_positive_patients(
         batch_size = len(batch_genes)
         
         batch_targets = target_vals[batch_genes]
-        batch_ref = ref_T[batch_genes]
+        batch_healthy = healthy_T[batch_genes]
         
         # Build test thresholds
         thresholds = batch_targets.unsqueeze(1) * scales_t.unsqueeze(0)
@@ -281,10 +281,10 @@ def determine_positive_patients(
             thresholds = thresholds ** 2
         
         # Build combined arrays
-        combined = torch.zeros((batch_size, n_tests, n_ref + 1), 
+        combined = torch.zeros((batch_size, n_tests, n_healthy + 1), 
                               dtype=torch.float32, device=device)
         combined[:, :, 0] = thresholds
-        combined[:, :, 1:] = batch_ref.unsqueeze(1).expand(-1, n_tests, -1)
+        combined[:, :, 1:] = batch_healthy.unsqueeze(1).expand(-1, n_tests, -1)
         
         # Normalize
         combined_sum = combined.sum(dim=2, keepdim=True).clamp(min=eps)
@@ -400,7 +400,7 @@ def compute_target_quality_score(
 
 def target_id_v1(
     malig_adata,
-    ref_adata,
+    healthy_adata,
     device: Optional[str] = None,
     version: str = "1.02"
 ) -> pd.DataFrame:
@@ -411,8 +411,8 @@ def target_id_v1(
     ----------
     malig_adata : AnnData
         Malignant patient data (patients x genes)
-    ref_adata : AnnData
-        Reference atlas data (samples x genes)
+    healthy_adata : AnnData
+        Healthy atlas data (samples x genes)
     device : str, optional
         'cuda', 'cpu', or None (auto-detect)
     version : str
@@ -431,7 +431,7 @@ def target_id_v1(
     print(f"Starting Target ID v{version}...")
     
     # Find common genes
-    genes = np.intersect1d(malig_adata.var_names, ref_adata.var_names)
+    genes = np.intersect1d(malig_adata.var_names, healthy_adata.var_names)
     print(f"Found {len(genes)} common genes")
 
     # Compute Positivity Quickly
@@ -439,36 +439,36 @@ def target_id_v1(
         malig_adata = run.compute_positivity_matrix(malig_adata)
 
     # Apply weights first if they exist
-    if "Weights" in ref_adata.obs.columns:
+    if "Weights" in healthy_adata.obs.columns:
         print("Weighting Reference Atlas...")
-        if issparse(ref_adata.X):
-            weights_diag = diags(ref_adata.obs["Weights"].values)
-            ref_adata.X = weights_diag @ ref_adata.X
+        if issparse(healthy_adata.X):
+            weights_diag = diags(healthy_adata.obs["Weights"].values)
+            healthy_adata.X = weights_diag @ healthy_adata.X
         else:
-            ref_adata.X = ref_adata.X * ref_adata.obs["Weights"].values[:, np.newaxis]
+            healthy_adata.X = healthy_adata.X * healthy_adata.obs["Weights"].values[:, np.newaxis]
 
     # Subset data
     malig_subset = malig_adata[:, genes].copy()
-    ref_subset = ref_adata[:, genes].copy()
+    healthy_subset = healthy_adata[:, genes].copy()
 
     # Extract matrices
     mat_malig = malig_subset.X.T
-    mat_ref = ref_subset.X.T
+    mat_healthy = healthy_subset.X.T
 
     # Convert sparse to dense
     if issparse(mat_malig):
         print("Converting malignant sparse matrix to dense...")
         mat_malig = mat_malig.toarray()
-    if issparse(mat_ref):
-        print("Converting reference sparse matrix to dense...")
-        mat_ref = mat_ref.toarray()
+    if issparse(mat_healthy):
+        print("Converting healthy sparse matrix to dense...")
+        mat_healthy = mat_healthy.toarray()
 
     # Ensure numpy arrays (handles any remaining edge cases)
     mat_malig = np.asarray(mat_malig)
-    mat_ref = np.asarray(mat_ref)
+    mat_healthy = np.asarray(mat_healthy)
 
     print(f"Malignant matrix: {mat_malig.shape}")
-    print(f"Reference matrix: {mat_ref.shape}")
+    print(f"Healthy matrix: {mat_healthy.shape}")
     
     # Compute target values
     target_val = np.max(mat_malig, axis=1)
@@ -477,7 +477,7 @@ def target_id_v1(
     print("\nComputing specificity...")
     df, off_target_masks = specificity_summary(
         target_val=target_val,
-        ref_matrix=mat_ref,
+        healthy_matrix=mat_healthy,
         threshold=0.35,
         test_n_off_targets=10,
         min_lfc=0.25,
@@ -494,7 +494,7 @@ def target_id_v1(
     df = determine_positive_patients(
         df_summary=df,
         malig_matrix=mat_malig,
-        ref_matrix=mat_ref,
+        healthy_matrix=mat_healthy,
         off_target_masks=off_target_masks,
         thresh=0.35,
         transform="X^2",
@@ -508,7 +508,7 @@ def target_id_v1(
     df['P_Pos_Per'] = df['N_Pos_Val'] / mat_malig.shape[1]
     
     for thresh in [0.01, 0.05, 0.1, 0.25, 0.5, 1.0]:
-        df[f'N_Off_Targets_{thresh}'] = np.sum(mat_ref >= thresh, axis=1)
+        df[f'N_Off_Targets_{thresh}'] = np.sum(mat_healthy >= thresh, axis=1)
     
     if mat_malig.shape[1] > 1:
         df['SC_2nd_Target_Val'] = np.partition(mat_malig, -2, axis=1)[:, -2]
