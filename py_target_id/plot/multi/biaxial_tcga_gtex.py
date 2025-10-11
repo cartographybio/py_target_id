@@ -10,12 +10,13 @@ from pathlib import Path
 import os
 from py_target_id import plot
 from rpy2.robjects import r
+from py_target_id import utils
 
 def biaxial_plot_tcga_gtex(
     multis: list,
     main: str = "LUAD",
-    gtex = get_gtex_h5(),
-    tcga = get_tcga_h5(),
+    gtex = utils.get_gtex_h5(),
+    tcga = utils.get_tcga_h5(),
     out_dir: str = "multi/multi_biaxial_tcga",
     width: float = 24,
     height: float = 12,
