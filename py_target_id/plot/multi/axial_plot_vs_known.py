@@ -179,7 +179,7 @@ def axial_plot_vs_known(
         # Combo healthy data
         df12_healthy = pd.DataFrame({
             'tissue': tissues_list,
-            'full': [_add_smart_newlines(ct) for ct in cell_types],
+            'full': [plot.add_smart_newlines(ct) for ct in cell_types],
             'log2_exp': np.log2(ref_dbl_med[multi_name].values + 1),
             'id': multi_name
         })
@@ -196,7 +196,7 @@ def axial_plot_vs_known(
         for gene in other_genes:
             df_gene = pd.DataFrame({
                 'tissue': tissues_list,
-                'full': [_add_smart_newlines(ct) for ct in cell_types],
+                'full': [plot.add_smart_newlines(ct) for ct in cell_types],
                 'log2_exp': np.log2(ha_sng_med[gene].values + 1),
                 'id': gene
             })
@@ -290,33 +290,3 @@ def axial_plot_vs_known(
     print(f"\n{'='*60}")
     print(f"✓ All {len(multis)} plots saved to {out_dir}/")
     print(f"{'='*60}")
-
-
-def _add_smart_newlines(text: str, max_len: int = 25) -> str:
-    """
-    Add newlines to text at appropriate positions.
-    Mimics the R add_smart_newlines function.
-    """
-    if len(text) <= max_len:
-        return text
-    
-    # Split on common delimiters
-    parts = text.replace(':', ': ').replace('_', ' ').split()
-    
-    lines = []
-    current_line = []
-    current_len = 0
-    
-    for part in parts:
-        if current_len + len(part) + 1 > max_len and current_line:
-            lines.append(' '.join(current_line))
-            current_line = [part]
-            current_len = len(part)
-        else:
-            current_line.append(part)
-            current_len += len(part) + 1
-    
-    if current_line:
-        lines.append(' '.join(current_line))
-    
-    return '\n'.join(lines)

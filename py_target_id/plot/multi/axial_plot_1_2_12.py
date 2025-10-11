@@ -132,7 +132,7 @@ def axial_plot_1_2_12(
         pos_patients_12 = set(malig_med_adata.obs['Patient'].values[pos_combo])
         
         # Calculate percentages
-        n_patients = len(patient_names)
+        n_patients = len(malig_med_adata.obs['Patient'])
         per_1 = round(100 * len(pos_patients_1) / n_patients, 1)
         per_2 = round(100 * len(pos_patients_2) / n_patients, 1)
         per_12 = round(100 * len(pos_patients_12) / n_patients, 1)
@@ -165,19 +165,19 @@ def axial_plot_1_2_12(
         
         df1_healthy = pd.DataFrame({
             'tissue': tissues_list,
-            'full': [_add_smart_newlines(ct) for ct in cell_types],
+            'full': [plot.add_smart_newlines(ct) for ct in cell_types],
             'log2_exp': np.log2(ha_sng_med[gene1].values + 1)
         })
         
         df2_healthy = pd.DataFrame({
             'tissue': tissues_list,
-            'full': [_add_smart_newlines(ct) for ct in cell_types],
+            'full': [plot.add_smart_newlines(ct) for ct in cell_types],
             'log2_exp': np.log2(ha_sng_med[gene2].values + 1)
         })
         
         df12_healthy = pd.DataFrame({
             'tissue': tissues_list,
-            'full': [_add_smart_newlines(ct) for ct in cell_types],
+            'full': [plot.add_smart_newlines(ct) for ct in cell_types],
             'log2_exp': np.log2(ref_dbl_med[multi_name].values + 1)
         })
         
