@@ -580,7 +580,7 @@ def target_id_multi_v1(
 
             # Storage
             t_storage = time.time()
-            names = [f"{genes[i]}.{genes[j]}" for i, j in zip(gx_all[start:end], gy_all[start:end])]
+            names = [f"{genes[i]}_{genes[j]}" for i, j in zip(gx_all[start:end], gy_all[start:end])]
             
             df = pd.DataFrame({
                 'gene_name': names,

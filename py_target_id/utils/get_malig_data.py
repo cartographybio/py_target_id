@@ -23,6 +23,7 @@ def get_malig_adata(manifest, positivity = True):
     if positivity:
         adata_all = run.compute_positivity_matrix(adata_all)
 
+    adata_all.obs["Patient"] = np.array([name.split('._.')[1] for name in adata_all.obs_names]) 
     return adata_all
 
 def get_malig_archr_adata(manifest):
@@ -30,6 +31,7 @@ def get_malig_archr_adata(manifest):
     malig_adata = infra.read_h5(manifest.Local_Archr_Malig, "RNA")
     malig_meta = ~malig_adata.obs_names.str.contains("nonmalig")
     malig_adata = malig_adata[malig_meta, :]
+    malig_adata.obs["Patient"] = np.array([name.split('._.')[1] for name in malig_adata.obs_names]) 
     return malig_adata
 
 
