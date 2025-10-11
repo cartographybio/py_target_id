@@ -534,7 +534,7 @@ def target_id_v1(
     print("\nComputing target quality scores...")
     df = compute_target_quality_score(df)
 
-    df["Postivie_Final_v2"] = malig_adata[:, df['gene_name']].layers['positivity'].mean(axis=0) * 100    
+    df["Positive_Final_v2"] = malig_adata[:, df['gene_name']].layers['positivity'].mean(axis=0) * 100    
     df = df.sort_values('TargetQ_Final_v1', ascending=False)
 
     print("Target ID complete!")
