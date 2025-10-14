@@ -15,6 +15,7 @@ from typing import Literal, Union
 from py_target_id import plot
 from py_target_id import utils
 from rpy2.robjects import r
+from datetime import datetime
 
 def dot_plot(
     multis: list,
@@ -251,7 +252,15 @@ def dot_plot(
             print(f"⚠ Warning: Could not convert to PNG: {e}")
             print(f"  (PDF saved successfully at {out_path})")
 
-    
+    #Write custom done
+    out_file = out_dir + "/finished.txt"
+
+    with open(out_file, 'w') as f:
+        f.write(f"Finished: {datetime.now()}\n\n")
+        f.write(f"Total Cell Types: {len(ref_med_adata.obs_names)}\n\n")
+        f.write("Cell Type Names:\n")
+        f.write('\n'.join(ref_med_adata.obs_names))
+
     print(f"\n{'='*60}")
     print(f"✓ All {len(multis)} plots saved to {out_dir}/")
     print(f"{'='*60}")

@@ -15,6 +15,7 @@ from typing import Literal, Union
 from py_target_id import plot
 from py_target_id import utils
 from rpy2.robjects import r
+from datetime import datetime
 
 def axial_plot_1_2_12(
     multis: list,
@@ -455,8 +456,18 @@ def axial_plot_1_2_12(
             print(f"✓ Made PNG: {png_path}")
         except Exception as e:
             print(f"⚠ Warning: Could not convert to PNG: {e}")
-        
-                
+
+    #Write custom done
+    out_file = out_dir + "/finished.txt"
+
+    with open(out_file, 'w') as f:
+        f.write(f"Finished: {datetime.now()}\n\n")
+        f.write(f"Total Patients: {len(malig_med_adata.obs_names)}\n\n")
+        f.write("Patient Names:\n")
+        f.write('\n'.join(malig_med_adata.obs_names))
+  
     print(f"\n{'='*60}")
     print(f"✓ All {len(multis)} plots saved to {out_dir}/")
     print(f"{'='*60}")
+
+

@@ -11,6 +11,7 @@ from typing import List
 from py_target_id import plot
 from rpy2.robjects import r
 import os
+from datetime import datetime
 
 def plot_multi_radar(
     multis: List[str],
@@ -257,6 +258,12 @@ def plot_multi_radar(
             print(f"  ✓ Made PNG: {png_path}")
         except Exception as e:
             print(f"  ⚠ Warning: Could not convert to PNG: {e}")
+
+    #Write custom done
+    out_file = out_dir + "/finished.txt"
+
+    with open(out_file, 'w') as f:
+        f.write(f"Finished: {datetime.now()}\n\n")
     
     print(f"\n{'='*60}")
     print(f"✓ All {len(multis)} radar plots saved to {out_dir}/")

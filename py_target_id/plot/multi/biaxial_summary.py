@@ -14,6 +14,7 @@ from typing import List, Optional
 from py_target_id import plot
 from py_target_id import utils
 from rpy2.robjects import r
+from datetime import datetime
 
 def biaxial_summary(
     multis: List[str],
@@ -692,7 +693,16 @@ def biaxial_summary(
         
         elapsed = (time.time() - overall_start) / 60
         print(f"------ Processed {idx+1}/{len(multis)} - | Total: {elapsed:.1f}min")
-    
+
+    #Write custom done
+    out_file = out_dir + "/finished.txt"
+
+    with open(out_file, 'w') as f:
+        f.write(f"Finished: {datetime.now()}\n\n")
+        f.write(f"Total Patients: {len(malig_med_adata.obs_names)}\n\n")
+        f.write("Patient Names:\n")
+        f.write('\n'.join(malig_med_adata.obs_names))    
+
     elapsed = (time.time() - overall_start) / 60
     print(f"\n{'='*60}")
     print(f"✓ All {len(multis)} plots saved to {out_dir}/")

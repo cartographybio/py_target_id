@@ -11,6 +11,7 @@ from typing import List, Optional, Dict
 from py_target_id import plot
 from rpy2.robjects import r
 import os
+from datetime import datetime
 
 def tq_vs_pp_1_2_12(
     multis: List[str],
@@ -208,6 +209,12 @@ def tq_vs_pp_1_2_12(
         except Exception as e:
             print(f"  ⚠ Warning: Could not convert to PNG: {e}")
     
+    #Write custom done
+    out_file = out_dir + "/finished.txt"
+
+    with open(out_file, 'w') as f:
+        f.write(f"Finished: {datetime.now()}\n\n")
+
     print(f"\n{'='*60}")
     print(f"✓ All {len(multis)} plots saved to {out_dir}/")
     print(f"{'='*60}")

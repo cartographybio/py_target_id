@@ -15,6 +15,7 @@ from tqdm import tqdm
 from py_target_id import plot, utils, infra
 from rpy2.robjects import r
 import os
+from datetime import datetime
 
 def umap_1_2_12(
     multis: List[str],
@@ -315,6 +316,15 @@ def umap_1_2_12(
             print(f"  ✓ Made PNG: {png_path}")
         except Exception as e:
             print(f"  ⚠ Warning: Could not convert to PNG: {e}")
+    
+    #Write custom done
+    out_file = out_dir + "/finished.txt"
+
+    with open(out_file, 'w') as f:
+        f.write(f"Finished: {datetime.now()}\n\n")
+        f.write(f"Total Patients: {len(malig_med_adata.obs_names)}\n\n")
+        f.write("Patient Names:\n")
+        f.write('\n'.join(malig_med_adata.obs_names))
     
     overall_end = time.time()
     print(f"\n{'='*60}")

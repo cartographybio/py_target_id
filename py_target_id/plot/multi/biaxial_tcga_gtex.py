@@ -11,6 +11,7 @@ import os
 from py_target_id import plot
 from rpy2.robjects import r
 from py_target_id import utils
+from datetime import datetime
 
 def biaxial_plot_tcga_gtex(
     multis: list,
@@ -271,7 +272,13 @@ def biaxial_plot_tcga_gtex(
             print(f"✓ Made PNG: {png_path}")
         except Exception as e:
             print(f"⚠ Warning: Could not convert to PNG: {e}")
-    
+
+    #Write custom done
+    out_file = out_dir + "/finished.txt"
+
+    with open(out_file, 'w') as f:
+        f.write(f"Finished: {datetime.now()}\n\n")
+
     print(f"\n{'='*60}")
     print(f"✓ All {len(multis)} plots saved to {out_dir}/")
     print(f"{'='*60}")
