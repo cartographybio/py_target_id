@@ -50,7 +50,7 @@ def ensure_r_packages():
                         "1" = c("#28154C"),
                         "2" = c("lightgrey", "#28154C"),
                         "3" = c("lightgrey", "#18B5CB", "#28154C"),
-                        "4" = c("lightgrey", "#6BC291", "#6BC291", "#28154C"),
+                        "4" = c("lightgrey", "#6BC291", "#2E95D2", "#28154C"),
                         "5" = c("lightgrey", "#6BC291", "#18B5CB", "#2E95D2", "#28154C"),
                         "6" = c("lightgrey", "#E0F3DB", "#6BC291", "#18B5CB", "#2E95D2", "#28154C")
                     )
