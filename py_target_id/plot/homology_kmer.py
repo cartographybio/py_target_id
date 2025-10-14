@@ -18,7 +18,7 @@ def plot_homology_kmer(
     tx: Optional[List[str]] = None,
     genes: Optional[List[str]] = None,
     hide_axis: bool = False,
-    output_dir: str = "homology/kmer",
+    out_dir: str = "homology/kmer",
     width: float = 10,
     height: float = 8,
     dpi: int = 300
@@ -43,7 +43,7 @@ def plot_homology_kmer(
         List of gene symbols (will get transcripts via get_human_topology)
     hide_axis : bool
         If True, hide gene names on y-axis
-    output_dir : str
+    out_dir : str
         Output directory for plots
     width : float
         Plot width in inches
@@ -56,7 +56,7 @@ def plot_homology_kmer(
     start_time = time.time()
     
     # Create output directory
-    Path(output_dir).mkdir(parents=True, exist_ok=True)
+    Path(out_dir).mkdir(parents=True, exist_ok=True)
     
     # Get topology data (assumes get_human_topology is already available)
     print("Loading topology data...")
@@ -261,7 +261,7 @@ def plot_homology_kmer(
                 plot.pd2r(f"df_{species}_genes", plot_data[species]['genes'])
         
         # Create plot in R
-        out_path = Path(output_dir) / f"{gene_i}_{txi_base}_kmer.pdf"
+        out_path = Path(out_dir) / f"{gene_i}_{txi_base}_kmer.pdf"
         
         hide_y_axis = "TRUE" if hide_axis else "FALSE"
         

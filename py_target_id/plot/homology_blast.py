@@ -248,7 +248,7 @@ def run_blast(params: Dict) -> pd.DataFrame:
 
 def plot_homology_blast(
     df: pd.DataFrame,
-    output_dir: str = "homology/blast",
+    out_dir: str = "homology/blast",
     figsize: tuple = (20, 10),
     dpi: int = 300,
     verbose: bool = False
@@ -260,7 +260,7 @@ def plot_homology_blast(
     ----------
     df : pd.DataFrame
         DataFrame with columns: gene_name, transcript_id, AA (amino acid sequence)
-    output_dir : str
+    out_dir : str
         Directory to save output plots
     figsize : tuple
         Figure size (width, height) in inches
@@ -301,7 +301,7 @@ def plot_homology_blast(
     }
     
     # Create output directory
-    Path(output_dir).mkdir(parents=True, exist_ok=True)
+    Path(out_dir).mkdir(parents=True, exist_ok=True)
     
     out_list = []
     
@@ -767,7 +767,7 @@ def plot_homology_blast(
                     fontsize=18, fontweight='bold', y=0.96,
                     family='sans-serif', color='#222222')
         
-        output_file = Path(output_dir) / f"{row['gene_name']}_{row['transcript_id']}_homology.png"
+        output_file = Path(out_dir) / f"{row['gene_name']}_{row['transcript_id']}_homology.png"
         plt.savefig(output_file, dpi=dpi, bbox_inches='tight')
         plt.close()
         
