@@ -3,7 +3,7 @@ Multi-specific target dot plot visualization.
 """
 
 # Define what gets exported
-__all__ = ['dot_plot']
+__all__ = ['axial_1_2_12']
 
 import numpy as np
 import pandas as pd
@@ -17,7 +17,7 @@ from py_target_id import utils
 from rpy2.robjects import r
 from datetime import datetime
 
-def axial_plot_1_2_12(
+def axial_1_2_12(
     multis: list,
     malig_adata,  # Malignant AnnData (cells × genes)
     malig_med_adata,  # Malignant median AnnData (patients × genes) with positivity layer

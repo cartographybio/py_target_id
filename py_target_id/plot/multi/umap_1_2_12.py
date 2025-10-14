@@ -322,9 +322,9 @@ def umap_1_2_12(
 
     with open(out_file, 'w') as f:
         f.write(f"Finished: {datetime.now()}\n\n")
-        f.write(f"Total Patients: {len(malig_med_adata.obs_names)}\n\n")
+        f.write(f"Total Patients: {len(malig_adata.obs_names)}\n\n")
         f.write("Patient Names:\n")
-        f.write('\n'.join(malig_med_adata.obs_names))
+        f.write('\n'.join(malig_adata.obs_names))
     
     overall_end = time.time()
     print(f"\n{'='*60}")

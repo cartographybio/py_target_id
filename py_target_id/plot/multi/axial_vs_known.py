@@ -3,7 +3,7 @@ Multi-specific target vs known targets dot plot visualization.
 """
 
 # Define what gets exported
-__all__ = ['axial_plot_vs_known']
+__all__ = ['axial_vs_known']
 
 import numpy as np
 import pandas as pd
@@ -17,7 +17,7 @@ from py_target_id import utils
 from rpy2.robjects import r
 from datetime import datetime
 
-def axial_plot_vs_known(
+def axial_vs_known(
     multis: list,
     malig_adata,  # Malignant AnnData (cells × genes)
     malig_med_adata,  # Malignant median AnnData (patients × genes) with positivity layer

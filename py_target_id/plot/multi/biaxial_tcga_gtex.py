@@ -2,7 +2,7 @@
 TCGA/GTEx biaxial plot visualization.
 """
 
-__all__ = ['biaxial_plot_tcga_gtex']
+__all__ = ['biaxial_tcga_gtex']
 
 import numpy as np
 import pandas as pd
@@ -13,12 +13,12 @@ from rpy2.robjects import r
 from py_target_id import utils
 from datetime import datetime
 
-def biaxial_plot_tcga_gtex(
+def biaxial_tcga_gtex(
     multis: list,
     main: str = "LUAD",
     gtex_adata = utils.get_gtex_adata(),
     tcga_adata = utils.get_tcga_adata(),
-    out_dir: str = "multi/multi_biaxial_tcga",
+    out_dir: str = "multi/biaxial_tcga_gtex",
     width: float = 24,
     height: float = 12,
     dpi: int = 300

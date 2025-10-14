@@ -2,7 +2,7 @@
 Multi-target radar plot visualization.
 """
 
-__all__ = ['plot_multi_radar']
+__all__ = ['radar_1_2_12']
 
 import numpy as np
 import pandas as pd
@@ -13,7 +13,7 @@ from rpy2.robjects import r
 import os
 from datetime import datetime
 
-def plot_multi_radar(
+def radar_1_2_12(
     multis: List[str],
     df_single: pd.DataFrame,
     df_multi: pd.DataFrame,
