@@ -26,7 +26,7 @@ def axial_plot_vs_known(
     known: List[str] = ["DLL3", "MET", "EGFR", "TACSTD2", "CEACAM5", "ERBB3", "MSLN"],
     width: float = 20,
     height: float = 10,
-    dpi: int = 600
+    dpi: int = 300
 ):
     """
     Create multi-axial plots comparing gene combinations to known targets.

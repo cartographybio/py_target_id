@@ -15,12 +15,12 @@ from py_target_id import utils
 def biaxial_plot_tcga_gtex(
     multis: list,
     main: str = "LUAD",
-    gtex = utils.get_gtex_h5(),
-    tcga = utils.get_tcga_h5(),
+    gtex_adata = utils.get_gtex_adata(),
+    tcga_adata = utils.get_tcga_adata(),
     out_dir: str = "multi/multi_biaxial_tcga",
     width: float = 24,
     height: float = 12,
-    dpi: int = 600
+    dpi: int = 300
 ):
     """
     Create biaxial TCGA/GTEx plots for gene combinations.
@@ -31,9 +31,9 @@ def biaxial_plot_tcga_gtex(
         Gene combinations in format ["GENE1_GENE2", ...]
     main : str
         Main cancer type to highlight (default: "LUAD")
-    gtex : AnnData
+    gtex_adata : AnnData
         GTEx expression data (samples × genes) with obs['GTEX']
-    tcga : AnnData
+    tcga_adata : AnnData
         TCGA expression data (samples × genes)
     out_dir : str
         Output directory for plots
@@ -76,7 +76,7 @@ def biaxial_plot_tcga_gtex(
     
     # Load GTEx data
     print("Reading in GTEx...")
-    gtex_subset = gtex[:, genes]
+    gtex_subset = gtex_adata[:, genes]
     if hasattr(gtex_subset, 'to_memory'):
         print("Materializing GTEx VirtualAnnData...")
         gtex_subset = gtex_subset.to_memory()
@@ -85,7 +85,7 @@ def biaxial_plot_tcga_gtex(
     
     # Load TCGA data
     print("Reading in TCGA...")
-    tcga_subset = tcga[:, genes]
+    tcga_subset = tcga_adata[:, genes]
     if hasattr(tcga_subset, 'to_memory'):
         print("Materializing TCGA VirtualAnnData...")
         tcga_subset = tcga_subset.to_memory()

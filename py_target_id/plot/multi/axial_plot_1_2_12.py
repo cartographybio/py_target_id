@@ -25,7 +25,7 @@ def axial_plot_1_2_12(
     show: int = 15,
     width: float = 16,
     height: float = 10,
-    dpi: int = 600
+    dpi: int = 300
 ):
     """
     Create multi-axial plots for gene combinations.

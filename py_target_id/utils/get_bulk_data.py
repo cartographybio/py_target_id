@@ -2,7 +2,7 @@
 Reference data loading functions.
 """
 
-__all__ = ['get_gtex_h5', 'get_tcga_h5']
+__all__ = ['get_gtex_adata', 'get_tcga_adata']
 
 import os
 import subprocess
@@ -14,7 +14,7 @@ import scanpy as sc
 from typing import Optional
 from py_target_id import utils
 
-def get_gtex_h5(
+def get_gtex_adata(
     version: str = "20251010",
     overwrite: bool = False,
     pretty_cols: bool = True
@@ -113,7 +113,7 @@ def get_gtex_h5(
     return adata
 
 
-def get_tcga_h5(
+def get_tcga_adata(
     version: str = "20251010",
     overwrite: bool = False,
     pretty_cols: bool = True

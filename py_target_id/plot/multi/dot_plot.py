@@ -24,7 +24,7 @@ def dot_plot(
     max_log2: float = 3.0,
     width: float = 24,
     height: float = 8,
-    dpi: int = 600
+    dpi: int = 300
 ) -> None:
     """
     Create multi-panel dot plot for gene combinations across cell types.
