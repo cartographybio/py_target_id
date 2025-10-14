@@ -12,6 +12,7 @@ import time
 from typing import List, Optional
 from rpy2.robjects import r
 from py_target_id import plot
+from datetime import datetime
 
 def plot_homology_kmer(
     tx: Optional[List[str]] = None,
@@ -396,6 +397,12 @@ def plot_homology_kmer(
             print(f"✓ Made PNG: {png_path}")
         except Exception as e:
             print(f"⚠ Warning: Could not convert to PNG: {e}")
+    
+    #Write custom done
+    out_file = out_dir + "/finished.txt"
+
+    with open(out_file, 'w') as f:
+        f.write(f"Finished: {datetime.now()}\n\n")
     
     elapsed = (time.time() - start_time) / 60
     print(f"------  All plots completed | Total: {elapsed:.1f}min")

@@ -18,6 +18,7 @@ from typing import List, Dict, Optional
 from scipy.cluster.hierarchy import dendrogram, linkage
 from scipy.spatial.distance import squareform
 import shutil
+from datetime import datetime
 
 def check_blast_installed() -> bool:
     """
@@ -773,5 +774,11 @@ def plot_homology_blast(
         print(f"Saved: {output_file}")
         
         out_list.append(dt_blast)
+
+    #Write custom done
+    out_file = out_dir + "/finished.txt"
+
+    with open(out_file, 'w') as f:
+        f.write(f"Finished: {datetime.now()}\n\n")
     
     return out_list
