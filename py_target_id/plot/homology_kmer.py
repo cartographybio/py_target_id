@@ -60,7 +60,7 @@ def plot_homology_kmer(
     # Get topology data (assumes get_human_topology is already available)
     print("Loading topology data...")
     
-    df_all = get_human_topology(genes=None, outer_only=False, verbose=False)
+    df_all = plot.get_human_topology(genes=None, outer_only=False, verbose=False)
     
     # Get transcript IDs
     if tx is None:
