@@ -498,7 +498,7 @@ def plot_homology_blast(
         # Calculate pairwise identity matrix
         n = len(seqs)
         pid_matrix = np.zeros((n, n))
-        
+
         aligner = Align.PairwiseAligner()
         aligner.mode = 'global'
         aligner.substitution_matrix = Align.substitution_matrices.load("BLOSUM62")
@@ -510,63 +510,46 @@ def plot_homology_blast(
                 if i == j:
                     pid_matrix[i, j] = 100.0
                 else:
-                    alignments = aligner.align(seqs[i], seqs[j])
-                    if alignments:
-                        alignment = alignments[0]
-                        
-                        # Get the actual aligned sequences (not the formatted string)
-                        # Use format() to get just the sequences without formatting
-                        aligned_seq1 = alignment.format().split('\n')[0]
-                        aligned_seq2 = alignment.format().split('\n')[2]
-                        
-                        # Actually, better to use the alignment coordinates directly
-                        # Get aligned sequences using alignment indices
-                        seq1_aligned = str(alignment).replace('\n', '').replace(' ', '')
-                        
-                        # Better approach: use Bio.Align's aligned property
-                        # This gives us the actual alignment including gaps
-                        from Bio.Align import substitution_matrices
-                        
-                        # Convert alignment to strings with gaps
-                        aligned_seq1 = ""
-                        aligned_seq2 = ""
-                        for (start1, end1), (start2, end2) in zip(alignment.aligned[0], alignment.aligned[1]):
-                            # Add the aligned regions
-                            aligned_seq1 += seqs[i][start1:end1]
-                            aligned_seq2 += seqs[j][start2:end2]
-                            # Check if we need to add gaps
-                        
-                        # Actually, let's use a simpler approach - format the alignment properly
-                        # Extract sequences from the full alignment string
-                        align_str = format(alignment)
-                        lines = align_str.split('\n')
-                        
-                        # Reconstruct full aligned sequences from all lines
-                        aligned_seq1 = ''
-                        aligned_seq2 = ''
-                        for line_idx in range(0, len(lines), 4):  # Alignment comes in blocks of 4 lines
-                            if line_idx < len(lines) and len(lines[line_idx]) > 20:
-                                # Extract sequence after the position number
-                                seq1_part = lines[line_idx].split()[-1] if len(lines[line_idx].split()) > 1 else ''
-                                aligned_seq1 += seq1_part
-                            if line_idx + 2 < len(lines) and len(lines[line_idx + 2]) > 20:
-                                seq2_part = lines[line_idx + 2].split()[-1] if len(lines[line_idx + 2].split()) > 1 else ''
-                                aligned_seq2 += seq2_part
-                        
-                        # Count ALL matching positions
-                        matches = sum(a == b for a, b in zip(aligned_seq1, aligned_seq2))
-                        total_len = len(aligned_seq1)
-                        pid = (matches / total_len) * 100
-                        
-                        if verbose and i == 0 and j == 1:
-                            print(f"\nDebug alignment seq {i} ({species_labels_y[i]}) vs seq {j} ({species_labels_y[j]}):")
-                            print(f"Alignment length: {total_len}")
-                            print(f"Matches: {matches}")
-                            print(f"Percent identity: {pid:.1f}%")
-                            print(f"Seq lengths: {len(seqs[i])}, {len(seqs[j])}")
-                        
-                        pid_matrix[i, j] = pid
-                        pid_matrix[j, i] = pid
+                    # Get only the best alignment to avoid overflow
+                    try:
+                        alignment = next(aligner.align(seqs[i], seqs[j]))
+                    except (StopIteration, OverflowError) as e:
+                        # No alignment found or overflow - set to 0
+                        print(f"Warning: Alignment failed for seq {i} vs {j}: {type(e).__name__}")
+                        pid_matrix[i, j] = 0.0
+                        pid_matrix[j, i] = 0.0
+                        continue
+                    
+                    # Extract sequences from the full alignment string
+                    align_str = format(alignment)
+                    lines = align_str.split('\n')
+                    
+                    # Reconstruct full aligned sequences from all lines
+                    aligned_seq1 = ''
+                    aligned_seq2 = ''
+                    for line_idx in range(0, len(lines), 4):  # Alignment comes in blocks of 4 lines
+                        if line_idx < len(lines) and len(lines[line_idx]) > 20:
+                            # Extract sequence after the position number
+                            seq1_part = lines[line_idx].split()[-1] if len(lines[line_idx].split()) > 1 else ''
+                            aligned_seq1 += seq1_part
+                        if line_idx + 2 < len(lines) and len(lines[line_idx + 2]) > 20:
+                            seq2_part = lines[line_idx + 2].split()[-1] if len(lines[line_idx + 2].split()) > 1 else ''
+                            aligned_seq2 += seq2_part
+                    
+                    # Count ALL matching positions
+                    matches = sum(a == b for a, b in zip(aligned_seq1, aligned_seq2))
+                    total_len = len(aligned_seq1)
+                    pid = (matches / total_len) * 100 if total_len > 0 else 0
+                    
+                    if verbose and i == 0 and j == 1:
+                        print(f"\nDebug alignment seq {i} ({species_labels_y[i]}) vs seq {j} ({species_labels_y[j]}):")
+                        print(f"Alignment length: {total_len}")
+                        print(f"Matches: {matches}")
+                        print(f"Percent identity: {pid:.1f}%")
+                        print(f"Seq lengths: {len(seqs[i])}, {len(seqs[j])}")
+                    
+                    pid_matrix[i, j] = pid
+                    pid_matrix[j, i] = pid
         
         # Create figure
         fig = plt.figure(figsize=figsize, facecolor='white', dpi=dpi)
