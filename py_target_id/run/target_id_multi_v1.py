@@ -332,7 +332,14 @@ def target_id_multi_v1(
     pd.DataFrame
         Results dataframe with target metrics
     """
-        
+
+    import numpy as np
+    import pandas as pd
+    import torch
+    import time
+    import gc
+    import tempfile
+    import os        
     from scipy.sparse import issparse, diags
     from py_target_id import run
 
@@ -681,7 +688,14 @@ def target_id_multi_v1_safe(
     pd.DataFrame
         Results dataframe with target metrics
     """
-
+    
+    import numpy as np
+    import pandas as pd
+    import torch
+    import time
+    import gc
+    import tempfile
+    import os        
     from scipy.sparse import issparse, diags
     from py_target_id import run
 
