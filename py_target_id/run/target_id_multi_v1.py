@@ -681,24 +681,6 @@ def target_id_multi_v1_safe(
     pd.DataFrame
         Results dataframe with target metrics
     """
-    
-    import numpy as np
-    import pandas as pd
-    import torch
-    import time
-    import gc
-    import tempfile
-    import os
-    from scipy.sparse import issparse, diags
-    from py_target_id import run
-    from py_target_id.utils import (
-        compute_group_median_cached,
-        compute_score_matrix_gpu,
-        compute_positive_patients_inline2,
-        clear_gpu_memory,
-        get_gpu_memory_info,
-        compute_target_quality_score
-    )
 
     # Validate gene_pairs
     if gene_pairs is None or len(gene_pairs) == 0:
