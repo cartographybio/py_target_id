@@ -122,6 +122,7 @@ def get_ref_lv4_ffpe_med_adata(
     print(f"Loading data from: {local_file}")
     ad = sc.read_h5ad(local_file)
     ad.obs["Combo_Lv4"] = ad.obs["Combo_Lv4"].str.replace('α', 'a').str.replace('β', 'B')
+    ad.obs_names = ad.obs_names.str.replace('α', 'a').str.replace('β', 'B')
 
     return ad
 
@@ -255,6 +256,7 @@ def get_ref_lv4_sc_med_adata(
     print(f"Loading data from: {local_file}")
     ad = sc.read_h5ad(local_file)
     ad.obs["Combo_Lv4"] = ad.obs["Combo_Lv4"].str.replace('α', 'a').str.replace('β', 'B')
+    ad.obs_names = ad.obs_names.str.replace('α', 'a').str.replace('β', 'B')
 
     return ad
 
