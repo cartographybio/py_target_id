@@ -10,6 +10,7 @@ import pandas as pd
 from scipy.sparse import csr_matrix
 import h5py
 from py_target_id import hdf5_sparse_reader
+
 class VirtualMatrix:
     """Fast lazy/virtual matrix using C++ backend with parallel HDF5 reading for sparse matrices."""
 
@@ -301,21 +302,68 @@ class VirtualAnnData:
 
         return new_adata
 
-    def to_memory(self):
-        """Realize the virtual matrix to memory and return standard AnnData object."""
+    def to_memory(self, chunk_size: int = 5000, show_progress: bool = True):
+        """
+        Realize the virtual matrix in chunks to minimize peak memory usage.
+
+        Parameters
+        ----------
+        chunk_size : int, optional (default: 5000)
+            Number of cells (observations) to load per chunk.
+        show_progress : bool, optional (default: True)
+            Whether to display a tqdm progress bar.
+
+        Returns
+        -------
+        anndata.AnnData
+            Standard in-memory AnnData object (sparse by default).
+        """
         try:
             import anndata
+            from tqdm import tqdm
+            import scipy.sparse as sp
         except ImportError:
-            raise ImportError("anndata package required. Install with: pip install anndata")
+            raise ImportError("Required packages missing. Install with: pip install anndata tqdm scipy")
 
-        # Realize the matrix (genes x cells), then transpose to (cells x genes)
-        X_realized = self._X.realize().T
+        print("Realizing to memory...")
 
-        # Create AnnData object
+        n_cells = self.n_obs
+        n_genes = self.n_vars
+
+        # Prepare obs and var copies
+        obs = self._obs.copy()
+        var = self._var.copy()
+
+        # Storage for data chunks
+        X_chunks = []
+        obs_chunks = []
+
+        iterator = range(0, n_cells, chunk_size)
+        if show_progress:
+            iterator = tqdm(iterator, total=(n_cells + chunk_size - 1) // chunk_size, desc="Realizing chunks")
+
+        for start in iterator:
+            end = min(start + chunk_size, n_cells)
+
+            # Subset chunk (lazy)
+            sub = self[start:end, :]
+
+            # Realize to memory (sparse)
+            X_chunk = sub._X.realize().T  # shape: cells × genes
+            X_chunks.append(X_chunk)
+            obs_chunks.append(obs.iloc[start:end])
+
+            # Explicitly free temporary VirtualAnnData to lower memory peak
+            del sub, X_chunk
+
+        # Stack chunks vertically
+        X_full = sp.vstack(X_chunks, format='csr')
+
+        # Build final AnnData
         adata = anndata.AnnData(
-            X=X_realized,
-            obs=self._obs.copy(),
-            var=self._var.copy(),
+            X=X_full,
+            obs=pd.concat(obs_chunks),
+            var=var,
             obsm=self._obsm.copy(),
             varm=self._varm.copy(),
             uns=self._uns.copy(),
