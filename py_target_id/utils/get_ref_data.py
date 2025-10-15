@@ -72,7 +72,10 @@ def get_ref_ffpe_off_target(
         utils.download_gcs_file(gcs_file, local_file, overwrite)
     
     # Load and return
-    return pd.read_csv(local_file)
+    df = pd.read_csv(local_file)
+    df["Combo_Lv4"] = df["Combo_Lv4"].str.replace('α', 'a').str.replace('β', 'B')
+
+    return df
 
 
 def get_ref_lv4_ffpe_med_adata(
@@ -117,7 +120,10 @@ def get_ref_lv4_ffpe_med_adata(
     
     # Load and return
     print(f"Loading data from: {local_file}")
-    return sc.read_h5ad(local_file)
+    ad = sc.read_h5ad(local_file)
+    ad.obs["Combo_Lv4"] = ad.obs["Combo_Lv4"].str.replace('α', 'a').str.replace('β', 'B')
+
+    return ad
 
 def get_ref_lv4_ffpe_ar_adata(
     overwrite: bool = False, 
@@ -199,7 +205,10 @@ def get_ref_sc_off_target(
         utils.download_gcs_file(gcs_file, local_file, overwrite)
     
     # Load and return
-    return pd.read_csv(local_file)
+    df = pd.read_csv(local_file)
+    df["Combo_Lv4"] = df["Combo_Lv4"].str.replace('α', 'a').str.replace('β', 'B')
+
+    return df
 
 
 def get_ref_lv4_sc_med_adata(
@@ -244,7 +253,10 @@ def get_ref_lv4_sc_med_adata(
     
     # Load and return
     print(f"Loading data from: {local_file}")
-    return sc.read_h5ad(local_file)
+    ad = sc.read_h5ad(local_file)
+    ad.obs["Combo_Lv4"] = ad.obs["Combo_Lv4"].str.replace('α', 'a').str.replace('β', 'B')
+
+    return ad
 
 def get_ref_lv4_sc_ar_adata(
     overwrite: bool = False, 
