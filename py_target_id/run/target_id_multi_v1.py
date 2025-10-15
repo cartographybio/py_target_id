@@ -363,7 +363,7 @@ def target_id_multi_v1(
         
     if type(malig_adata).__name__ == 'VirtualAnnData':
         print("  Loading malignant data to memory...")
-        malig_adata = malig_adata[:, genes_to_keep].to_memory()
+        malig_adata = malig_adata[:, genes_to_keep].to_memory(dense=True, chunk_size=5000, dtype=np.float16, show_progress=True)
         print("  Malignant data loaded.")
     else:
         print("  Copying malignant data...")
@@ -372,7 +372,7 @@ def target_id_multi_v1(
 
     if type(ref_adata).__name__ == 'VirtualAnnData':
         print("  Loading reference data to memory...")
-        ref_adata = ref_adata[:, genes_to_keep].to_memory()
+        ref_adata = ref_adata[:, genes_to_keep].to_memory(dense=True, chunk_size=5000, dtype=np.float16, show_progress=True)
         print("  Reference data loaded.")
     else:
         print("  Copying reference data...")

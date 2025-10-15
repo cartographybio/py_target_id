@@ -302,66 +302,85 @@ class VirtualAnnData:
 
         return new_adata
 
-    def to_memory(self, chunk_size: int = 5000, show_progress: bool = True):
+    def to_memory(self, dense=False, dtype=np.float32, chunk_size=5000, show_progress=False):
         """
-        Realize the virtual matrix in chunks to minimize peak memory usage.
+        Fully memory-optimized realization of VirtualAnnData into AnnData.
 
         Parameters
         ----------
-        chunk_size : int, optional (default: 5000)
-            Number of cells (observations) to load per chunk.
-        show_progress : bool, optional (default: True)
-            Whether to display a tqdm progress bar.
+        dense : bool, default=False
+            Return dense NumPy array if True, else sparse CSR.
+        dtype : np.dtype, default=np.float32
+            Data type for realized matrix (supports np.float16, np.float32, np.float64).
+        chunk_size : int, default=5000
+            Number of cells (obs) per chunk.
+        show_progress : bool, default=True
+            Show tqdm progress bar for chunked realization.
 
         Returns
         -------
         anndata.AnnData
-            Standard in-memory AnnData object (sparse by default).
+            Fully realized AnnData object (dense or sparse, FP16/32/64).
         """
-        try:
-            import anndata
-            from tqdm import tqdm
-            import scipy.sparse as sp
-        except ImportError:
-            raise ImportError("Required packages missing. Install with: pip install anndata tqdm scipy")
+        import anndata as ad
+        import pandas as pd
+        import numpy as np
+        import scipy.sparse as sp
+        from tqdm import tqdm
 
-        n_cells = self.n_obs
-        n_genes = self.n_vars
+        n_obs = self.n_obs
+        n_vars = self.n_vars
 
-        # Prepare obs and var copies
-        obs = self._obs.copy()
-        var = self._var.copy()
-
-        # Storage for data chunks
-        X_chunks = []
-        obs_chunks = []
-
-        iterator = range(0, n_cells, chunk_size)
+        # --- Iterator for chunked processing ---
+        iterator = range(0, n_obs, chunk_size)
         if show_progress:
-            iterator = tqdm(iterator, total=(n_cells + chunk_size - 1) // chunk_size, desc="Realizing chunks")
+            iterator = tqdm(iterator, total=(n_obs + chunk_size - 1)//chunk_size, desc="Realizing chunks")
+
+        # Initialize final AnnData pieces
+        X_final = None
+        obs_final = None
 
         for start in iterator:
-            end = min(start + chunk_size, n_cells)
+            end = min(start + chunk_size, n_obs)
+            sub = self[start:end, :]._X.realize()  # shape (genes × cells or cells × genes)
 
-            # Subset chunk (lazy)
-            sub = self[start:end, :]
+            # Transpose if needed (cells × genes)
+            if sub.shape[0] == n_vars:
+                sub = sub.T
 
-            # Realize to memory (sparse)
-            X_chunk = sub._X.realize().T  # shape: cells × genes
-            X_chunks.append(X_chunk)
-            obs_chunks.append(obs.iloc[start:end])
+            # Convert dtype / dense vs sparse
+            if dense:
+                if sp.issparse(sub):
+                    sub = sub.toarray()
+                sub = sub.astype(dtype, copy=False)
+            else:
+                if not sp.issparse(sub):
+                    sub = sp.csr_matrix(sub)
+                if dtype != np.float64:
+                    sub.data = sub.data.astype(dtype, copy=False)
 
-            # Explicitly free temporary VirtualAnnData to lower memory peak
-            del sub, X_chunk
+            # Build obs chunk
+            obs_chunk = self._obs.iloc[start:end].copy()
 
-        # Stack chunks vertically
-        X_full = sp.vstack(X_chunks, format='csr')
+            # --- Stream into final objects without storing lists ---
+            if X_final is None:
+                X_final = sub
+                obs_final = obs_chunk
+            else:
+                if dense:
+                    X_final = np.vstack([X_final, sub])
+                else:
+                    X_final = sp.vstack([X_final, sub], format='csr')
+                obs_final = pd.concat([obs_final, obs_chunk], ignore_index=False)
 
-        # Build final AnnData
-        adata = anndata.AnnData(
-            X=X_full,
-            obs=pd.concat(obs_chunks),
-            var=var,
+            # Clean up temporary chunk
+            del sub, obs_chunk
+
+        # --- Build final AnnData ---
+        return ad.AnnData(
+            X=X_final,
+            obs=obs_final,
+            var=self._var.copy(),
             obsm=self._obsm.copy(),
             varm=self._varm.copy(),
             uns=self._uns.copy(),
@@ -370,7 +389,6 @@ class VirtualAnnData:
             layers=self._layers.copy()
         )
 
-        return adata
 
     def __repr__(self):
         """AnnData-style representation."""
