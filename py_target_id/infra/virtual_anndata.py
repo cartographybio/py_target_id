@@ -302,6 +302,47 @@ class VirtualAnnData:
 
         return new_adata
 
+    def copy(self, deep=False, dense=False, dtype=np.float32):
+        """
+        Create a copy of the VirtualAnnData object.
+
+        Parameters
+        ----------
+        deep : bool, default=False
+            If False, performs a lightweight structural copy (keeps data virtual).
+            If True, realizes the data fully into memory as a regular AnnData.
+        dense : bool, default=False
+            Only used if deep=True. Return dense arrays instead of sparse CSR.
+        dtype : np.dtype, default=np.float32
+            Data type for realized matrix when deep=True.
+
+        Returns
+        -------
+        VirtualAnnData or anndata.AnnData
+            Copy of the object, either lazy or fully realized.
+        """
+        import anndata as ad
+        import copy as pycopy
+
+        if not deep:
+            # Lightweight copy — shares virtual matrix but copies metadata
+            new_obj = VirtualAnnData.__new__(VirtualAnnData)
+            new_obj._X = self._X            # shared virtual reference
+            new_obj._obs = self._obs.copy()
+            new_obj._var = self._var.copy()
+            new_obj._obsm = pycopy.deepcopy(self._obsm)
+            new_obj._varm = pycopy.deepcopy(self._varm)
+            new_obj._uns = pycopy.deepcopy(self._uns)
+            new_obj._obsp = pycopy.deepcopy(self._obsp)
+            new_obj._varp = pycopy.deepcopy(self._varp)
+            new_obj._layers = pycopy.deepcopy(self._layers)
+            return new_obj
+        else:
+            # Full memory copy (realized AnnData)
+            print("Realizing VirtualAnnData into full AnnData copy...")
+            return self.to_memory(dense=dense, dtype=dtype, show_progress=True)
+
+
     def to_memory(self, dense=False, dtype=np.float32, chunk_size=5000, show_progress=False):
         """
         Fully memory-optimized realization of VirtualAnnData into AnnData.

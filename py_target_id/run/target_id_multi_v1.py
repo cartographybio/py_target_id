@@ -721,8 +721,8 @@ def target_id_multi_v1_safe(
     print(f"All genes validated. Found {len(all_genes_in_pairs)} unique genes in pairs.")
     
     # Subset to only genes needed for the pairs
-    print(f"Subsetting matrices to {len(genes_to_keep)} genes...")
     genes_to_keep = sorted(all_genes_in_pairs)
+    print(f"Subsetting matrices to {len(genes_to_keep)} genes...")
     malig_subset = malig_adata[:, genes_to_keep].copy()
     ref_subset = ref_adata[:, genes_to_keep].copy()    
 
