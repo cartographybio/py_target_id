@@ -721,27 +721,21 @@ def target_id_multi_v1_safe(
     print(f"All genes validated. Found {len(all_genes_in_pairs)} unique genes in pairs.")
     
     # Subset to only genes needed for the pairs
-    genes_to_keep = sorted(all_genes_in_pairs)
     print(f"Subsetting matrices to {len(genes_to_keep)} genes...")
-    
-    # Handle VirtualAnnData
-    if type(malig_adata).__name__ == 'VirtualAnnData':
-        print("  Loading malignant data to memory...")
-        malig_adata = malig_adata[:, genes_to_keep].to_memory(dense=True, chunk_size=5000, dtype=np.float16, show_progress=True)
-        print("  Malignant data loaded.")
-    else:
-        print("  Copying malignant data...")
-        malig_adata = malig_adata[:, genes_to_keep].copy()
-        print("  Malignant data copied.")
+    genes_to_keep = sorted(all_genes_in_pairs)
+    malig_subset = malig_adata[:, genes_to_keep].copy()
+    ref_subset = ref_adata[:, genes_to_keep].copy()    
 
-    if type(ref_adata).__name__ == 'VirtualAnnData':
+    # Handle VirtualAnnData
+    if type(malig_subset).__name__ == 'VirtualAnnData':
+        print("  Loading malignant data to memory...")
+        malig_subset = malig_subset.to_memory(dense=True, chunk_size=5000, dtype=np.float16, show_progress=True)
+        print("  Malignant data loaded.")
+
+    if type(ref_subset).__name__ == 'VirtualAnnData':
         print("  Loading reference data to memory...")
-        ref_adata = ref_adata[:, genes_to_keep].to_memory(dense=True, chunk_size=5000, dtype=np.float16, show_progress=True)
+        ref_subset = ref_subset[:, genes_to_keep].to_memory(dense=True, chunk_size=5000, dtype=np.float16, show_progress=True)
         print("  Reference data loaded.")
-    else:
-        print("  Copying reference data...")
-        ref_adata = ref_adata[:, genes_to_keep].copy()
-        print("  Reference data copied.")
 
     print("  Copying median data...")
     malig_med_adata = malig_med_adata[:, genes_to_keep].copy()
@@ -749,26 +743,15 @@ def target_id_multi_v1_safe(
     print("Matrix subsetting complete.\n")
     
     # Apply weights if they exist
-    if "Weights" in ref_adata.obs.columns:
+    if "Weights" in ref_subset.obs.columns:
         print("Weighting Reference Atlas...")
-        if issparse(ref_adata.X):
-            weights_diag = diags(ref_adata.obs["Weights"].values)
-            ref_adata.X = weights_diag @ ref_adata.X
+        if issparse(ref_subset.X):
+            weights_diag = diags(ref_subset.obs["Weights"].values)
+            ref_subset.X = weights_diag @ ref_subset.X
         else:
-            ref_adata.X = ref_adata.X * ref_adata.obs["Weights"].values[:, np.newaxis]
+            ref_subset.X = ref_subset.X * ref_subset.obs["Weights"].values[:, np.newaxis]
     
-    # Convert sparse to dense and float32
-    if issparse(malig_adata.X):
-        print("Converting malignant sparse matrix to dense...")
-        malig_adata.X = malig_adata.X.toarray()
-    if issparse(ref_adata.X):
-        print("Converting reference sparse matrix to dense...")
-        ref_adata.X = ref_adata.X.toarray()
-
-    malig_adata.X = malig_adata.X.astype(np.float32)
-    ref_adata.X = ref_adata.X.astype(np.float32)
-
-    genes = malig_adata.var_names
+    genes = malig_subset.var_names
 
     # Compute Positivity
     if "positivity" not in malig_med_adata.layers:
@@ -790,16 +773,16 @@ def target_id_multi_v1_safe(
         # Load data to GPU
         print(f"------  Loading Data - | Total: {time.time()-overall_start:.1f}s")
         dtype = torch.float16 if use_fp16 else torch.float32
-        malig_X = torch.tensor(np.array(malig_adata.X.T), dtype=dtype, device=device)
-        ref_X = torch.tensor(np.array(ref_adata.X.T), dtype=dtype, device=device)
+        malig_X = torch.tensor(np.array(malig_subset.X.T), dtype=dtype, device=device)
+        ref_X = torch.tensor(np.array(ref_subset.X.T), dtype=dtype, device=device)
         
         # Encode groups
-        m_ids = malig_adata.obs_names.str.split("._.", regex=False).str[1].values
+        m_ids = malig_subset.obs_names.str.split("._.", regex=False).str[1].values
         m_unique = np.unique(m_ids)
         m_id_to_idx = {id_val: idx for idx, id_val in enumerate(m_unique)}
         m_ids_encoded = torch.tensor([m_id_to_idx[x] for x in m_ids], dtype=torch.long, device=device)
         
-        ref_ids = (ref_adata.obs_names.str.extract(r'^([^:]+:[^:]+)', expand=False)
+        ref_ids = (ref_subset.obs_names.str.extract(r'^([^:]+:[^:]+)', expand=False)
                   .str.replace(r'[ -]', '_', regex=True).values)
         ref_unique = np.unique(ref_ids)
         ref_id_to_idx = {id_val: idx for idx, id_val in enumerate(ref_unique)}
@@ -808,6 +791,15 @@ def target_id_multi_v1_safe(
         n_malig_groups = len(m_unique)
         n_ref_groups = len(ref_unique)
         
+        # Free UP Memory
+        # Explicitly clear large CPU matrices
+        del malig_subset.X, ref_subset.X
+        gc.collect()
+
+        # Fully release AnnData containers
+        del malig_subset, ref_subset
+        gc.collect()
+
         # Convert gene pairs to indices
         print(f"Converting {len(gene_pairs)} gene pairs to indices...")
         gene_to_idx = pd.Series(range(len(genes)), index=genes)
@@ -981,6 +973,9 @@ def target_id_multi_v1_safe(
         # Delete temp files
         for f in tmp_files:
             os.remove(f)
+
+        # Collect
+        gc.collect()
 
         # Compute final quality scores
         print(f"------  Computing Quality Scores - | Total: {time.time()-overall_start:.1f}s")
