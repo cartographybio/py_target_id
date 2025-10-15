@@ -4,18 +4,50 @@ Multi-gene UMAP visualization functions.
 
 __all__ = ['umap_1_2_12']
 
+
 import numpy as np
 import pandas as pd
+import polars as pl
 import h5py
 from pathlib import Path
-import time
-from typing import List, Optional
-from scipy import sparse
+from concurrent.futures import ProcessPoolExecutor
+from typing import List
 from tqdm import tqdm
+from scipy import sparse
+from datetime import datetime
+import os
+import time
 from py_target_id import plot, utils, infra
 from rpy2.robjects import r
-import os
-from datetime import datetime
+from concurrent.futures import ThreadPoolExecutor
+
+def _load_h5_single(sample_id, h5_path, genes):
+    """Helper to load H5 file into memory for a given sample."""
+    with h5py.File(h5_path, "r") as f:
+        barcodes = np.char.decode(f["coldata"]["barcodes"][:].astype("S"), "utf-8")
+        coldata = pd.DataFrame({
+            "nCount_RNA": f["coldata"]["nCount_RNA"][:],
+            "malig": np.char.decode(f["coldata"]["malig"][:].astype("S"), "utf-8"),
+            "UMAP_1": f["coldata"]["UMAP_1"][:],
+            "UMAP_2": f["coldata"]["UMAP_2"][:]
+        }, index=barcodes)
+
+    # Load AnnData subset
+    adata = infra.read_h5(h5_path)
+    adata_subset = adata[:, genes].to_memory()
+
+    # Return dense gene expression matrix (Genes x Cells)
+    X = adata_subset.X
+    if sparse.issparse(X):
+        X = X.toarray()
+    else:
+        X = np.asarray(X)
+
+    return sample_id, {
+        "coldata": coldata,
+        "rna_matrix": X.T,
+        "sample_id": sample_id
+    }
 
 def umap_1_2_12(
     multis: List[str],
@@ -25,168 +57,129 @@ def umap_1_2_12(
     out_dir: str = "multi/multi_umaps",
     width: float = 17,
     height: float = 12,
-    dpi: int = 300
+    dpi: int = 300,
+    n_jobs: int = 8
 ):
     """
-    Create UMAP plots for multi-gene combinations across top expressing samples.
-    
-    Parameters
-    ----------
-    multis : List[str]
-        Gene combinations in format ["GENE1_GENE2", ...]
-    malig_adata : AnnData
-        Malignant cell data with patient annotations
-    manifest : pd.DataFrame
-        Manifest with columns: Sample_ID, Local_h5map
-    show : int
-        Number of top samples to show per combination
-    out_dir : str
-        Output directory for plots
-    width : float
-        Plot width in inches
-    height : float
-        Plot height in inches
-    dpi : int
-        Resolution for output
+    Optimized UMAP visualization for multi-gene combinations.
     """
-    
-    # Create output directory
     Path(out_dir).mkdir(parents=True, exist_ok=True)
-    
     overall_start = time.time()
-    
-    # Parse gene combinations
+
     multis_split = np.array([m.split("_") for m in multis])
     genes = np.unique(multis_split.ravel()).tolist()
-    print(f"Found {len(genes)} unique genes from {len(multis)} multi-gene combinations")
-    
-    # Process malignancy data
-    print("Processing malignancy data...")
+    print(f"Found {len(genes)} unique genes from {len(multis)} combinations")
+
+    # Malignant subset
     malig_subset = malig_adata[:, genes]
-    
-    # Handle VirtualAnnData
-    if hasattr(malig_subset, 'to_memory'):
-        print("  Materializing VirtualAnnData to memory...")
+    if hasattr(malig_subset, "to_memory"):
         malig_subset = malig_subset.to_memory()
-    
-    # Ensure dense matrix
     if sparse.issparse(malig_subset.X):
         malig_subset.X = malig_subset.X.toarray()
-        
-    # Compute medians for all combinations
-    print("Computing medians for gene combinations...")
+
     combo1_idx = [genes.index(g) for g in multis_split[:, 0]]
     combo2_idx = [genes.index(g) for g in multis_split[:, 1]]
-        
-    # Vectorized minimum computation
+
+    print("Computing patient-level medians...")
     malig_combo = np.minimum(
         malig_subset.X[:, combo1_idx],
         malig_subset.X[:, combo2_idx]
     )
-    
-    # Summarize by patient
+
     malig_top_multi = utils.summarize_matrix(
         malig_combo,
-        malig_subset.obs['Patient'].values, 
-        axis=0, 
-        metric="median", 
+        malig_subset.obs["Patient"].values,
+        axis=0,
+        metric="median",
         verbose=False
     )
     malig_top_multi.columns = multis
-    
-    # Pre-compute top samples for all combinations
-    print("Pre-computing top samples for all combinations...")
+
     top_samples_list = [
         malig_top_multi.iloc[:, i].nlargest(show).index.tolist()
         for i in range(len(multis))
     ]
-    
-    # Get unique samples - use set for O(1) lookup
-    all_unique_samples = list(set().union(*[set(samples) for samples in top_samples_list]))
+
+    all_unique_samples = list(set().union(*top_samples_list))
     print(f"Will process {len(all_unique_samples)} unique samples")
-    
-    # Filter manifest
-    man = manifest[manifest['Sample_ID'].isin(all_unique_samples)].copy()
-    path_lookup = dict(zip(man['Sample_ID'], man['Local_h5map']))
-    
-    # Batch read h5 files
-    print(f"Batch reading {len(all_unique_samples)} h5 files...")
-    h5_cache = {}
-    
-    for sample_id in tqdm(all_unique_samples, desc="Reading H5 files"):
-        h5_path = path_lookup[sample_id]
-        
-        with h5py.File(h5_path, 'r') as f:
-            barcodes = np.char.decode(f['coldata']['barcodes'][:].astype('S'), 'utf-8')
-            coldata = pd.DataFrame({
-                'nCount_RNA': f['coldata']['nCount_RNA'][:],
-                'malig': np.char.decode(f['coldata']['malig'][:].astype('S'), 'utf-8'),
-                'UMAP_1': f['coldata']['UMAP_1'][:],
-                'UMAP_2': f['coldata']['UMAP_2'][:]
-            }, index=barcodes)
-        
-        # Read only needed genes
-        adata = infra.read_h5(h5_path)
-        adata_subset = adata[:, genes].to_memory()
-        
-        h5_cache[sample_id] = {
-            'coldata': coldata,
-            'rna_matrix': adata_subset.X.T.toarray(),  # Genes x cells for faster access
-            'sample_id': sample_id
-        }
-    
-    print("H5 files loaded with gene subsetting")
-    
-    # Process combinations
-    print(f"Processing {len(multis)} multi-gene combinations...")
-    
+
+    # Map Sample_ID to path
+    manifest = manifest[manifest["Sample_ID"].isin(all_unique_samples)]
+    path_lookup = dict(zip(manifest["Sample_ID"], manifest["Local_h5map"]))
+
+    print(f"Parallel reading {len(all_unique_samples)} H5 files (n_jobs={n_jobs})...")
+    with ThreadPoolExecutor(max_workers=n_jobs) as ex:
+        results = list(
+            tqdm(
+                ex.map(_load_h5_single,
+                       all_unique_samples,
+                       [path_lookup[s] for s in all_unique_samples],
+                       [genes] * len(all_unique_samples)),
+                total=len(all_unique_samples)
+            )
+        )
+
+    h5_cache = dict(results)
+    print("H5 files loaded and cached.\n")
+
+    # Main loop per multi-gene combination
     for x, multi in enumerate(multis):
-        print(f"\nProcessing combination {x+1}/{len(multis)}: {multi}")
-        
-        # Get top samples and genes
+        gx, gy = multis_split[x]
+        gx_idx, gy_idx = combo1_idx[x], combo2_idx[x]
         sample_ids = top_samples_list[x]
-        gx_idx = combo1_idx[x]
-        gy_idx = combo2_idx[x]
-        
-        # Extract data from cache - vectorized operations
-        all_data = []
+
+        print(f"\n[{x+1}/{len(multis)}] Processing {multi}...")
+
+        dfs = []
         for i, sample_id in enumerate(sample_ids, 1):
-            cached_data = h5_cache[sample_id]
-            coldata = cached_data['coldata']
-            rna_matrix = cached_data['rna_matrix']
-            
-            # Get expression values - already indexed
-            val1 = rna_matrix[gx_idx, :]
-            val2 = rna_matrix[gy_idx, :]
-            
-            # Vectorized normalization
-            ncount = coldata['nCount_RNA'].values
+            cached = h5_cache[sample_id]
+            col = cached["coldata"]
+            rna = cached["rna_matrix"]
+
+            val1 = rna[gx_idx, :]
+            val2 = rna[gy_idx, :]
+
+            ncount = col["nCount_RNA"].values
             scale_factor = 10000 / ncount
-            
-            val1_norm = np.log2(scale_factor * val1 + 1)
-            val2_norm = np.log2(scale_factor * val2 + 1)
-            val12_norm = np.log2(scale_factor * np.minimum(val1, val2) + 1)
-            
-            # Create dataframe
-            df = pd.DataFrame({
-                'ID': sample_id,
-                'UMAP_1': coldata['UMAP_1'].values,
-                'UMAP_2': coldata['UMAP_2'].values,
-                'val1': val1_norm,
-                'val2': val2_norm,
-                'val12': val12_norm,
-                'Target': np.where(coldata['malig'] == 'malig', 'Target', 'Other'),
-                'sample_num': i
+
+            # Vectorized normalization
+            val1n = np.log2(scale_factor * val1 + 1)
+            val2n = np.log2(scale_factor * val2 + 1)
+            val12n = np.log2(scale_factor * np.minimum(val1, val2) + 1)
+
+            # Polars DataFrame (faster)
+            df = pl.DataFrame({
+                "ID": sample_id,
+                "UMAP_1": col["UMAP_1"].values,
+                "UMAP_2": col["UMAP_2"].values,
+                "val1": val1n,
+                "val2": val2n,
+                "val12": val12n,
+                "Target": np.where(col["malig"] == "malig", "Target", "Other"),
+                "sample_num": i
             })
-            
-            all_data.append(df)
-        
-        # Combine all samples
-        combined_df = pd.concat(all_data, ignore_index=True)
-        
+            dfs.append(df)
+
+        # Concatenate efficiently
+        combined_df = pl.concat(dfs).to_pandas(use_pyarrow_extension_array=True)
+
+        # Send to R
         # Create plots in R
         print("  Creating UMAP plots...")
-        
+                
+        # --- FIX ArrowDtype before sending to R ---
+        arrow_cols = ['UMAP_1','UMAP_2','val1','val2','val12','sample_num']
+        for c in arrow_cols:
+            if c in combined_df.columns:
+                combined_df[c] = pd.to_numeric(combined_df[c], errors='coerce').astype(float)
+
+        # Ensure categorical columns are string, not ArrowDtype
+        combined_df['ID'] = combined_df['ID'].astype(str)
+        combined_df['Target'] = combined_df['Target'].astype(str)
+
+        # Drop any rows with missing numeric values just in case
+        combined_df = combined_df.dropna(subset=arrow_cols)
+
         # Send data to R
         plot.pd2r("umap_data", combined_df)
         
@@ -196,7 +189,8 @@ def umap_1_2_12(
         # Get gene names for titles
         gx = multis_split[x, 0]
         gy = multis_split[x, 1]
-        
+
+        # --- R plotting code unchanged ---
         # Generate plots
         r(f'''
         library(ggplot2)
@@ -214,6 +208,14 @@ def umap_1_2_12(
             x[x > q[2]] <- q[2]
             return(x)
         }}
+        
+        par_apply <- function(X, FUN, threads = parallel::detectCores()) {{
+          if (requireNamespace("pbapply", quietly = TRUE)) {{
+            pbapply::pblapply(X, FUN, cl = threads)
+          }} else {{
+            parallel::mclapply(X, FUN, mc.cores = threads)
+          }}
+        }}
 
         # Color palette
         pal_cart <- c("lightgrey", "#e0f3db", "#6BC291", "#18B5CB", "#2E95D2", "#28154C", "#000000")
@@ -223,7 +225,7 @@ def umap_1_2_12(
         
         # Function to create individual UMAP
         create_umap <- function(dtx, value_col, plot_title = NULL, threads = length(dtx)) {{
-              plots <- parallel::mclapply(seq_along(dtx), function(i) {{
+              plots <- par_apply(seq_along(dtx), function(i) {{
                 df <- dtx[[i]]
                 
                 p <- ggplot(df, aes(UMAP_1, UMAP_2)) +
@@ -275,7 +277,7 @@ def umap_1_2_12(
                             y = y_range[2] - diff(y_range) * 0.05,
                             label = as.character(i), 
                             size = 3, color = "black")
-              }}, mc.cores = threads)
+              }}, threads = threads)
               
               combined_plots <- Reduce("+", plots) + plot_layout(ncol = 2)
               
@@ -307,27 +309,25 @@ def umap_1_2_12(
         suppressWarnings(ggsave("{out_path}", final_plot, width = {width}, height = {height}))
         ''')
         
+
         print(f"  ✓ Saved: {out_path}")
-        
-        # Convert to PNG
-        png_path = out_path.replace('.pdf', '.png')
+
+        # Optional PNG
+        png_path = out_path.replace(".pdf", ".png")
         try:
             plot.pdf_to_png(pdf_path=out_path, dpi=dpi, output_path=png_path)
             print(f"  ✓ Made PNG: {png_path}")
         except Exception as e:
-            print(f"  ⚠ Warning: Could not convert to PNG: {e}")
-    
-    #Write custom done
-    out_file = out_dir + "/finished.txt"
+            print(f"  ⚠ PNG conversion failed: {e}")
 
-    with open(out_file, 'w') as f:
-        f.write(f"Finished: {datetime.now()}\n\n")
+    # Write summary file
+    with open(os.path.join(out_dir, "finished.txt"), "w") as f:
+        f.write(f"Finished: {datetime.now()}\n")
         f.write(f"Total Patients: {len(malig_adata.obs_names)}\n\n")
         f.write("Patient Names:\n")
-        f.write('\n'.join(malig_adata.obs_names))
-    
-    overall_end = time.time()
-    print(f"\n{'='*60}")
-    print(f"✓ All {len(multis)} plots saved to {out_dir}/")
-    print(f"  Completed in {(overall_end - overall_start)/60:.2f} minutes")
-    print(f"{'='*60}")
+        f.write("\n".join(malig_adata.obs_names))
+
+    print("\n" + "="*60)
+    print(f"✓ All {len(multis)} plots saved to {out_dir}")
+    print(f"Completed in {(time.time() - overall_start)/60:.2f} min")
+    print("="*60)
