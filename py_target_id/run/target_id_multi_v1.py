@@ -682,6 +682,9 @@ def target_id_multi_v1_safe(
         Results dataframe with target metrics
     """
 
+    from scipy.sparse import issparse, diags
+    from py_target_id import run
+
     # Validate gene_pairs
     if gene_pairs is None or len(gene_pairs) == 0:
         raise ValueError("gene_pairs is required and must contain at least one gene pair")
