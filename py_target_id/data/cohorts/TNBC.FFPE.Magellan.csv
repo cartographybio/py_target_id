@@ -1,0 +1,55 @@
+CBP,Treatment,unified_stage,Grade,Gender,Age,Race
+CBP1564,Post Tx,I,3,Female,68,Unknown
+CBP1673,No Tx,II,3,Female,59,White
+CBP1776,No Tx,I,3,Female,87,White
+CBP2008,Post Tx,IV,3,Female,79,White
+CBP2009,Post Tx,IV,3,Female,57,White
+CBP2010,No Tx,IIIC,3,Female,61,White
+CBP2011,Post Tx,IIIB,3,Female,54,White
+CBP2012,No Tx,IIB,3,Female,76,White
+CBP2830,No Tx,IIB,3,Female,75,White
+CBP2015,Post Tx,IIIB,2,Female,80,White
+CBP2062,Unknown,IV,2,Female,79,Black
+CBP2078,Unknown,IV,3,Female,67,Unknown
+CBP2079,No Tx,II,3,Female,57,Black
+CBP2175,Unknown,III,3,Female,60,Unknown
+CBP2698,No Tx,III,3,Female,53,White
+CBP2700,Post Tx,IIB,3,Female,51,Asian
+CBP2701,Post Tx,IIA,3,Female,48,Unknown
+CBP2704,No Tx,Unknown,3,Female,62,White
+CBP2705,Post Tx,IIIA,,Female,55,White
+CBP2706,No Tx,II,3,Female,80,White
+CBP2707,No Tx,I,3,Female,37,Asian
+CBP2710,Post Tx,I,3,Female,46,White
+CBP2722,Post Tx,IIA,3,Female,85,White
+CBP2724,Post Tx,IIB,3,Female,34,White
+CBP2725,Post Tx,IIB,3,Female,82,White
+CBP2726,Post Tx,IIA,3,Female,32,White
+CBP2728,No Tx,IIIB,3,Female,92,White
+CBP2729,Post Tx,IIIC,3,Female,47,White
+CBP2730,No Tx,IIB,3,Female,71,White
+CBP2732,Unknown,IIB,3,Female,55,White
+CBP2735,Unknown,IIIA,3,Female,83,White
+CBP2736,Unknown,IIA,3,Female,90,White
+CBP2738,Post Tx,II,3,Female,45,White
+CBP2739,Unknown,IIB,2,Female,43,White
+CBP2740,Unknown,IIA,3,Female,44,Black
+CBP2741,Unknown,IIB,3,Female,52,White
+CBP2742,Unknown,IIIA,3,Female,56,White
+CBP2743,Unknown,IIA,2,Female,88,White
+CBP2744,Unknown,IIIB,3,Female,71,Black
+CBP2745,Unknown,IIA,2,Female,81,White
+CBP2746,Post Tx,IIIC,3,Female,55,White
+CBP2747,Unknown,IIB,3,Female,75,White
+CBP2748,Unknown,IIA,3,Female,48,White
+CBP2749,Unknown,IIB,,Female,80,White
+CBP2805,No Tx,IB,2,Female,51,White
+CBP2806,Post Tx,II,3,Female,70,Black
+CBP2807,Post Tx,IA,3,Female,72,Black
+CBP2808,Post Tx,IV,3,Female,65,Black
+CBP2809,No Tx,IB,3,Female,47,White
+CBP2824,No Tx,IB,3,Female,71,White
+CBP2848,Unknown,II,3,Female,63,Black
+CBP954,No Tx,II,3,Female,69,Black
+CBP3474,Post Tx,II,3,Female,55,Asian
+CBP3507,No Tx,IIA,2,Female,69,Hispanic.
