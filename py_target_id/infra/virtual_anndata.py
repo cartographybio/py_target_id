@@ -325,8 +325,6 @@ class VirtualAnnData:
         except ImportError:
             raise ImportError("Required packages missing. Install with: pip install anndata tqdm scipy")
 
-        print("Realizing to memory...")
-
         n_cells = self.n_obs
         n_genes = self.n_vars
 
