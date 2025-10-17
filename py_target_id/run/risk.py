@@ -358,7 +358,7 @@ def compute_ref_risk_scores(
         ref_subset.X = ref_subset.X.toarray()
         
     # 5. Weight matrix by hazard
-    m = np.minimum(ref_subset.X.copy(), 2)
+    m = np.minimum(ref_subset.X.copy(), 10) #10 is Max
     m = (m.T * v_hazard).T
     ref_subset.X = m
     
