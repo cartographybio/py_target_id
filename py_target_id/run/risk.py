@@ -206,7 +206,7 @@ def compute_dedup_multipliers_gpu(
 def compute_ref_risk_scores(
     ref_adata,
     gene_pairs,
-    hazard_map,
+    hazard_map=hazard_map,  # Pass the module-level hazard_map
     device='cuda',
     batch_size=5000,
     type = "SC",
