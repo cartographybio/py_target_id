@@ -441,7 +441,7 @@ def compute_ref_risk_scores(
                 lv4_per_group[g] = lv4[first_cell_idx]
                 combo_lv4_per_group[g] = ref_obs_combo_lv4[first_cell_idx]
 
-        print(f"Built per-group metadata for {n_ref_groups} groups")
+        print(f"Freeing Up CPU")
         
         # Free up CPU memory
         del m  # optional, but safe
