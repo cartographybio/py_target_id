@@ -28,7 +28,7 @@ def surface_genes(
     as_df: bool = False,
     include_tabs: bool = True,
     filter_valid: bool = True
-) -> list[str] | pd.DataFrame:
+):
     """
     Load surface protein genes filtered by tier and evidence.
     
