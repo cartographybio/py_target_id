@@ -387,7 +387,7 @@ def compute_ref_risk_scores(
         print(f"------  Loading Data - | Total: {time.time()-overall_start:.1f}s")
         dtype = torch.float16 if use_fp16 else torch.float32
         ref_X = torch.tensor(np.array(ref_subset.X.T), dtype=dtype, device=device)
-        
+
         # Encode groups for reference
         ref_ids = (ref_subset.obs_names.str.extract(r'^([^:]+:[^:]+)', expand=False)
                   .str.replace(r'[ -]', '_', regex=True).values)
@@ -442,6 +442,12 @@ def compute_ref_risk_scores(
                 combo_lv4_per_group[g] = ref_obs_combo_lv4[first_cell_idx]
 
         print(f"Built per-group metadata for {n_ref_groups} groups")
+        
+        # Free up CPU memory
+        del m  # optional, but safe
+        del ref_subset
+        gc.collect()
+        torch.cuda.empty_cache()
         
         print(f"------  Running Hazard-Weighted Risk Scoring ({len(gx_all)} pairs, {n_batches} batches)\n")
         
