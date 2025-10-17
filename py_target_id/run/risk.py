@@ -203,6 +203,81 @@ def compute_dedup_multipliers_gpu(
     
     return multipliers
 
+def compute_dedup_multipliers_gpu_fast(
+    ref_med: torch.Tensor,
+    tissues_per_group: np.ndarray,
+    lv1_per_group: np.ndarray,
+    lv2_per_group: np.ndarray,
+    lv3_per_group: np.ndarray,
+    lv4_per_group: np.ndarray,
+    combo_lv4_per_group: np.ndarray,
+    device='cuda'
+) -> torch.Tensor:
+    """
+    Fast GPU dedup multipliers using NumPy for heavy lifting, minimal GPU work.
+    """
+    n_pairs, n_groups = ref_med.shape
+    multipliers = torch.ones((n_pairs, n_groups), dtype=torch.float32, device=device)
+    
+    # Batch process on CPU using NumPy (faster than GPU loops for this)
+    ref_med_np = ref_med.cpu().numpy()
+    
+    for pair_idx in range(n_pairs):
+        pair_vals = ref_med_np[pair_idx, :]
+        
+        # Sort
+        sorted_indices = np.argsort(-pair_vals, kind='quicksort')
+        
+        # Reorder metadata
+        tissues_i = tissues_per_group[sorted_indices]
+        lv1_i = lv1_per_group[sorted_indices]
+        lv2_i = lv2_per_group[sorted_indices]
+        lv3_i = lv3_per_group[sorted_indices]
+        lv4_i = lv4_per_group[sorted_indices]
+        combo_lv4_i = combo_lv4_per_group[sorted_indices]
+        v = pair_vals[sorted_indices]
+        
+        # Compute multipliers on CPU (vectorized with NumPy sets)
+        seen_tissue = set()
+        seen_lv1 = set()
+        seen_lv2 = set()
+        seen_lv3 = set()
+        seen_lv4 = set()
+        seen_combo_lv4 = set()
+        
+        mults = np.ones(n_groups, dtype=np.float32)
+        
+        for j in range(n_groups):
+            if j > 0:
+                mj = 1.0
+                if tissues_i[j] in seen_tissue:
+                    mj *= 0.5
+                if lv1_i[j] in seen_lv1:
+                    mj *= 0.5
+                if lv2_i[j] in seen_lv2:
+                    mj *= 0.5
+                if lv3_i[j] in seen_lv3:
+                    mj *= 0.5
+                if lv4_i[j] in seen_lv4:
+                    mj *= 0.5
+                if combo_lv4_i[j] in seen_combo_lv4:
+                    mj = 0.0
+                mults[j] = mj
+            
+            seen_tissue.add(tissues_i[j])
+            seen_lv1.add(lv1_i[j])
+            seen_lv2.add(lv2_i[j])
+            seen_lv3.add(lv3_i[j])
+            seen_lv4.add(lv4_i[j])
+            seen_combo_lv4.add(combo_lv4_i[j])
+        
+        # Map back to original order and store on GPU
+        mults_original_order = np.zeros(n_groups, dtype=np.float32)
+        mults_original_order[sorted_indices] = mults
+        multipliers[pair_idx, :] = torch.tensor(mults_original_order, dtype=torch.float32, device=device)
+    
+    return multipliers
+
 def compute_ref_risk_scores(
     ref_adata,
     gene_pairs,
@@ -368,7 +443,7 @@ def compute_ref_risk_scores(
 
         print(f"Built per-group metadata for {n_ref_groups} groups")
         
-        print(f"------  Running Hazard-Weighted Target ID ({len(gx_all)} pairs, {n_batches} batches)\n")
+        print(f"------  Running Hazard-Weighted Risk Scoring ({len(gx_all)} pairs, {n_batches} batches)\n")
         
         all_results = []
         
@@ -398,7 +473,7 @@ def compute_ref_risk_scores(
             t_risk = time.time()
             
             # Compute deduplication multipliers
-            multipliers = compute_dedup_multipliers_gpu(
+            multipliers = compute_dedup_multipliers_gpu_fast(
                 ref_med,
                 tissues_per_group,
                 lv1_per_group,
