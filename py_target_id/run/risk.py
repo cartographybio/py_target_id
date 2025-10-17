@@ -14,7 +14,7 @@ warnings.filterwarnings('ignore', category=FutureWarning, module='torch')
 
 hazard_map = {
     'tier_1': {
-        'hazard_score': 2,
+        'hazard_score': 4,
         'sc_tissues': [
             'Brain_Diencephalon', 'Brain_Forebrain', 'Brain_Hindbrain',
             'Brain_Hippocampus', 'Brain_Medial_Temporal_Gyrus', 'Brain_Midbrain',
