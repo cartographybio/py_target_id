@@ -3,7 +3,7 @@ Target ID
 """
 
 # Define what gets exported
-__all__ = ['compute_positivity_matrix']
+__all__ = ['compute_positivity_matrix', 'median_pos_exp_col']
 
 """
 GPU-accelerated positivity matrix computation using PyTorch.
@@ -249,3 +249,23 @@ def _process_genes_torch(gene_ranks, mat_rna, p_threshold, min_cutoff, rank_cuto
     pos_mat = torch.where(all_pos_mask.unsqueeze(1), torch.tensor(True, device=device), pos_mat)
     
     return pos_mat
+
+def median_pos_exp_col(adata):
+    """
+    Vectorized computation of median non-zero (expression * positivity) per column.
+    """
+    expr = adata.X  # (n_obs, n_vars)
+    pos = np.array(adata.layers['positivity'], dtype='int64')  # (n_obs, n_vars)
+    
+    # Element-wise multiply
+    x = expr * pos
+    
+    # For each column, find median of non-zero values
+    medians = np.zeros(adata.shape[1])
+    
+    for col_idx in range(adata.shape[1]):
+        nonzero_vals = x[x[:, col_idx] != 0, col_idx]
+        if len(nonzero_vals) > 0:
+            medians[col_idx] = np.median(nonzero_vals)
+    
+    return medians
