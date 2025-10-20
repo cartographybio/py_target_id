@@ -348,7 +348,7 @@ def compute_ref_risk_scores(
     print(f"Found {len(genes_to_keep)} unique genes")
     
     # Subset reference data
-    ref_subset = ref_adata[:, genes_to_keep].copy().to_memory(dense=True, chunk_size=5000, dtype=np.float16, show_progress=True)
+    ref_subset = ref_adata[:, genes_to_keep].to_memory(dense=True)
     genes = ref_subset.var_names
  
     # Convert sparse to dense
@@ -363,6 +363,7 @@ def compute_ref_risk_scores(
     ref_subset.X = m
     
     print("Matrix subsetting complete.\n")
+    print(ref_subset)
     
     # Convert gene pairs to indices
     gene_to_idx = pd.Series(range(len(genes)), index=genes)

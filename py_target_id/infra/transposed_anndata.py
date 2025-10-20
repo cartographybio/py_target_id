@@ -1,5 +1,4 @@
 # transposed_anndata.py
-# Define what gets exported
 __all__ = [
     'load_transposed_h5ad',
     'TransposedAnnData',
@@ -11,268 +10,319 @@ import anndata as ad
 import numpy as np
 import pandas as pd
 from scipy import sparse
-from typing import Union, List, Optional
-
+from typing import Optional
 
 class TransposedAnnData:
     """
-    Virtual transposed AnnData wrapper providing a cells × genes interface
-    while maintaining fast gene access from underlying genes × cells storage.
-
-    Example
-    -------
-    >>> adata_gxc = ad.read_h5ad("genes_x_cells.h5ad", backed='r')
-    >>> adata = TransposedAnnData(adata_gxc)
-    >>> gene_expr = adata[:, "CD19"].X  # Fast gene access
-    >>> cell_expr = adata["cell_001", :].X  # Cell access also works
+    Virtual transposed AnnData: cells × genes interface for a genes × cells h5ad.
+    Supports backed mode, lazy slicing, and materialization to memory.
+    
+    State model:
+    - _subset_cell_idx and _subset_gene_idx are ALWAYS materialized as integer arrays
+    - obs and var are ALWAYS subsetted to match these indices
+    - This ensures consistency across chained operations
     """
 
-    def __init__(self, adata_genes_x_cells: ad.AnnData):
-        """Initialize with a genes × cells AnnData object."""
+    def __init__(self, adata_genes_x_cells: ad.AnnData, source_path: Optional[str] = None):
         self._adata = adata_genes_x_cells
-        # Swap obs and var to present cells × genes interface
-        self._obs = adata_genes_x_cells.var
-        self._var = adata_genes_x_cells.obs
+        self._source_path = source_path
+        
+        # Always store as materialized integer arrays, never slices
+        self._subset_cell_idx = np.arange(len(adata_genes_x_cells.var))
+        self._subset_gene_idx = np.arange(len(adata_genes_x_cells.obs))
 
-    # ---- Basic properties ----
-    @property
-    def X(self):
-        """Return lazily transposed data matrix."""
-        if not hasattr(self, '_X_cache'):
-            self._X_cache = TransposedMatrix(self._adata.X)
-        return self._X_cache
+        # In-memory obs: copy from var (genes × cells h5ad), already subsetted
+        if self._adata.isbacked:
+            self._obs = pd.DataFrame(index=self._adata.var.index)
+        else:
+            self._obs = adata_genes_x_cells.var.copy()
 
-    @property
-    def obs(self):
-        """Cell metadata (originally var)."""
-        return self._obs
+        # In-memory var: copy from obs (genes × cells h5ad), already subsetted
+        self._var = adata_genes_x_cells.obs.copy()
+        self._X_cache = None
 
-    @obs.setter
-    def obs(self, value):
-        """Allow setting cell metadata."""
-        self._obs = value
-        # Update underlying AnnData.var since it's the flipped version
-        self._adata.var = value
-
-    @property
-    def var(self):
-        """Gene metadata (originally obs)."""
-        return self._var
-
-    @var.setter
-    def var(self, value):
-        """Allow setting gene metadata."""
-        self._var = value
-        self._adata.obs = value
-
+    # ---- Properties ----
     @property
     def obs_names(self):
-        """Cell names."""
-        return self._obs.index
+        """Cell names (from backing file's var index)."""
+        return self._adata.var.index[self._subset_cell_idx]
 
     @property
     def var_names(self):
-        """Gene names."""
-        return self._var.index
+        """Gene names (from backing file's obs index)."""
+        return self._adata.obs.index[self._subset_gene_idx]
+
+    @property
+    def obs(self):
+        """Cell metadata, already subsetted."""
+        return self._obs
+
+    @obs.setter
+    def obs(self, value: pd.DataFrame):
+        if not value.index.equals(self.obs_names):
+            raise ValueError("Index of obs must match obs_names")
+        self._obs = value
+
+    @property
+    def var(self):
+        """Gene metadata, already subsetted."""
+        return self._var
+
+    @var.setter
+    def var(self, value: pd.DataFrame):
+        if not value.index.equals(self.var_names):
+            raise ValueError("Index of var must match var_names")
+        self._var = value
 
     @property
     def n_obs(self):
-        """Number of cells."""
-        return self._adata.n_vars
+        return len(self._subset_cell_idx)
 
     @property
     def n_vars(self):
-        """Number of genes."""
-        return self._adata.n_obs
+        return len(self._subset_gene_idx)
 
     @property
     def shape(self):
-        """Shape as (n_cells, n_genes)."""
         return (self.n_obs, self.n_vars)
 
-    # ---- Metadata containers ----
     @property
-    def obsm(self):
-        """Cell embeddings (originally varm)."""
-        return getattr(self._adata, 'varm', {})
+    def X(self):
+        """Lazy transposed matrix wrapper for current subset."""
+        if self._X_cache is None:
+            self._X_cache = TransposedMatrix(
+                self._adata.X, 
+                self._subset_gene_idx, 
+                self._subset_cell_idx
+            )
+        return self._X_cache
 
     @property
-    def varm(self):
-        """Gene embeddings (originally obsm)."""
-        return getattr(self._adata, 'obsm', {})
-
-    @property
-    def obsp(self):
-        """Cell-cell graphs (originally varp)."""
-        return getattr(self._adata, 'varp', {})
-
-    @property
-    def varp(self):
-        """Gene-gene graphs (originally obsp)."""
-        return getattr(self._adata, 'obsp', {})
+    def isbacked(self):
+        return getattr(self._adata, "isbacked", False)
 
     @property
     def layers(self):
-        """Transposed layers."""
-        return TransposedLayers(getattr(self._adata, 'layers', {}))
+        return TransposedLayers(
+            getattr(self._adata, "layers", {}),
+            self._subset_gene_idx,
+            self._subset_cell_idx
+        )
 
     @property
     def uns(self):
-        """Unstructured metadata."""
-        return getattr(self._adata, 'uns', {})
+        return getattr(self._adata, "uns", {})
 
-    # ---- Indexing and subsetting ----
+    # ---- Lazy subsetting ----
     def __getitem__(self, index):
         """
-        Subset the transposed AnnData.
-        Converts cells × genes indexing to genes × cells for underlying data.
+        Subset cells and/or genes with lazy evaluation.
+        Supports: slices, integer arrays, string lists, boolean arrays.
+        
+        Examples:
+            obj[10:100, :]           # cells 10-100, all genes
+            obj[:, ["EGFR", "TP53"]] # all cells, specific genes
+            obj[cell_mask, gene_mask] # boolean indexing
         """
         if not isinstance(index, tuple):
             index = (index, slice(None))
-
         cell_idx, gene_idx = index
-        subset = self._adata[gene_idx, cell_idx]
-        return TransposedAnnData(subset)
 
-    # ---- Utilities ----
-    def __repr__(self):
-        """Pretty print like AnnData, but for transposed view."""
-        lines = [
-            f"TransposedAnnData object with n_obs × n_vars = {self.n_obs} × {self.n_vars}"
-        ]
+        # Convert to integer indices relative to current state
+        new_cell_idx = self._resolve_index(cell_idx, self.n_obs, self.obs_names)
+        new_gene_idx = self._resolve_index(gene_idx, self.n_vars, self.var_names)
+        
+        # Map back to global indices
+        new_cell_idx = self._subset_cell_idx[new_cell_idx]
+        new_gene_idx = self._subset_gene_idx[new_gene_idx]
 
-        # obs and var previews
-        if hasattr(self, 'obs') and isinstance(self.obs, pd.DataFrame):
-            if len(self.obs.columns) > 0:
-                obs_cols = "', '".join(self.obs.columns[:5])
-                if len(self.obs.columns) > 5:
-                    obs_cols += "', ..."
-                lines.append(f"    obs: '{obs_cols}'")
-        if hasattr(self, 'var') and isinstance(self.var, pd.DataFrame):
-            if len(self.var.columns) > 0:
-                var_cols = "', '".join(self.var.columns[:5])
-                if len(self.var.columns) > 5:
-                    var_cols += "', ..."
-                lines.append(f"    var: '{var_cols}'")
+        # Create new object with materialized indices
+        new_obj = TransposedAnnData(self._adata, self._source_path)
+        new_obj._subset_cell_idx = new_cell_idx
+        new_obj._subset_gene_idx = new_gene_idx
+        
+        # Subset metadata to match
+        new_obj._obs = self._obs.iloc[
+            np.searchsorted(self._subset_cell_idx, new_cell_idx)
+        ].copy()
+        new_obj._var = self._var.iloc[
+            np.searchsorted(self._subset_gene_idx, new_gene_idx)
+        ].copy()
+        
+        return new_obj
 
-        # uns keys
-        uns_keys = list(getattr(self.uns, 'keys', lambda: [])())
-        if uns_keys:
-            uns_preview = "', '".join(uns_keys[:5])
-            if len(uns_keys) > 5:
-                uns_preview += "', ..."
-            lines.append(f"    uns: '{uns_preview}'")
+    @staticmethod
+    def _resolve_index(idx, length, names):
+        """
+        Resolve any index type to an integer array relative to current dimension.
+        Mimics AnnData's indexing: supports slices, ints, arrays, strings, booleans, Series.
+        """
+        # Single integer
+        if isinstance(idx, (int, np.integer)):
+            return np.array([int(idx)])
+        
+        # Slice
+        if isinstance(idx, slice):
+            return np.arange(length)[idx]
+        
+        # Convert pandas Series to numpy array first
+        if isinstance(idx, pd.Series):
+            idx = idx.values
+        
+        # Now convert everything else to array
+        idx_arr = np.asarray(idx)
+        
+        # Boolean array
+        if idx_arr.dtype == bool:
+            if len(idx_arr) != length:
+                raise ValueError(f"Boolean index length {len(idx_arr)} != dimension {length}")
+            return np.where(idx_arr)[0]
+        
+        # Integer array
+        if idx_arr.dtype.kind in ('i', 'u'):
+            return idx_arr
+        
+        # String array (names)
+        if idx_arr.dtype.kind in ('U', 'O', 'S'):
+            name_to_pos = {name: i for i, name in enumerate(names)}
+            try:
+                return np.array([name_to_pos[str(name)] for name in idx_arr])
+            except KeyError as e:
+                raise KeyError(f"Name {e} not found in dimension")
+        
+        raise TypeError(f"Unsupported index type: {type(idx)}")
 
-        # obsm keys
-        obsm_keys = list(getattr(self.obsm, 'keys', lambda: [])())
-        if obsm_keys:
-            obsm_preview = "', '".join(obsm_keys[:5])
-            if len(obsm_keys) > 5:
-                obsm_preview += "', ..."
-            lines.append(f"    obsm: '{obsm_preview}'")
-
-        # varm keys
-        varm_keys = list(getattr(self.varm, 'keys', lambda: [])())
-        if varm_keys:
-            varm_preview = "', '".join(varm_keys[:5])
-            if len(varm_keys) > 5:
-                varm_preview += "', ..."
-            lines.append(f"    varm: '{varm_preview}'")
-
-        # layers keys
-        layer_keys = list(getattr(self.layers, 'keys', lambda: [])())
-        if layer_keys:
-            layer_preview = "', '".join(layer_keys[:5])
-            if len(layer_keys) > 5:
-                layer_preview += "', ..."
-            lines.append(f"    layers: '{layer_preview}'")
-
-        return "\n".join(lines)
-
+    # ---- Copy ----
     def copy(self):
-        """Return a deep copy of the transposed AnnData."""
-        return TransposedAnnData(self._adata.copy())
+        """Shallow copy: new object, same backing file."""
+        new_obj = TransposedAnnData(self._adata, self._source_path)
+        new_obj._subset_cell_idx = self._subset_cell_idx.copy()
+        new_obj._subset_gene_idx = self._subset_gene_idx.copy()
+        new_obj._obs = self._obs.copy()
+        new_obj._var = self._var.copy()
+        return new_obj
+
+    # ---- Materialize to memory ----
+    def to_memory(self, dense=True, chunk_size = None, dtype = None, show_progress = False):
+        """
+        Load selected subset to memory as regular AnnData.
+        
+        Returns
+        -------
+        ad.AnnData
+            cells × genes AnnData object with subset data
+        """
+        #dense=True, chunk_size=5000, dtype=np.float16, show_progress=True LEGACY
+
+        if self._source_path is None and self.isbacked:
+            raise ValueError(
+                "Cannot load backed data: source_path not available. "
+                "Use load_transposed_h5ad() or provide source_path."
+            )
+        
+        # Load full backing if needed
+        adata_full = self._adata if not self.isbacked else ad.read_h5ad(
+            self._source_path, backed=None
+        )
+
+        # Extract subset: backing is genes × cells, transpose to cells × genes
+        X = adata_full.X[self._subset_gene_idx, :][:, self._subset_cell_idx].T
+        
+        if dense and sparse.issparse(X):
+            X = X.toarray()
+
+        # Create new AnnData with correct metadata
+        return ad.AnnData(
+            X=X,
+            obs=self._obs.copy(),
+            var=self._var.copy()
+        )
+
+    # ---- Pretty-print ----
+    def __repr__(self):
+        backed_str = " (backed)" if self.isbacked else ""
+        lines = [
+            f"TransposedAnnData{backed_str} object with n_obs × n_vars = {self.n_obs} × {self.n_vars}"
+        ]
+        if len(self.obs.columns) > 0:
+            cols = list(self.obs.columns[:5])
+            lines.append(f"obs columns: {cols}")
+        if len(self.var.columns) > 0:
+            cols = list(self.var.columns[:5])
+            lines.append(f"var columns: {cols}")
+        lines.append(f"layers: {list(self.layers.keys())}")
+        return "\n".join(lines)
 
 
 class TransposedMatrix:
-    """Wrapper for transposed matrix access."""
-
-    def __init__(self, matrix):
-        self._matrix = matrix
+    """Lazy transposed matrix wrapper with subset tracking."""
+    
+    def __init__(self, X, gene_idx=None, cell_idx=None):
+        self._X = X
+        # If not provided, use full dimensions
+        self._gene_idx = gene_idx if gene_idx is not None else np.arange(X.shape[0])
+        self._cell_idx = cell_idx if cell_idx is not None else np.arange(X.shape[1])
 
     @property
     def T(self):
-        """Return the original (non-transposed) matrix."""
-        return self._matrix
+        return self._X
 
-    def __getitem__(self, index):
-        """Get transposed slice."""
-        if not isinstance(index, tuple):
-            index = (index, slice(None))
-
-        row_idx, col_idx = index
-        # Swap indices for the underlying matrix
-        result = self._matrix[col_idx, row_idx]
-
-        # Transpose the result if it's an array-like
-        if hasattr(result, 'T'):
-            return result.T
+    def __getitem__(self, idx):
+        """Access subset of transposed matrix (cells × genes)."""
+        if not isinstance(idx, tuple):
+            idx = (idx, slice(None))
+        cell_slice, gene_slice = idx
+        
+        # Convert slices to indices
+        if isinstance(cell_slice, slice):
+            cell_positions = np.arange(len(self._cell_idx))[cell_slice]
+        else:
+            cell_positions = np.asarray(cell_slice)
+            
+        if isinstance(gene_slice, slice):
+            gene_positions = np.arange(len(self._gene_idx))[gene_slice]
+        else:
+            gene_positions = np.asarray(gene_slice)
+        
+        # Map to original matrix indices
+        orig_genes = self._gene_idx[gene_positions]
+        orig_cells = self._cell_idx[cell_positions]
+        
+        # Access backing (genes × cells), then transpose
+        result = self._X[orig_genes, :][:, orig_cells].T
         return result
-
-    def toarray(self):
-        """Convert to dense array (transposed)."""
-        if hasattr(self._matrix, 'toarray'):
-            return self._matrix.toarray().T
-        return np.asarray(self._matrix).T
-
-    def todense(self):
-        """Convert to dense matrix (transposed)."""
-        if hasattr(self._matrix, 'todense'):
-            return self._matrix.todense().T
-        return np.asmatrix(self._matrix).T
 
     @property
     def shape(self):
-        """Transposed shape."""
-        orig_shape = self._matrix.shape
-        return (orig_shape[1], orig_shape[0])
+        return (len(self._cell_idx), len(self._gene_idx))
 
 
 class TransposedLayers:
-    """Wrapper for transposed layers."""
-
-    def __init__(self, layers):
+    """Lazy transposed layers wrapper with subset tracking."""
+    
+    def __init__(self, layers, gene_idx=None, cell_idx=None):
         self._layers = layers or {}
+        self._gene_idx = gene_idx
+        self._cell_idx = cell_idx
 
     def __getitem__(self, key):
-        """Get transposed layer."""
-        return TransposedMatrix(self._layers[key])
+        return TransposedMatrix(
+            self._layers[key],
+            self._gene_idx,
+            self._cell_idx
+        )
 
     def keys(self):
-        """Layer names."""
         return self._layers.keys()
 
     def __repr__(self):
         return f"TransposedLayers with keys: {list(self._layers.keys())}"
 
 
-# ---- Convenience function ----
+# ---- Convenience loader ----
 def load_transposed_h5ad(filepath: str, backed: Optional[str] = 'r') -> TransposedAnnData:
-    """
-    Load a genes × cells .h5ad file as a virtual cells × genes AnnData.
-
-    Parameters
-    ----------
-    filepath : str
-        Path to genes × cells h5ad file.
-    backed : str or None, optional (default: 'r')
-        Whether to use backed mode.
-
-    Returns
-    -------
-    TransposedAnnData
-        Transposed wrapper providing a cells × genes interface.
-    """
+    """Load a genes × cells h5ad as a cells × genes TransposedAnnData."""
     adata_gxc = ad.read_h5ad(filepath, backed=backed)
-    return TransposedAnnData(adata_gxc)
+    return TransposedAnnData(adata_gxc, source_path=filepath)
 
+    

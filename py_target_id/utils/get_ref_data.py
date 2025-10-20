@@ -179,10 +179,11 @@ def get_ref_lv4_ffpe_ar_adata(
     #Additional Info
     ref_adata_med = get_ref_lv4_ffpe_med_adata()
     ref_adata_med.obs = ref_adata_med.obs.drop("CellType", axis=1)
-    index_backup = ref_adata.obs.index
-    ref_adata.obs = ref_adata.obs.merge(ref_adata_med.obs, left_on="CellType", right_on="Combo_Lv4", how="left")
-    ref_adata.obs.index = index_backup
-    
+
+    ref_df = ref_adata.obs.merge(ref_adata_med.obs, left_on="CellType", right_on="Combo_Lv4", how="left")
+    ref_df.index = ref_adata.obs.index
+    ref_adata.obs = ref_df
+
     return ref_adata
 
 ################################################################################################################################################
@@ -312,7 +313,7 @@ def get_ref_lv4_sc_ar_adata(
         utils.download_gcs_file(gcs_file, local_file, overwrite)
 
     #Load Virtual AnnData
-    ref_adata = infra.load_transposed_h5ad(local_file)
+    ref_adata = load_transposed_h5ad(local_file)
 
     #Cell Type
     ref_adata.obs['CellType'] = ref_adata.obs_names.str.extract(r'^([^:]+:[^:]+)', expand=False).str.replace(r'[ -]', '_', regex=True)
@@ -321,8 +322,9 @@ def get_ref_lv4_sc_ar_adata(
     #Additional Info
     ref_adata_med = get_ref_lv4_sc_med_adata()
     ref_adata_med.obs = ref_adata_med.obs.drop("CellType", axis=1)
-    index_backup = ref_adata.obs.index
-    ref_adata.obs = ref_adata.obs.merge(ref_adata_med.obs, left_on="CellType", right_on="Combo_Lv4", how="left")
-    ref_adata.obs.index = index_backup
+
+    ref_df = ref_adata.obs.merge(ref_adata_med.obs, left_on="CellType", right_on="Combo_Lv4", how="left")
+    ref_df.index = ref_adata.obs.index
+    ref_adata.obs = ref_df
 
     return ref_adata
