@@ -31,14 +31,10 @@ class TransposedAnnData:
         self._subset_cell_idx = np.arange(len(adata_genes_x_cells.var))
         self._subset_gene_idx = np.arange(len(adata_genes_x_cells.obs))
 
-        # In-memory obs: copy from var (genes × cells h5ad), already subsetted
-        if self._adata.isbacked:
-            self._obs = pd.DataFrame(index=self._adata.var.index)
-        else:
-            self._obs = adata_genes_x_cells.var.copy()
-
-        # In-memory var: copy from obs (genes × cells h5ad), already subsetted
-        self._var = adata_genes_x_cells.obs.copy()
+        # In-memory obs/var: always rebuilt from backing indices to ensure consistency
+        # Never copy metadata directly—always derive from backing file
+        self._obs = pd.DataFrame(index=self._adata.var.index[self._subset_cell_idx])
+        self._var = pd.DataFrame(index=self._adata.obs.index[self._subset_gene_idx])
         self._X_cache = None
 
     # ---- Properties ----
@@ -141,13 +137,10 @@ class TransposedAnnData:
         new_obj._subset_cell_idx = new_cell_idx
         new_obj._subset_gene_idx = new_gene_idx
         
-        # Subset metadata to match
-        new_obj._obs = self._obs.iloc[
-            np.searchsorted(self._subset_cell_idx, new_cell_idx)
-        ].copy()
-        new_obj._var = self._var.iloc[
-            np.searchsorted(self._subset_gene_idx, new_gene_idx)
-        ].copy()
+        # Rebuild metadata from scratch using backing file indices
+        # This ensures obs/var are always in sync and have unique indices
+        new_obj._obs = pd.DataFrame(index=self._adata.var.index[new_cell_idx])
+        new_obj._var = pd.DataFrame(index=self._adata.obs.index[new_gene_idx])
         
         return new_obj
 
@@ -168,6 +161,13 @@ class TransposedAnnData:
         # Convert pandas Series to numpy array first
         if isinstance(idx, pd.Series):
             idx = idx.values
+        
+        # Handle VirtualAnnData or TransposedAnnData boolean masks
+        if type(idx).__name__ in ('VirtualAnnData', 'TransposedAnnData'):
+            # If it's boolean mask-like, extract the boolean array
+            if hasattr(idx, '_subset_cell_idx') or hasattr(idx, '_subset_gene_idx'):
+                raise TypeError("Cannot index with another VirtualAnnData/TransposedAnnData object. Use boolean array instead.")
+            idx = idx.values if isinstance(idx, pd.Series) else idx
         
         # Now convert everything else to array
         idx_arr = np.asarray(idx)
@@ -203,7 +203,7 @@ class TransposedAnnData:
         return new_obj
 
     # ---- Materialize to memory ----
-    def to_memory(self, dense=True, chunk_size = None, dtype = None, show_progress = False):
+    def to_memory(self, dense=True, chunk_size=5000, dtype=None, show_progress=True):
         """
         Load selected subset to memory as regular AnnData.
         
@@ -212,8 +212,6 @@ class TransposedAnnData:
         ad.AnnData
             cells × genes AnnData object with subset data
         """
-        #dense=True, chunk_size=5000, dtype=np.float16, show_progress=True LEGACY
-
         if self._source_path is None and self.isbacked:
             raise ValueError(
                 "Cannot load backed data: source_path not available. "
@@ -231,12 +229,22 @@ class TransposedAnnData:
         if dense and sparse.issparse(X):
             X = X.toarray()
 
+        # Create obs/var with correct indices
+        obs = pd.DataFrame(index=self._adata.var.index[self._subset_cell_idx])
+        var = pd.DataFrame(index=self._adata.obs.index[self._subset_gene_idx])
+        
+        # Debug: check for duplicates before creating AnnData
+        if not var.index.is_unique:
+            print(f"WARNING: var.index has {var.index.duplicated().sum()} duplicates")
+            print(f"self._subset_gene_idx length: {len(self._subset_gene_idx)}")
+            print(f"var.index length: {len(var.index)}")
+            # This shouldn't happen, but if it does, make unique
+            var.index = var.index.make_unique()
+
         # Create new AnnData with correct metadata
-        return ad.AnnData(
-            X=X,
-            obs=self._obs.copy(),
-            var=self._var.copy()
-        )
+        adata = ad.AnnData(X=X, obs=obs, var=var)
+        
+        return adata
 
     # ---- Pretty-print ----
     def __repr__(self):
