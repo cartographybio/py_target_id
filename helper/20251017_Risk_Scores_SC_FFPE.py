@@ -30,7 +30,7 @@ results = tid.run.compute_ref_risk_scores(
     batch_size=5000
 )
 
-results.to_parquet('SC_Multi_Risk_Scores.20251017.parquet', engine='pyarrow', compression=None)
+results.to_parquet('SC_Multi_Risk_Scores.20251018.parquet', engine='pyarrow', compression=None)
 
 #Single
 all_results = []
@@ -74,7 +74,7 @@ results = tid.run.compute_ref_risk_scores(
     batch_size=5000
 )
 
-results.to_parquet('FFPE_Multi_Risk_Scores.20251017.parquet', engine='pyarrow', compression=None)
+results.to_parquet('FFPE_Multi_Risk_Scores.20251018.parquet', engine='pyarrow', compression=None)
 
 #Single
 all_results = []

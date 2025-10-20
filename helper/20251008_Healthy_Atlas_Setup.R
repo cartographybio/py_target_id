@@ -260,4 +260,69 @@ for i in range(len(files)):  # Python equivalent of seq_along
 
 system("gsutil -m cp 20250225/* gs://cartography_target_id_package/Healthy_Atlas/FFPE/20250225/")
 
+################################################################################################################################################
+# Update
+################################################################################################################################################
+library(data.table)
+library(Matrix)
+library(HDF5Array)
+
+m <- TENxMatrix("Healthy_Atlas.Gene_Matrix.ArchRCells.h5", "RNA_Norm_Counts")
+m_triplet <- summary(as(m,"dgCMatrix"))
+
+# Create the MTX content
+m_triplet <- data.table(
+    i = m_triplet$i,
+    j = m_triplet$j, 
+    x = m_triplet$x
+)
+
+# Write header and data
+mtx_file <- "Healthy_Atlas.Gene_Matrix.ArchRCells.mtx"
+file.remove("Healthy_Atlas.Gene_Matrix.ArchRCells.mtx")
+
+# Write header
+cat("%%MatrixMarket matrix coordinate real general\n", file = mtx_file)
+cat(sprintf("%d %d %d\n", nrow(m), ncol(m), nrow(m_triplet)), file = mtx_file, append = TRUE)
+
+# Append the data (fast write)
+fwrite(m_triplet, mtx_file, col.names = FALSE, sep = " ", append = TRUE)
+
+# Write row and column names
+fwrite(list(rownames(m)), "Healthy_Atlas.Gene_Matrix.ArchRCells.genes.txt", col.names = FALSE)
+fwrite(list(colnames(m)), "Healthy_Atlas.Gene_Matrix.ArchRCells.cells.txt", col.names = FALSE)
+
+import scipy.io as sio
+import pandas as pd
+import anndata as ad
+import numpy as np
+import h5py
+
+# Load the matrix
+matrix = sio.mmread("Healthy_Atlas.Gene_Matrix.ArchRCells.mtx")
+
+# Load metadata
+genes = pd.read_csv("Healthy_Atlas.Gene_Matrix.ArchRCells.genes.txt", 
+                     header=None, names=['gene_id'])
+cells = pd.read_csv("Healthy_Atlas.Gene_Matrix.ArchRCells.cells.txt", 
+                     header=None, names=['cell_id'])
+
+# Convert to CSR for fast gene access
+matrix = matrix.tocsr()
+
+# Convert to FP16 BEFORE saving (important for backed mode)
+matrix.data = matrix.data.astype(np.float16)
+
+# Create AnnData
+adata = ad.AnnData(
+    X=matrix,  # genes x cells
+    obs=pd.DataFrame(index=genes['gene_id']),
+    var=pd.DataFrame(index=cells['cell_id'])
+)
+
+# Save without compression, optimized for backed mode
+adata.write_h5ad("Healthy_Atlas.Gene_Matrix.ArchRCells.h5ad", compression=None)
+
+system("gsutil -m cp FFPE/20250225/Healthy_Atlas.Gene_Matrix.ArchRCells.h5ad gs://cartography_target_id_package/Healthy_Atlas/FFPE/20250225/")
+system("gsutil -m cp SingleCell/20250201/Healthy_Atlas.Gene_Matrix.ArchRCells.h5ad gs://cartography_target_id_package/Healthy_Atlas/SingleCell/20250201/")
 
