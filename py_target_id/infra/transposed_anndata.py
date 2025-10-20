@@ -1,7 +1,7 @@
 # transposed_anndata.py
 # Define what gets exported
 __all__ = [
-    'load_t_h5ad',
+    'load_transposed_h5ad',
     'TransposedAnnData',
     'TransposedMatrix',
     'TransposedLayers'
@@ -47,10 +47,23 @@ class TransposedAnnData:
         """Cell metadata (originally var)."""
         return self._obs
 
+    @obs.setter
+    def obs(self, value):
+        """Allow setting cell metadata."""
+        self._obs = value
+        # Update underlying AnnData.var since it's the flipped version
+        self._adata.var = value
+
     @property
     def var(self):
         """Gene metadata (originally obs)."""
         return self._var
+
+    @var.setter
+    def var(self, value):
+        """Allow setting gene metadata."""
+        self._var = value
+        self._adata.obs = value
 
     @property
     def obs_names(self):
@@ -123,10 +136,58 @@ class TransposedAnnData:
 
     # ---- Utilities ----
     def __repr__(self):
-        return (
-            f"TransposedAnnData object with n_obs × n_vars = "
-            f"{self.n_obs} × {self.n_vars}"
-        )
+        """Pretty print like AnnData, but for transposed view."""
+        lines = [
+            f"TransposedAnnData object with n_obs × n_vars = {self.n_obs} × {self.n_vars}"
+        ]
+
+        # obs and var previews
+        if hasattr(self, 'obs') and isinstance(self.obs, pd.DataFrame):
+            if len(self.obs.columns) > 0:
+                obs_cols = "', '".join(self.obs.columns[:5])
+                if len(self.obs.columns) > 5:
+                    obs_cols += "', ..."
+                lines.append(f"    obs: '{obs_cols}'")
+        if hasattr(self, 'var') and isinstance(self.var, pd.DataFrame):
+            if len(self.var.columns) > 0:
+                var_cols = "', '".join(self.var.columns[:5])
+                if len(self.var.columns) > 5:
+                    var_cols += "', ..."
+                lines.append(f"    var: '{var_cols}'")
+
+        # uns keys
+        uns_keys = list(getattr(self.uns, 'keys', lambda: [])())
+        if uns_keys:
+            uns_preview = "', '".join(uns_keys[:5])
+            if len(uns_keys) > 5:
+                uns_preview += "', ..."
+            lines.append(f"    uns: '{uns_preview}'")
+
+        # obsm keys
+        obsm_keys = list(getattr(self.obsm, 'keys', lambda: [])())
+        if obsm_keys:
+            obsm_preview = "', '".join(obsm_keys[:5])
+            if len(obsm_keys) > 5:
+                obsm_preview += "', ..."
+            lines.append(f"    obsm: '{obsm_preview}'")
+
+        # varm keys
+        varm_keys = list(getattr(self.varm, 'keys', lambda: [])())
+        if varm_keys:
+            varm_preview = "', '".join(varm_keys[:5])
+            if len(varm_keys) > 5:
+                varm_preview += "', ..."
+            lines.append(f"    varm: '{varm_preview}'")
+
+        # layers keys
+        layer_keys = list(getattr(self.layers, 'keys', lambda: [])())
+        if layer_keys:
+            layer_preview = "', '".join(layer_keys[:5])
+            if len(layer_keys) > 5:
+                layer_preview += "', ..."
+            lines.append(f"    layers: '{layer_preview}'")
+
+        return "\n".join(lines)
 
     def copy(self):
         """Return a deep copy of the transposed AnnData."""
@@ -196,7 +257,7 @@ class TransposedLayers:
 
 
 # ---- Convenience function ----
-def load_t_h5ad(filepath: str, backed: Optional[str] = 'r') -> TransposedAnnData:
+def load_transposed_h5ad(filepath: str, backed: Optional[str] = 'r') -> TransposedAnnData:
     """
     Load a genes × cells .h5ad file as a virtual cells × genes AnnData.
 

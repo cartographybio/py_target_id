@@ -152,7 +152,7 @@ def get_ref_lv4_ffpe_ar_adata(
     """
     from py_target_id import infra
 
-    local_file = os.path.join(local_base_path, "Healthy_Atlas.Gene_Matrix.ArchRCells.FFPE.h5")
+    local_file = os.path.join(local_base_path, "Healthy_Atlas.Gene_Matrix.ArchRCells.FFPE.h5ad")
     
     # Check if file exists and we don't want to overwrite
     if os.path.exists(local_file) and not overwrite:
@@ -164,13 +164,13 @@ def get_ref_lv4_ffpe_ar_adata(
         selected_version = utils.select_version(versions, version)
         
         # Define paths
-        gcs_file = f"{gcs_base_path}{selected_version}/Healthy_Atlas.Gene_Matrix.ArchRCells.h5"
+        gcs_file = f"{gcs_base_path}{selected_version}/Healthy_Atlas.Gene_Matrix.ArchRCells.h5ad"
         
         # Download
         utils.download_gcs_file(gcs_file, local_file, overwrite)
 
     #Load Virtual AnnData
-    ref_adata = infra.read_h5(local_file, "RNA_Norm_Counts")
+    ref_adata = infra.load_transposed_h5ad(local_file)
 
     #Cell Type
     ref_adata.obs['CellType'] = ref_adata.obs_names.str.extract(r'^([^:]+:[^:]+)', expand=False).str.replace(r'[ -]', '_', regex=True)
@@ -294,7 +294,7 @@ def get_ref_lv4_sc_ar_adata(
     """
     from py_target_id import infra
 
-    local_file = os.path.join(local_base_path, "Healthy_Atlas.Gene_Matrix.ArchRCells.SC.h5")
+    local_file = os.path.join(local_base_path, "Healthy_Atlas.Gene_Matrix.ArchRCells.SC.h5ad")
     
     # Check if file exists and we don't want to overwrite
     if os.path.exists(local_file) and not overwrite:
@@ -306,13 +306,13 @@ def get_ref_lv4_sc_ar_adata(
         selected_version = utils.select_version(versions, version)
         
         # Define paths
-        gcs_file = f"{gcs_base_path}{selected_version}/Healthy_Atlas.Gene_Matrix.ArchRCells.h5"
+        gcs_file = f"{gcs_base_path}{selected_version}/Healthy_Atlas.Gene_Matrix.ArchRCells.h5ad"
         
         # Download
         utils.download_gcs_file(gcs_file, local_file, overwrite)
 
     #Load Virtual AnnData
-    ref_adata = infra.read_h5(local_file, "RNA_Norm_Counts")
+    ref_adata = infra.load_transposed_h5ad(local_file)
 
     #Cell Type
     ref_adata.obs['CellType'] = ref_adata.obs_names.str.extract(r'^([^:]+:[^:]+)', expand=False).str.replace(r'[ -]', '_', regex=True)
