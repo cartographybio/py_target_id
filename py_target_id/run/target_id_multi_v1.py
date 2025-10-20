@@ -235,7 +235,7 @@ def compute_target_quality_score(df: pd.DataFrame) -> pd.DataFrame:
         surface_series = utils.surface_evidence()
         
         # Split gene pairs
-        gene_splits = df['gene_name'].str.split('.', n=1, expand=True)
+        gene_splits = df['gene_name'].str.split('_', n=1, expand=True)
         
         # Map surface evidence for both genes
         gene1 = gene_splits[0].map(surface_series).fillna(1.0)
