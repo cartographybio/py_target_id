@@ -772,10 +772,12 @@ def target_id_multi_v1(
     try:
         # Load data to GPU
         print(f"------  Loading Data - | Total: {time.time()-overall_start:.1f}s")
+        assert (malig_subset.var_names == malig_med_adata.var_names).all(), "Gene order mismatch!"
         dtype = torch.float16 if use_fp16 else torch.float32
         malig_X = torch.tensor(np.array(malig_subset.X.T), dtype=dtype, device=device)
         ref_X = torch.tensor(np.array(ref_subset.X.T), dtype=dtype, device=device)
-        
+        malig_pos_gpu = torch.tensor(np.array(malig_med_adata.layers['positivity'].T, dtype='int8'), dtype=torch.int8, device=device)
+
         # Encode groups
         m_ids = malig_subset.obs_names.str.split("._.", regex=False).str[1].values
         m_unique = np.unique(m_ids)
@@ -918,10 +920,14 @@ def target_id_multi_v1(
             print(f"PosPat:{pos_time:.1f}s | ", end='', flush=True)
 
             # Compute Positivity of Pair
-            pos_mat_xy = (malig_med_adata[:, gx_all[start:end]].layers["positivity"].astype(int) +
-                          malig_med_adata[:, gy_all[start:end]].layers["positivity"].astype(int))
-            pos_xy = (pos_mat_xy == 2).mean(axis=0) * 100
-            pos_xy = np.asarray(pos_xy).flatten()
+            results = expression_percentiles_by_positivity_multi_gpu(
+                malig_X=malig_X, 
+                gx_indices=gx_t, 
+                gy_indices=gy_t,
+                malig_pos_gpu=malig_pos_gpu,
+                device=device,
+                percentiles=[25, 50, 75]
+            )
 
             # Store batch to temporary file
             names = [f"{genes[i]}_{genes[j]}" for i, j in zip(gx_all[start:end], gy_all[start:end])]
@@ -943,7 +949,10 @@ def target_id_multi_v1(
                 'Target_Val_Pos': target_val_pos.cpu().numpy(),
                 'N_Pos': n_pos.cpu().numpy(),
                 'P_Pos': p_pos.cpu().numpy(),
-                'Positive_Final_v2': pos_xy,
+                'Positive_Final_v2': results['positive'].cpu().numpy(),
+                'On_Val_25' : results['p25'].cpu().numpy(), 
+                'On_Val_50' : results['p50'].cpu().numpy(),
+                'On_Val_75' : results['p75'].cpu().numpy(), 
                 **{k: v.cpu().numpy() for k, v in off_targets_gpu.items()}
             })
 

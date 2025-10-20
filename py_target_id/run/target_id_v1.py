@@ -534,9 +534,15 @@ def target_id_v1(
     print("\nComputing target quality scores...")
     df = compute_target_quality_score(df)
 
-    df["Positive_Final_v2"] = malig_adata[:, df['gene_name']].layers['positivity'].mean(axis=0) * 100    
+    results = expression_percentiles_by_positivity(malig_adata[:, df['gene_name']])
+    df['On_Val_25'] = results['p25']
+    df['On_Val_50'] = results['p50']
+    df['On_Val_75'] = results['p75']
+    df['Positive_Final_v2'] = results['positive']
+
     df = df.sort_values('TargetQ_Final_v1', ascending=False)
 
     print("Target ID complete!")
 
     return df
+
