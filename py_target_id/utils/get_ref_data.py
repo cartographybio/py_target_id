@@ -313,7 +313,7 @@ def get_ref_lv4_sc_ar_adata(
         utils.download_gcs_file(gcs_file, local_file, overwrite)
 
     #Load Virtual AnnData
-    ref_adata = load_transposed_h5ad(local_file)
+    ref_adata = infra.load_transposed_h5ad(local_file)
 
     #Cell Type
     ref_adata.obs['CellType'] = ref_adata.obs_names.str.extract(r'^([^:]+:[^:]+)', expand=False).str.replace(r'[ -]', '_', regex=True)
