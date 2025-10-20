@@ -10,6 +10,7 @@ import pandas as pd
 import time
 import gc
 import warnings
+from py_target_id import run
 warnings.filterwarnings('ignore', category=FutureWarning, module='torch')
 
 # ============================================================================
@@ -920,7 +921,7 @@ def target_id_multi_v1(
             print(f"PosPat:{pos_time:.1f}s | ", end='', flush=True)
 
             # Compute Positivity of Pair
-            results = expression_percentiles_by_positivity_multi_gpu(
+            results = run.expression_percentiles_by_positivity_multi_gpu(
                 malig_X=malig_X, 
                 gx_indices=gx_t, 
                 gy_indices=gy_t,

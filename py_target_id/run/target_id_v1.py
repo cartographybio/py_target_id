@@ -11,6 +11,7 @@ import torch
 from typing import Optional, Tuple
 from tqdm import tqdm
 import warnings
+from py_target_id import run
 
 # ============================================================================
 # CORE COMPUTATION FUNCTIONS
@@ -534,7 +535,7 @@ def target_id_v1(
     print("\nComputing target quality scores...")
     df = compute_target_quality_score(df)
 
-    results = expression_percentiles_by_positivity(malig_adata[:, df['gene_name']])
+    results = run.expression_percentiles_by_positivity(malig_adata[:, df['gene_name']])
     df['On_Val_25'] = results['p25']
     df['On_Val_50'] = results['p50']
     df['On_Val_75'] = results['p75']
