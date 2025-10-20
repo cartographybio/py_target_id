@@ -270,34 +270,36 @@ def median_pos_exp_col(adata):
     
     return medians
 
-def expression_percentiles_by_positivity(adata):
+def expression_percentiles_by_positivity(malig_med_adata):
     """
     Compute 25th, 50th (median), and 75th percentiles of expression
-    among positive cells (where positivity > 0) for each gene.
-    Also computes percentage of positive cells.
+    among positive groups (where positivity > 0) for each gene.
+    Also computes percentage of positive groups.
+    
+    Works at the group/median level (not cell level).
     
     Returns:
         dict with keys:
-            - 'p25': 25th percentile of expression per column
-            - 'p50': 50th percentile (median) of expression per column
-            - 'p75': 75th percentile of expression per column
-            - 'positive': percentage of positive cells per column
+            - 'p25': 25th percentile of expression per gene
+            - 'p50': 50th percentile (median) of expression per gene
+            - 'p75': 75th percentile of expression per gene
+            - 'positive': percentage of positive groups per gene
     """
-    expr = np.array(adata.X, dtype='float64')  # (n_obs, n_vars)
-    pos = np.array(adata.layers['positivity'], dtype='float64')  # (n_obs, n_vars)
+    expr = np.array(malig_med_adata.X, dtype='float64')  # (n_groups, n_vars)
+    pos = np.array(malig_med_adata.layers['positivity'], dtype='float64')  # (n_groups, n_vars)
     
-    p25 = np.zeros(adata.shape[1])
-    p50 = np.zeros(adata.shape[1])
-    p75 = np.zeros(adata.shape[1])
-    positive = np.zeros(adata.shape[1])
+    p25 = np.zeros(malig_med_adata.shape[1])
+    p50 = np.zeros(malig_med_adata.shape[1])
+    p75 = np.zeros(malig_med_adata.shape[1])
+    positive = np.zeros(malig_med_adata.shape[1])
     
-    for col_idx in range(adata.shape[1]):
+    for col_idx in range(malig_med_adata.shape[1]):
         # Get expression values where positivity > 0
-        pos_cells = pos[:, col_idx] > 0
-        expr_on = expr[pos_cells, col_idx]
+        pos_groups = pos[:, col_idx] > 0
+        expr_on = expr[pos_groups, col_idx]
         
-        # Percentage of positive cells
-        positive[col_idx] = (pos_cells.sum() / len(pos)) * 100.0
+        # Percentage of positive groups
+        positive[col_idx] = (pos_groups.sum() / len(pos)) * 100.0
         
         if len(expr_on) > 0:
             p25[col_idx] = np.percentile(expr_on, 25)
@@ -311,55 +313,52 @@ def expression_percentiles_by_positivity(adata):
         'positive': positive
     }
 
-def expression_percentiles_by_positivity_multi_gpu(malig_X_gpu, gx_indices, gy_indices, 
+
+def expression_percentiles_by_positivity_multi_gpu(malig_med, gx_indices, gy_indices, 
                                         malig_pos_gpu, device, percentiles=[25, 50, 75]):
     """
-    Vectorized GPU computation of expression percentiles and positivity for multi-specific targets.
+    Vectorized GPU computation of expression percentiles from batch-computed group medians.
+    For each gene pair, finds patient groups where BOTH genes are positive,
+    then computes percentiles of median expression across those groups.
     
     Args:
-        malig_X_gpu: Expression tensor on GPU, shape (n_genes, n_cells)
-        gx_indices: Gene X indices for this batch
-        gy_indices: Gene Y indices for this batch
-        malig_pos_gpu: Positivity tensor on GPU, shape (n_genes, n_cells)
+        malig_med: Group median expression tensor on GPU, shape (n_pairs, n_groups)
+        gx_indices: Gene X indices (torch tensor, for positivity lookup)
+        gy_indices: Gene Y indices (torch tensor, for positivity lookup)
+        malig_pos_gpu: Positivity tensor on GPU, shape (n_genes, n_groups)
         device: torch device
         percentiles: List of percentiles to compute
     
     Returns:
         dict with keys 'p25', 'p50', 'p75', 'positive'
     """
-    n_pairs = len(gx_indices)
-    n_cells = malig_pos_gpu.shape[1]
+    n_pairs = malig_med.shape[0]
+    n_groups = malig_pos_gpu.shape[1]
     
     result = {f'p{p}': torch.zeros(n_pairs, device=device) for p in percentiles}
     result['positive'] = torch.zeros(n_pairs, device=device)
     
     # Extract positivity for both genes in batch
-    pos_x = malig_pos_gpu[gx_indices, :]  # (n_pairs, n_cells)
-    pos_y = malig_pos_gpu[gy_indices, :]  # (n_pairs, n_cells)
-    
-    # Extract expression for both genes in batch
-    expr_x = malig_X_gpu[gx_indices, :]   # (n_pairs, n_cells)
-    expr_y = malig_X_gpu[gy_indices, :]   # (n_pairs, n_cells)
+    pos_x = malig_pos_gpu[gx_indices, :]  # (n_pairs, n_groups)
+    pos_y = malig_pos_gpu[gy_indices, :]  # (n_pairs, n_groups)
     
     # Both genes positive: pos_x == 1 AND pos_y == 1
-    both_positive = (pos_x == 1) & (pos_y == 1)  # (n_pairs, n_cells)
+    both_positive = (pos_x == 1) & (pos_y == 1)  # (n_pairs, n_groups)
     
     for pair_idx in range(n_pairs):
-        # Get cells where both genes are positive for this pair
-        pos_cells = both_positive[pair_idx, :]
-        n_pos_cells = pos_cells.sum().item()
+        # Get groups where both genes are positive for this pair
+        pos_groups = both_positive[pair_idx, :]
+        n_pos_groups = pos_groups.sum().item()
         
-        # positive: % of cells where both are positive
-        result['positive'][pair_idx] = (n_pos_cells / n_cells) * 100.0
+        # positive: % of groups where both are positive
+        result['positive'][pair_idx] = (n_pos_groups / n_groups) * 100.0
         
-        if n_pos_cells > 0:
-            # Pool expression from both genes in doubly positive cells
-            expr_pool_x = expr_x[pair_idx, pos_cells]
-            expr_pool_y = expr_y[pair_idx, pos_cells]
-            combined = torch.cat([expr_pool_x, expr_pool_y])
+        if n_pos_groups > 0:
+            # Get median expression values for doubly positive groups
+            expr_med = malig_med[pair_idx, pos_groups]
             
-            # Compute percentiles
+            # Compute percentiles of median expression
             for p in percentiles:
-                result[f'p{p}'][pair_idx] = torch.quantile(combined, p / 100.0)
+                result[f'p{p}'][pair_idx] = torch.quantile(expr_med, p / 100.0)
     
     return result

@@ -922,7 +922,7 @@ def target_id_multi_v1(
 
             # Compute Positivity of Pair
             results = run.expression_percentiles_by_positivity_multi_gpu(
-                malig_X=malig_X, 
+                malig_med=malig_med,
                 gx_indices=gx_t, 
                 gy_indices=gy_t,
                 malig_pos_gpu=malig_pos_gpu,
