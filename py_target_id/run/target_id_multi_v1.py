@@ -929,6 +929,8 @@ def target_id_multi_v1(
                 device=device,
                 percentiles=[25, 50, 75]
             )
+            positive_0_1 = (malig_med > 0.1).float().mean(dim=1) * 100
+            positive_0_5 = (malig_med > 0.5).float().mean(dim=1) * 100
 
             # Store batch to temporary file
             names = [f"{genes[i]}_{genes[j]}" for i, j in zip(gx_all[start:end], gy_all[start:end])]
@@ -954,6 +956,8 @@ def target_id_multi_v1(
                 'On_Val_25' : results['p25'].cpu().numpy(), 
                 'On_Val_50' : results['p50'].cpu().numpy(),
                 'On_Val_75' : results['p75'].cpu().numpy(), 
+                'Positive_Final_0.1' : positive_0_1.cpu().numpy(),
+                'Positive_Final_0.5' : positive_0_5.cpu().numpy(),
                 **{k: v.cpu().numpy() for k, v in off_targets_gpu.items()}
             })
 
