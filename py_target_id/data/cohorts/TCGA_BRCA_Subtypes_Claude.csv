@@ -1,0 +1,1204 @@
+ID,PR,ER,HER2,N Stage,Stage,ESM1,Subclass
+TCGA-3CAAAU-01,Positive,Positive,Negative,NA,NA,3.584686,Lum-A
+TCGA-3CAALI-01,Positive,Positive,Positive,N1,Stage II,4.442198,Lum-B
+TCGA-3CAALJ-01,Positive,Positive,Indeterminate,N1,Stage II,5.771293,NA
+TCGA-3CAALK-01,Positive,Positive,Positive,N0,Stage I,1.586888,Lum-B
+TCGA-4HAAAK-01,Positive,Positive,Equivocal,N2,Stage III,5.559652,NA
+TCGA-5LAAT0-01,Positive,Positive,Negative,N0,Stage II,2.241683,Lum-A
+TCGA-5LAAT1-01,Positive,Positive,Equivocal,N0,Stage IV,1.817152,NA
+TCGA-5TA9QA-01,Negative,Positive,Equivocal,NA,Stage II,1.830197,NA
+TCGA-A1-A0SB-01,Negative,Positive,Negative,N0,Stage I,0.871086,Lum-B
+TCGA-A1-A0SD-01,Positive,Positive,Negative,N0,Stage II,3.296636,Lum-A
+TCGA-A1-A0SE-01,Positive,Positive,Negative,N0,Stage I,2.627494,Lum-A
+TCGA-A1-A0SF-01,Positive,Positive,Negative,N0,Stage II,0.207208,Lum-A
+TCGA-A1-A0SG-01,Positive,Positive,Negative,N1,Stage II,1.701595,Lum-A
+TCGA-A1-A0SH-01,Positive,Negative,Equivocal,N0,Stage II,3.190551,NA
+TCGA-A1-A0SI-01,Positive,Positive,Negative,N1,Stage II,4.626425,Lum-A
+TCGA-A1-A0SJ-01,Positive,Positive,Equivocal,N1,Stage III,2.3911,NA
+TCGA-A1-A0SK-01,Negative,Negative,Negative,N0,Stage II,4.460676,TNBC
+TCGA-A1-A0SM-01,Negative,Positive,Positive,N0,Stage II,3.610379,Lum-B
+TCGA-A1-A0SN-01,Positive,Positive,Positive,N1,Stage II,2.468782,Lum-B
+TCGA-A1-A0SO-01,Negative,Negative,Equivocal,N1,Stage II,0.578906,NA
+TCGA-A1-A0SP-01,Negative,Negative,Negative,N0,Stage II,1.561601,TNBC
+TCGA-A1-A0SQ-01,Positive,Positive,Negative,N1,Stage II,3.163083,Lum-A
+TCGA-A2-A04N-01,Positive,Positive,Not Evaluated,N0,Stage I,7.938747,NA
+TCGA-A2-A04P-01,Negative,Negative,Not Evaluated,N3,Stage III,8.011597,NA
+TCGA-A2-A04Q-01,Negative,Negative,Equivocal,N0,Stage I,1.659255,NA
+TCGA-A2-A04R-01,Positive,Positive,Equivocal,N0,Stage I,7.168677,NA
+TCGA-A2-A04T-01,Negative,Negative,Equivocal,N0,Stage II,1.50202,NA
+TCGA-A2-A04U-01,Negative,Negative,Negative,N0,Stage II,5.53381,TNBC
+TCGA-A2-A04V-01,Positive,Positive,Equivocal,N0,Stage II,4.304625,NA
+TCGA-A2-A04W-01,Negative,Negative,Positive,N1,Stage II,3.014334,HER2+
+TCGA-A2-A04X-01,Positive,Positive,Positive,N0,Stage II,5.185533,Lum-B
+TCGA-A2-A04Y-01,Positive,Positive,Negative,N1,Stage II,1.424156,Lum-A
+TCGA-A2-A0CK-01,Positive,Positive,Negative,N2,Stage III,3.233242,Lum-A
+TCGA-A2-A0CL-01,Positive,Positive,Negative,N2,Stage III,0.99246,Lum-A
+TCGA-A2-A0CM-01,Negative,Negative,Negative,N0,Stage II,1.982955,TNBC
+TCGA-A2-A0CO-01,Positive,Positive,Negative,N0,Stage II,1.310502,Lum-A
+TCGA-A2-A0CP-01,Positive,Positive,Not Evaluated,N0,Stage I,4.860977,NA
+TCGA-A2-A0CQ-01,Positive,Positive,Equivocal,N0,Stage I,1.41189,NA
+TCGA-A2-A0CR-01,Positive,Positive,Negative,N0,Stage II,0.689904,Lum-A
+TCGA-A2-A0CS-01,Positive,Positive,Equivocal,N3,Stage IV,3.295822,NA
+TCGA-A2-A0CT-01,Negative,Positive,Equivocal,N0,Stage II,7.530081,NA
+TCGA-A2-A0CU-01,Positive,Positive,Equivocal,N0,Stage II,1.707503,NA
+TCGA-A2-A0CV-01,Positive,Positive,Negative,N1,Stage II,1.57985,Lum-A
+TCGA-A2-A0CW-01,Positive,Positive,Equivocal,N1,Stage II,1.664299,NA
+TCGA-A2-A0CX-01,Negative,Positive,Positive,N0,Stage II,14.04651,Lum-B
+TCGA-A2-A0CY-01,Positive,Positive,Negative,N1,Stage II,6.827006,Lum-A
+TCGA-A2-A0CZ-01,Positive,Positive,Negative,N0,Stage II,2.24727,Lum-A
+TCGA-A2-A0D0-01,Negative,Negative,Negative,N0,Stage II,1.37374,TNBC
+TCGA-A2-A0D1-01,Negative,Negative,Positive,N0,Stage II,12.10596,HER2+
+TCGA-A2-A0D2-01,Negative,Negative,Negative,N0,Stage II,1.555869,TNBC
+TCGA-A2-A0D3-01,Positive,Positive,Negative,N0,Stage I,1.557625,Lum-A
+TCGA-A2-A0D4-01,Positive,Positive,Negative,N1,Stage II,2.257383,Lum-A
+TCGA-A2-A0EM-01,Positive,Positive,Not Evaluated,N0,Stage I,5.105499,NA
+TCGA-A2-A0EN-01,Positive,Positive,Equivocal,N0,Stage II,3.953065,NA
+TCGA-A2-A0EO-01,Positive,Positive,Negative,N0,Stage I,2.445227,Lum-A
+TCGA-A2-A0EP-01,Negative,Positive,Negative,N0,Stage I,1.183337,Lum-B
+TCGA-A2-A0EQ-01,Negative,Negative,Positive,N0,Stage II,1.725292,HER2+
+TCGA-A2-A0ER-01,Positive,Positive,Equivocal,N1,Stage I,0.666695,NA
+TCGA-A2-A0ES-01,Positive,Positive,Negative,N0,Stage II,1.171227,Lum-A
+TCGA-A2-A0ET-01,Positive,Positive,Equivocal,N2,Stage III,3.337946,NA
+TCGA-A2-A0EU-01,Positive,Positive,Negative,N0,Stage I,8.254716,Lum-A
+TCGA-A2-A0EV-01,Positive,Positive,Negative,N0,Stage I,1.125678,Lum-A
+TCGA-A2-A0EW-01,Positive,Positive,Negative,N3,Stage III,2.047373,Lum-A
+TCGA-A2-A0EX-01,Positive,Positive,Negative,N0,Stage II,2.060573,Lum-A
+TCGA-A2-A0EY-01,Negative,Positive,Positive,N1,Stage II,1.916106,Lum-B
+TCGA-A2-A0ST-01,Negative,Negative,Not Evaluated,N1,Stage II,0.894018,NA
+TCGA-A2-A0SU-01,Positive,Positive,Negative,N0,Stage II,3.45861,Lum-A
+TCGA-A2-A0SV-01,Positive,Positive,Equivocal,N2,Stage IV,1.65501,NA
+TCGA-A2-A0SW-01,Negative,Positive,Not Evaluated,N2,Stage IV,1.914196,NA
+TCGA-A2-A0SX-01,Negative,Negative,Negative,N0,Stage I,1.09302,TNBC
+TCGA-A2-A0SY-01,Positive,Positive,Not Evaluated,N1,Stage III,1.887978,NA
+TCGA-A2-A0T0-01,Negative,Negative,Negative,N1,Stage II,12.1139,TNBC
+TCGA-A2-A0T1-01,Negative,Negative,Positive,N3,Stage III,6.648146,HER2+
+TCGA-A2-A0T2-01,Negative,Negative,Negative,N3,Stage IV,9.766624,TNBC
+TCGA-A2-A0T3-01,Positive,Positive,Equivocal,N1,Stage I,4.351853,NA
+TCGA-A2-A0T4-01,Positive,Positive,Equivocal,N0,Stage II,2.461798,NA
+TCGA-A2-A0T5-01,Positive,Positive,Negative,N0,Stage II,3.905122,Lum-A
+TCGA-A2-A0T6-01,Positive,Positive,Negative,N0,Stage II,3.136397,Lum-A
+TCGA-A2-A0T7-01,Positive,Positive,Negative,N0,Stage II,1.784753,Lum-A
+TCGA-A2-A0YC-01,Positive,Positive,Not Evaluated,N1,Stage II,6.780151,NA
+TCGA-A2-A0YD-01,Positive,Positive,Not Evaluated,N0,Stage II,3.877657,NA
+TCGA-A2-A0YE-01,Negative,Negative,Negative,N1,Stage II,2.997577,TNBC
+TCGA-A2-A0YF-01,Negative,Positive,Negative,N0,Stage I,5.63115,Lum-B
+TCGA-A2-A0YG-01,Positive,Positive,Positive,N3,Stage III,4.460107,Lum-B
+TCGA-A2-A0YH-01,Positive,Positive,Negative,N2,Stage III,3.684039,Lum-A
+TCGA-A2-A0YI-01,Positive,Positive,Negative,N0,Stage I,1.658066,Lum-A
+TCGA-A2-A0YJ-01,Negative,Positive,Negative,N2,Stage III,3.919719,Lum-B
+TCGA-A2-A0YK-01,Negative,Positive,Negative,N0,Stage II,2.54735,Lum-B
+TCGA-A2-A0YL-01,Positive,Positive,Negative,N2,Stage III,1.525235,Lum-A
+TCGA-A2-A0YM-01,Negative,Negative,Not Evaluated,N0,Stage II,2.465796,NA
+TCGA-A2-A0YT-01,Negative,Positive,Not Evaluated,N2,Stage III,1.09095,NA
+TCGA-A2-A1FV-01,Positive,Positive,Negative,N0,Stage II,7.875234,Lum-A
+TCGA-A2-A1FW-01,Negative,Positive,Negative,N2,Stage III,0.409082,Lum-B
+TCGA-A2-A1FX-01,Positive,Positive,Not Evaluated,N2,Stage III,2.354254,NA
+TCGA-A2-A1FZ-01,Positive,Positive,Negative,N0,Stage II,1.382495,Lum-A
+TCGA-A2-A1G0-01,Positive,Positive,Equivocal,N1,Stage II,1.404508,NA
+TCGA-A2-A1G1-01,Negative,Negative,Equivocal,N1,Stage II,5.113985,NA
+TCGA-A2-A1G4-01,Positive,Positive,Negative,N1,Stage III,3.562848,Lum-A
+TCGA-A2-A1G6-01,Negative,Negative,Negative,N2,Stage III,0.41241,TNBC
+TCGA-A2-A259-01,Positive,Positive,Negative,N0,Stage I,3.266071,Lum-A
+TCGA-A2-A25A-01,Positive,Positive,Equivocal,N0,Stage II,1.187453,NA
+TCGA-A2-A25B-01,Positive,Positive,Equivocal,N1,Stage II,6.365775,NA
+TCGA-A2-A25C-01,Positive,Positive,Negative,N1,Stage II,3.481736,Lum-A
+TCGA-A2-A25D-01,Negative,Positive,Negative,N3,Stage III,6.52589,Lum-B
+TCGA-A2-A25E-01,Positive,Positive,Equivocal,N2,Stage III,1.346961,NA
+TCGA-A2-A25F-01,Positive,Negative,Negative,N0,Stage II,0.916769,NA
+TCGA-A2-A3KC-01,Positive,Positive,Equivocal,N1,Stage II,3.364872,NA
+TCGA-A2-A3KD-01,Positive,Positive,Negative,N1,Stage III,0.904268,Lum-A
+TCGA-A2-A3XS-01,Negative,Negative,Not Evaluated,N2,Stage III,2.440471,NA
+TCGA-A2-A3XT-01,Negative,Negative,Negative,N1,Stage II,3.028393,TNBC
+TCGA-A2-A3XU-01,Negative,Negative,Not Evaluated,N1,Stage II,2.105465,NA
+TCGA-A2-A3XV-01,Negative,Positive,Equivocal,N0,Stage II,5.92517,NA
+TCGA-A2-A3XW-01,Negative,Positive,Negative,N1,Stage II,0.166997,Lum-B
+TCGA-A2-A3XX-01,Negative,Negative,Negative,N0,Stage II,3.147089,TNBC
+TCGA-A2-A3XY-01,Negative,Negative,Negative,N1,Stage II,5.992292,TNBC
+TCGA-A2-A3XZ-01,Negative,Negative,Positive,N0,Stage I,1.491563,HER2+
+TCGA-A2-A3Y0-01,Negative,Positive,Negative,N1,Stage II,4.287858,Lum-B
+TCGA-A2-A4RW-01,Positive,Positive,Negative,N3,Stage III,2.245258,Lum-A
+TCGA-A2-A4RX-01,Positive,Positive,Negative,N0,Stage II,1.569412,Lum-A
+TCGA-A2-A4RY-01,Positive,Positive,Negative,N3,Stage III,0.721329,Lum-A
+TCGA-A2-A4S0-01,Positive,Positive,Negative,N0,Stage II,9.577409,Lum-A
+TCGA-A2-A4S1-01,Negative,Positive,Negative,N0,Stage II,3.04212,Lum-B
+TCGA-A2-A4S2-01,Positive,Positive,Negative,N2,Stage III,3.99224,Lum-A
+TCGA-A2-A4S3-01,Positive,Positive,Negative,N1,Stage II,1.955838,Lum-A
+TCGA-A7-A0CD-01,Positive,Positive,Equivocal,N0,Stage I,4.957123,NA
+TCGA-A7-A0CE-01,Negative,Negative,Equivocal,N0,Stage II,2.736563,NA
+TCGA-A7-A0CE-11,Normal,Normal,Normal,Normal,Normal,0.447931,Normal
+TCGA-A7-A0CG-01,Negative,Positive,Negative,N0,Stage II,1.699919,Lum-B
+TCGA-A7-A0CH-01,Not Evaluated,Not Evaluated,Not Evaluated,N0,Stage II,2.47052,NA
+TCGA-A7-A0CH-11,Normal,Normal,Normal,Normal,Normal,0.208619,Normal
+TCGA-A7-A0CJ-01,Positive,Positive,Negative,N0,Stage II,12.36773,Lum-A
+TCGA-A7-A0D9-01,Negative,Positive,Negative,N0,Stage II,3.798393,Lum-B
+TCGA-A7-A0D9-11,Normal,Normal,Normal,Normal,Normal,0.041363,Normal
+TCGA-A7-A0DA-01,Negative,Negative,Negative,N0,Stage II,7.097791,TNBC
+TCGA-A7-A0DB-01,Positive,Positive,Negative,N0,Stage II,2.033795,Lum-A
+TCGA-A7-A0DB-11,Normal,Normal,Normal,Normal,Normal,0.168556,Normal
+TCGA-A7-A0DC-01,Negative,Positive,Negative,N0,Stage I,11.49503,Lum-B
+TCGA-A7-A0DC-11,Normal,Normal,Normal,Normal,Normal,0.209966,Normal
+TCGA-A7-A13D-01,Positive,Negative,Equivocal,N0,Stage II,27.32967,NA
+TCGA-A7-A13E-01,Negative,Positive,Equivocal,N1,Stage II,3.528884,NA
+TCGA-A7-A13E-11,Normal,Normal,Normal,Normal,Normal,0.295589,Normal
+TCGA-A7-A13F-01,Positive,Positive,Equivocal,N1,Stage III,2.919923,NA
+TCGA-A7-A13F-11,Normal,Normal,Normal,Normal,Normal,0.531179,Normal
+TCGA-A7-A13G-01,Positive,Positive,Negative,N0,Stage II,2.692588,Lum-A
+TCGA-A7-A13G-11,Normal,Normal,Normal,Normal,Normal,0.425727,Normal
+TCGA-A7-A13H-01,Positive,Positive,Equivocal,N1,Stage II,0.592883,NA
+TCGA-A7-A26E-01,Positive,Positive,Negative,N1,Stage III,3.247544,Lum-A
+TCGA-A7-A26F-01,Negative,Negative,Equivocal,N0,Stage I,3.091719,NA
+TCGA-A7-A26G-01,Negative,Negative,Negative,N0,Stage II,1.864186,TNBC
+TCGA-A7-A26H-01,Negative,Positive,Equivocal,N1,Stage II,1.474184,NA
+TCGA-A7-A26I-01,Negative,Negative,Equivocal,N0,Stage II,10.22242,NA
+TCGA-A7-A26J-01,Positive,Positive,Negative,N0,Stage II,3.167774,Lum-A
+TCGA-A7-A2KD-01,Positive,Positive,Positive,N2,Stage III,3.706315,Lum-B
+TCGA-A7-A3IY-01,Positive,Positive,Negative,N0,Stage I,12.86008,Lum-A
+TCGA-A7-A3IZ-01,Negative,Positive,Equivocal,N0,Stage II,8.079079,NA
+TCGA-A7-A3J0-01,Positive,Positive,Negative,N0,Stage II,3.894622,Lum-A
+TCGA-A7-A3J1-01,Positive,Positive,Negative,N0,Stage I,0.928672,Lum-A
+TCGA-A7-A3RF-01,Positive,Positive,Negative,N0,Stage II,8.730209,Lum-A
+TCGA-A7-A425-01,Positive,Positive,Indeterminate,N3,Stage III,0.324776,NA
+TCGA-A7-A426-01,Positive,Positive,Negative,N3,Stage III,0.457263,Lum-A
+TCGA-A7-A4SA-01,Negative,Positive,Negative,N1,Stage II,1.397626,Lum-B
+TCGA-A7-A4SB-01,Positive,Positive,Negative,N1,Stage III,1.357882,Lum-A
+TCGA-A7-A4SC-01,Negative,Positive,Equivocal,N0,Stage II,1.876651,NA
+TCGA-A7-A4SD-01,Negative,Negative,Equivocal,N0,Stage II,2.660188,NA
+TCGA-A7-A4SE-01,Negative,Negative,Negative,N0,Stage II,8.706298,TNBC
+TCGA-A7-A4SF-01,Negative,Positive,Positive,N0,Stage II,1.166268,Lum-B
+TCGA-A7-A56D-01,Positive,Positive,Negative,N0,Stage II,2.697182,Lum-A
+TCGA-A7-A5ZV-01,Negative,Negative,Equivocal,N0,Stage II,3.472347,NA
+TCGA-A7-A5ZW-01,Positive,Positive,Negative,N1,Stage II,2.464432,Lum-A
+TCGA-A7-A5ZX-01,Positive,Positive,Negative,N3,Stage III,1.281811,Lum-A
+TCGA-A7-A6VV-01,Negative,Negative,Negative,N0,Stage II,5.933365,TNBC
+TCGA-A7-A6VW-01,Negative,Negative,Negative,N0,Stage II,1.47336,TNBC
+TCGA-A7-A6VX-01,Positive,Positive,Negative,N0,Stage II,4.703347,Lum-A
+TCGA-A7-A6VY-01,Negative,Negative,Negative,N1,Stage II,8.51835,TNBC
+TCGA-A8-A06N-01,Negative,Positive,Negative,N0,Stage III,3.780722,Lum-B
+TCGA-A8-A06O-01,Positive,Positive,Negative,N0,Stage I,1.776143,Lum-A
+TCGA-A8-A06P-01,Positive,Positive,Negative,N2,Stage III,2.440531,Lum-A
+TCGA-A8-A06Q-01,Positive,Positive,Negative,N2,Stage III,0.404182,Lum-A
+TCGA-A8-A06R-01,Negative,Positive,Positive,N1,Stage II,40.09729,Lum-B
+TCGA-A8-A06T-01,Positive,Positive,Positive,N1,Stage III,5.051059,Lum-B
+TCGA-A8-A06U-01,Positive,Positive,Positive,N1,Stage II,2.647465,Lum-B
+TCGA-A8-A06X-01,Negative,Positive,Positive,N0,Stage II,2.191401,Lum-B
+TCGA-A8-A06Y-01,Positive,Positive,Negative,N0,Stage II,9.734429,Lum-A
+TCGA-A8-A06Z-01,Positive,Positive,Negative,N0,Stage II,11.13377,Lum-A
+TCGA-A8-A075-01,Positive,Positive,Positive,N1,Stage II,5.174136,Lum-B
+TCGA-A8-A076-01,Positive,Positive,Positive,N0,Stage II,1.69329,Lum-B
+TCGA-A8-A079-01,Positive,Positive,Negative,N3,Stage III,0.570979,Lum-A
+TCGA-A8-A07B-01,Positive,Positive,Positive,N0,Stage II,15.28667,Lum-B
+TCGA-A8-A07C-01,Negative,Negative,Negative,N0,Stage II,2.015288,TNBC
+TCGA-A8-A07E-01,Positive,Positive,Negative,N3,NA,4.023347,Lum-A
+TCGA-A8-A07F-01,Positive,Positive,Negative,N1,Stage II,5.091091,Lum-A
+TCGA-A8-A07G-01,Positive,Positive,Negative,N1,Stage II,3.691258,Lum-A
+TCGA-A8-A07I-01,Negative,Positive,Positive,N2,Stage III,2.470485,Lum-B
+TCGA-A8-A07J-01,Positive,Positive,Negative,N1,Stage II,2.279812,Lum-A
+TCGA-A8-A07L-01,Positive,Positive,Negative,N1,Stage III,3.812989,Lum-A
+TCGA-A8-A07O-01,Negative,Negative,Negative,N0,Stage II,4.040752,TNBC
+TCGA-A8-A07P-01,Positive,Positive,Positive,N1,Stage II,2.733622,Lum-B
+TCGA-A8-A07R-01,Negative,Negative,Positive,N3,Stage III,2.7776,HER2+
+TCGA-A8-A07S-01,Negative,Positive,Negative,N0,Stage II,2.830948,Lum-B
+TCGA-A8-A07U-01,Positive,Negative,Negative,N2,Stage III,5.046503,NA
+TCGA-A8-A07W-01,Positive,Positive,Negative,NA,Stage IV,2.017874,Lum-A
+TCGA-A8-A07Z-01,Positive,Positive,Negative,N0,Stage II,2.748954,Lum-A
+TCGA-A8-A081-01,Positive,Positive,Negative,N0,Stage II,1.127511,Lum-A
+TCGA-A8-A082-01,Positive,Positive,Negative,N1,Stage II,2.034743,Lum-A
+TCGA-A8-A083-01,Positive,Positive,Negative,N0,Stage II,13.16667,Lum-A
+TCGA-A8-A084-01,Negative,Positive,Negative,N1,Stage II,4.746995,Lum-B
+TCGA-A8-A085-01,Positive,Positive,Negative,N1,Stage II,10.85694,Lum-A
+TCGA-A8-A086-01,Positive,Positive,Negative,N1,Stage II,7.457746,Lum-A
+TCGA-A8-A08A-01,Positive,Positive,Negative,N0,Stage I,1.475748,Lum-A
+TCGA-A8-A08B-01,Negative,Positive,Positive,N0,Stage II,2.241383,Lum-B
+TCGA-A8-A08C-01,Positive,Positive,Positive,N0,Stage II,2.855165,Lum-B
+TCGA-A8-A08F-01,Positive,Positive,Negative,N3,Stage III,2.980246,Lum-A
+TCGA-A8-A08G-01,Positive,Positive,Positive,N0,Stage II,1.15893,Lum-B
+TCGA-A8-A08H-01,Positive,Positive,Positive,N0,Stage II,1.098742,Lum-B
+TCGA-A8-A08I-01,Positive,Positive,Negative,N0,Stage II,1.773597,Lum-A
+TCGA-A8-A08J-01,Negative,Positive,Negative,N3,Stage IV,3.479315,Lum-B
+TCGA-A8-A08L-01,Negative,Positive,Negative,N2,Stage III,6.779,Lum-B
+TCGA-A8-A08O-01,Positive,Positive,Negative,N3,Stage IV,1.549519,Lum-A
+TCGA-A8-A08P-01,Positive,Positive,Positive,N2,Stage III,2.77476,Lum-B
+TCGA-A8-A08R-01,Negative,Negative,Negative,N1,Stage II,1.860802,TNBC
+TCGA-A8-A08S-01,Positive,Positive,Positive,N1,Stage II,3.437473,Lum-B
+TCGA-A8-A08T-01,Positive,Positive,Positive,N1,Stage IV,9.844833,Lum-B
+TCGA-A8-A08X-01,Negative,Negative,Positive,N3,Stage III,5.428582,HER2+
+TCGA-A8-A08Z-01,Positive,Positive,Negative,N3,NA,5.449838,Lum-A
+TCGA-A8-A090-01,Positive,Positive,Positive,N0,Stage II,3.53702,Lum-B
+TCGA-A8-A091-01,Negative,Positive,Negative,N0,Stage II,5.111542,Lum-B
+TCGA-A8-A092-01,Positive,Positive,Negative,N2,Stage III,1.264111,Lum-A
+TCGA-A8-A093-01,Positive,Positive,Negative,N0,Stage II,3.696806,Lum-A
+TCGA-A8-A094-01,Negative,Positive,Negative,N0,Stage II,7.035548,Lum-B
+TCGA-A8-A095-01,Positive,Positive,Negative,N0,Stage I,2.111196,Lum-A
+TCGA-A8-A096-01,Positive,Positive,Negative,N0,Stage II,4.059989,Lum-A
+TCGA-A8-A097-01,Positive,Positive,Positive,N1,Stage II,2.104084,Lum-B
+TCGA-A8-A099-01,Positive,Positive,Positive,N3,NA,1.776728,Lum-B
+TCGA-A8-A09A-01,Positive,Positive,Negative,NA,NA,3.254937,Lum-A
+TCGA-A8-A09B-01,Positive,Positive,Negative,N1,Stage III,1.409243,Lum-A
+TCGA-A8-A09D-01,Positive,Positive,Negative,N1,Stage II,1.759764,Lum-A
+TCGA-A8-A09E-01,Positive,Positive,Positive,N1,Stage III,0.593324,Lum-B
+TCGA-A8-A09G-01,Negative,Positive,Positive,N3,Stage III,4.612156,Lum-B
+TCGA-A8-A09I-01,Positive,Positive,Positive,N0,Stage II,2.894527,Lum-B
+TCGA-A8-A09K-01,Positive,Positive,Negative,N1,Stage II,0.068681,Lum-A
+TCGA-A8-A09M-01,Positive,Positive,Negative,N3,Stage III,0.933019,Lum-A
+TCGA-A8-A09N-01,Positive,Positive,Positive,N3,Stage III,2.24073,Lum-B
+TCGA-A8-A09Q-01,Positive,Positive,Negative,N2,Stage III,2.543188,Lum-A
+TCGA-A8-A09R-01,Positive,Positive,Negative,N1,Stage II,6.117906,Lum-A
+TCGA-A8-A09T-01,Positive,Positive,Negative,N0,NA,6.358843,Lum-A
+TCGA-A8-A09V-01,Positive,Positive,Negative,N0,Stage II,3.229528,Lum-A
+TCGA-A8-A09W-01,Positive,Positive,Negative,N3,Stage III,1.832022,Lum-A
+TCGA-A8-A09X-01,Negative,Negative,Negative,N3,Stage III,1.86855,TNBC
+TCGA-A8-A09Z-01,Negative,Positive,Negative,N0,Stage II,3.895689,Lum-B
+TCGA-A8-A0A1-01,Positive,Positive,Negative,N0,Stage II,1.258869,Lum-A
+TCGA-A8-A0A2-01,Positive,Positive,Negative,N0,Stage II,2.43003,Lum-A
+TCGA-A8-A0A4-01,Positive,Positive,Negative,N0,Stage II,0.293311,Lum-A
+TCGA-A8-A0A6-01,Positive,Positive,Negative,N3,Stage III,6.426089,Lum-A
+TCGA-A8-A0A7-01,Negative,Negative,Positive,N1,Stage II,0.646948,HER2+
+TCGA-A8-A0A9-01,Positive,Positive,Negative,N0,Stage II,1.94865,Lum-A
+TCGA-A8-A0AB-01,Positive,Positive,Positive,N0,Stage II,2.967366,Lum-B
+TCGA-A8-A0AD-01,Positive,Positive,Negative,N0,Stage I,3.921298,Lum-A
+TCGA-AC-A23C-01,Positive,Positive,Positive,N1,Stage II,0.864925,Lum-B
+TCGA-AC-A23E-01,Positive,Positive,Not Evaluated,N1,Stage II,13.7132,NA
+TCGA-AC-A23G-01,Positive,Positive,Positive,N1,Stage II,1.990837,Lum-B
+TCGA-AC-A23H-01,Negative,Positive,Positive,NA,Stage II,4.997598,Lum-B
+TCGA-AC-A23H-11,Normal,Normal,Normal,Normal,Normal,0.55094,Normal
+TCGA-AC-A2B8-01,Positive,Positive,Negative,N0,Stage II,1.634301,Lum-A
+TCGA-AC-A2BK-01,Negative,Negative,Negative,N2,Stage III,1.634831,TNBC
+TCGA-AC-A2BM-01,Positive,Positive,Not Evaluated,N1,Stage II,1.166925,NA
+TCGA-AC-A2FB-01,Positive,Positive,Positive,N0,Stage II,3.36807,Lum-B
+TCGA-AC-A2FB-11,Normal,Normal,Normal,Normal,Normal,0.410487,Normal
+TCGA-AC-A2FE-01,Positive,Positive,Not Evaluated,N3,Stage III,3.153879,NA
+TCGA-AC-A2FF-01,Positive,Positive,Not Evaluated,N1,Stage II,1.068834,NA
+TCGA-AC-A2FF-11,Normal,Normal,Normal,Normal,Normal,0.861835,Normal
+TCGA-AC-A2FG-01,Negative,Positive,Not Evaluated,N1,Stage II,1.517801,NA
+TCGA-AC-A2FK-01,Positive,Positive,Not Evaluated,N3,Stage III,1.565189,NA
+TCGA-AC-A2FM-01,Not Evaluated,Not Evaluated,Not Evaluated,N1,Stage II,8.530347,NA
+TCGA-AC-A2FM-11,Normal,Normal,Normal,Normal,Normal,0.439651,Normal
+TCGA-AC-A2FO-01,Negative,Positive,Negative,N1,Stage II,1.605997,Lum-B
+TCGA-AC-A2QH-01,Negative,Negative,Negative,N0,Stage II,4.143566,TNBC
+TCGA-AC-A2QI-01,Negative,Positive,Negative,N1,Stage III,3.159948,Lum-B
+TCGA-AC-A2QJ-01,Negative,Negative,Negative,N0,Stage III,0.876725,TNBC
+TCGA-AC-A3BB-01,Positive,Positive,Negative,N2,Stage III,2.549149,Lum-A
+TCGA-AC-A3EH-01,Negative,Positive,Negative,N3,Stage III,4.654945,Lum-B
+TCGA-AC-A3HN-01,Positive,Positive,Negative,N1,Stage II,3.956185,Lum-A
+TCGA-AC-A3OD-01,Positive,Positive,Negative,N1,Stage II,1.107984,Lum-A
+TCGA-AC-A3QP-01,Positive,Positive,Equivocal,N1,Stage II,2.626312,NA
+TCGA-AC-A3QQ-01,Positive,Positive,Positive,N0,Stage I,1.309168,Lum-B
+TCGA-AC-A3TM-01,Positive,Positive,Equivocal,N1,Stage III,1.388706,NA
+TCGA-AC-A3TN-01,Positive,Positive,Positive,N0,Stage II,3.70429,Lum-B
+TCGA-AC-A3W5-01,Positive,Positive,Not Evaluated,N0,Stage II,11.29594,NA
+TCGA-AC-A3W6-01,Positive,Positive,Negative,N1,Stage III,2.566568,Lum-A
+TCGA-AC-A3W7-01,Negative,Positive,Negative,N1,Stage II,2.086208,Lum-B
+TCGA-AC-A3YI-01,Positive,Positive,Positive,N3,Stage III,1.277951,Lum-B
+TCGA-AC-A3YJ-01,Positive,Positive,Not Available,N0,Stage II,13.83939,NA
+TCGA-AC-A4ZE-01,Positive,Positive,Positive,N0,Stage II,0.967345,Lum-B
+TCGA-AC-A5EH-01,Negative,Positive,Negative,N1,Stage II,7.773629,Lum-B
+TCGA-AC-A5XS-01,Positive,Positive,Negative,N0,Stage II,1.671196,Lum-A
+TCGA-AC-A5XU-01,Positive,Positive,Negative,N0,Stage II,9.748801,Lum-A
+TCGA-AC-A62V-01,Positive,Positive,Not Evaluated,N1,Stage IV,1.715263,NA
+TCGA-AC-A62X-01,Negative,Positive,Not Evaluated,N0,Stage II,15.93208,NA
+TCGA-AC-A62Y-01,Positive,Positive,Negative,N1,Stage II,4.07603,Lum-A
+TCGA-AC-A6IV-01,Positive,Positive,Equivocal,N1,Stage II,2.669254,NA
+TCGA-AC-A6IW-01,Negative,Negative,Negative,N0,Stage II,0.987197,TNBC
+TCGA-AC-A6IX-01,Positive,Positive,Not Evaluated,N3,Stage III,3.002093,NA
+TCGA-AC-A6NO-01,Positive,Positive,Negative,N1,Stage II,3.084708,Lum-A
+TCGA-AC-A7VB-01,Negative,Positive,Not Evaluated,N1,Stage II,4.481422,NA
+TCGA-AC-A7VC-01,Negative,Negative,Negative,N0,Stage II,2.015972,TNBC
+TCGA-AC-A8OP-01,Positive,Positive,Indeterminate,N0,Stage I,4.391515,NA
+TCGA-AC-A8OQ-01,Negative,Negative,Indeterminate,N1,Stage II,4.231011,NA
+TCGA-AC-A8OR-01,Positive,Positive,Negative,N0,Stage I,4.962726,Lum-A
+TCGA-AC-A8OS-01,Positive,Positive,Positive,N0,Stage II,0.748103,Lum-B
+TCGA-AN-A03X-01,Positive,Positive,Positive,N0,Stage II,4.526064,Lum-B
+TCGA-AN-A03Y-01,Positive,Positive,Negative,N0,Stage II,1.563973,Lum-A
+TCGA-AN-A041-01,Negative,Positive,Positive,N1,Stage II,11.137,Lum-B
+TCGA-AN-A046-01,Positive,Positive,Negative,N0,Stage II,1.558779,Lum-A
+TCGA-AN-A049-01,Positive,Positive,Negative,N0,Stage II,2.965898,Lum-A
+TCGA-AN-A04A-01,Positive,Positive,Negative,N2,Stage III,4.063925,Lum-A
+TCGA-AN-A04C-01,Negative,Negative,Positive,N1,Stage II,3.12755,HER2+
+TCGA-AN-A04D-01,Negative,Negative,Negative,N1,Stage II,0.842718,TNBC
+TCGA-AN-A0AJ-01,Positive,Positive,Positive,N0,Stage II,4.564519,Lum-B
+TCGA-AN-A0AK-01,Negative,Positive,Positive,N0,Stage II,1.962341,Lum-B
+TCGA-AN-A0AL-01,Negative,Negative,Negative,N0,Stage III,6.150532,TNBC
+TCGA-AN-A0AM-01,Negative,Positive,Negative,N0,Stage II,1.402095,Lum-B
+TCGA-AN-A0AR-01,Negative,Negative,Negative,N0,Stage II,2.495638,TNBC
+TCGA-AN-A0AS-01,Negative,Positive,Negative,N2,Stage III,5.835503,Lum-B
+TCGA-AN-A0AT-01,Negative,Negative,Negative,N0,Stage II,1.306156,TNBC
+TCGA-AN-A0FD-01,Positive,Positive,Positive,N0,Stage II,9.791252,Lum-B
+TCGA-AN-A0FF-01,Positive,Positive,Negative,N0,Stage I,2.178193,Lum-A
+TCGA-AN-A0FJ-01,Negative,Positive,Positive,N2,Stage IV,8.176588,Lum-B
+TCGA-AN-A0FK-01,Positive,Positive,Positive,N0,Stage III,6.811931,Lum-B
+TCGA-AN-A0FL-01,Negative,Negative,Positive,N0,Stage II,21.88864,HER2+
+TCGA-AN-A0FN-01,Positive,Positive,Positive,N0,Stage I,10.86134,Lum-B
+TCGA-AN-A0FS-01,Negative,Positive,Positive,N0,Stage I,3.635135,Lum-B
+TCGA-AN-A0FT-01,Positive,Positive,Positive,N1,Stage II,5.071994,Lum-B
+TCGA-AN-A0FV-01,Negative,Negative,Positive,N0,Stage II,13.89252,HER2+
+TCGA-AN-A0FW-01,Indeterminate,Positive,Negative,N2,Stage III,0.400472,NA
+TCGA-AN-A0FX-01,Negative,Negative,Positive,N0,Stage II,7.093067,HER2+
+TCGA-AN-A0FY-01,Positive,Positive,Negative,N0,Stage I,5.19192,Lum-A
+TCGA-AN-A0FZ-01,Negative,Positive,Positive,N2,Stage III,5.046956,Lum-B
+TCGA-AN-A0G0-01,Negative,Negative,Negative,N0,Stage II,1.975548,TNBC
+TCGA-AN-A0XL-01,Positive,Positive,Negative,N0,Stage II,3.171848,Lum-A
+TCGA-AN-A0XN-01,Positive,Negative,Negative,N2,Stage III,10.89222,NA
+TCGA-AN-A0XO-01,Negative,Positive,Negative,N2,Stage III,10.35586,Lum-B
+TCGA-AN-A0XP-01,Positive,Positive,Positive,N2,Stage III,9.892311,Lum-B
+TCGA-AN-A0XR-01,Negative,Positive,Negative,N2,Stage III,8.601772,Lum-B
+TCGA-AN-A0XS-01,Positive,Negative,Negative,N2,Stage III,3.38801,NA
+TCGA-AN-A0XT-01,Negative,Positive,Negative,N2,Stage III,16.60447,Lum-B
+TCGA-AN-A0XU-01,Negative,Negative,Negative,N0,Stage II,2.14281,TNBC
+TCGA-AN-A0XV-01,Positive,Positive,Positive,N2,Stage III,2.08634,Lum-B
+TCGA-AN-A0XW-01,Positive,Positive,Positive,N2,Stage III,6.7001,Lum-B
+TCGA-AO-A03L-01,Positive,Positive,Positive,N2,Stage III,0.914796,Lum-B
+TCGA-AO-A03M-01,Positive,Positive,Negative,N0,Stage I,2.312018,Lum-A
+TCGA-AO-A03N-01,Positive,Positive,Negative,N1,Stage II,30.38942,Lum-A
+TCGA-AO-A03O-01,Positive,Positive,Negative,N0,Stage II,5.168749,Lum-A
+TCGA-AO-A03P-01,Positive,Positive,Negative,N1,Stage II,14.23455,Lum-A
+TCGA-AO-A03R-01,Positive,Positive,Negative,N1,Stage II,1.604997,Lum-A
+TCGA-AO-A03T-01,Positive,Positive,Negative,N1,Stage II,1.432379,Lum-A
+TCGA-AO-A03U-01,Negative,Negative,Negative,N0,Stage I,2.589676,TNBC
+TCGA-AO-A03V-01,Positive,Positive,Negative,N0,Stage I,4.341799,Lum-A
+TCGA-AO-A0J2-01,Negative,Negative,Equivocal,N0,Stage I,2.074798,NA
+TCGA-AO-A0J3-01,Positive,Positive,Equivocal,N1,Stage II,1.873492,NA
+TCGA-AO-A0J4-01,Negative,Negative,Negative,N0,Stage I,2.331615,TNBC
+TCGA-AO-A0J5-01,Negative,Positive,Equivocal,N1,Stage IV,1.720077,NA
+TCGA-AO-A0J6-01,Negative,Negative,Negative,N0,Stage II,1.584221,TNBC
+TCGA-AO-A0J7-01,Positive,Positive,Negative,N1,Stage II,2.538121,Lum-A
+TCGA-AO-A0J8-01,Positive,Positive,Negative,N0,Stage II,3.588466,Lum-A
+TCGA-AO-A0J9-01,Positive,Positive,Not Evaluated,N3,Stage III,0.996062,NA
+TCGA-AO-A0JA-01,Positive,Positive,Negative,N3,Stage III,3.093903,Lum-A
+TCGA-AO-A0JB-01,Positive,Positive,Negative,N1,Stage III,0.945002,Lum-A
+TCGA-AO-A0JC-01,Positive,Positive,Negative,N0,Stage II,1.824801,Lum-A
+TCGA-AO-A0JD-01,Positive,Positive,Negative,N1,Stage III,4.917942,Lum-A
+TCGA-AO-A0JE-01,Negative,Negative,Positive,N2,Stage III,5.951466,HER2+
+TCGA-AO-A0JF-01,Positive,Positive,Negative,N1,Stage II,6.133003,Lum-A
+TCGA-AO-A0JG-01,Positive,Positive,Negative,N2,Stage III,13.05037,Lum-A
+TCGA-AO-A0JI-01,Negative,Positive,Negative,N1,Stage II,0.863755,Lum-B
+TCGA-AO-A0JJ-01,Positive,Positive,Negative,N1,Stage II,2.20876,Lum-A
+TCGA-AO-A0JL-01,Negative,Negative,Negative,N2,Stage III,18.5972,TNBC
+TCGA-AO-A0JM-01,Positive,Positive,Positive,N1,Stage II,3.442493,Lum-B
+TCGA-AO-A124-01,Negative,Negative,Negative,N0,Stage II,3.992717,TNBC
+TCGA-AO-A125-01,Positive,Positive,Negative,N0,Stage II,31.64028,Lum-A
+TCGA-AO-A126-01,Positive,Positive,Negative,N0,Stage II,3.340601,Lum-A
+TCGA-AO-A128-01,Negative,Negative,Negative,N0,Stage II,2.31435,TNBC
+TCGA-AO-A129-01,Negative,Negative,Negative,N1,Stage II,4.013269,TNBC
+TCGA-AO-A12A-01,Positive,Positive,Negative,N0,Stage II,5.32934,Lum-A
+TCGA-AO-A12B-01,Positive,Positive,Negative,N0,Stage II,11.25232,Lum-A
+TCGA-AO-A12C-01,Positive,Positive,Positive,N1,Stage II,8.324932,Lum-B
+TCGA-AO-A12D-01,Negative,Negative,Positive,N1,Stage II,5.839745,HER2+
+TCGA-AO-A12E-01,Positive,Positive,Negative,N0,Stage II,1.043824,Lum-A
+TCGA-AO-A12F-01,Negative,Negative,Negative,N0,Stage II,5.924699,TNBC
+TCGA-AO-A12G-01,Positive,Positive,Positive,N0,Stage II,4.623232,Lum-B
+TCGA-AO-A12H-01,Positive,Positive,Negative,N0,Stage II,5.583772,Lum-A
+TCGA-AO-A1KO-01,Positive,Positive,Negative,N0,Stage II,1.046285,Lum-A
+TCGA-AO-A1KP-01,Positive,Positive,Negative,N1,Stage II,3.403523,Lum-A
+TCGA-AO-A1KQ-01,Positive,Positive,Negative,N1,Stage III,2.938279,Lum-A
+TCGA-AO-A1KR-01,Negative,Negative,Negative,N0,Stage II,13.10464,TNBC
+TCGA-AO-A1KS-01,Positive,Positive,Equivocal,N0,Stage II,4.789362,NA
+TCGA-AO-A1KT-01,Positive,Positive,Equivocal,N1,Stage II,7.210088,NA
+TCGA-AQ-A04H-01,Positive,Positive,Indeterminate,N2,Stage III,3.539283,NA
+TCGA-AQ-A04J-01,Negative,Negative,Negative,N0,Stage II,9.392924,TNBC
+TCGA-AQ-A04L-01,Negative,Positive,Positive,N0,Stage II,6.542211,Lum-B
+TCGA-AQ-A0Y5-01,Positive,Positive,Positive,N2,Stage III,35.828,Lum-B
+TCGA-AQ-A1H2-01,Positive,Positive,Indeterminate,N2,Stage III,2.421717,NA
+TCGA-AQ-A1H3-01,Positive,Positive,Negative,N3,Stage III,2.567233,Lum-A
+TCGA-AQ-A54N-01,Negative,Negative,Equivocal,N0,Stage II,5.766182,NA
+TCGA-AQ-A54O-01,Positive,Positive,Negative,N0,Stage II,1.1035,Lum-A
+TCGA-AQ-A7U7-01,Positive,Positive,Negative,N2,Stage III,3.597853,Lum-A
+TCGA-AR-A0TP-01,Negative,Positive,Negative,N0,Stage II,8.805468,Lum-B
+TCGA-AR-A0TQ-01,Negative,Positive,Equivocal,N1,Stage III,1.044923,NA
+TCGA-AR-A0TR-01,Positive,Positive,Equivocal,N1,Stage II,0.067641,NA
+TCGA-AR-A0TS-01,Negative,Negative,Negative,N1,Stage II,1.104871,TNBC
+TCGA-AR-A0TT-01,Negative,Positive,Negative,N2,Stage III,2.754832,Lum-B
+TCGA-AR-A0TU-01,Negative,Negative,Negative,N0,Stage II,4.648619,TNBC
+TCGA-AR-A0TV-01,Positive,Positive,Equivocal,N0,Stage II,1.819919,NA
+TCGA-AR-A0TW-01,Positive,Positive,Equivocal,N1,Stage III,3.112311,NA
+TCGA-AR-A0TX-01,Positive,Positive,Positive,N1,Stage II,3.264207,Lum-B
+TCGA-AR-A0TY-01,Negative,Positive,Negative,N0,Stage II,1.80706,Lum-B
+TCGA-AR-A0TZ-01,Positive,Positive,Equivocal,N2,NA,5.080049,NA
+TCGA-AR-A0U0-01,Negative,Negative,Not Evaluated,N1,Stage II,7.589369,NA
+TCGA-AR-A0U2-01,Positive,Positive,Negative,N2,Stage III,0.776671,Lum-A
+TCGA-AR-A0U3-01,Positive,Positive,Negative,N1,Stage II,2.558948,Lum-A
+TCGA-AR-A0U4-01,Negative,Negative,Negative,N0,Stage II,2.768879,TNBC
+TCGA-AR-A1AH-01,Negative,Positive,Negative,N1,Stage II,3.756091,Lum-B
+TCGA-AR-A1AI-01,Negative,Negative,Equivocal,N0,Stage II,2.509719,NA
+TCGA-AR-A1AJ-01,Negative,Positive,Negative,N0,Stage I,2.913617,Lum-B
+TCGA-AR-A1AK-01,Positive,Positive,Negative,N0,Stage I,1.627841,Lum-A
+TCGA-AR-A1AL-01,Positive,Positive,Negative,N1,Stage III,1.500322,Lum-A
+TCGA-AR-A1AM-01,Positive,Positive,Equivocal,N1,Stage III,1.654703,NA
+TCGA-AR-A1AN-01,Positive,Positive,Negative,N0,Stage II,1.101628,Lum-A
+TCGA-AR-A1AO-01,Negative,Positive,Negative,N1,Stage II,0.878412,Lum-B
+TCGA-AR-A1AP-01,Positive,Positive,Equivocal,N0,Stage I,3.047112,NA
+TCGA-AR-A1AQ-01,Negative,Negative,Equivocal,N0,Stage II,5.753362,NA
+TCGA-AR-A1AR-01,Negative,Negative,Negative,N2,Stage III,2.495426,TNBC
+TCGA-AR-A1AS-01,Positive,Positive,Negative,N1,Stage II,5.879969,Lum-A
+TCGA-AR-A1AT-01,Positive,Positive,Positive,N0,Stage II,3.681466,Lum-B
+TCGA-AR-A1AU-01,Positive,Positive,Equivocal,N2,Stage III,2.999979,NA
+TCGA-AR-A1AV-01,Positive,Positive,Negative,N1,Stage II,4.766536,Lum-A
+TCGA-AR-A1AW-01,Positive,Positive,Equivocal,N0,Stage II,0.61388,NA
+TCGA-AR-A1AX-01,Positive,Positive,Positive,N0,Stage I,0.80953,Lum-B
+TCGA-AR-A1AY-01,Negative,Negative,Negative,N0,Stage I,4.256292,TNBC
+TCGA-AR-A24H-01,Positive,Positive,Negative,N0,Stage II,0.990863,Lum-A
+TCGA-AR-A24K-01,Positive,Positive,Equivocal,N0,Stage II,3.850165,NA
+TCGA-AR-A24L-01,Positive,Positive,Equivocal,N1,Stage II,9.5817,NA
+TCGA-AR-A24M-01,Positive,Positive,Negative,N2,Stage III,5.528767,Lum-A
+TCGA-AR-A24N-01,Positive,Positive,Equivocal,N0,Stage I,2.327727,NA
+TCGA-AR-A24O-01,Positive,Positive,Negative,N2,Stage III,5.068087,Lum-A
+TCGA-AR-A24P-01,Positive,Positive,Equivocal,N0,Stage I,4.239616,NA
+TCGA-AR-A24Q-01,Negative,Positive,Negative,N0,Stage II,7.314452,Lum-B
+TCGA-AR-A24R-01,Positive,Positive,Negative,N2,Stage III,0.696763,Lum-A
+TCGA-AR-A24S-01,Positive,Positive,Negative,N0,Stage I,2.424902,Lum-A
+TCGA-AR-A24T-01,Positive,Positive,Equivocal,N3,Stage III,4.492275,NA
+TCGA-AR-A24U-01,Negative,Negative,Positive,N1,Stage II,2.204036,HER2+
+TCGA-AR-A24V-01,Positive,Positive,Negative,N1,Stage II,19.29055,Lum-A
+TCGA-AR-A24W-01,Positive,Positive,Negative,N1,Stage II,1.619723,Lum-A
+TCGA-AR-A24X-01,Positive,Positive,Equivocal,N0,Stage II,3.462359,NA
+TCGA-AR-A24Z-01,Positive,Positive,Negative,N0,Stage II,4.779883,Lum-A
+TCGA-AR-A250-01,Negative,Positive,Equivocal,N0,Stage II,14.14973,NA
+TCGA-AR-A251-01,Negative,Positive,Equivocal,N2,Stage III,3.391767,NA
+TCGA-AR-A252-01,Positive,Positive,Negative,N0,Stage I,3.497251,Lum-A
+TCGA-AR-A254-01,Positive,Positive,Positive,N2,Stage III,4.435175,Lum-B
+TCGA-AR-A255-01,Positive,Positive,Positive,N0,Stage I,1.999116,Lum-B
+TCGA-AR-A256-01,Negative,Negative,Negative,N0,Stage II,4.168638,TNBC
+TCGA-AR-A2LE-01,Negative,Positive,Not Evaluated,N0,Stage I,6.719859,NA
+TCGA-AR-A2LH-01,Negative,Negative,Equivocal,N3,Stage III,1.410264,NA
+TCGA-AR-A2LJ-01,Positive,Positive,Positive,N1,Stage III,1.386103,Lum-B
+TCGA-AR-A2LK-01,Positive,Positive,Equivocal,N2,Stage III,1.375628,NA
+TCGA-AR-A2LL-01,Positive,Positive,Equivocal,N0,Stage II,1.605575,NA
+TCGA-AR-A2LM-01,Positive,Positive,Not Evaluated,N1,Stage II,1.656378,NA
+TCGA-AR-A2LN-01,Positive,Positive,Negative,N0,Stage II,1.418102,Lum-A
+TCGA-AR-A2LO-01,Positive,Positive,Equivocal,N1,Stage II,2.874811,NA
+TCGA-AR-A2LQ-01,Positive,Positive,Negative,N0,Stage II,0.175853,Lum-A
+TCGA-AR-A2LR-01,Negative,Negative,Negative,N0,Stage I,4.32857,TNBC
+TCGA-AR-A5QM-01,Positive,Positive,Equivocal,N0,Stage II,1.969661,NA
+TCGA-AR-A5QN-01,Positive,Positive,Positive,N3,Stage III,0.827022,Lum-B
+TCGA-AR-A5QP-01,Positive,Positive,Equivocal,N1,Stage II,1.482979,NA
+TCGA-AR-A5QQ-01,Negative,Negative,Negative,N1,Stage III,3.61119,TNBC
+TCGA-B6-A0I1-01,Negative,Negative,Not Evaluated,N0,Stage II,4.072287,NA
+TCGA-B6-A0I2-01,Not Evaluated,Not Evaluated,Not Evaluated,N0,Stage I,2.534793,NA
+TCGA-B6-A0I5-01,Positive,Positive,Not Evaluated,N1,Stage II,2.745292,NA
+TCGA-B6-A0I6-01,Negative,Negative,Not Evaluated,N1,Stage II,2.677738,NA
+TCGA-B6-A0I8-01,Not Evaluated,Not Evaluated,Not Evaluated,NA,NA,0.50348,NA
+TCGA-B6-A0I9-01,Positive,Indeterminate,Not Evaluated,NA,Stage IV,3.665771,NA
+TCGA-B6-A0IA-01,Positive,Positive,Not Evaluated,N0,Stage II,0.600518,NA
+TCGA-B6-A0IB-01,Positive,Positive,Not Evaluated,N3,Stage IV,2.72146,NA
+TCGA-B6-A0IC-01,Positive,Positive,Not Evaluated,NA,NA,5.436675,NA
+TCGA-B6-A0IE-01,Negative,Negative,Not Evaluated,N1,Stage III,5.170126,NA
+TCGA-B6-A0IG-01,Positive,Positive,Not Evaluated,N1,Stage II,5.956687,NA
+TCGA-B6-A0IH-01,Positive,Positive,Not Evaluated,N1,Stage III,0.679497,NA
+TCGA-B6-A0IJ-01,Positive,Positive,Not Evaluated,N0,Stage II,3.764672,NA
+TCGA-B6-A0IK-01,Negative,Negative,Not Evaluated,N1,Stage III,3.548157,NA
+TCGA-B6-A0IM-01,Positive,Positive,Not Evaluated,N0,Stage II,6.849655,NA
+TCGA-B6-A0IN-01,Negative,Positive,Not Evaluated,NA,NA,5.050593,NA
+TCGA-B6-A0IO-01,Indeterminate,Positive,Not Evaluated,N0,Stage II,2.118068,NA
+TCGA-B6-A0IP-01,Positive,Positive,Not Evaluated,N0,Stage I,1.171054,NA
+TCGA-B6-A0IQ-01,Negative,Negative,Not Evaluated,N1,Stage III,9.969588,NA
+TCGA-B6-A0RE-01,Negative,Negative,Not Evaluated,N0,NA,4.122846,NA
+TCGA-B6-A0RG-01,Negative,Negative,Not Evaluated,N0,Stage II,3.896664,NA
+TCGA-B6-A0RH-01,Positive,Positive,Not Evaluated,N0,Stage II,8.078245,NA
+TCGA-B6-A0RI-01,Positive,Positive,Not Evaluated,N1,Stage III,3.340473,NA
+TCGA-B6-A0RL-01,Positive,Positive,Not Evaluated,N0,Stage II,0.417503,NA
+TCGA-B6-A0RM-01,Positive,Positive,Not Evaluated,NA,NA,0.64632,NA
+TCGA-B6-A0RN-01,Negative,Negative,Not Evaluated,N0,Stage I,3.087505,NA
+TCGA-B6-A0RO-01,Positive,Positive,Not Evaluated,N1,Stage III,0.857909,NA
+TCGA-B6-A0RP-01,Positive,Positive,Not Evaluated,N1,NA,5.582594,NA
+TCGA-B6-A0RQ-01,Positive,Positive,Not Evaluated,N0,Stage II,0.452381,NA
+TCGA-B6-A0RS-01,Negative,Negative,Not Evaluated,N0,Stage II,3.870251,NA
+TCGA-B6-A0RT-01,Negative,Negative,Not Evaluated,N1,Stage III,0.7344,NA
+TCGA-B6-A0RU-01,Negative,Negative,Not Evaluated,N0,Stage I,12.09962,NA
+TCGA-B6-A0RV-01,Positive,Positive,Not Evaluated,N2,Stage III,1.273861,NA
+TCGA-B6-A0WS-01,Positive,Positive,Not Evaluated,NA,NA,1.672425,NA
+TCGA-B6-A0WT-01,Positive,Positive,Not Evaluated,N1,Stage II,3.103375,NA
+TCGA-B6-A0WV-01,Positive,Positive,Not Evaluated,N1,Stage II,2.208817,NA
+TCGA-B6-A0WW-01,Positive,Positive,Not Evaluated,N1,NA,9.080732,NA
+TCGA-B6-A0WX-01,Negative,Negative,Not Evaluated,N1,Stage III,1.352764,NA
+TCGA-B6-A0WY-01,Negative,Positive,Not Evaluated,N1,Stage III,2.29357,NA
+TCGA-B6-A0WZ-01,Positive,Positive,Not Evaluated,N1,Stage II,3.588316,NA
+TCGA-B6-A0X0-01,Positive,Positive,Not Evaluated,N0,Stage I,1.370529,NA
+TCGA-B6-A0X1-01,Negative,Negative,Not Evaluated,N1,NA,3.119853,NA
+TCGA-B6-A0X4-01,Positive,Positive,Not Evaluated,N1,Stage II,8.320962,NA
+TCGA-B6-A0X5-01,Positive,Positive,Not Evaluated,N1,Stage II,0.903535,NA
+TCGA-B6-A0X7-01,Positive,Positive,Not Evaluated,NA,NA,2.046809,NA
+TCGA-B6-A1KC-01,Negative,Positive,Negative,N1,Stage II,5.101595,Lum-B
+TCGA-B6-A1KF-01,Negative,Negative,Equivocal,N1,Stage II,18.23922,NA
+TCGA-B6-A1KI-01,Positive,Positive,Equivocal,N0,Stage I,26.44011,NA
+TCGA-B6-A1KN-01,Negative,Negative,Not Evaluated,N1,Stage III,1.844354,NA
+TCGA-B6-A2IU-01,Positive,Positive,Not Evaluated,N0,Stage II,3.124288,NA
+TCGA-B6-A3ZX-01,Negative,Negative,Negative,N1,Stage IV,1.451133,TNBC
+TCGA-B6-A400-01,Negative,Negative,Negative,N2,Stage III,4.673325,TNBC
+TCGA-B6-A401-01,Positive,Positive,Negative,N1,Stage II,2.116296,Lum-A
+TCGA-B6-A402-01,Negative,Negative,Negative,N0,Stage I,3.115779,TNBC
+TCGA-B6-A408-01,Positive,Positive,Equivocal,N3,Stage III,2.216319,NA
+TCGA-B6-A409-01,Negative,Negative,Equivocal,N2,Stage III,1.969281,NA
+TCGA-B6-A40B-01,Positive,Positive,Negative,N0,Stage I,5.24774,Lum-A
+TCGA-B6-A40C-01,Positive,Positive,Negative,N0,Stage II,5.115623,Lum-A
+TCGA-BH-A0AU-01,Positive,Positive,Positive,N0,Stage II,0.819399,Lum-B
+TCGA-BH-A0AU-11,Normal,Normal,Normal,Normal,Normal,1.330467,Normal
+TCGA-BH-A0AV-01,Negative,Negative,Not Available,N0,Stage I,7.087132,NA
+TCGA-BH-A0AW-01,Negative,Positive,Positive,N1,Stage II,5.590173,Lum-B
+TCGA-BH-A0AY-01,Positive,Positive,Negative,N0,Stage II,6.546864,Lum-A
+TCGA-BH-A0AY-11,Normal,Normal,Normal,Normal,Normal,0.940168,Normal
+TCGA-BH-A0AZ-01,Positive,Positive,Negative,N1,Stage III,4.575825,Lum-A
+TCGA-BH-A0AZ-11,Normal,Normal,Normal,Normal,Normal,2.71973,Normal
+TCGA-BH-A0B0-01,Positive,Positive,Negative,N0,Stage I,2.027359,Lum-A
+TCGA-BH-A0B1-01,Positive,Positive,Negative,N1,Stage II,1.32746,Lum-A
+TCGA-BH-A0B3-01,Negative,Negative,Negative,N1,Stage II,3.52177,TNBC
+TCGA-BH-A0B3-11,Normal,Normal,Normal,Normal,Normal,0.726029,Normal
+TCGA-BH-A0B4-01,Positive,Positive,Equivocal,N2,Stage III,3.676524,NA
+TCGA-BH-A0B5-01,Positive,Positive,Negative,N2,Stage III,2.735433,Lum-A
+TCGA-BH-A0B5-11,Normal,Normal,Normal,Normal,Normal,0.080938,Normal
+TCGA-BH-A0B6-01,Positive,Positive,Positive,N0,Stage I,3.297134,Lum-B
+TCGA-BH-A0B7-01,Positive,Positive,Positive,N1,Stage II,2.531637,Lum-B
+TCGA-BH-A0B7-11,Normal,Normal,Normal,Normal,Normal,0.385789,Normal
+TCGA-BH-A0B8-01,Positive,Positive,Equivocal,N0,Stage I,5.59761,NA
+TCGA-BH-A0B8-11,Normal,Normal,Normal,Normal,Normal,0.065283,Normal
+TCGA-BH-A0B9-01,Negative,Negative,Negative,N0,Stage I,1.200621,TNBC
+TCGA-BH-A0BA-01,Positive,Positive,Negative,N3,Stage III,6.430416,Lum-A
+TCGA-BH-A0BA-11,Normal,Normal,Normal,Normal,Normal,0.780332,Normal
+TCGA-BH-A0BC-01,Positive,Positive,Negative,N3,Stage III,1.790924,Lum-A
+TCGA-BH-A0BC-11,Normal,Normal,Normal,Normal,Normal,0.268747,Normal
+TCGA-BH-A0BD-01,Positive,Positive,Negative,N1,Stage II,1.708058,Lum-A
+TCGA-BH-A0BF-01,Positive,Positive,Negative,N1,Stage II,2.37872,Lum-A
+TCGA-BH-A0BG-01,Negative,Negative,Negative,N0,Stage I,1.849705,TNBC
+TCGA-BH-A0BJ-01,Positive,Positive,Negative,N1,Stage II,4.522817,Lum-A
+TCGA-BH-A0BJ-11,Normal,Normal,Normal,Normal,Normal,1.216455,Normal
+TCGA-BH-A0BL-01,Negative,Negative,Negative,N0,Stage I,11.96374,TNBC
+TCGA-BH-A0BM-01,Negative,Positive,Negative,N1,Stage II,3.301722,Lum-B
+TCGA-BH-A0BM-11,Normal,Normal,Normal,Normal,Normal,0.411399,Normal
+TCGA-BH-A0BO-01,Positive,Positive,Negative,N0,Stage I,0.635442,Lum-A
+TCGA-BH-A0BP-01,Positive,Positive,Negative,N0,Stage I,1.699382,Lum-A
+TCGA-BH-A0BQ-01,Positive,Positive,Positive,N0,Stage I,2.676076,Lum-B
+TCGA-BH-A0BQ-11,Normal,Normal,Normal,Normal,Normal,0.208922,Normal
+TCGA-BH-A0BR-01,Positive,Positive,Negative,N0,Stage I,5.014892,Lum-A
+TCGA-BH-A0BS-11,Normal,Normal,Normal,Normal,Normal,0.961568,Normal
+TCGA-BH-A0BT-01,Positive,Positive,Negative,N1,Stage II,2.323056,Lum-A
+TCGA-BH-A0BT-11,Normal,Normal,Normal,Normal,Normal,0.577652,Normal
+TCGA-BH-A0BV-01,Positive,Positive,Negative,N1,Stage II,2.54006,Lum-A
+TCGA-BH-A0BV-11,Normal,Normal,Normal,Normal,Normal,1.217483,Normal
+TCGA-BH-A0BW-01,Negative,Negative,Not Available,N0,Stage I,2.852392,NA
+TCGA-BH-A0BW-11,Normal,Normal,Normal,Normal,Normal,0.80836,Normal
+TCGA-BH-A0BZ-01,Positive,Positive,Negative,N1,Stage III,2.932243,Lum-A
+TCGA-BH-A0BZ-11,Normal,Normal,Normal,Normal,Normal,0.245578,Normal
+TCGA-BH-A0C0-01,Positive,Positive,Equivocal,N1,Stage II,1.002357,NA
+TCGA-BH-A0C0-11,Normal,Normal,Normal,Normal,Normal,1.457054,Normal
+TCGA-BH-A0C1-01,Positive,Positive,Negative,N2,Stage III,4.962648,Lum-A
+TCGA-BH-A0C3-01,Negative,Positive,Negative,N0,Stage I,8.280631,Lum-B
+TCGA-BH-A0C3-11,Normal,Normal,Normal,Normal,Normal,0.642475,Normal
+TCGA-BH-A0C7-01,Negative,Positive,Not Available,N1,Stage II,4.323766,NA
+TCGA-BH-A0DD-01,Positive,Positive,Positive,N1,Stage II,1.181334,Lum-B
+TCGA-BH-A0DD-11,Normal,Normal,Normal,Normal,Normal,0.119702,Normal
+TCGA-BH-A0DE-01,Positive,Positive,Negative,N0,Stage II,2.474396,Lum-A
+TCGA-BH-A0DG-01,Negative,Positive,Negative,N0,Stage II,2.838342,Lum-B
+TCGA-BH-A0DG-11,Normal,Normal,Normal,Normal,Normal,0.664248,Normal
+TCGA-BH-A0DH-01,Positive,Positive,Negative,N1,Stage II,2.600783,Lum-A
+TCGA-BH-A0DH-11,Normal,Normal,Normal,Normal,Normal,0.678183,Normal
+TCGA-BH-A0DI-01,Positive,Positive,Negative,N1,Stage II,6.158876,Lum-A
+TCGA-BH-A0DK-01,Positive,Positive,Negative,N0,Stage II,8.374303,Lum-A
+TCGA-BH-A0DK-11,Normal,Normal,Normal,Normal,Normal,2.174557,Normal
+TCGA-BH-A0DL-01,Negative,Positive,Negative,N0,Stage II,0.731899,Lum-B
+TCGA-BH-A0DL-11,Normal,Normal,Normal,Normal,Normal,0.605609,Normal
+TCGA-BH-A0DO-01,Positive,Positive,Negative,N0,Stage I,2.162906,Lum-A
+TCGA-BH-A0DO-11,Normal,Normal,Normal,Normal,Normal,1.440512,Normal
+TCGA-BH-A0DP-01,Positive,Positive,Negative,N0,Stage II,0.887102,Lum-A
+TCGA-BH-A0DP-11,Normal,Normal,Normal,Normal,Normal,0.404418,Normal
+TCGA-BH-A0DQ-01,Positive,Positive,Negative,N1,Stage II,6.258028,Lum-A
+TCGA-BH-A0DQ-11,Normal,Normal,Normal,Normal,Normal,0.779053,Normal
+TCGA-BH-A0DS-01,Positive,Positive,Negative,N2,Stage III,2.24261,Lum-A
+TCGA-BH-A0DT-01,Positive,Positive,Negative,N1,Stage II,2.71366,Lum-A
+TCGA-BH-A0DT-11,Normal,Normal,Normal,Normal,Normal,0.338259,Normal
+TCGA-BH-A0DV-01,Positive,Positive,Negative,N2,Stage III,4.531664,Lum-A
+TCGA-BH-A0DV-11,Normal,Normal,Normal,Normal,Normal,0.480297,Normal
+TCGA-BH-A0DX-01,Positive,Positive,Negative,N0,Stage I,3.130552,Lum-A
+TCGA-BH-A0DZ-01,Positive,Positive,Positive,N1,Stage II,9.29045,Lum-B
+TCGA-BH-A0DZ-11,Normal,Normal,Normal,Normal,Normal,1.852132,Normal
+TCGA-BH-A0E0-01,Negative,Negative,Negative,N3,Stage III,3.099908,TNBC
+TCGA-BH-A0E0-11,Normal,Normal,Normal,Normal,Normal,1.711364,Normal
+TCGA-BH-A0E1-01,Positive,Positive,Equivocal,N1,Stage II,2.712127,NA
+TCGA-BH-A0E1-11,Normal,Normal,Normal,Normal,Normal,0.62363,Normal
+TCGA-BH-A0E2-01,Positive,Positive,Negative,N2,Stage III,3.308587,Lum-A
+TCGA-BH-A0E6-01,Negative,Negative,Equivocal,N0,Stage I,2.079981,NA
+TCGA-BH-A0E7-01,Positive,Positive,Negative,N1,Stage II,4.949237,Lum-A
+TCGA-BH-A0E9-01,Positive,Positive,Negative,N1,Stage II,0.571912,Lum-A
+TCGA-BH-A0EA-01,Positive,Positive,Negative,N1,Stage II,1.143173,Lum-A
+TCGA-BH-A0EB-01,Positive,Positive,Equivocal,N0,Stage I,4.843596,NA
+TCGA-BH-A0EE-01,Negative,Negative,Positive,N0,Stage II,3.25488,HER2+
+TCGA-BH-A0EI-01,Positive,Positive,Negative,N1,Stage II,6.329957,Lum-A
+TCGA-BH-A0GY-01,Positive,Positive,Negative,N1,Stage II,2.645719,Lum-A
+TCGA-BH-A0GZ-01,Positive,Positive,Equivocal,N1,Stage II,6.758684,NA
+TCGA-BH-A0H0-01,Positive,Positive,Negative,N0,Stage I,2.089527,Lum-A
+TCGA-BH-A0H3-01,Positive,Positive,Not Available,N0,Stage I,3.804757,NA
+TCGA-BH-A0H5-01,Positive,Positive,Not Available,N0,Stage I,0.857197,NA
+TCGA-BH-A0H5-11,Normal,Normal,Normal,Normal,Normal,0.774435,Normal
+TCGA-BH-A0H6-01,Positive,Positive,Negative,NA,Stage I,2.941124,Lum-A
+TCGA-BH-A0H7-01,Positive,Positive,Negative,N2,Stage III,4.572434,Lum-A
+TCGA-BH-A0H7-11,Normal,Normal,Normal,Normal,Normal,0.218284,Normal
+TCGA-BH-A0H9-01,Positive,Positive,Equivocal,N0,Stage II,1.623643,NA
+TCGA-BH-A0H9-11,Normal,Normal,Normal,Normal,Normal,0.099732,Normal
+TCGA-BH-A0HA-01,Positive,Positive,Not Available,N0,Stage I,5.82026,NA
+TCGA-BH-A0HA-11,Normal,Normal,Normal,Normal,Normal,1.226253,Normal
+TCGA-BH-A0HB-01,Positive,Positive,Equivocal,N0,Stage I,0.407052,NA
+TCGA-BH-A0HF-01,Positive,Positive,Negative,N0,Stage I,6.242426,Lum-A
+TCGA-BH-A0HI-01,Positive,Positive,Negative,N0,Stage I,12.71766,Lum-A
+TCGA-BH-A0HK-01,Negative,Positive,Negative,N1,Stage II,4.197589,Lum-B
+TCGA-BH-A0HK-11,Normal,Normal,Normal,Normal,Normal,1.055566,Normal
+TCGA-BH-A0HL-01,Positive,Positive,Equivocal,N1,Stage II,5.447111,NA
+TCGA-BH-A0HN-01,Positive,Positive,Equivocal,N0,Stage I,2.702045,NA
+TCGA-BH-A0HO-01,Positive,Positive,Negative,N1,Stage II,3.24221,Lum-A
+TCGA-BH-A0HP-01,Negative,Positive,Negative,N2,Stage III,2.088777,Lum-B
+TCGA-BH-A0HQ-01,Positive,Positive,Negative,N0,Stage II,3.625634,Lum-A
+TCGA-BH-A0HU-01,Positive,Positive,Negative,N0,Stage I,2.770879,Lum-A
+TCGA-BH-A0HW-01,Negative,Positive,Equivocal,N0,Stage I,12.02413,NA
+TCGA-BH-A0HX-01,Positive,Positive,Negative,N1,Stage II,4.321457,Lum-A
+TCGA-BH-A0HY-01,Negative,Positive,Positive,N0,Stage I,9.638159,Lum-B
+TCGA-BH-A0RX-01,Negative,Negative,Negative,N0,Stage II,6.907553,TNBC
+TCGA-BH-A0W3-01,Positive,Positive,Equivocal,N1,Stage II,0.900825,NA
+TCGA-BH-A0W4-01,Positive,Positive,Negative,N0,Stage II,6.335282,Lum-A
+TCGA-BH-A0W5-01,Positive,Positive,Equivocal,N1,Stage II,2.74622,NA
+TCGA-BH-A0W7-01,Positive,Positive,Negative,N0,Stage I,2.466515,Lum-A
+TCGA-BH-A0WA-01,Negative,Negative,Negative,N0,Stage I,4.929155,TNBC
+TCGA-BH-A18F-01,Positive,Positive,Negative,N0,Stage II,3.465602,Lum-A
+TCGA-BH-A18G-01,Negative,Negative,Negative,N0,Stage I,3.219104,TNBC
+TCGA-BH-A18H-01,Positive,Positive,Positive,N0,Stage I,2.625285,Lum-B
+TCGA-BH-A18I-01,Positive,Positive,Positive,N1,Stage II,4.999922,Lum-B
+TCGA-BH-A18J-01,Positive,Positive,Negative,N2,Stage IV,9.211385,Lum-A
+TCGA-BH-A18J-11,Normal,Normal,Normal,Normal,Normal,0.148143,Normal
+TCGA-BH-A18K-01,Positive,Positive,Negative,N0,Stage I,7.710976,Lum-A
+TCGA-BH-A18K-11,Normal,Normal,Normal,Normal,Normal,0.365372,Normal
+TCGA-BH-A18L-01,Positive,Positive,Negative,N1,Stage III,1.152827,Lum-A
+TCGA-BH-A18L-11,Normal,Normal,Normal,Normal,Normal,0.392048,Normal
+TCGA-BH-A18M-01,Positive,Positive,Positive,N1,Stage III,1.265198,Lum-B
+TCGA-BH-A18M-11,Normal,Normal,Normal,Normal,Normal,0.304884,Normal
+TCGA-BH-A18N-01,Positive,Positive,Negative,N1,Stage II,15.13739,Lum-A
+TCGA-BH-A18N-11,Normal,Normal,Normal,Normal,Normal,0.224291,Normal
+TCGA-BH-A18P-01,Negative,Positive,Positive,N0,Stage I,9.751584,Lum-B
+TCGA-BH-A18P-11,Normal,Normal,Normal,Normal,Normal,0.443712,Normal
+TCGA-BH-A18Q-01,Negative,Negative,Positive,N1,Stage II,0.60298,HER2+
+TCGA-BH-A18Q-11,Normal,Normal,Normal,Normal,Normal,0.756553,Normal
+TCGA-BH-A18R-01,Negative,Indeterminate,Positive,N1,Stage II,0.968311,NA
+TCGA-BH-A18R-11,Normal,Normal,Normal,Normal,Normal,0.70635,Normal
+TCGA-BH-A18S-01,Positive,Positive,Negative,N0,Stage I,3.270988,Lum-A
+TCGA-BH-A18S-11,Normal,Normal,Normal,Normal,Normal,0.291277,Normal
+TCGA-BH-A18T-01,Negative,Negative,Positive,N0,Stage II,3.434463,HER2+
+TCGA-BH-A18U-01,Positive,Positive,Positive,N2,Stage III,8.154156,Lum-B
+TCGA-BH-A18U-11,Normal,Normal,Normal,Normal,Normal,0.357092,Normal
+TCGA-BH-A18V-01,Negative,Negative,Negative,N1,Stage II,3.796568,TNBC
+TCGA-BH-A18V-11,Normal,Normal,Normal,Normal,Normal,0.435358,Normal
+TCGA-BH-A1EN-01,Negative,Negative,Positive,NA,Stage II,0.56795,HER2+
+TCGA-BH-A1EN-11,Normal,Normal,Normal,Normal,Normal,0.249544,Normal
+TCGA-BH-A1EO-01,Positive,Positive,Negative,N1,Stage II,3.47326,Lum-A
+TCGA-BH-A1EO-11,Normal,Normal,Normal,Normal,Normal,0.524752,Normal
+TCGA-BH-A1ES-01,Positive,Positive,Negative,N1,Stage II,2.797388,Lum-A
+TCGA-BH-A1ET-01,Positive,Positive,Negative,N0,Stage I,6.667027,Lum-A
+TCGA-BH-A1ET-11,Normal,Normal,Normal,Normal,Normal,1.277432,Normal
+TCGA-BH-A1EU-01,Positive,Positive,Negative,N0,Stage I,1.322417,Lum-A
+TCGA-BH-A1EU-11,Normal,Normal,Normal,Normal,Normal,0.226549,Normal
+TCGA-BH-A1EV-01,Positive,Positive,Positive,N1,Stage III,6.061443,Lum-B
+TCGA-BH-A1EV-11,Normal,Normal,Normal,Normal,Normal,0.411246,Normal
+TCGA-BH-A1EW-01,Negative,Negative,Negative,N1,Stage II,1.616862,TNBC
+TCGA-BH-A1EW-11,Normal,Normal,Normal,Normal,Normal,0.587524,Normal
+TCGA-BH-A1EX-01,Positive,Positive,Positive,N1,Stage II,1.833053,Lum-B
+TCGA-BH-A1EY-01,Positive,Positive,Negative,N0,Stage II,1.92275,Lum-A
+TCGA-BH-A1F0-01,Indeterminate,Negative,Negative,N1,Stage II,3.347328,NA
+TCGA-BH-A1F0-11,Normal,Normal,Normal,Normal,Normal,0.412763,Normal
+TCGA-BH-A1F2-01,Positive,Positive,Positive,N1,Stage III,3.117906,Lum-B
+TCGA-BH-A1F2-11,Normal,Normal,Normal,Normal,Normal,0.168215,Normal
+TCGA-BH-A1F5-01,Positive,Positive,Negative,N1,Stage II,1.393425,Lum-A
+TCGA-BH-A1F6-01,Negative,Negative,Negative,N2,NA,3.060439,TNBC
+TCGA-BH-A1F6-11,Normal,Normal,Normal,Normal,Normal,0.294296,Normal
+TCGA-BH-A1F8-01,Positive,Positive,Positive,N2,Stage III,1.589188,Lum-B
+TCGA-BH-A1F8-11,Normal,Normal,Normal,Normal,Normal,0.240974,Normal
+TCGA-BH-A1FB-01,Positive,Positive,Negative,N1,Stage II,2.17213,Lum-A
+TCGA-BH-A1FB-11,Normal,Normal,Normal,Normal,Normal,0.368347,Normal
+TCGA-BH-A1FC-01,Negative,Negative,Negative,N1,Stage II,1.056198,TNBC
+TCGA-BH-A1FC-11,Normal,Normal,Normal,Normal,Normal,0.359245,Normal
+TCGA-BH-A1FD-01,Positive,Positive,Negative,N0,Stage I,2.75612,Lum-A
+TCGA-BH-A1FD-11,Normal,Normal,Normal,Normal,Normal,0.04442,Normal
+TCGA-BH-A1FE-01,Positive,Positive,Not Evaluated,N1,Stage II,2.106524,NA
+TCGA-BH-A1FE-11,Normal,Normal,Normal,Normal,Normal,1.244008,Normal
+TCGA-BH-A1FG-01,Positive,Positive,Negative,NA,Stage I,1.309168,Lum-A
+TCGA-BH-A1FG-11,Normal,Normal,Normal,Normal,Normal,0.179308,Normal
+TCGA-BH-A1FH-01,Negative,Positive,Not Evaluated,N1,Stage IV,0.61308,NA
+TCGA-BH-A1FH-11,Normal,Normal,Normal,Normal,Normal,0.482318,Normal
+TCGA-BH-A1FJ-01,Positive,Negative,Not Evaluated,N1,Stage III,2.300793,NA
+TCGA-BH-A1FJ-11,Normal,Normal,Normal,Normal,Normal,0.303664,Normal
+TCGA-BH-A1FL-01,Positive,Positive,Not Evaluated,N1,Stage II,2.537001,NA
+TCGA-BH-A1FM-01,Negative,Positive,Not Evaluated,N2,Stage III,12.70661,NA
+TCGA-BH-A1FM-11,Normal,Normal,Normal,Normal,Normal,0.853739,Normal
+TCGA-BH-A1FN-01,Positive,Positive,Not Evaluated,N0,Stage II,13.33733,NA
+TCGA-BH-A1FN-11,Normal,Normal,Normal,Normal,Normal,0.296896,Normal
+TCGA-BH-A1FR-01,Positive,Positive,Not Evaluated,N1,Stage III,7.77636,NA
+TCGA-BH-A1FR-11,Normal,Normal,Normal,Normal,Normal,0.885677,Normal
+TCGA-BH-A1FU-01,Negative,Negative,Not Evaluated,N0,Stage I,9.274075,NA
+TCGA-BH-A1FU-11,Normal,Normal,Normal,Normal,Normal,0.566691,Normal
+TCGA-BH-A201-01,Positive,Positive,Negative,N0,Stage I,2.700481,Lum-A
+TCGA-BH-A202-01,Positive,Positive,Positive,N0,Stage II,9.665071,Lum-B
+TCGA-BH-A203-01,Not Evaluated,Not Evaluated,Not Evaluated,N1,Stage II,4.727933,NA
+TCGA-BH-A203-11,Normal,Normal,Normal,Normal,Normal,0.409899,Normal
+TCGA-BH-A204-01,Not Evaluated,Not Evaluated,Not Evaluated,N1,Stage II,3.768766,NA
+TCGA-BH-A204-11,Normal,Normal,Normal,Normal,Normal,0.648068,Normal
+TCGA-BH-A208-01,Not Evaluated,Not Evaluated,Not Evaluated,N1,Stage II,8.738603,NA
+TCGA-BH-A208-11,Normal,Normal,Normal,Normal,Normal,1.091128,Normal
+TCGA-BH-A209-01,Positive,Positive,Not Evaluated,N0,Stage I,3.405894,NA
+TCGA-BH-A209-11,Normal,Normal,Normal,Normal,Normal,0.590079,Normal
+TCGA-BH-A28O-01,Positive,Positive,Negative,N3,Stage III,2.328607,Lum-A
+TCGA-BH-A28Q-01,Positive,Positive,Negative,N1,Stage II,2.259591,Lum-A
+TCGA-BH-A2L8-01,Positive,Positive,Negative,N0,Stage II,4.0746,Lum-A
+TCGA-BH-A42T-01,Positive,Positive,Positive,N0,Stage II,2.232237,Lum-B
+TCGA-BH-A42U-01,Negative,Negative,Negative,N0,Stage II,0.584627,TNBC
+TCGA-BH-A42V-01,Positive,Positive,Negative,N1,Stage I,2.17637,Lum-A
+TCGA-BH-A5IZ-01,Negative,Positive,Negative,N1,Stage II,0.977428,Lum-B
+TCGA-BH-A5J0-01,Positive,Positive,Negative,N0,Stage I,6.13256,Lum-A
+TCGA-BH-A6R8-01,Positive,Positive,Not Evaluated,N0,Stage II,2.597101,NA
+TCGA-BH-A6R9-01,Positive,Negative,Negative,N0,Stage II,1.533745,NA
+TCGA-BH-A8FY-01,Positive,Positive,Negative,N0,Stage I,5.09377,Lum-A
+TCGA-BH-A8FZ-01,Positive,Positive,Equivocal,N0,Stage I,2.708993,NA
+TCGA-BH-A8G0-01,Positive,Positive,Negative,N1,Stage II,1.464632,Lum-A
+TCGA-BH-AB28-01,Positive,Positive,Negative,N1,Stage III,0.677896,Lum-A
+TCGA-C8-A12K-01,Not Evaluated,Not Evaluated,Not Evaluated,N1,Stage II,1.10755,NA
+TCGA-C8-A12L-01,Negative,Negative,Equivocal,N0,Stage II,9.809252,NA
+TCGA-C8-A12M-01,Negative,Positive,Negative,N0,Stage II,16.35477,Lum-B
+TCGA-C8-A12N-01,Positive,Positive,Negative,N0,Stage II,12.93381,Lum-A
+TCGA-C8-A12O-01,Positive,Positive,Negative,N0,Stage II,4.439335,Lum-A
+TCGA-C8-A12P-01,Negative,Negative,Positive,N1,Stage II,7.239658,HER2+
+TCGA-C8-A12Q-01,Negative,Negative,Positive,N2,Stage III,4.14808,HER2+
+TCGA-C8-A12T-01,Positive,Positive,Positive,N0,Stage II,8.640479,Lum-B
+TCGA-C8-A12U-01,Positive,Positive,Negative,N1,Stage II,2.810135,Lum-A
+TCGA-C8-A12V-01,Negative,Negative,Negative,N0,Stage II,2.021078,TNBC
+TCGA-C8-A12W-01,Positive,Positive,Negative,N1,Stage III,1.592711,Lum-A
+TCGA-C8-A12X-01,Positive,Positive,Negative,N1,Stage II,2.915965,Lum-A
+TCGA-C8-A12Y-01,Not Evaluated,Not Evaluated,Not Evaluated,N1,Stage II,2.942864,NA
+TCGA-C8-A12Z-01,Negative,Negative,Positive,N1,Stage II,7.053424,HER2+
+TCGA-C8-A130-01,Positive,Positive,Equivocal,N2,Stage III,14.24055,NA
+TCGA-C8-A131-01,Negative,Negative,Negative,N2,Stage III,8.1642,TNBC
+TCGA-C8-A132-01,Positive,Positive,Not Evaluated,N1,Stage II,2.915414,NA
+TCGA-C8-A133-01,Positive,Positive,Not Evaluated,N1,Stage III,6.229114,NA
+TCGA-C8-A134-01,Negative,Negative,Equivocal,N0,Stage II,1.098732,NA
+TCGA-C8-A135-01,Negative,Negative,Positive,N1,Stage II,3.446458,HER2+
+TCGA-C8-A137-01,Negative,Negative,Positive,N1,Stage II,5.163332,HER2+
+TCGA-C8-A138-01,Negative,Positive,Equivocal,N2,Stage III,2.115433,NA
+TCGA-C8-A1HE-01,Positive,Positive,Equivocal,N0,Stage II,4.316729,NA
+TCGA-C8-A1HF-01,Positive,Negative,Positive,N0,Stage II,6.518306,NA
+TCGA-C8-A1HG-01,Positive,Positive,Negative,N0,Stage II,2.263736,Lum-A
+TCGA-C8-A1HI-01,Positive,Positive,Negative,N2,Stage III,1.607249,Lum-A
+TCGA-C8-A1HJ-01,Negative,Negative,Negative,N0,Stage II,3.715401,TNBC
+TCGA-C8-A1HK-01,Negative,Negative,Positive,N1,Stage II,2.613067,HER2+
+TCGA-C8-A1HL-01,Negative,Positive,Equivocal,N1,Stage III,3.647723,NA
+TCGA-C8-A1HM-01,Positive,Positive,Negative,N0,Stage II,2.298912,Lum-A
+TCGA-C8-A1HN-01,Positive,Positive,Equivocal,N0,Stage II,7.969784,NA
+TCGA-C8-A1HO-01,Positive,Positive,Negative,N3,Stage III,2.157143,Lum-A
+TCGA-C8-A26V-01,Positive,Positive,Negative,N2,Stage III,5.270854,Lum-A
+TCGA-C8-A26W-01,Positive,Positive,Equivocal,N1,Stage II,2.999252,NA
+TCGA-C8-A26X-01,Negative,Negative,Negative,N1,Stage II,36.54476,TNBC
+TCGA-C8-A26Y-01,Negative,Negative,Negative,N0,Stage II,4.1889,TNBC
+TCGA-C8-A26Z-01,Positive,Positive,Negative,N0,Stage II,1.467852,Lum-A
+TCGA-C8-A273-01,Positive,Positive,Negative,N1,Stage II,1.69983,Lum-A
+TCGA-C8-A274-01,Positive,Positive,Negative,N0,Stage II,8.092656,Lum-A
+TCGA-C8-A275-01,Not Evaluated,Not Evaluated,Not Evaluated,N1,Stage II,2.556195,NA
+TCGA-C8-A278-01,Negative,Negative,Positive,N2,Stage III,7.601969,HER2+
+TCGA-C8-A27A-01,Positive,Positive,Negative,N1,Stage II,18.25692,Lum-A
+TCGA-C8-A27B-01,Negative,Negative,Negative,N0,Stage II,4.874412,TNBC
+TCGA-C8-A3M7-01,Negative,Negative,Negative,N0,Stage III,1.59269,TNBC
+TCGA-C8-A3M8-01,Positive,Positive,Positive,N0,Stage I,3.860879,Lum-B
+TCGA-C8-A8HP-01,Negative,Negative,Positive,N2,Stage III,1.467722,HER2+
+TCGA-C8-A8HQ-01,Positive,Positive,Negative,N1,Stage II,3.504515,Lum-A
+TCGA-C8-A8HR-01,Not Evaluated,Not Evaluated,Not Evaluated,N2,Stage III,4.866143,NA
+TCGA-D8-A13Y-01,Positive,Positive,Negative,N0,Stage I,4.313281,Lum-A
+TCGA-D8-A13Z-01,Negative,Negative,Negative,N2,NA,3.914147,TNBC
+TCGA-D8-A140-01,Positive,Positive,Positive,N1,Stage II,1.915687,Lum-B
+TCGA-D8-A141-01,Positive,Positive,Negative,N1,NA,5.548696,Lum-A
+TCGA-D8-A142-01,Negative,Negative,Equivocal,N0,Stage II,7.302742,NA
+TCGA-D8-A143-01,Negative,Negative,Negative,N0,Stage II,6.804451,TNBC
+TCGA-D8-A145-01,Positive,Positive,Equivocal,N1,Stage II,1.432795,NA
+TCGA-D8-A146-01,Positive,Positive,Negative,N0,Stage II,2.902772,Lum-A
+TCGA-D8-A147-01,Negative,Negative,Negative,N0,NA,1.805438,TNBC
+TCGA-D8-A1J8-01,Positive,Positive,Negative,N1,Stage II,11.08809,Lum-A
+TCGA-D8-A1J9-01,Negative,Positive,Positive,N0,Stage I,9.174913,Lum-B
+TCGA-D8-A1JA-01,Negative,Negative,Positive,NA,NA,15.81899,HER2+
+TCGA-D8-A1JB-01,Positive,Positive,Equivocal,N1,Stage II,1.398756,NA
+TCGA-D8-A1JC-01,Positive,Positive,Negative,N2,Stage III,1.843241,Lum-A
+TCGA-D8-A1JD-01,Positive,Positive,Negative,N1,Stage II,3.124312,Lum-A
+TCGA-D8-A1JE-01,Positive,Positive,Negative,N1,Stage II,5.346393,Lum-A
+TCGA-D8-A1JF-01,Negative,Negative,Negative,N2,Stage III,2.139045,TNBC
+TCGA-D8-A1JG-01,Negative,Negative,Equivocal,N0,Stage II,6.114563,NA
+TCGA-D8-A1JH-01,Positive,Positive,Negative,N0,Stage I,3.953258,Lum-A
+TCGA-D8-A1JI-01,Positive,Positive,Negative,N1,Stage II,6.493996,Lum-A
+TCGA-D8-A1JJ-01,Positive,Positive,Negative,N0,Stage II,8.301924,Lum-A
+TCGA-D8-A1JK-01,Positive,Negative,Negative,N0,Stage II,7.813616,NA
+TCGA-D8-A1JL-01,Negative,Negative,Negative,N0,Stage II,3.967904,TNBC
+TCGA-D8-A1JM-01,Negative,Positive,Negative,N1,Stage II,15.38524,Lum-B
+TCGA-D8-A1JN-01,Positive,Positive,Indeterminate,N3,Stage III,1.295536,NA
+TCGA-D8-A1JP-01,Positive,Positive,Negative,N0,Stage I,5.647896,Lum-A
+TCGA-D8-A1JS-01,Positive,Positive,Negative,N0,Stage I,5.711034,Lum-A
+TCGA-D8-A1JT-01,Positive,Positive,Equivocal,N0,Stage II,13.85173,NA
+TCGA-D8-A1JU-01,Positive,Positive,Negative,N0,Stage I,3.288323,Lum-A
+TCGA-D8-A1X5-01,Positive,Positive,Positive,N3,Stage III,2.516303,Lum-B
+TCGA-D8-A1X6-01,Positive,Positive,Negative,N2,Stage III,0.657277,Lum-A
+TCGA-D8-A1X7-01,Positive,Positive,Negative,N0,Stage II,7.399204,Lum-A
+TCGA-D8-A1X8-01,Indeterminate,Positive,Negative,N2,Stage III,3.398324,NA
+TCGA-D8-A1X9-01,Positive,Positive,Indeterminate,N1,Stage II,5.418656,NA
+TCGA-D8-A1XA-01,Positive,Positive,Equivocal,N0,Stage I,1.527515,NA
+TCGA-D8-A1XB-01,Positive,Positive,Negative,N1,Stage II,5.147981,Lum-A
+TCGA-D8-A1XC-01,Positive,Positive,Negative,N1,Stage III,6.864151,Lum-A
+TCGA-D8-A1XD-01,Positive,Positive,Negative,N2,Stage III,8.459203,Lum-A
+TCGA-D8-A1XF-01,Positive,Positive,Negative,N0,Stage II,4.189059,Lum-A
+TCGA-D8-A1XG-01,Negative,Positive,Negative,N1,Stage III,3.837766,Lum-B
+TCGA-D8-A1XJ-01,Positive,Positive,Positive,N1,Stage III,3.51222,Lum-B
+TCGA-D8-A1XK-01,Negative,Negative,Negative,N1,Stage II,4.336519,TNBC
+TCGA-D8-A1XL-01,Positive,Positive,Equivocal,N1,Stage II,2.894539,NA
+TCGA-D8-A1XM-01,Positive,Positive,Negative,N0,Stage I,2.904848,Lum-A
+TCGA-D8-A1XO-01,Positive,Positive,Negative,N1,Stage II,2.521977,Lum-A
+TCGA-D8-A1XQ-01,Negative,Negative,Negative,N0,Stage II,2.514258,TNBC
+TCGA-D8-A1XR-01,Positive,Positive,Negative,N1,Stage II,6.688783,Lum-A
+TCGA-D8-A1XS-01,Positive,Positive,Positive,N3,Stage III,5.700819,Lum-B
+TCGA-D8-A1XT-01,Negative,Negative,Positive,N1,Stage II,7.366516,HER2+
+TCGA-D8-A1XU-01,Positive,Positive,Negative,N0,Stage I,3.595484,Lum-A
+TCGA-D8-A1XV-01,Positive,Positive,Equivocal,N0,Stage II,6.368191,NA
+TCGA-D8-A1XW-01,Positive,Negative,Negative,N0,Stage II,32.9167,NA
+TCGA-D8-A1XY-01,Positive,Positive,Positive,N0,Stage II,5.158961,Lum-B
+TCGA-D8-A1XZ-01,Negative,Positive,Negative,N2,Stage III,3.956139,Lum-B
+TCGA-D8-A1Y0-01,Positive,Positive,Negative,N2,Stage III,1.329978,Lum-A
+TCGA-D8-A1Y1-01,Positive,Positive,Negative,N1,Stage III,6.981072,Lum-A
+TCGA-D8-A1Y2-01,Positive,Positive,Indeterminate,N0,Stage II,1.773192,NA
+TCGA-D8-A1Y3-01,Positive,Positive,Indeterminate,N2,Stage III,0.747043,NA
+TCGA-D8-A27E-01,Positive,Positive,Negative,N0,Stage I,3.255181,Lum-A
+TCGA-D8-A27F-01,Negative,Negative,Negative,N0,Stage II,4.52652,TNBC
+TCGA-D8-A27G-01,Positive,Positive,Equivocal,N0,Stage II,3.674235,NA
+TCGA-D8-A27H-01,Negative,Negative,Negative,N0,Stage II,12.34536,TNBC
+TCGA-D8-A27I-01,Positive,Positive,Negative,N2,Stage III,1.121683,Lum-A
+TCGA-D8-A27K-01,Positive,Positive,Negative,N1,Stage II,1.870561,Lum-A
+TCGA-D8-A27L-01,Positive,Positive,Negative,N2,Stage III,3.529076,Lum-A
+TCGA-D8-A27M-01,Negative,Negative,Negative,N0,Stage I,3.783968,TNBC
+TCGA-D8-A27N-01,Positive,Positive,Positive,N2,Stage III,2.929227,Lum-B
+TCGA-D8-A27P-01,Positive,Positive,Negative,N0,Stage I,2.109189,Lum-A
+TCGA-D8-A27R-01,Positive,Positive,Equivocal,N3,Stage III,0.776103,NA
+TCGA-D8-A27T-01,Positive,Positive,Negative,N3,Stage III,2.779765,Lum-A
+TCGA-D8-A27V-01,Positive,Positive,Negative,N0,Stage II,0.876557,Lum-A
+TCGA-D8-A27W-01,Positive,Positive,Equivocal,N0,Stage III,1.581959,NA
+TCGA-D8-A3Z5-01,Positive,Positive,Negative,N3,Stage III,0.437922,Lum-A
+TCGA-D8-A3Z6-01,Positive,Positive,Negative,N3,Stage III,13.38951,Lum-A
+TCGA-D8-A4Z1-01,Positive,Positive,Negative,N0,Stage I,0.829382,Lum-A
+TCGA-D8-A73U-01,Positive,Positive,Negative,N0,Stage II,0.517765,Lum-A
+TCGA-D8-A73W-01,Negative,Positive,Negative,N1,Stage III,4.534341,Lum-B
+TCGA-D8-A73X-01,Positive,Positive,Negative,N0,Stage II,3.26436,Lum-A
+TCGA-E2-A105-01,Positive,Positive,Equivocal,N0,Stage II,1.583213,NA
+TCGA-E2-A106-01,Positive,Positive,Equivocal,N1,Stage I,7.8399,NA
+TCGA-E2-A107-01,Negative,Positive,Equivocal,N2,Stage III,1.263132,NA
+TCGA-E2-A108-01,Positive,Positive,Negative,N2,Stage III,1.148803,Lum-A
+TCGA-E2-A109-01,Negative,Positive,Equivocal,N0,Stage II,0.950848,NA
+TCGA-E2-A10A-01,Positive,Positive,Positive,N0,Stage II,3.496001,Lum-B
+TCGA-E2-A10B-01,Positive,Positive,Equivocal,N1,Stage II,2.004199,NA
+TCGA-E2-A10C-01,Positive,Positive,Negative,N1,Stage II,2.004389,Lum-A
+TCGA-E2-A10E-01,Positive,Positive,Equivocal,N1,Stage II,6.55748,NA
+TCGA-E2-A10F-01,Positive,Positive,Equivocal,N0,Stage II,1.984824,NA
+TCGA-E2-A14N-01,Negative,Negative,Negative,N1,Stage II,1.102409,TNBC
+TCGA-E2-A14O-01,Positive,Positive,Equivocal,N1,Stage III,1.247449,NA
+TCGA-E2-A14P-01,Negative,Negative,Positive,N3,Stage III,0.616698,HER2+
+TCGA-E2-A14Q-01,Positive,Positive,Negative,N1,Stage II,0.839345,Lum-A
+TCGA-E2-A14R-01,Negative,Negative,Negative,N0,Stage II,4.776601,TNBC
+TCGA-E2-A14T-01,Positive,Positive,Negative,N0,Stage II,0.897744,Lum-A
+TCGA-E2-A14U-01,Positive,Positive,Equivocal,N0,Stage I,0.164439,NA
+TCGA-E2-A14V-01,Positive,Positive,Positive,N1,Stage II,5.097886,Lum-B
+TCGA-E2-A14W-01,Positive,Positive,Not Evaluated,N0,Stage II,3.000063,NA
+TCGA-E2-A14X-01,Negative,Negative,Negative,N2,Stage III,1.159928,TNBC
+TCGA-E2-A14Y-01,Positive,Positive,Equivocal,N0,Stage II,5.858586,NA
+TCGA-E2-A14Z-01,Positive,Positive,Negative,N0,Stage I,2.122486,Lum-A
+TCGA-E2-A150-01,Negative,Negative,Negative,N0,Stage II,12.02097,TNBC
+TCGA-E2-A152-01,Negative,Positive,Positive,N0,Stage I,9.007379,Lum-B
+TCGA-E2-A153-01,Positive,Positive,Negative,N1,Stage II,6.652156,Lum-A
+TCGA-E2-A153-11,Normal,Normal,Normal,Normal,Normal,0.408191,Normal
+TCGA-E2-A154-01,Positive,Positive,Negative,N0,Stage I,4.960771,Lum-A
+TCGA-E2-A155-01,Negative,Positive,Negative,N1,Stage II,0.797696,Lum-B
+TCGA-E2-A156-01,Positive,Positive,Negative,N0,Stage I,14.86429,Lum-A
+TCGA-E2-A158-01,Negative,Negative,Negative,N1,Stage II,1.764398,TNBC
+TCGA-E2-A158-11,Normal,Normal,Normal,Normal,Normal,0.63768,Normal
+TCGA-E2-A159-01,Negative,Negative,Not Evaluated,N0,Stage II,3.147417,NA
+TCGA-E2-A15A-01,Positive,Positive,Negative,N3,Stage III,2.037025,Lum-A
+TCGA-E2-A15C-01,Positive,Positive,Equivocal,N0,Stage I,5.202483,NA
+TCGA-E2-A15D-01,Positive,Positive,Equivocal,N0,Stage II,2.25635,NA
+TCGA-E2-A15E-01,Positive,Positive,Not Evaluated,N1,Stage II,2.846227,NA
+TCGA-E2-A15F-01,Positive,Positive,Negative,N0,Stage I,3.128702,Lum-A
+TCGA-E2-A15G-01,Positive,Positive,Negative,N0,Stage II,4.755822,Lum-A
+TCGA-E2-A15H-01,Positive,Positive,Equivocal,N1,Stage II,2.893906,NA
+TCGA-E2-A15I-01,Positive,Positive,Equivocal,N0,Stage II,1.373997,NA
+TCGA-E2-A15I-11,Normal,Normal,Normal,Normal,Normal,0.201811,Normal
+TCGA-E2-A15J-01,Positive,Positive,Equivocal,N0,Stage I,7.377624,NA
+TCGA-E2-A15K-01,Positive,Positive,Equivocal,N1,Stage II,4.574877,NA
+TCGA-E2-A15K-11,Normal,Normal,Normal,Normal,Normal,0.230379,Normal
+TCGA-E2-A15L-01,Positive,Positive,Equivocal,N0,Stage II,7.362662,NA
+TCGA-E2-A15M-01,Positive,Positive,Negative,N0,Stage II,4.544382,Lum-A
+TCGA-E2-A15M-11,Normal,Normal,Normal,Normal,Normal,0.244244,Normal
+TCGA-E2-A15O-01,Positive,Positive,Equivocal,NA,Stage I,2.089887,NA
+TCGA-E2-A15P-01,Positive,Positive,Negative,N0,Stage I,1.056052,Lum-A
+TCGA-E2-A15R-01,Positive,Positive,Equivocal,N1,Stage II,6.443981,NA
+TCGA-E2-A15S-01,Negative,Positive,Equivocal,N1,Stage II,2.233037,NA
+TCGA-E2-A15T-01,Positive,Positive,Equivocal,N0,Stage II,6.982047,NA
+TCGA-E2-A1AZ-01,Negative,Negative,Indeterminate,N1,Stage II,17.30654,NA
+TCGA-E2-A1B0-01,Negative,Negative,Positive,N2,Stage III,5.963063,HER2+
+TCGA-E2-A1B1-01,Positive,Positive,Equivocal,N1,Stage II,1.70519,NA
+TCGA-E2-A1B4-01,Positive,Positive,Negative,N2,Stage III,5.979007,Lum-A
+TCGA-E2-A1B5-01,Positive,Positive,Negative,N0,Stage II,2.551913,Lum-A
+TCGA-E2-A1B6-01,Negative,Negative,Equivocal,N0,Stage II,2.264506,NA
+TCGA-E2-A1BC-01,Positive,Positive,Negative,N0,Stage I,2.967939,Lum-A
+TCGA-E2-A1BC-11,Normal,Normal,Normal,Normal,Normal,0.591774,Normal
+TCGA-E2-A1BD-01,Positive,Positive,Equivocal,N0,Stage II,6.10068,NA
+TCGA-E2-A1IE-01,Positive,Positive,Equivocal,N1,Stage II,3.620954,NA
+TCGA-E2-A1IF-01,Positive,Positive,Negative,N0,Stage I,3.017893,Lum-A
+TCGA-E2-A1IG-01,Positive,Positive,Negative,N1,Stage II,7.916967,Lum-A
+TCGA-E2-A1IG-11,Normal,Normal,Normal,Normal,Normal,0.093042,Normal
+TCGA-E2-A1IH-01,Positive,Positive,Equivocal,N0,Stage I,7.949302,NA
+TCGA-E2-A1II-01,Positive,Negative,Negative,N0,Stage I,1.533559,NA
+TCGA-E2-A1IJ-01,Positive,Positive,Equivocal,N0,Stage I,3.521899,NA
+TCGA-E2-A1IK-01,Positive,Positive,Negative,N1,Stage II,2.094164,Lum-A
+TCGA-E2-A1IL-01,Positive,Positive,Negative,N1,Stage II,2.220618,Lum-A
+TCGA-E2-A1IN-01,Positive,Positive,Negative,N0,Stage I,6.882141,Lum-A
+TCGA-E2-A1IO-01,Positive,Positive,Equivocal,N0,Stage I,1.731091,NA
+TCGA-E2-A1IU-01,Positive,Positive,Negative,N0,Stage I,2.133057,Lum-A
+TCGA-E2-A1L6-01,Positive,Positive,Negative,N1,Stage II,2.824477,Lum-A
+TCGA-E2-A1L7-01,Negative,Negative,Negative,N2,Stage III,2.903674,TNBC
+TCGA-E2-A1L7-11,Normal,Normal,Normal,Normal,Normal,0.212076,Normal
+TCGA-E2-A1L8-01,Positive,Positive,Equivocal,N1,Stage II,6.933705,NA
+TCGA-E2-A1L9-01,Positive,Positive,Negative,N1,Stage II,4.117184,Lum-A
+TCGA-E2-A1LA-01,Positive,Positive,Equivocal,N1,Stage II,4.286677,NA
+TCGA-E2-A1LB-01,Negative,Negative,Positive,N1,Stage II,2.832294,HER2+
+TCGA-E2-A1LB-11,Normal,Normal,Normal,Normal,Normal,3.097807,Normal
+TCGA-E2-A1LE-01,Negative,Negative,Positive,N3,Stage III,16.93913,HER2+
+TCGA-E2-A1LG-01,Negative,Negative,Equivocal,N0,Stage II,2.40312,NA
+TCGA-E2-A1LH-01,Negative,Negative,Negative,N0,Stage I,2.574246,TNBC
+TCGA-E2-A1LH-11,Normal,Normal,Normal,Normal,Normal,0.554127,Normal
+TCGA-E2-A1LI-01,Negative,Negative,Equivocal,N1,Stage II,2.04149,NA
+TCGA-E2-A1LK-01,Negative,Negative,Equivocal,N3,Stage III,2.345772,NA
+TCGA-E2-A1LL-01,Negative,Negative,Negative,N2,Stage III,3.208985,TNBC
+TCGA-E2-A1LS-01,Negative,Negative,Negative,N0,Stage I,2.701423,TNBC
+TCGA-E2-A1LS-11,Normal,Normal,Normal,Normal,Normal,0.27039,Normal
+TCGA-E2-A2P5-01,Positive,Positive,Not Evaluated,N3,Stage III,5.51776,NA
+TCGA-E2-A2P6-01,Positive,Positive,Not Evaluated,N1,Stage II,2.491744,NA
+TCGA-E2-A3DX-01,Positive,Positive,Not Evaluated,N3,Stage III,0.411429,NA
+TCGA-E2-A56Z-01,Positive,Positive,Equivocal,N1,Stage II,6.712096,NA
+TCGA-E2-A570-01,Positive,Positive,Equivocal,N1,Stage I,3.01515,NA
+TCGA-E2-A572-01,Positive,Positive,Equivocal,N2,Stage III,0.501107,NA
+TCGA-E2-A573-01,Negative,Negative,Equivocal,N0,Stage I,2.164729,NA
+TCGA-E2-A574-01,Negative,Negative,Equivocal,N0,Stage II,1.478934,NA
+TCGA-E2-A576-01,Positive,Positive,Equivocal,N0,Stage I,2.166626,NA
+TCGA-E2-A9RU-01,Negative,Positive,Equivocal,N3,Stage III,7.793198,NA
+TCGA-E9-A1N3-01,Not Evaluated,Not Evaluated,Not Evaluated,N2,Stage III,3.996385,NA
+TCGA-E9-A1N4-01,Positive,Positive,Positive,N2,Stage III,1.367734,Lum-B
+TCGA-E9-A1N4-11,Normal,Normal,Normal,Normal,Normal,0.6278,Normal
+TCGA-E9-A1N5-01,Positive,Positive,Positive,N1,Stage II,2.787575,Lum-B
+TCGA-E9-A1N5-11,Normal,Normal,Normal,Normal,Normal,0.918461,Normal
+TCGA-E9-A1N6-01,Positive,Positive,Positive,N1,Stage II,8.646841,Lum-B
+TCGA-E9-A1N6-11,Normal,Normal,Normal,Normal,Normal,0.223578,Normal
+TCGA-E9-A1N8-01,Not Evaluated,Negative,Negative,N0,Stage II,5.091049,NA
+TCGA-E9-A1N9-01,Positive,Negative,Positive,N0,Stage II,9.060877,NA
+TCGA-E9-A1N9-11,Normal,Normal,Normal,Normal,Normal,1.305016,Normal
+TCGA-E9-A1NA-01,Positive,Positive,Positive,N0,Stage II,1.594866,Lum-B
+TCGA-E9-A1NA-11,Normal,Normal,Normal,Normal,Normal,0.096287,Normal
+TCGA-E9-A1NC-01,Positive,Negative,Positive,N1,Stage II,3.728301,NA
+TCGA-E9-A1ND-01,Negative,Negative,Positive,N1,Stage II,4.876026,HER2+
+TCGA-E9-A1ND-11,Normal,Normal,Normal,Normal,Normal,0.148183,Normal
+TCGA-E9-A1NE-01,Positive,Positive,Negative,N1,Stage II,1.679548,Lum-A
+TCGA-E9-A1NF-01,Positive,Positive,Negative,N0,Stage II,16.12837,Lum-A
+TCGA-E9-A1NF-11,Normal,Normal,Normal,Normal,Normal,0.099036,Normal
+TCGA-E9-A1NG-01,Positive,Positive,Negative,N0,Stage II,19.13319,Lum-A
+TCGA-E9-A1NG-11,Normal,Normal,Normal,Normal,Normal,0.297272,Normal
+TCGA-E9-A1NH-01,Positive,Positive,Negative,N1,Stage II,18.79083,Lum-A
+TCGA-E9-A1NI-01,Positive,Positive,Negative,N0,Stage II,8.688489,Lum-A
+TCGA-E9-A1QZ-01,Not Evaluated,Not Evaluated,Not Evaluated,N0,Stage II,0.979206,NA
+TCGA-E9-A1R0-01,Not Evaluated,Not Evaluated,Not Evaluated,N1,Stage II,2.617514,NA
+TCGA-E9-A1R2-01,Negative,Positive,Equivocal,N3,Stage III,1.66489,NA
+TCGA-E9-A1R3-01,Not Evaluated,Not Evaluated,Not Evaluated,N3,Stage III,3.13161,NA
+TCGA-E9-A1R4-01,Not Evaluated,Not Evaluated,Not Evaluated,N0,Stage I,1.439086,NA
+TCGA-E9-A1R5-01,Not Evaluated,Not Evaluated,Not Evaluated,N0,Stage I,3.708193,NA
+TCGA-E9-A1R6-01,Not Evaluated,Not Evaluated,Not Evaluated,N0,Stage II,5.814488,NA
+TCGA-E9-A1R7-01,Not Evaluated,Not Evaluated,Not Evaluated,N0,Stage II,1.616504,NA
+TCGA-E9-A1R7-11,Normal,Normal,Normal,Normal,Normal,0.131861,Normal
+TCGA-E9-A1RA-01,Not Evaluated,Not Evaluated,Not Evaluated,N0,Stage I,2.934453,NA
+TCGA-E9-A1RB-01,Not Evaluated,Not Evaluated,Not Evaluated,N0,Stage II,2.678425,NA
+TCGA-E9-A1RB-11,Normal,Normal,Normal,Normal,Normal,0.528274,Normal
+TCGA-E9-A1RC-01,Not Evaluated,Not Evaluated,Not Evaluated,N3,Stage III,3.439934,NA
+TCGA-E9-A1RC-11,Normal,Normal,Normal,Normal,Normal,0.139123,Normal
+TCGA-E9-A1RD-01,Not Evaluated,Not Evaluated,Not Evaluated,N0,Stage II,7.913632,NA
+TCGA-E9-A1RD-11,Normal,Normal,Normal,Normal,Normal,0.196673,Normal
+TCGA-E9-A1RE-01,Not Evaluated,Not Evaluated,Not Evaluated,N2,Stage III,1.92558,NA
+TCGA-E9-A1RF-01,Not Evaluated,Not Evaluated,Not Evaluated,N2,Stage III,4.460629,NA
+TCGA-E9-A1RF-11,Normal,Normal,Normal,Normal,Normal,0.12161,Normal
+TCGA-E9-A1RG-01,Not Evaluated,Not Evaluated,Not Evaluated,N2,Stage III,2.504033,NA
+TCGA-E9-A1RH-01,Not Evaluated,Not Evaluated,Not Evaluated,N0,Stage II,6.042142,NA
+TCGA-E9-A1RH-11,Normal,Normal,Normal,Normal,Normal,0.293554,Normal
+TCGA-E9-A1RI-01,Not Evaluated,Not Evaluated,Not Evaluated,N2,Stage III,3.470106,NA
+TCGA-E9-A1RI-11,Normal,Normal,Normal,Normal,Normal,0.048279,Normal
+TCGA-E9-A226-01,Not Evaluated,Not Evaluated,Not Evaluated,N2,Stage III,3.945639,NA
+TCGA-E9-A227-01,Positive,Positive,Negative,N1,Stage II,3.225521,Lum-A
+TCGA-E9-A228-01,Not Evaluated,Not Evaluated,Not Evaluated,N1,Stage II,4.969112,NA
+TCGA-E9-A229-01,Not Evaluated,Not Evaluated,Not Evaluated,N0,Stage I,2.845476,NA
+TCGA-E9-A22A-01,Negative,Positive,Negative,N0,Stage II,7.852853,Lum-B
+TCGA-E9-A22B-01,Negative,Positive,Negative,N0,Stage I,7.757824,Lum-B
+TCGA-E9-A22D-01,Positive,Positive,Positive,N0,Stage II,2.835338,Lum-B
+TCGA-E9-A22E-01,Positive,Positive,Positive,N2,Stage III,11.9439,Lum-B
+TCGA-E9-A22G-01,Negative,Negative,Positive,N0,Stage II,5.453234,HER2+
+TCGA-E9-A22H-01,Positive,Positive,Positive,N1,Stage II,3.74567,Lum-B
+TCGA-E9-A243-01,Not Evaluated,Not Evaluated,Not Evaluated,N0,Stage II,1.197367,NA
+TCGA-E9-A244-01,Not Evaluated,Not Evaluated,Not Evaluated,N0,Stage II,2.33168,NA
+TCGA-E9-A245-01,Not Evaluated,Not Evaluated,Not Evaluated,N1,Stage II,0.927252,NA
+TCGA-E9-A247-01,Not Evaluated,Not Evaluated,Not Evaluated,N0,Stage I,2.214034,NA
+TCGA-E9-A248-01,Not Evaluated,Not Evaluated,Not Evaluated,N0,Stage II,0.712708,NA
+TCGA-E9-A249-01,Not Evaluated,Not Evaluated,Not Evaluated,N0,Stage II,2.955423,NA
+TCGA-E9-A24A-01,Not Evaluated,Not Evaluated,Not Evaluated,N1,Stage II,4.918094,NA
+TCGA-E9-A295-01,Positive,Positive,Positive,N0,Stage II,4.835361,Lum-B
+TCGA-E9-A2JS-01,Not Evaluated,Not Evaluated,Not Evaluated,N1,Stage II,2.192925,NA
+TCGA-E9-A2JT-01,Not Evaluated,Not Evaluated,Not Evaluated,N0,Stage II,1.4587,NA
+TCGA-E9-A3HO-01,Not Evaluated,Not Evaluated,Not Evaluated,N0,Stage II,8.459231,NA
+TCGA-E9-A3Q9-01,Positive,Positive,Indeterminate,N3,Stage III,0.969718,NA
+TCGA-E9-A3QA-01,Not Evaluated,Not Evaluated,Not Evaluated,N0,Stage II,2.279725,NA
+TCGA-E9-A3X8-01,Positive,Positive,Positive,N1,Stage II,0.831574,Lum-B
+TCGA-E9-A54X-01,Positive,Positive,Negative,N0,Stage I,3.231376,Lum-A
+TCGA-E9-A54Y-01,Positive,Positive,Negative,N2,Stage III,3.316814,Lum-A
+TCGA-E9-A5FK-01,Positive,Positive,Negative,N3,Stage III,1.234321,Lum-A
+TCGA-E9-A5FL-01,Negative,Negative,Negative,N0,Stage II,1.600444,TNBC
+TCGA-E9-A5UO-01,Not Evaluated,Not Evaluated,Not Evaluated,N0,Stage II,15.51119,NA
+TCGA-E9-A5UP-01,Not Evaluated,Not Evaluated,Not Evaluated,N0,Stage II,0.843536,NA
+TCGA-E9-A6HE-01,Positive,Positive,Negative,N3,Stage III,3.154972,Lum-A
+TCGA-EW-A1IW-01,Positive,Positive,Positive,N1,Stage II,2.251898,Lum-B
+TCGA-EW-A1IX-01,Positive,Positive,Negative,N1,Stage II,1.911017,Lum-A
+TCGA-EW-A1IY-01,Positive,Positive,Negative,N0,Stage I,5.94371,Lum-A
+TCGA-EW-A1IZ-01,Positive,Positive,Negative,N2,Stage III,1.50717,Lum-A
+TCGA-EW-A1J1-01,Positive,Positive,Negative,N1,Stage II,9.622431,Lum-A
+TCGA-EW-A1J2-01,Positive,Positive,Negative,N1,NA,1.824305,Lum-A
+TCGA-EW-A1J3-01,Positive,Positive,Positive,N0,Stage I,6.94697,Lum-B
+TCGA-EW-A1J5-01,Positive,Positive,Negative,N0,Stage II,1.698429,Lum-A
+TCGA-EW-A1J6-01,Positive,Positive,Negative,N0,Stage I,4.27845,Lum-A
+TCGA-EW-A1OV-01,Negative,Negative,Negative,N1,Stage II,1.716086,TNBC
+TCGA-EW-A1OW-01,Negative,Negative,Negative,N0,Stage II,7.174549,TNBC
+TCGA-EW-A1OX-01,Positive,Positive,Negative,N0,Stage II,8.893809,Lum-A
+TCGA-EW-A1OY-01,Positive,Positive,Negative,N0,Stage II,2.62089,Lum-A
+TCGA-EW-A1OZ-01,Negative,Positive,Equivocal,N0,Stage II,7.03706,NA
+TCGA-EW-A1P0-01,Negative,Positive,Negative,N1,Stage II,2.903115,Lum-B
+TCGA-EW-A1P1-01,Negative,Negative,Equivocal,N3,Stage III,1.031318,NA
+TCGA-EW-A1P3-01,Positive,Positive,Negative,N0,Stage II,2.874545,Lum-A
+TCGA-EW-A1P4-01,Negative,Negative,Negative,N0,Stage II,1.688228,TNBC
+TCGA-EW-A1P5-01,Positive,Positive,Negative,N1,Stage II,0.941571,Lum-A
+TCGA-EW-A1P6-01,Positive,Positive,Negative,N1,Stage II,1.115833,Lum-A
+TCGA-EW-A1P7-01,Negative,Negative,Equivocal,N0,Stage II,1.036678,NA
+TCGA-EW-A1P8-01,Negative,Negative,Negative,N3,Stage III,4.75773,TNBC
+TCGA-EW-A1PA-01,Positive,Positive,Negative,N1,Stage II,1.676662,Lum-A
+TCGA-EW-A1PB-01,Negative,Negative,Negative,N1,Stage III,0.611456,TNBC
+TCGA-EW-A1PC-01,Positive,Positive,Negative,N0,Stage II,0.770577,Lum-A
+TCGA-EW-A1PD-01,Positive,Positive,Equivocal,N1,Stage II,5.616572,NA
+TCGA-EW-A1PE-01,Positive,Positive,Negative,N1,Stage II,4.927155,Lum-A
+TCGA-EW-A1PF-01,Positive,Positive,Negative,N0,Stage I,3.638359,Lum-A
+TCGA-EW-A1PG-01,Positive,Positive,Equivocal,N1,Stage II,4.034242,NA
+TCGA-EW-A1PH-01,Negative,Negative,Negative,N1,Stage II,3.866598,TNBC
+TCGA-EW-A2FR-01,Negative,Negative,Equivocal,N3,Stage III,7.928356,NA
+TCGA-EW-A2FS-01,Negative,Positive,Negative,N1,Stage II,3.235666,Lum-B
+TCGA-EW-A2FV-01,Positive,Positive,Negative,N3,Stage III,1.106555,Lum-A
+TCGA-EW-A2FW-01,Positive,Positive,Negative,N0,Stage II,4.357245,Lum-A
+TCGA-EW-A3E8-01,Negative,Positive,Negative,N0,Stage II,2.255361,Lum-B
+TCGA-EW-A3U0-01,Negative,Negative,Negative,N1,Stage III,0.75314,TNBC
+TCGA-EW-A423-01,Positive,Positive,Negative,N0,Stage II,3.859927,Lum-A
+TCGA-EW-A424-01,Positive,Positive,Positive,N1,Stage III,2.336804,Lum-B
+TCGA-EW-A6S9-01,Positive,Positive,Positive,N1,Stage II,11.17285,Lum-B
+TCGA-EW-A6SA-01,Negative,Positive,Negative,N0,Stage II,16.75722,Lum-B
+TCGA-EW-A6SB-01,Negative,Negative,Negative,N0,Stage II,0.267467,TNBC
+TCGA-EW-A6SC-01,Positive,Positive,Negative,N0,Stage II,8.484358,Lum-A
+TCGA-EW-A6SD-01,Negative,Negative,Not Evaluated,N1,Stage II,7.515684,NA
+TCGA-GI-A2C8-01,Positive,Positive,Negative,N0,Stage III,4.563782,Lum-A
+TCGA-GI-A2C8-11,Normal,Normal,Normal,Normal,Normal,0.385369,Normal
+TCGA-GI-A2C9-01,Negative,Negative,Negative,N0,Stage II,3.932464,TNBC
+TCGA-GI-A2C9-11,Normal,Normal,Normal,Normal,Normal,0.937395,Normal
+TCGA-GM-A2D9-01,Positive,Positive,Not Evaluated,N0,Stage I,3.676748,NA
+TCGA-GM-A2DA-01,Positive,Positive,Equivocal,N1,Stage II,3.426236,NA
+TCGA-GM-A2DB-01,Negative,Negative,Negative,N0,Stage II,4.538999,TNBC
+TCGA-GM-A2DC-01,Positive,Positive,Not Evaluated,N1,Stage II,6.748719,NA
+TCGA-GM-A2DD-01,Negative,Negative,Equivocal,N0,Stage I,5.706169,NA
+TCGA-GM-A2DF-01,Negative,Negative,Negative,N1,Stage II,2.551561,TNBC
+TCGA-GM-A2DH-01,Negative,Negative,Negative,N0,Stage I,2.065227,TNBC
+TCGA-GM-A2DI-01,Negative,Negative,Not Evaluated,N0,Stage I,1.097667,NA
+TCGA-GM-A2DK-01,Negative,Positive,Negative,N0,Stage I,2.371685,Lum-B
+TCGA-GM-A2DL-01,Positive,Positive,Negative,N0,Stage I,4.468233,Lum-A
+TCGA-GM-A2DM-01,Positive,Positive,Negative,N0,Stage II,5.136434,Lum-A
+TCGA-GM-A2DN-01,Positive,Positive,Negative,N0,Stage II,2.880082,Lum-A
+TCGA-GM-A2DO-01,Positive,Positive,Negative,N0,Stage I,1.246939,Lum-A
+TCGA-GM-A3NW-01,Positive,Negative,Equivocal,N0,Stage II,1.519789,NA
+TCGA-GM-A3NY-01,Positive,Positive,Negative,N1,Stage II,3.382733,Lum-A
+TCGA-GM-A3XG-01,Positive,Positive,Negative,N1,Stage III,0.467447,Lum-A
+TCGA-GM-A3XL-01,Negative,Negative,Not Evaluated,N0,Stage II,3.065864,NA
+TCGA-GM-A3XN-01,Positive,Positive,Negative,N2,Stage III,4.080527,Lum-A
+TCGA-GM-A4E0-01,Positive,Positive,Not Evaluated,N3,Stage III,3.112237,NA
+TCGA-GM-A5PV-01,Positive,Positive,Not Evaluated,N1,Stage II,3.022741,NA
+TCGA-GM-A5PX-01,Positive,Positive,Negative,N1,Stage II,5.510787,Lum-A
+TCGA-HN-A2NL-01,Negative,Negative,Negative,N0,Stage II,1.041434,TNBC
+TCGA-HN-A2OB-01,Positive,Positive,Negative,N1,Stage II,1.52481,Lum-A
+TCGA-JL-A3YW-01,Positive,Positive,Positive,N1,Stage II,5.605954,Lum-B
+TCGA-JL-A3YX-01,Positive,Positive,Positive,N0,Stage II,5.28397,Lum-B
+TCGA-LD-A66U-01,Positive,Positive,Negative,N1,Stage II,1.05484,Lum-A
+TCGA-LD-A74U-01,Negative,Positive,Negative,N3,Stage III,0.451583,Lum-B
+TCGA-LD-A7W6-01,Positive,Positive,Negative,N1,Stage II,2.695656,Lum-A
+TCGA-LD-A9QF-01,Negative,Negative,Positive,N0,Stage I,1.097737,HER2+
+TCGA-LL-A440-01,Positive,Positive,Equivocal,N0,Stage I,0.635038,NA
+TCGA-LL-A441-01,Negative,Negative,Negative,N0,Stage I,1.257665,TNBC
+TCGA-LL-A442-01,Positive,Positive,Equivocal,N0,Stage II,13.43572,NA
+TCGA-LL-A50Y-01,Positive,Positive,Equivocal,N0,Stage II,4.761263,NA
+TCGA-LL-A5YL-01,Negative,Positive,Positive,N1,Stage II,1.300256,Lum-B
+TCGA-LL-A5YM-01,Positive,Positive,Equivocal,NA,Stage III,1.678515,NA
+TCGA-LL-A5YN-01,Positive,Positive,Equivocal,N0,Stage II,0.558054,NA
+TCGA-LL-A5YO-01,Negative,Negative,Negative,N0,Stage I,2.003432,TNBC
+TCGA-LL-A5YP-01,Negative,Positive,Negative,N1,Stage II,2.603174,Lum-B
+TCGA-LL-A6FP-01,Positive,Positive,Equivocal,NA,Stage II,0.864162,NA
+TCGA-LL-A6FQ-01,Positive,Positive,Negative,N2,Stage III,1.070045,Lum-A
+TCGA-LL-A6FR-01,Positive,Negative,Equivocal,N0,Stage II,4.539852,NA
+TCGA-LL-A73Y-01,Negative,Negative,Negative,N0,Stage I,10.02397,TNBC
+TCGA-LL-A73Z-01,Positive,Positive,Equivocal,NA,Stage IV,9.011684,NA
+TCGA-LL-A740-01,Negative,Negative,Equivocal,N0,Stage I,15.03823,NA
+TCGA-LL-A7SZ-01,Positive,Positive,Negative,N1,Stage II,0.953359,Lum-A
+TCGA-LL-A7T0-01,Positive,Positive,Positive,N1,Stage II,2.285073,Lum-B
+TCGA-LL-A8F5-01,Negative,Positive,Negative,N0,Stage II,9.702262,Lum-B
+TCGA-LL-A9Q3-01,Positive,Positive,Positive,N3,Stage III,1.344504,Lum-B
+TCGA-LQ-A4E4-01,Positive,Positive,Not Evaluated,N1,Stage III,0.446379,NA
+TCGA-MS-A51U-01,Positive,Positive,Negative,N1,Stage II,3.895923,Lum-A
+TCGA-OK-A5Q2-01,Positive,Positive,Negative,N1,Stage II,1.969589,Lum-A
+TCGA-OL-A5D6-01,Negative,Negative,Not Evaluated,N0,Stage II,7.04116,NA
+TCGA-OL-A5D7-01,Negative,Negative,Not Evaluated,N0,Stage II,0.504979,NA
+TCGA-OL-A5D8-01,Positive,Positive,Not Evaluated,N0,Stage II,7.381166,NA
+TCGA-OL-A5DA-01,Positive,Positive,Not Evaluated,N0,Stage II,6.641831,NA
+TCGA-OL-A5RU-01,Positive,Positive,Not Evaluated,N1,Stage II,0.364092,NA
+TCGA-OL-A5RV-01,Positive,Positive,Not Evaluated,N3,Stage III,0.679566,NA
+TCGA-OL-A5RW-01,Negative,Negative,Not Evaluated,N1,Stage II,3.973433,NA
+TCGA-OL-A5RX-01,Positive,Positive,Not Evaluated,N0,Stage I,2.847292,NA
+TCGA-OL-A5RY-01,Negative,Positive,Not Evaluated,N1,Stage II,1.033648,NA
+TCGA-OL-A5RZ-01,Negative,Positive,Not Evaluated,N0,Stage I,3.913023,NA
+TCGA-OL-A5S0-01,Negative,Positive,Not Evaluated,N1,Stage II,4.228203,NA
+TCGA-OL-A66H-01,Positive,Positive,Not Evaluated,N1,Stage I,0.879942,NA
+TCGA-OL-A66I-01,Negative,Negative,Not Evaluated,N1,Stage II,3.208103,NA
+TCGA-OL-A66J-01,Positive,Positive,Not Evaluated,N0,Stage I,4.073058,NA
+TCGA-OL-A66K-01,Positive,Positive,Equivocal,N0,Stage II,3.719762,NA
+TCGA-OL-A66L-01,Positive,Positive,Not Evaluated,N0,Stage I,1.478294,NA
+TCGA-OL-A66N-01,Negative,Positive,Not Evaluated,N3,Stage III,0.854955,NA
+TCGA-OL-A66O-01,Positive,Positive,Not Evaluated,N1,Stage II,3.22524,NA
+TCGA-OL-A66P-01,Negative,Negative,Not Evaluated,N0,Stage II,1.776802,NA
+TCGA-OL-A6VO-01,Negative,Negative,Negative,N0,Stage I,1.99203,TNBC
+TCGA-OL-A6VQ-01,Positive,Positive,Not Evaluated,N0,Stage II,2.232041,NA
+TCGA-OL-A6VR-01,Positive,Positive,Negative,N0,Stage I,1.114836,Lum-A
+TCGA-OL-A97C-01,Negative,Negative,Not Evaluated,N0,Stage II,2.060094,NA
+TCGA-PE-A5DC-01,Positive,Positive,Positive,N2,Stage III,6.514819,Lum-B
+TCGA-PE-A5DD-01,Negative,Positive,Positive,N0,Stage II,4.022779,Lum-B
+TCGA-PE-A5DE-01,Positive,Positive,Negative,N0,Stage II,8.478384,Lum-A
+TCGA-PL-A8LV-01,Not Evaluated,Not Evaluated,Not Evaluated,N0,Stage III,0.801172,NA
+TCGA-PL-A8LX-01,Not Evaluated,Not Evaluated,Not Evaluated,N1,Stage IV,16.28263,NA
+TCGA-PL-A8LY-01,Not Evaluated,Not Evaluated,Not Evaluated,N0,Stage II,0.358988,NA
+TCGA-PL-A8LZ-01,Not Evaluated,Not Evaluated,Not Evaluated,N2,Stage III,6.258251,NA
+TCGA-S3-A6ZF-01,Positive,Positive,Equivocal,N0,Stage II,3.535204,NA
+TCGA-S3-A6ZG-01,Positive,Positive,Negative,N1,Stage II,1.495598,Lum-A
+TCGA-S3-A6ZH-01,Positive,Positive,Equivocal,N3,Stage III,2.78702,NA
+TCGA-S3-AA0Z-01,Positive,Positive,Equivocal,N1,Stage II,0.900312,NA
+TCGA-S3-AA10-01,Negative,Negative,Negative,N0,Stage II,1.262203,TNBC
+TCGA-S3-AA11-01,Positive,Positive,Equivocal,N0,Stage II,1.96219,NA
+TCGA-S3-AA12-01,Negative,Positive,Negative,N1,Stage III,3.151593,Lum-B
+TCGA-S3-AA14-01,Positive,Positive,Positive,N0,Stage I,2.819243,Lum-B
+TCGA-S3-AA15-01,Negative,Negative,Negative,N1,Stage II,0.925555,TNBC
+TCGA-S3-AA17-01,Positive,Positive,Equivocal,N1,Stage II,0.379654,NA
+TCGA-UL-AAZ6-01,Positive,Positive,Positive,N0,Stage II,14.0041,Lum-B
+TCGA-UU-A93S-01,Negative,Negative,Positive,N3,Stage IV,7.09164,HER2+
+TCGA-V7-A7HQ-01,Positive,Positive,Not Evaluated,N2,Stage III,1.091381,NA
+TCGA-W8-A86G-01,Positive,Positive,Negative,N0,Stage II,2.359221,Lum-A
+TCGA-WT-AB41-01,Positive,Positive,Not Evaluated,N1,Stage II,0.636793,NA
+TCGA-WT-AB44-01,Positive,Positive,Negative,N0,Stage I,2.816446,Lum-A
+TCGA-XX-A899-01,Positive,Positive,Negative,N2,Stage III,2.989836,Lum-A
+TCGA-XX-A89A-01,Positive,Positive,Negative,N0,Stage II,2.088148,Lum-A
+TCGA-Z7-A8R5-01,Positive,Positive,Negative,N1,Stage III,0.761931,Lum-A
+TCGA-Z7-A8R6-01,Positive,Positive,Negative,N0,Stage I,2.826909,Lum-A
