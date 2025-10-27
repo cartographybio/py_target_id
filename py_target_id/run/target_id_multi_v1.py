@@ -921,7 +921,9 @@ def target_id_multi_v1(
             print(f"PosPat:{pos_time:.1f}s | ", end='', flush=True)
 
             # Compute Positivity of Pair
-            results = run.expression_percentiles_by_positivity_multi_gpu(
+            t_pos = time.time()
+
+            results = run.expression_percentiles_by_positivity_multi_gpu_vectorized(
                 malig_med=malig_med,
                 gx_indices=gx_t, 
                 gy_indices=gy_t,
@@ -931,6 +933,9 @@ def target_id_multi_v1(
             )
             positive_0_1 = (malig_med > 0.1).float().mean(dim=1) * 100
             positive_0_5 = (malig_med > 0.5).float().mean(dim=1) * 100
+
+            pos_time = time.time() - t_pos
+            print(f"PosPat2:{pos_time:.1f}s | ", end='', flush=True)
 
             # Store batch to temporary file
             names = [f"{genes[i]}_{genes[j]}" for i, j in zip(gx_all[start:end], gy_all[start:end])]

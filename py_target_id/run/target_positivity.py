@@ -362,3 +362,75 @@ def expression_percentiles_by_positivity_multi_gpu(malig_med, gx_indices, gy_ind
                 result[f'p{p}'][pair_idx] = torch.quantile(expr_med, p / 100.0)
     
     return result
+
+def expression_percentiles_by_positivity_multi_gpu_vectorized(
+    malig_med, gx_indices, gy_indices, 
+    malig_pos_gpu, device, percentiles=[25, 50, 75]
+):
+    """
+    GPU-accelerated percentiles with LINEAR INTERPOLATION (matches NumPy).
+    
+    Mathematically correct percentiles using interpolation between adjacent values.
+    Single sort pass for all pairs, vectorized interpolation.
+    
+    Strategy:
+    1. Sort all pairs once
+    2. For each percentile, compute the continuous index (may be fractional)
+    3. Interpolate between floor and ceil indices
+    """
+    n_pairs = malig_med.shape[0]
+    n_groups = malig_pos_gpu.shape[1]
+    
+    # Positivity check (vectorized)
+    pos_x = malig_pos_gpu[gx_indices, :]  # (n_pairs, n_groups)
+    pos_y = malig_pos_gpu[gy_indices, :]  # (n_pairs, n_groups)
+    both_positive = (pos_x == 1) & (pos_y == 1)
+    
+    # Count positive groups per pair
+    n_pos_groups = both_positive.sum(dim=1).float()  # (n_pairs,)
+    positive = (n_pos_groups / n_groups) * 100.0
+    
+    # Mask to -inf for sorting
+    malig_med_masked = torch.where(
+        both_positive, 
+        malig_med.float(), 
+        torch.tensor(float('-inf'), device=device, dtype=torch.float32)
+    )
+    
+    # SINGLE SORT for all pairs
+    sorted_vals, _ = torch.sort(malig_med_masked, dim=1)  # (n_pairs, n_groups)
+    
+    result = {'positive': positive}
+    
+    # Compute all percentiles from the same sorted array
+    for p in percentiles:
+        q = p / 100.0
+        
+        # Continuous index for the percentile (0-indexed)
+        # NumPy default (linear): index = q * (n - 1)
+        continuous_idx = q * (n_pos_groups - 1)  # (n_pairs,)
+        
+        # Floor and ceil indices
+        idx_low = torch.floor(continuous_idx).long()
+        idx_high = torch.ceil(continuous_idx).long()
+        
+        # Clamp to valid range
+        idx_low = torch.clamp(idx_low, min=0, max=n_groups - 1)
+        idx_high = torch.clamp(idx_high, min=0, max=n_groups - 1)
+        
+        # Interpolation weight: fraction between low and high
+        weight = continuous_idx - idx_low.float()  # (n_pairs,)
+        
+        # Gather values at low and high indices
+        vals_low = torch.gather(sorted_vals, 1, idx_low.unsqueeze(1)).squeeze(1)
+        vals_high = torch.gather(sorted_vals, 1, idx_high.unsqueeze(1)).squeeze(1)
+        
+        # Linear interpolation
+        percentile_vals = vals_low * (1.0 - weight) + vals_high * weight
+        
+        # Handle -inf (no positive groups) -> set to 0
+        percentile_vals[n_pos_groups == 0] = 0.0
+        
+        result[f'p{p}'] = percentile_vals
+    
+    return result
