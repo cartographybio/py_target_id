@@ -102,6 +102,11 @@ def surface_genes(
             'MFI2', 'MUC5AC', 'ADAMTS5', 'LGALS9'
         ]), 'Tier'] = 'Tier1'
         
+        # 20251028 updates
+        surface.loc[surface['gene_name'].isin([
+            'SRD5A1', 'SFTPC', 'HIST1H1A', 'CALML5'
+        ]), 'Tier'] = 'Tier3'
+
         # Filter by requested tiers
         tier_strings = [f'Tier{t}' for t in tiers]
         filtered_surface = surface[surface['Tier'].isin(tier_strings)]
