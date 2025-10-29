@@ -30,6 +30,7 @@ multi = tid.run.target_id_multi_v1(
     malig_adata=malig_adata,
     ref_adata=ref_adata,
     gene_pairs=gene_pairs,
+    ref_med_adata=ref_med_adata,
     malig_med_adata=malig_med_adata,
     batch_size=20000,
     use_fp16=True
