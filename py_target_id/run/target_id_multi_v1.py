@@ -479,14 +479,14 @@ def target_id_multi_v1(
         m_group_indices = [(m_ids_encoded == g).nonzero(as_tuple=True)[0] for g in range(n_malig_groups)]
         ref_group_indices = [(ref_ids_encoded == g).nonzero(as_tuple=True)[0] for g in range(n_ref_groups)]
 
-    if map_lv4_lv1 is not None:
+        if map_lv4_lv1 is not None:
 
-        ref_lv1_by_group = {g: ("immune" in str(map_lv4_lv1.get(ref_unique[g], "")).lower()) for g in range(n_ref_groups)}
-        ref_brain_groups = [g for g in range(n_ref_groups) if ("brain" in ref_unique[g].lower()) and not ref_lv1_by_group[g]]
-        ref_heart_groups = [g for g in range(n_ref_groups) if ("heart" in ref_unique[g].lower()) and not ref_lv1_by_group[g]]
-        ref_lung_groups = [g for g in range(n_ref_groups) if ("lung" in ref_unique[g].lower()) and not ref_lv1_by_group[g]]
-        ref_immune_groups = [g for g in range(n_ref_groups) if ref_lv1_by_group[g]]
-        ref_nonimmune_groups = [g for g in range(n_ref_groups) if not ref_lv1_by_group[g]]
+            ref_lv1_by_group = {g: ("immune" in str(map_lv4_lv1.get(ref_unique[g], "")).lower()) for g in range(n_ref_groups)}
+            ref_brain_groups = [g for g in range(n_ref_groups) if ("brain" in ref_unique[g].lower()) and not ref_lv1_by_group[g]]
+            ref_heart_groups = [g for g in range(n_ref_groups) if ("heart" in ref_unique[g].lower()) and not ref_lv1_by_group[g]]
+            ref_lung_groups = [g for g in range(n_ref_groups) if ("lung" in ref_unique[g].lower()) and not ref_lv1_by_group[g]]
+            ref_immune_groups = [g for g in range(n_ref_groups) if ref_lv1_by_group[g]]
+            ref_nonimmune_groups = [g for g in range(n_ref_groups) if not ref_lv1_by_group[g]]
 
         # -----------------------------
         # Memory-safe batch processing
