@@ -17,6 +17,7 @@ manifest, malig_adata, malig_med_adata, ref_adata, ref_med_adata = utils.load_co
 
 #Run Single Target Workflow
 single = tid.run.target_id_v1(malig_med_adata, ref_med_adata)
+single.to_parquet(IND + '.Single.Results.20251027.parquet', engine='pyarrow', compression=None)
 
 #Ready Up Multi Target Workflow
 surface = tid.utils.surface_genes()
@@ -33,8 +34,6 @@ multi = tid.run.target_id_multi_v1(
     batch_size=20000,
     use_fp16=True
 )
-
-single.to_parquet(IND + '.Single.Results.20251027.parquet', engine='pyarrow', compression=None)
 multi.to_parquet(IND + '.Multi.Results.20251027.parquet', engine='pyarrow', compression=None)
 
 

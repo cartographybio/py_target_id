@@ -302,6 +302,7 @@ def target_id_multi_v1(
     malig_adata,
     ref_adata,
     malig_med_adata,
+    ref_med_adata: None,
     gene_pairs: list,  # Now required
     device: str = 'cuda',
     batch_size: int = 25000,
@@ -371,6 +372,16 @@ def target_id_multi_v1(
     malig_subset = malig_adata[:, genes_to_keep].copy()
     ref_subset = ref_adata[:, genes_to_keep].copy()    
 
+    #Quickly Add Lv1 To Ref Subset If ref_med_adata is supplied
+    map_lv4_lv1 = None
+    if (ref_med_adata is not None) & ("Combo_Lv1" in ref_med_adata.obs):
+        ref_subset.obs["Combo_Lv4"] = (ref_subset.obs_names.str.extract(r'^([^:]+:[^:]+)', expand=False)
+                      .str.replace(r'[ -]', '_', regex=True).values)
+        ref_subset.obs["Combo_Lv1"] = ref_subset.obs["Combo_Lv4"].map(
+            ref_med_adata.obs.set_index("Combo_Lv4")["Combo_Lv1"]
+        )
+        map_lv4_lv1 = ref_subset.obs.drop_duplicates(subset="Combo_Lv4")[["Combo_Lv4", "Combo_Lv1"]].set_index("Combo_Lv4")["Combo_Lv1"].to_dict()
+
     # Handle VirtualAnnData
     if type(malig_subset).__name__ in ['VirtualAnnData', 'TransposedAnnData']:
         print("  Loading malignant data to memory...")
@@ -381,6 +392,9 @@ def target_id_multi_v1(
         print("  Loading reference data to memory...")
         ref_subset = ref_subset[:, genes_to_keep].to_memory(dense=True, chunk_size=5000, dtype=np.float16, show_progress=True)
         print("  Reference data loaded.")
+
+    #Check
+    ref_subset.obs = ref_adata.obs
 
     print("  Copying median data...")
     malig_med_adata = malig_med_adata[:, genes_to_keep].copy()
@@ -432,6 +446,7 @@ def target_id_multi_v1(
         ref_ids = (ref_subset.obs_names.str.extract(r'^([^:]+:[^:]+)', expand=False)
                   .str.replace(r'[ -]', '_', regex=True).values)
         ref_unique = np.unique(ref_ids)
+
         ref_id_to_idx = {id_val: idx for idx, id_val in enumerate(ref_unique)}
         ref_ids_encoded = torch.tensor([ref_id_to_idx[x] for x in ref_ids], dtype=torch.long, device=device)
         
@@ -463,6 +478,15 @@ def target_id_multi_v1(
 
         m_group_indices = [(m_ids_encoded == g).nonzero(as_tuple=True)[0] for g in range(n_malig_groups)]
         ref_group_indices = [(ref_ids_encoded == g).nonzero(as_tuple=True)[0] for g in range(n_ref_groups)]
+
+    if map_lv4_lv1 is not None:
+
+        ref_lv1_by_group = {g: ("immune" in str(map_lv4_lv1.get(ref_unique[g], "")).lower()) for g in range(n_ref_groups)}
+        ref_brain_groups = [g for g in range(n_ref_groups) if ("brain" in ref_unique[g].lower()) and not ref_lv1_by_group[g]]
+        ref_heart_groups = [g for g in range(n_ref_groups) if ("heart" in ref_unique[g].lower()) and not ref_lv1_by_group[g]]
+        ref_lung_groups = [g for g in range(n_ref_groups) if ("lung" in ref_unique[g].lower()) and not ref_lv1_by_group[g]]
+        ref_immune_groups = [g for g in range(n_ref_groups) if ref_lv1_by_group[g]]
+        ref_nonimmune_groups = [g for g in range(n_ref_groups) if not ref_lv1_by_group[g]]
 
         # -----------------------------
         # Memory-safe batch processing
@@ -609,6 +633,41 @@ def target_id_multi_v1(
                 'Positive_Final_0.5' : positive_0_5.cpu().numpy(),
                 **{k: v.cpu().numpy() for k, v in off_targets_gpu.items()}
             })
+
+            #Add Toxicity
+            df["TI"] = torch.mean((malig_med > torch.tensor(df["Top_Off_Target_Val"].values, device=device, dtype=malig_med.dtype).unsqueeze(1)).float(), dim=1).cpu().numpy()
+
+            if map_lv4_lv1 is not None:
+
+                # Brain
+                tox_brain_gpu = torch.max(ref_med[:, ref_brain_groups], dim=1).values
+                ti_brain = torch.mean((malig_med > tox_brain_gpu.unsqueeze(1)).float(), dim=1)
+                df["Tox_Brain"] = tox_brain_gpu.cpu().numpy()
+                df["TI_Brain"] = ti_brain.cpu().numpy()
+
+                # Heart
+                tox_heart_gpu = torch.max(ref_med[:, ref_heart_groups], dim=1).values
+                ti_heart = torch.mean((malig_med > tox_heart_gpu.unsqueeze(1)).float(), dim=1)
+                df["Tox_Heart"] = tox_heart_gpu.cpu().numpy()
+                df["TI_Heart"] = ti_heart.cpu().numpy()
+
+                # Lung
+                tox_lung_gpu = torch.max(ref_med[:, ref_lung_groups], dim=1).values
+                ti_lung = torch.mean((malig_med > tox_lung_gpu.unsqueeze(1)).float(), dim=1)
+                df["Tox_Lung"] = tox_lung_gpu.cpu().numpy()
+                df["TI_Lung"] = ti_lung.cpu().numpy()
+
+                # Immune
+                tox_immune_gpu = torch.max(ref_med[:, ref_immune_groups], dim=1).values
+                ti_immune = torch.mean((malig_med > tox_immune_gpu.unsqueeze(1)).float(), dim=1)
+                df["Tox_Immune"] = tox_immune_gpu.cpu().numpy()
+                df["TI_Immune"] = ti_immune.cpu().numpy()
+
+                # Non-Immune
+                tox_nonimmune_gpu = torch.max(ref_med[:, ref_nonimmune_groups], dim=1).values
+                ti_nonimmune = torch.mean((malig_med > tox_nonimmune_gpu.unsqueeze(1)).float(), dim=1)
+                df["Tox_NonImmune"] = tox_nonimmune_gpu.cpu().numpy()
+                df["TI_NonImmune"] = ti_nonimmune.cpu().numpy()
 
             tmp_file = tempfile.NamedTemporaryFile(delete=False, suffix=".parquet")
             df.to_parquet(tmp_file.name)

@@ -394,6 +394,43 @@ def compute_target_quality_score(
     
     return df
 
+def calculate_tissue_toxicity(ref_subset, malig_adata, df, tissue_name, exclude_lv1="Immune"):
+    """
+    Calculate tissue-specific toxicity metrics for target genes.
+    
+    Parameters:
+    -----------
+    ref_subset : AnnData
+        Reference dataset with cell type annotations
+    malig_adata : AnnData
+        Malignant cell dataset
+    df : pd.DataFrame
+        Gene dataframe with 'gene_name' column
+    tissue_name : str
+        Name of tissue to filter for (e.g., "Brain", "Heart")
+    exclude_lv1 : str, optional
+        Cell type to exclude (default: "Immune")
+    
+    Returns:
+    --------
+    df : pd.DataFrame
+        Updated dataframe with Tox_{tissue} and TI_{tissue} columns
+    """
+    # Filter for tissue cells, excluding specified cell type
+    obs_tissue = ref_subset.obs_names.str.contains(tissue_name, case=False)
+    if "Combo_Lv1" in ref_subset.obs:
+        obs_tissue = obs_tissue & ~ref_subset.obs["Combo_Lv1"].str.contains(exclude_lv1, case=False)
+    
+    # Calculate max tissue expression per gene
+    tox_col = f"Tox_{tissue_name}"
+    ti_col = f"TI_{tissue_name}"
+    
+    df[tox_col] = np.asarray(ref_subset[obs_tissue, df["gene_name"]].X.max(axis=0)).flatten()
+    
+    # Calculate fraction of malignant cells exceeding tissue toxicity threshold
+    df[ti_col] = np.mean(malig_adata[:, df['gene_name']].X.toarray() > df[tox_col].values, axis=0)
+    
+    return df
 
 # ============================================================================
 # MAIN RUN FUNCTION
@@ -536,13 +573,38 @@ def target_id_v1(
     print("\nComputing target quality scores...")
     df = compute_target_quality_score(df)
 
+    #Positivity Scores
+    print("\nAdding Positivity...")
     results = run.expression_percentiles_by_positivity(malig_adata[:, df['gene_name']])
     df['On_Val_25'] = results['p25']
     df['On_Val_50'] = results['p50']
     df['On_Val_75'] = results['p75']
     df['Positive_Final_v2'] = results['positive']
 
+    #Add Therapeutic Index
+    print("\nAdding Therapeutic Index...")
+    df["TI"] = np.mean(malig_adata[:, df['gene_name']].X.toarray() > df["Top_Off_Target_Val"].values, axis=0)
+
+    #Check Main Tox Tissues
+    df = calculate_tissue_toxicity(ref_subset, malig_adata, df, "Brain")
+    df = calculate_tissue_toxicity(ref_subset, malig_adata, df, "Heart")
+    df = calculate_tissue_toxicity(ref_subset, malig_adata, df, "Lung")
+
+    if "Combo_Lv1" in ref_subset.obs:
+        obs_immune = ref_subset.obs["Combo_Lv1"].str.contains("Immune", case=False)
+        obs_non_immune = ~obs_immune
+        
+        df["Tox_Immune"] = np.max(ref_subset[obs_immune, df["gene_name"]].X, axis=0)
+        df["TI_Immune"] = np.mean(malig_adata[:, df['gene_name']].X.toarray() > df["Tox_Immune"].values, axis=0)
+        
+        df["Tox_NonImmune"] = np.max(ref_subset[obs_non_immune, df["gene_name"]].X, axis=0)
+        df["TI_NonImmune"] = np.mean(malig_adata[:, df['gene_name']].X.toarray() > df["Tox_NonImmune"].values, axis=0)
+
     df = df.sort_values('TargetQ_Final_v1', ascending=False)
+
+    #Order Last Two Columns
+    cols = [col for col in df.columns if col not in ["TargetQ_Final_v1", "Positive_Final_v2"]] + ["TargetQ_Final_v1", "Positive_Final_v2"]
+    df = df[cols]
 
     print("Target ID complete!")
 
