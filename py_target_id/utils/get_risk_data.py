@@ -63,7 +63,7 @@ def get_multi_risk_scores(
         print(f"✓ Loading existing file: {local_file}")
     else:
 
-        if version.tolower() == "surface":
+        if version.lower() == "surface":
             gcs_file = f"{gcs_base_path}/Multi_Risk_Scores.20251018.parquet"
         
         # Download
