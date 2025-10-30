@@ -3,7 +3,7 @@ Target ID
 """
 
 # Define what gets exported
-__all__ = ['compute_ref_risk_scores', 'compute_gtex_risk_scores_single']
+__all__ = ['compute_ref_risk_scores', 'compute_gtex_risk_scores_single', 'compute_gtex_risk_scores_multi']
 import torch
 import numpy as np
 import pandas as pd
@@ -580,4 +580,170 @@ def compute_gtex_risk_scores_single(gtex):
         "gene_name": gtex.var_names,
         "Hazard_GTEX_v1": tissue_weighted + critical_penalty
     })
+
+def compute_gtex_risk_scores_multi(gtex, gene_pairs, batch_size=50000, device='cuda'):
+    """
+    GPU-optimized hazard-weighted GTEx scores for gene pairs.
+    
+    Parameters:
+    -----------
+    gtex : AnnData
+        GTEx AnnData object
+    gene_pairs : list of tuples
+        List of (gene1, gene2) tuples
+    batch_size : int
+        Number of pairs per batch
+    device : str
+        'cuda' or 'cpu'
+    
+    Returns:
+    --------
+    pd.DataFrame with columns: gene_name, Hazard_GTEX_v1
+    """
+    import numpy as np
+    import pandas as pd
+    import torch
+    import time
+    import gc
+    from scipy import sparse
+    from py_target_id import run, utils
+    
+    # Validate gene_pairs
+    if gene_pairs is None or len(gene_pairs) == 0:
+        raise ValueError("gene_pairs is required and must contain at least one gene pair")
+    
+    print(f"Validating {len(gene_pairs)} gene pairs...")
+    
+    # Extract all unique genes from pairs (set comprehension is faster)
+    all_genes_in_pairs = {g for pair in gene_pairs for g in pair}
+    
+    # Check which genes are present
+    available_genes = set(gtex.var_names)
+    missing_genes = all_genes_in_pairs - available_genes
+    
+    if missing_genes:
+        raise ValueError(f"The following genes are not found in the data: {sorted(missing_genes)}")
+    
+    genes_to_keep = sorted(all_genes_in_pairs)
+    
+    print(f"Subsetting GTEX to {len(genes_to_keep)} genes...")
+    
+    # Load to memory if backed
+    is_backed = hasattr(gtex, 'filename') and gtex.filename is not None
+    is_virtual = type(gtex).__name__ in ['VirtualAnnData', 'TransposedAnnData']
+    
+    if is_backed or is_virtual:
+        print("  Loading data to memory...")
+        gtex = gtex.to_memory()
+
+    gtex_subset = gtex[:, genes_to_keep].copy()
+    gtex_subset.X = gtex_subset.X.toarray()
+
+    # Build tissue to hazard mapping
+    tissue_to_hazard = {}
+    for tier, config in run.hazard_map.items():
+        for tissue in config['gtex_tissues']:
+            tissue_to_hazard[tissue] = config['hazard_score']
+    
+    # Get unique tissues and their hazard scores
+    unique_tissues = sorted(gtex_subset.obs["GTEX"].unique())
+    tissue_to_idx = {t: i for i, t in enumerate(unique_tissues)}
+    hazard_array = np.array([tissue_to_hazard.get(t, 0) for t in unique_tissues], dtype=np.float32)
+    tissue_indices = np.array([tissue_to_idx[t] for t in gtex_subset.obs["GTEX"].values], dtype=np.int64)
+    
+    # Convert gene pairs to indices
+    print(f"Converting {len(gene_pairs)} gene pairs to indices...")
+    gene_to_idx = {gene: idx for idx, gene in enumerate(genes_to_keep)}
+    
+    if isinstance(gene_pairs, list):
+        gx_all = np.array([gene_to_idx[g1] for g1, g2 in gene_pairs], dtype=np.int64)
+        gy_all = np.array([gene_to_idx[g2] for g1, g2 in gene_pairs], dtype=np.int64)
+    else:
+        gx_all = np.array([gene_to_idx[g] for g in gene_pairs['gene1']], dtype=np.int64)
+        gy_all = np.array([gene_to_idx[g] for g in gene_pairs['gene2']], dtype=np.int64)
+
+    # Load to GPU once before batching
+    device_obj = torch.device(device)
+    print(f"Loading expression matrix to {device}...")
+    X_gpu = torch.tensor(gtex_subset.X.astype(np.float32), device=device_obj)
+    tissue_indices_gpu = torch.tensor(tissue_indices, device=device_obj, dtype=torch.long)
+    hazard_gpu = torch.tensor(hazard_array, device=device_obj)
+    
+    # Precompute tissue masks on GPU
+    tissue_masks = [(tissue_indices_gpu == tissue_idx) for tissue_idx in range(len(unique_tissues))]
+    
+    n_batches = int(np.ceil(len(gx_all) / batch_size))
+    results = []
+    overall_start = time.time()
+    
+    print(f"Processing {len(gx_all)} pairs in {n_batches} batches...\n")
+    
+    for batch_idx in range(n_batches):
+        iter_start = time.time()
+        start = batch_idx * batch_size
+        end = min(start + batch_size, len(gx_all))
+        
+        gx_t = gx_all[start:end]
+        gy_t = gy_all[start:end]
+        
+        print(f"  {batch_idx + 1}/{n_batches} | ", end='', flush=True)
+        
+        # GPU minimum (cells, pairs)
+        min_expr = torch.minimum(X_gpu[:, gx_t], X_gpu[:, gy_t])
+        
+        # Group by tissue on GPU (vectorized)
+        n_pairs = min_expr.shape[1]
+        n_tissues = len(unique_tissues)
+        gtex_med_gpu = torch.zeros((n_tissues, n_pairs), device=device_obj, dtype=torch.float32)
+        
+        # Use precomputed masks
+        for tissue_idx in range(n_tissues):
+            mask = tissue_masks[tissue_idx]
+            if mask.any():
+                gtex_med_gpu[tissue_idx] = torch.median(min_expr[mask], dim=0).values
+        
+        # Threshold expression on GPU
+        gtex_med2_gpu = torch.where(gtex_med_gpu >= 25, 10.0,
+                       torch.where(gtex_med_gpu >= 10, 5.0,
+                       torch.where(gtex_med_gpu >= 5, 1.0,
+                       torch.where(gtex_med_gpu > 1, 0.25, 0.0))))
+        
+        # Composite score on GPU (tissues, pairs) * (tissues, 1) → (pairs,)
+        tissue_weighted = torch.sum(gtex_med2_gpu * hazard_gpu.unsqueeze(1), dim=0)
+        
+        # Critical tissue penalty on GPU
+        tier1_mask = (hazard_gpu == 4.0)
+        if tier1_mask.any():
+            critical_penalty = torch.sqrt(torch.sum((gtex_med2_gpu[tier1_mask] >= 5).float(), dim=0)) * 10
+        else:
+            critical_penalty = torch.zeros(n_pairs, device=device_obj)
+        
+        # Create gene pair names
+        names = [f"{genes_to_keep[i]}_{genes_to_keep[j]}" for i, j in zip(gx_all[start:end], gy_all[start:end])]
+        
+        batch_df = pd.DataFrame({
+            "gene_name": names,
+            "Hazard_GTEX_v1": (tissue_weighted + critical_penalty).cpu().numpy()
+        })
+        
+        results.append(batch_df)
+        
+        # Cleanup
+        del min_expr, gtex_med_gpu, gtex_med2_gpu, tissue_weighted, critical_penalty
+        torch.cuda.empty_cache()
+        gc.collect()
+        
+        iter_time = time.time() - iter_start
+        total_time = time.time() - overall_start
+        print(f"{iter_time:.2f}s | Total: {total_time/60:.1f}m")
+    
+    # Cleanup GPU memory
+    del X_gpu, tissue_indices_gpu, hazard_gpu
+    torch.cuda.empty_cache()
+    gc.collect()
+    
+    df_all = pd.concat(results, ignore_index=True)
+    return df_all
+
+
 
