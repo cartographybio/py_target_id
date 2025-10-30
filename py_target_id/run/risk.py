@@ -552,6 +552,7 @@ def compute_gtex_risk_scores_single(gtex):
     import pandas as pd
     from py_target_id import run
     from py_target_id import utils
+    from scipy import sparse
 
     # Load to memory if backed
     is_backed = hasattr(gtex, 'filename') and gtex.filename is not None
