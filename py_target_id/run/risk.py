@@ -552,7 +552,16 @@ def compute_gtex_risk_scores_single(gtex):
     import pandas as pd
     from py_target_id import run
     from py_target_id import utils
+
+    # Load to memory if backed
+    is_backed = hasattr(gtex, 'filename') and gtex.filename is not None
+    is_virtual = type(gtex).__name__ in ['VirtualAnnData', 'TransposedAnnData']
     
+    if is_backed or is_virtual:
+        print("  Loading data to memory...")
+        gtex = gtex.to_memory()    
+    gtex.X = gtex.X.toarray()
+
     # Compute median expression by tissue
     gtex_med = utils.summarize_matrix(mat=gtex.X, groups=gtex.obs["GTEX"].values, metric="median", axis=0)
     
