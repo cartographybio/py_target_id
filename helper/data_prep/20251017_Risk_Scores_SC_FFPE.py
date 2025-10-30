@@ -86,3 +86,41 @@ risk_ffpe_sc.loc[:,"gene_name"] = risk_ffpe_sc['pair_name'].str.split('_', expan
 risk_ffpe_sc = risk_ffpe_sc[['gene_name', 'hazard_weighted_risk']].copy()
 risk_ffpe_sc.to_parquet('FFPE_Single_Risk_Scores.20251017.parquet', engine='pyarrow', compression=None)
 
+#########################################################################################################
+#########################################################################################################
+
+#Save
+sc_haz = pd.read_parquet("SC_Single_Risk_Scores.20251017.parquet")
+ff_haz = pd.read_parquet("FFPE_Single_Risk_Scores.20251017.parquet")
+sc_haz.columns = ["gene_name", "Hazard_SC_v1"]
+ff_haz.columns = ["gene_name", "Hazard_FFPE_v1"]
+
+sc_m_haz = pd.read_parquet("SC_Multi_Risk_Scores.20251018.parquet")
+ff_m_haz = pd.read_parquet("FFPE_Multi_Risk_Scores.20251018.parquet")
+sc_m_haz.columns = ["gene_name", "Hazard_SC_v1"]
+ff_m_haz.columns = ["gene_name", "Hazard_FFPE_v1"]
+
+#Join
+haz_sgl = pd.merge(sc_haz, ff_haz, on = "gene_name", how = "left")
+haz_dbl = pd.merge(sc_m_haz, ff_m_haz, on = "gene_name", how = "left")
+
+haz_sgl = haz_sgl.sort_values("gene_name").reset_index(drop=True)
+haz_dbl = haz_dbl.sort_values("gene_name").reset_index(drop=True)
+
+haz_sgl.to_parquet("Single_Risk_Scores.20251017.parquet", compression=None)
+haz_dbl.to_parquet("Multi_Risk_Scores.20251018.parquet", compression=None)
+
+cp Single_Risk_Scores.20251017.parquet gs://cartography_target_id_package/Other_Input/Risk
+cp Multi_Risk_Scores.20251018.parquet gs://cartography_target_id_package/Other_Input/Risk
+
+import subprocess
+subprocess.run("gcloud storage cp Single_Risk_Scores.20251017.parquet gs://cartography_target_id_package/Other_Input/Risk/", shell=True) #Update Quick
+subprocess.run("gcloud storage cp Multi_Risk_Scores.20251018.parquet gs://cartography_target_id_package/Other_Input/Risk/", shell=True) #Update Quick
+
+
+
+
+
+
+
+
