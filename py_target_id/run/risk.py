@@ -3,7 +3,7 @@ Target ID
 """
 
 # Define what gets exported
-__all__ = ['compute_ref_risk_scores']
+__all__ = ['compute_ref_risk_scores', 'compute_gtex_risk_scores_single']
 import torch
 import numpy as np
 import pandas as pd
@@ -533,4 +533,51 @@ def compute_ref_risk_scores(
             pass
         torch.cuda.empty_cache()
         gc.collect()
+
+
+def compute_gtex_risk_scores_single(gtex):
+    """
+    Compute composite hazard-weighted GTEx score for genes.
+    
+    Parameters:
+    -----------
+    gtex : AnnData
+        GTEx AnnData object
+    
+    Returns:
+    --------
+    pd.DataFrame with columns: gene_name, Hazard_GTEX_v1
+    """
+    import numpy as np
+    import pandas as pd
+    from py_target_id import run
+    from py_target_id import utils
+    
+    # Compute median expression by tissue
+    gtex_med = utils.summarize_matrix(mat=gtex.X, groups=gtex.obs["GTEX"].values, metric="median", axis=0)
+    
+    # Build tissue to hazard mapping
+    tissue_to_hazard = {}
+    for tier, config in run.hazard_map.items():
+        for tissue in config['gtex_tissues']:
+            tissue_to_hazard[tissue] = config['hazard_score']
+    
+    hazard_score = gtex_med.index.map(tissue_to_hazard)
+    
+    # Threshold expression
+    gtex_med2 = np.where(gtex_med >= 25, 10, 
+               np.where(gtex_med >= 10, 5, 
+               np.where(gtex_med >= 5, 1, 
+               np.where(gtex_med > 1, 0.25, 0))))
+    
+    hazard_score = np.array(hazard_score)
+    
+    # Composite score: tissue-weighted expression + critical tissue penalty
+    tissue_weighted = np.sum(gtex_med2.T * hazard_score, axis=1)
+    critical_penalty = np.sqrt(np.sum(gtex_med2[hazard_score==4, :] >= 5, axis=0)) * 10
+    
+    return pd.DataFrame({
+        "gene_name": gtex.var_names,
+        "Hazard_GTEX_v1": tissue_weighted + critical_penalty
+    })
 
