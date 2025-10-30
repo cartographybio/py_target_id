@@ -560,7 +560,7 @@ def compute_gtex_risk_scores_single(gtex):
     if is_backed or is_virtual:
         print("  Loading data to memory...")
         gtex = gtex.to_memory()    
-    gtex.X = np.asarray(gtex.X)
+    gtex.X = gtex.X.toarray() if sparse.issparse(gtex.X) else gtex.X
 
     # Compute median expression by tissue
     gtex_med = utils.summarize_matrix(mat=gtex.X, groups=gtex.obs["GTEX"].values, metric="median", axis=0)
@@ -646,7 +646,7 @@ def compute_gtex_risk_scores_multi(gtex, gene_pairs, batch_size=50000, device='c
         gtex = gtex.to_memory()
 
     gtex_subset = gtex[:, genes_to_keep].copy()
-    gtex_subset.X = np.asarray(gtex_subset.X)
+    gtex_subset.X = gtex_subset.X.toarray() if sparse.issparse(gtex_subset.X) else gtex_subset.X
 
     # Build tissue to hazard mapping
     tissue_to_hazard = {}
