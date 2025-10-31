@@ -118,9 +118,56 @@ subprocess.run("gcloud storage cp Single_Risk_Scores.20251017.parquet gs://carto
 subprocess.run("gcloud storage cp Multi_Risk_Scores.20251018.parquet gs://cartography_target_id_package/Other_Input/Risk/", shell=True) #Update Quick
 
 
+#########################################################################################################
+#########################################################################################################
 
+import subprocess; import os; subprocess.run(["bash", os.path.expanduser("~/update_tid.sh")]) #Update Quick
+import py_target_id as tid
+from rpy2.robjects import r
+import scanpy as sc
+import anndata as ad
+import numpy as np
+import pandas as pd
+import os
+from importlib.resources import files
+from py_target_id import utils
 
+#Get
+gtex = tid.utils.get_gtex_adata().to_memory()
 
+#Single
+gtex_single = tid.run.compute_gtex_risk_scores_single(gtex)
 
+#Check
+gene_pairs = [(name, name) for name in gtex_single['gene_name']]
+gtex_multi_check = tid.run.compute_gtex_risk_scores_multi(gtex, gene_pairs)
 
+# Compare
+pair_scores = gtex_multi_check["Hazard_GTEX_v1"].values
+single_scores = gtex_single["Hazard_GTEX_v1"].values
+
+diff = pair_scores - single_scores
+print(f"Pearson r: {np.corrcoef(pair_scores, single_scores)[0, 1]:.6f}")
+print(f"MAE: {np.mean(np.abs(diff)):.6f}")
+print(f"RMSE: {np.sqrt(np.mean(diff ** 2)):.6f}")
+print(f"Max diff: {np.abs(diff).max():.6f}")
+
+#Multi
+risk = tid.utils.get_multi_risk_scores()
+gene_pairs = [tuple(gene.split("_")) for gene in risk["gene_name"].tolist()]
+gtex_multi = tid.run.compute_gtex_risk_scores_multi(gtex, gene_pairs)
+
+#Let's Read In Current Ones
+risk_sngl = pd.read_parquet("Single_Risk_Scores.20251017.parquet")
+risk_sngl = pd.merge(risk_sngl, gtex_single, on ="gene_name", how = "left")
+
+risk_dbl = pd.read_parquet("Multi_Risk_Scores.20251018.parquet")
+risk_dbl = pd.merge(risk_dbl, gtex_multi, on ="gene_name", how = "left")
+
+risk_sngl.to_parquet("Single_Risk_Scores.20251030.parquet", compression=None)
+risk_dbl.to_parquet("Multi_Risk_Scores.20251030.parquet", compression=None)
+
+import subprocess
+subprocess.run("gcloud storage cp Single_Risk_Scores.20251030.parquet gs://cartography_target_id_package/Other_Input/Risk/", shell=True) #Update Quick
+subprocess.run("gcloud storage cp Multi_Risk_Scores.20251030.parquet gs://cartography_target_id_package/Other_Input/Risk/", shell=True) #Update Quick
 

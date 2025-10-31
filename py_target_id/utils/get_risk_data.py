@@ -26,7 +26,7 @@ def get_single_risk_scores(
         print(f"✓ Loading existing file: {local_file}")
     else:
         # Define paths
-        gcs_file = f"{gcs_base_path}/Single_Risk_Scores.20251017.parquet"
+        gcs_file = f"{gcs_base_path}/Single_Risk_Scores.20251030.parquet"
         
         # Download
         utils.download_gcs_file(gcs_file, local_file, overwrite)
@@ -64,7 +64,7 @@ def get_multi_risk_scores(
     else:
 
         if version.lower() == "surface":
-            gcs_file = f"{gcs_base_path}/Multi_Risk_Scores.20251018.parquet"
+            gcs_file = f"{gcs_base_path}/Multi_Risk_Scores.20251030.parquet"
         
         # Download
         utils.download_gcs_file(gcs_file, local_file, overwrite)
