@@ -701,16 +701,17 @@ def compute_gtex_risk_scores_multi(gtex, gene_pairs, batch_size=50000, device='c
         # GPU minimum (cells, pairs)
         min_expr = torch.minimum(X_gpu[:, gx_t], X_gpu[:, gy_t])
         
-        # Group by tissue on GPU (vectorized)
+        # Group by tissue on GPU using quantile (matches NumPy median exactly)
         n_pairs = min_expr.shape[1]
         n_tissues = len(unique_tissues)
         gtex_med_gpu = torch.zeros((n_tissues, n_pairs), device=device_obj, dtype=torch.float32)
         
-        # Use precomputed masks
         for tissue_idx in range(n_tissues):
             mask = tissue_masks[tissue_idx]
             if mask.any():
-                gtex_med_gpu[tissue_idx] = torch.median(min_expr[mask], dim=0).values
+                indices = torch.where(mask)[0]
+                if len(indices) > 0:
+                    gtex_med_gpu[tissue_idx] = torch.quantile(min_expr[indices].float(), q=0.5, dim=0)
         
         # Threshold expression on GPU
         gtex_med2_gpu = torch.where(gtex_med_gpu >= 25, 10.0,
@@ -724,7 +725,7 @@ def compute_gtex_risk_scores_multi(gtex, gene_pairs, batch_size=50000, device='c
         # Critical tissue penalty on GPU
         tier1_mask = (hazard_gpu == 4.0)
         if tier1_mask.any():
-            critical_penalty = torch.sqrt(torch.sum((gtex_med2_gpu[tier1_mask] >= 5).float(), dim=0)) * 10
+            critical_penalty = torch.sqrt(torch.sum((gtex_med2_gpu[tier1_mask, :] >= 5).float(), dim=0)) * 10
         else:
             critical_penalty = torch.zeros(n_pairs, device=device_obj)
         
