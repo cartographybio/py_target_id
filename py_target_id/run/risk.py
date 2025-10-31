@@ -588,7 +588,10 @@ def compute_gtex_risk_scores_single(gtex):
     
     return pd.DataFrame({
         "gene_name": gtex.var_names,
-        "Hazard_GTEX_v1": tissue_weighted + critical_penalty
+        "Hazard_GTEX_v1": tissue_weighted + critical_penalty,
+        "GTEX_Tox_Tier1" : np.sum(gtex_med2[hazard_score==4, :] >= 5, axis=0),
+        "GTEX_Tox_Tier2" : np.sum(gtex_med2[hazard_score==1, :] >= 5, axis=0),
+        "GTEX_Tox_Tier3" : np.sum(gtex_med2[hazard_score==0.25, :] >= 5, axis=0)
     })
 
 def compute_gtex_risk_scores_multi(gtex, gene_pairs, batch_size=50000, device='cuda'):
@@ -724,23 +727,41 @@ def compute_gtex_risk_scores_multi(gtex, gene_pairs, batch_size=50000, device='c
         
         # Critical tissue penalty on GPU
         tier1_mask = (hazard_gpu == 4.0)
+        tier2_mask = (hazard_gpu == 1.0)
+        tier3_mask = (hazard_gpu == 0.25)
+        
         if tier1_mask.any():
             critical_penalty = torch.sqrt(torch.sum((gtex_med2_gpu[tier1_mask, :] >= 5).float(), dim=0)) * 10
+            tox_tier1 = torch.sum((gtex_med2_gpu[tier1_mask, :] >= 5).float(), dim=0)
         else:
             critical_penalty = torch.zeros(n_pairs, device=device_obj)
+            tox_tier1 = torch.zeros(n_pairs, device=device_obj)
         
+        if tier2_mask.any():
+            tox_tier2 = torch.sum((gtex_med2_gpu[tier2_mask, :] >= 5).float(), dim=0)
+        else:
+            tox_tier2 = torch.zeros(n_pairs, device=device_obj)
+    
+        if tier3_mask.any():
+            tox_tier3 = torch.sum((gtex_med2_gpu[tier3_mask, :] >= 5).float(), dim=0)
+        else:
+            tox_tier3 = torch.zeros(n_pairs, device=device_obj)
+
         # Create gene pair names
         names = [f"{genes_to_keep[i]}_{genes_to_keep[j]}" for i, j in zip(gx_all[start:end], gy_all[start:end])]
         
         batch_df = pd.DataFrame({
             "gene_name": names,
-            "Hazard_GTEX_v1": (tissue_weighted + critical_penalty).cpu().numpy()
+            "Hazard_GTEX_v1": (tissue_weighted + critical_penalty).cpu().numpy(),
+            "GTEX_Tox_Tier1": tox_tier1.cpu().numpy(),
+            "GTEX_Tox_Tier2": tox_tier2.cpu().numpy(),
+            "GTEX_Tox_Tier3": tox_tier3.cpu().numpy()
         })
         
         results.append(batch_df)
         
         # Cleanup
-        del min_expr, gtex_med_gpu, gtex_med2_gpu, tissue_weighted, critical_penalty
+        del min_expr, gtex_med_gpu, gtex_med2_gpu, tissue_weighted, critical_penalty, tox_tier1, tox_tier2, tox_tier3
         torch.cuda.empty_cache()
         gc.collect()
         
