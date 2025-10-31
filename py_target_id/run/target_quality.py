@@ -2,12 +2,12 @@
 compute_target_quality_v2
 """
 
-__all__ = ['target_quality_v2']
+__all__ = ['target_quality_v2_01']
 
 import numpy as np
 import pandas as pd
 
-def target_quality_v2(  # NO SURFACE ASSUME ALL ARE SURFACE
+def target_quality_v2_01(  # NO SURFACE ASSUME ALL ARE SURFACE
     df: pd.DataFrame
 ) -> pd.DataFrame:
     
@@ -21,7 +21,7 @@ def target_quality_v2(  # NO SURFACE ASSUME ALL ARE SURFACE
     # Score_1: Off-target penalty (1.0 threshold)
     Score_1 = np.select(
         [df['N_Off_Targets'] <= 3, df['N_Off_Targets'] > 3],
-        [df['N_Off_Targets'], 3 + (df['N_Off_Targets'] - 3) * 2],
+        [df['N_Off_Targets'], 6 + (df['N_Off_Targets'] - 3) * 2], #New Change
         default=10
     )
     Score_1 = np.minimum(Score_1, 10)
@@ -29,7 +29,7 @@ def target_quality_v2(  # NO SURFACE ASSUME ALL ARE SURFACE
     # Score_2: Off-target penalty (0.5 threshold)
     Score_2 = np.select(
         [df['N_Off_Targets_0.5'] <= 3, df['N_Off_Targets_0.5'] > 3],
-        [df['N_Off_Targets_0.5'], 3 + (df['N_Off_Targets_0.5'] - 3) * 2], #New Change
+        [df['N_Off_Targets_0.5'], 6 + (df['N_Off_Targets_0.5'] - 3) * 2], #New Change
         default=10
     )
     Score_2 = np.minimum(Score_2, 10)
@@ -47,21 +47,28 @@ def target_quality_v2(  # NO SURFACE ASSUME ALL ARE SURFACE
     Score_4 = np.select(
         [df['P_Pos_Per'] > 0.25,
          (df['P_Pos_Per'] > 0.15) & (df['P_Pos_Per'] <= 0.25),
-         (df['P_Pos_Per'] > 0.025) & (df['P_Pos_Per'] <= 0.15),
-         df['N_Pos_Val'] == 1],
-        [0, 1, 3, 10],
+         (df['P_Pos_Per'] > 0.025) & (df['P_Pos_Per'] <= 0.15)],
+        [0, 1, 3],
         default=10
     )
 
+    # Penalty if Cohort is > 10
+    if df["N"].values[0] > 10:
+        Score_4 = np.where(df['N_Pos_Val'] == 1, 10, Score_4)
+
     # Score_5: Proportion of Patients with Specificity > 0.35
+    off_set = np.where(df['N_Off_Targets'] <= 5, 0.1, 0)
     Score_5 = np.select(
-        [df['P_Pos'] > 0.25,
-         (df['P_Pos'] > 0.15) & (df['P_Pos'] <= 0.25),
-         (df['P_Pos'] > 0.025) & (df['P_Pos'] <= 0.15),
-         df['N_Pos'] == 1],
-        [0, 1, 3, 10],
+        [df['P_Pos'] + off_set > 0.25,
+         (df['P_Pos'] + off_set > 0.15) & (df['P_Pos'] + off_set <= 0.25),
+         (df['P_Pos'] + off_set > 0.025) & (df['P_Pos'] + off_set <= 0.15)],
+        [0, 1, 3],
         default=10
     )
+
+    # Penalty if Cohort is > 10
+    if df["N"].values[0] > 10:
+        Score_5 = np.where(df['N_Pos'] == 1, 10, Score_5)
 
     # Score_6: 2nd Target expression
     Score_6 = np.select(
@@ -72,20 +79,22 @@ def target_quality_v2(  # NO SURFACE ASSUME ALL ARE SURFACE
         [0, 1, 3, 5],
         default=10
     )
+    Score_6 = Score_6 - np.maximum(np.minimum(df['SC_2nd_Target_Val'], 6) - 2, 0) * 2.5 # We want things High Exp
 
     # Score_7: Legacy baseline
     Score_7 = np.full(len(df), 0) # Assume All Surface
 
     # Compute final TargetQ score
     score_array = np.column_stack([Score_1, Score_2, Score_3, Score_5, Score_6, Score_7])
-    penalty_array = np.column_stack([Score_1, Score_2, Score_3])
+    penalty_array = np.column_stack([Score_1, Score_3])
 
     ###############
-    # Target Quality V1
+    # Target Quality V1 With New Adjustments
     ###############
 
     # Step 1: Sum all scores
-    raw_scores = score_array.sum(axis=1)
+    raw_scores0 = score_array.sum(axis=1)
+    raw_scores = np.maximum(raw_scores0, 0) #New Scoring Has Some Negative Allowances
 
     # Step 2: Count penalties (Score == 10)
     penalty_count = (penalty_array == 10).sum(axis=1)
@@ -111,24 +120,35 @@ def target_quality_v2(  # NO SURFACE ASSUME ALL ARE SURFACE
     )
     TI_Tox = np.minimum(np.minimum(df["TI_Brain"].values, df["TI_Heart"].values), df["TI_Lung"].values)
 
+    Simple_Tox = np.minimum(df["N_Off_Targets_1.0"] + 
+        0.25 * df["N_Off_Targets_0.5"] + 
+        0.25**2 * df["N_Off_Targets_0.25"] +
+        0.25**3 * df["N_Off_Targets_0.1"] + 
+        0.25**4 * df["N_Off_Targets_0.05"], 5)
+
+    Simple_Tox = np.maximum(Simple_Tox - (df["SC_2nd_Target_Val"] - 1), 0)
+
     # Add bonuses (vectorized)
     #target_quality += df["Positive_Final_v2"].values / 5 # Not Sure If We Want This
     target_quality += 10 * np.minimum(LFC_On_50_vs_Tox, 1) + 2 * (np.minimum(LFC_On_50_vs_Tox, 5) - 1) #A little wiggle
-    target_quality += 10 * df["TI"].values + 5 * (df["TI"].values > 0.1).astype(int)
+    target_quality += 10 * df["TI"].values + 10 * df["TI_NonImmune"].values + 5 * (df["TI"].values > 0).astype(int)
     target_quality += 10 * TI_Tox
-    target_quality += 5 * np.minimum(df["On_Val_75"].values, 2) + 2 * (np.minimum(df["On_Val_75"].values, 5) - 2) #A little wiggle
+    target_quality += 2.5 * np.minimum(df["On_Val_75"].values, 2) + 2 * np.maximum(np.minimum(df["On_Val_75"].values, 5) - 2, 0) #A little wiggle
     target_quality += 10 * np.minimum(df["Specificity"].values, 2) #Only for ones with 0 off targets!
 
     # Apply penalties (vectorized with np.where)
     target_quality = np.where(df["N_Off_Targets_1.0"].values > 5, target_quality - 10, target_quality)
-    target_quality = np.where(df["Hazard_SC_v1"].values > 25, target_quality - 5, target_quality)
-    target_quality = np.where(df["Hazard_FFPE_v1"].values > 25, target_quality - 5, target_quality)
+    target_quality = np.where(df["N_Off_Targets_1.0"].values > 15, target_quality - 10, target_quality)
+
+    target_quality = np.where(df["Hazard_SC_v1"].values > 25, target_quality - 10, target_quality)
+    target_quality = np.where(df["Hazard_FFPE_v1"].values > 25, target_quality - 10, target_quality)
     target_quality = np.where(TI_Tox < 0.1, target_quality - 20, target_quality)
     target_quality = np.where(TI_Tox == 0, target_quality - 10, target_quality)
+    target_quality -= Simple_Tox
 
     # Bulk Expression Weighting
-    target_quality = np.where(df["Hazard_GTEX_v1"].values > 40, target_quality - 5, target_quality)
-    target_quality = np.where(df["GTEX_Tox_Tier1"].values > 1, target_quality - 5, target_quality)
+    target_quality = np.where(df["Hazard_GTEX_v1"].values > 25, target_quality - 5, target_quality)
+    target_quality = np.where(df["GTEX_Tox_Tier1"].values > 1, target_quality - 10, target_quality)
     target_quality = np.where(df["GTEX_Tox_Tier2"].values > 4, target_quality - 5, target_quality)
     
     # Zero out bad targets
@@ -140,7 +160,7 @@ def target_quality_v2(  # NO SURFACE ASSUME ALL ARE SURFACE
 
     # Scale and clamp to 0-100
     df["TargetQ_Final_v2"] = np.maximum(target_quality + 50, 0) #For Pentalies Below 0
-    df["TargetQ_Final_v2"] = 100 * df["TargetQ_Final_v2"] / 197.587098 #Value for CB21
+    df["TargetQ_Final_v2"] = 100 * df["TargetQ_Final_v2"] / (198.301384) #Value for CB21
     df = df[df.columns[df.columns != 'gene_name'].tolist() + ['gene_name']]
 
     return df.sort_values("TargetQ_Final_v2", ascending=False)
