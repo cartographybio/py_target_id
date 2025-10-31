@@ -4,13 +4,13 @@ compute_target_quality_v2
 
 __all__ = ['target_quality_v2']
 
+import numpy as np
+import pandas as pd
+
 def target_quality_v2(  # NO SURFACE ASSUME ALL ARE SURFACE
     df: pd.DataFrame
 ) -> pd.DataFrame:
     
-    import numpy as np
-    import pandas as pd
-
     # Check for required columns
     required_cols = ['Hazard_SC_v1', 'Hazard_FFPE_v1', 'Hazard_GTEX_v1']
     missing_cols = [col for col in required_cols if col not in df.columns]
