@@ -348,7 +348,11 @@ def compute_ref_risk_scores(
     print(f"Found {len(genes_to_keep)} unique genes")
     
     # Subset reference data
-    ref_subset = ref_adata[:, genes_to_keep].to_memory(dense=True)
+    try:
+        ref_subset = ref_adata[:, genes_to_keep].to_memory(dense=True)
+    except TypeError:
+        ref_subset = ref_adata[:, genes_to_keep].to_memory()
+    #ref_subset = ref_adata[:, genes_to_keep].to_memory(dense=True)
     genes = ref_subset.var_names
  
     # Convert sparse to dense
