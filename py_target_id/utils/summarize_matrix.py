@@ -2,13 +2,33 @@
 Reference data loading functions.
 """
 
-__all__ = ['summarize_matrix']
+__all__ = ['summarize_matrix', 'cp10k']
 
 import numpy as np
 import pandas as pd
 from scipy import sparse
 from typing import Literal, Union
 import time
+
+def cp10k(m):
+    """Normalize matrix rows to sum to 1 (CPM per 10k normalization)
+    
+    Preserves input matrix format (sparse or dense).
+    """
+    row_sums = np.array(m.sum(axis=1)).flatten()
+    row_sums[row_sums == 0] = 1
+    
+    scale = 10000 / row_sums.reshape(-1, 1)
+    
+    if hasattr(m, 'multiply'):  # Sparse matrix
+        result = m.multiply(scale)
+        # Preserve original format
+        if hasattr(m, 'format'):
+            result = result.asformat(m.format)
+    else:  # Dense array
+        result = m * scale
+    
+    return result
 
 def summarize_matrix(
     mat: Union[np.ndarray, sparse.spmatrix],
