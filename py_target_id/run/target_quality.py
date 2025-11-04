@@ -2,7 +2,7 @@
 compute_target_quality_v2
 """
 
-__all__ = ['target_quality_v2_01']
+__all__ = ['target_quality_v2_01', 'target_quality_v1']
 
 import numpy as np
 import pandas as pd
