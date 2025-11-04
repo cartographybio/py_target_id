@@ -165,5 +165,88 @@ def target_quality_v2_01(  # NO SURFACE ASSUME ALL ARE SURFACE
 
     return df.sort_values("TargetQ_Final_v2", ascending=False)
 
+def target_quality_v1(
+    df: pd.DataFrame,
+    multi: False
+) -> pd.DataFrame:
+    """Compute target quality scores with surface protein evidence"""
+    
+    from py_target_id import utils
 
+    if multi:
+    
+        try:
+            # Load surface evidence
+            surface_series = utils.surface_evidence()
+            
+            # Split gene pairs
+            gene_splits = df['gene_name'].str.split('_', n=1, expand=True)
+            
+            # Map surface evidence for both genes
+            gene1 = gene_splits[0].map(surface_series).fillna(1.0)
+            gene2 = gene_splits[1].map(surface_series).fillna(1.0)
+            
+            # Take minimum (both genes must have surface evidence)
+            df['Surface_Prob'] = np.minimum(gene1, gene2)
+            
+        except Exception as e:
+            print(f"Warning: Could not load surface evidence ({e}), using default value 1.0")
+            df['Surface_Prob'] = 1.0
+
+    else :
+
+        try:
+            # Load surface evidence
+            surface_series = utils.surface_evidence()
+            df['Surface_Prob'] = df['gene_name'].map(surface_series).fillna(1.0)
+        
+        except Exception as e:
+            print(f"Warning: Could not load surface evidence ({e}), using default value 1.0")
+            df['Surface_Prob'] = 1.0
+
+    # Score components
+    df['Score_1'] = 10
+    df.loc[df['N_Off_Targets'] <= 3, 'Score_1'] = df.loc[df['N_Off_Targets'] <= 3, 'N_Off_Targets']
+    
+    df['Score_2'] = 10
+    df.loc[df['N_Off_Targets_0.5'] <= 3, 'Score_2'] = df.loc[df['N_Off_Targets_0.5'] <= 3, 'N_Off_Targets_0.5']
+    
+    df['Score_3'] = 10
+    df.loc[df['Corrected_Specificity'] >= 0.75, 'Score_3'] = 0
+    df.loc[(df['Corrected_Specificity'] >= 0.5) & (df['Corrected_Specificity'] < 0.75), 'Score_3'] = 1
+    df.loc[(df['Corrected_Specificity'] >= 0.35) & (df['Corrected_Specificity'] < 0.5), 'Score_3'] = 3
+    
+    df['Score_4'] = 10
+    df.loc[df['P_Pos_Val_0.5'] > 0.25, 'Score_4'] = 0
+    df.loc[(df['P_Pos_Val_0.5'] > 0.15) & (df['P_Pos_Val_0.5'] <= 0.25), 'Score_4'] = 1
+    df.loc[(df['P_Pos_Val_0.5'] > 0.025) & (df['P_Pos_Val_0.5'] <= 0.15), 'Score_4'] = 3
+    df.loc[df['N_Pos_Val_0.5'] == 1, 'Score_4'] = 10
+    
+    df['Score_5'] = 10
+    df.loc[df['P_Pos_Specific'] > 0.25, 'Score_5'] = 0
+    df.loc[(df['P_Pos_Specific'] > 0.15) & (df['P_Pos_Specific'] <= 0.25), 'Score_5'] = 1
+    df.loc[(df['P_Pos_Specific'] > 0.025) & (df['P_Pos_Specific'] <= 0.15), 'Score_5'] = 3
+    df.loc[df['N_Pos_Specific'] == 1, 'Score_5'] = 10
+    
+    df['Score_6'] = 10
+    df.loc[df['SC_2nd_Target_Val'] > 2, 'Score_6'] = 0
+    df.loc[(df['SC_2nd_Target_Val'] > 1) & (df['SC_2nd_Target_Val'] <= 2), 'Score_6'] = 1
+    df.loc[(df['SC_2nd_Target_Val'] > 0.5) & (df['SC_2nd_Target_Val'] <= 1), 'Score_6'] = 3
+    df.loc[(df['SC_2nd_Target_Val'] > 0.1) & (df['SC_2nd_Target_Val'] <= 0.5), 'Score_6'] = 5
+    
+    df['Score_7'] = 10
+    df.loc[df['Surface_Prob'] >= 0.5, 'Score_7'] = 0
+    df.loc[(df['Surface_Prob'] >= 0.1875) & (df['Surface_Prob'] < 0.5), 'Score_7'] = 3
+    df.loc[(df['Surface_Prob'] >= 0.125) & (df['Surface_Prob'] < 0.1875), 'Score_7'] = 7
+    
+    # Compute final TargetQ score
+    score_columns = ['Score_1', 'Score_2', 'Score_3', 'Score_5', 'Score_6', 'Score_7']
+    penalty_columns = ['Score_1', 'Score_2', 'Score_3']
+    
+    raw_scores = df[score_columns].sum(axis=1)
+    penalty_count = (df[penalty_columns] == 10).sum(axis=1)
+    penalized_scores = raw_scores / 60 + 0.25 * penalty_count
+    df['TargetQ_Final_v1'] = (100 / 1.75) * (1.75 - penalized_scores)
+    
+    return df
 

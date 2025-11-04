@@ -327,72 +327,10 @@ def determine_positive_patients(
                 results[gene_idx, 2] = results[gene_idx, 1] / n_malig
     
     df_summary['Target_Val_Pos'] = results[:, 0]
-    df_summary['N_Pos'] = results[:, 1].astype(int)
-    df_summary['P_Pos'] = results[:, 2]
+    df_summary['N_Pos_Specific'] = results[:, 1].astype(int)
+    df_summary['P_Pos_Specific'] = results[:, 2]
     
     return df_summary
-
-
-def compute_target_quality_score(
-    df: pd.DataFrame
-) -> pd.DataFrame:
-    """Compute target quality scores with surface protein evidence"""
-    
-    from py_target_id import utils
-
-    # Load surface evidence if path provided
-    try:
-        surface_series = utils.surface_evidence()
-        df['Surface_Prob'] = df['gene_name'].map(surface_series).fillna(1.0)
-    except Exception as e:
-        print(f"Warning: Could not load surface evidence ({e}), using default value 1.0")
-        df['Surface_Prob'] = 1.0
-    
-    # Score components
-    df['Score_1'] = 10
-    df.loc[df['N_Off_Targets'] <= 3, 'Score_1'] = df.loc[df['N_Off_Targets'] <= 3, 'N_Off_Targets']
-    
-    df['Score_2'] = 10
-    df.loc[df['N_Off_Targets_0.5'] <= 3, 'Score_2'] = df.loc[df['N_Off_Targets_0.5'] <= 3, 'N_Off_Targets_0.5']
-    
-    df['Score_3'] = 10
-    df.loc[df['Corrected_Specificity'] >= 0.75, 'Score_3'] = 0
-    df.loc[(df['Corrected_Specificity'] >= 0.5) & (df['Corrected_Specificity'] < 0.75), 'Score_3'] = 1
-    df.loc[(df['Corrected_Specificity'] >= 0.35) & (df['Corrected_Specificity'] < 0.5), 'Score_3'] = 3
-    
-    df['Score_4'] = 10
-    df.loc[df['P_Pos_Per'] > 0.25, 'Score_4'] = 0
-    df.loc[(df['P_Pos_Per'] > 0.15) & (df['P_Pos_Per'] <= 0.25), 'Score_4'] = 1
-    df.loc[(df['P_Pos_Per'] > 0.025) & (df['P_Pos_Per'] <= 0.15), 'Score_4'] = 3
-    df.loc[df['N_Pos_Val'] == 1, 'Score_4'] = 10
-    
-    df['Score_5'] = 10
-    df.loc[df['P_Pos'] > 0.25, 'Score_5'] = 0
-    df.loc[(df['P_Pos'] > 0.15) & (df['P_Pos'] <= 0.25), 'Score_5'] = 1
-    df.loc[(df['P_Pos'] > 0.025) & (df['P_Pos'] <= 0.15), 'Score_5'] = 3
-    df.loc[df['N_Pos'] == 1, 'Score_5'] = 10
-    
-    df['Score_6'] = 10
-    df.loc[df['SC_2nd_Target_Val'] > 2, 'Score_6'] = 0
-    df.loc[(df['SC_2nd_Target_Val'] > 1) & (df['SC_2nd_Target_Val'] <= 2), 'Score_6'] = 1
-    df.loc[(df['SC_2nd_Target_Val'] > 0.5) & (df['SC_2nd_Target_Val'] <= 1), 'Score_6'] = 3
-    df.loc[(df['SC_2nd_Target_Val'] > 0.1) & (df['SC_2nd_Target_Val'] <= 0.5), 'Score_6'] = 5
-    
-    df['Score_7'] = 10
-    df.loc[df['Surface_Prob'] >= 0.5, 'Score_7'] = 0
-    df.loc[(df['Surface_Prob'] >= 0.1875) & (df['Surface_Prob'] < 0.5), 'Score_7'] = 3
-    df.loc[(df['Surface_Prob'] >= 0.125) & (df['Surface_Prob'] < 0.1875), 'Score_7'] = 7
-    
-    # Compute final TargetQ score
-    score_columns = ['Score_1', 'Score_2', 'Score_3', 'Score_5', 'Score_6', 'Score_7']
-    penalty_columns = ['Score_1', 'Score_2', 'Score_3']
-    
-    raw_scores = df[score_columns].sum(axis=1)
-    penalty_count = (df[penalty_columns] == 10).sum(axis=1)
-    penalized_scores = raw_scores / 60 + 0.25 * penalty_count
-    df['TargetQ_Final_v1'] = (100 / 1.75) * (1.75 - penalized_scores)
-    
-    return df
 
 def calculate_tissue_toxicity(ref_subset, malig_adata, df, tissue_name, exclude_lv1="Immune"):
     """
@@ -542,8 +480,8 @@ def target_id_v1(
     
     # Compute additional metrics
     print("\nComputing additional metrics...")
-    df['N_Pos_Val'] = np.sum(mat_malig >= 0.5, axis=1)
-    df['P_Pos_Per'] = df['N_Pos_Val'] / mat_malig.shape[1]
+    df['N_Pos_Val_0.5'] = np.sum(mat_malig >= 0.5, axis=1)
+    df['P_Pos_Val_0.5'] = df['N_Pos_Val_0.5'] / mat_malig.shape[1]
     
     for thresh in [0.01, 0.05, 0.1, 0.25, 0.5, 1.0]:
         df[f'N_Off_Targets_{thresh}'] = np.sum(mat_ref >= thresh, axis=1)
@@ -571,7 +509,7 @@ def target_id_v1(
     
     # Compute target quality scores
     print("\nComputing target quality scores...")
-    df = compute_target_quality_score(df)
+    df = run.target_quality_v1(df)
 
     #Positivity Scores
     print("\nAdding Positivity...")
