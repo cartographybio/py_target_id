@@ -11,7 +11,8 @@ from py_target_id import utils
 __all__ = [
     'add_ref_weights',
     'get_ref_ffpe_off_target', 'get_ref_lv4_ffpe_med_adata', 'get_ref_lv4_ffpe_ar_adata',
-    'get_ref_sc_off_target', 'get_ref_lv4_sc_med_adata', 'get_ref_lv4_sc_ar_adata' 
+    'get_ref_sc_off_target', 'get_ref_lv4_sc_med_adata', 'get_ref_lv4_sc_ar_adata',
+    'ref_med_gene_sorted'
 ]
 
 ################################################################################################################################################
@@ -328,3 +329,9 @@ def get_ref_lv4_sc_ar_adata(
     ref_adata.obs = ref_df
 
     return ref_adata
+
+def ref_med_gene_sorted(ref_med_adata, gene):
+    obs = ref_med_adata.obs.copy()
+    obs[gene] = ref_med_adata[:, gene].X.copy().flatten()
+    obs = obs.sort_values(gene, ascending=False)
+    return obs

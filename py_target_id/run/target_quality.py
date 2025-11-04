@@ -54,7 +54,7 @@ def target_quality_v2_01(  # NO SURFACE ASSUME ALL ARE SURFACE
 
     # Penalty if Cohort is > 10
     if df["N"].values[0] > 10:
-        Score_4 = np.where(df['N_Pos_Val'] == 1, 10, Score_4)
+        Score_4 = np.where(df['N_Pos_Val_0.5'] == 1, 10, Score_4)
 
     # Score_5: Proportion of Patients with Specificity > 0.35
     off_set = np.where(df['N_Off_Targets'] <= 5, 0.1, 0)
