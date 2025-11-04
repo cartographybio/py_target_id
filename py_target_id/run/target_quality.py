@@ -167,7 +167,7 @@ def target_quality_v2_01(  # NO SURFACE ASSUME ALL ARE SURFACE
 
 def target_quality_v1(
     df: pd.DataFrame,
-    multi: False
+    multi: bool = False
 ) -> pd.DataFrame:
     """Compute target quality scores with surface protein evidence"""
     

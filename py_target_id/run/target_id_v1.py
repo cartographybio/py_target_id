@@ -508,7 +508,7 @@ def target_id_v1(
     
     # Compute target quality scores
     print("\nComputing target quality scores...")
-    df = run.target_quality_v1(df)
+    df = run.target_quality_v1(df, multi=False)
 
     #Positivity Scores
     print("\nAdding Positivity...")

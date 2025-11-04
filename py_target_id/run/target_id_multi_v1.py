@@ -633,7 +633,7 @@ def target_id_multi_v1(
 
         # Compute final quality scores
         print(f"------  Computing Quality Scores - | Total: {time.time()-overall_start:.1f}s")
-        df_all = run.target_quality_v1(df_all)
+        df_all = run.target_quality_v1(df_all, multi = True)
         df_all = df_all.sort_values('TargetQ_Final_v1', ascending=False)
 
         # Move Positive_Final_v2 to the end
