@@ -477,7 +477,7 @@ def target_id_multi_v1(
             n_genes_batch = len(gx_t)
             corrected_idx_gpu = torch.argmax((score_matrix >= 0.35).int(), dim=1)
             n_pos_val = (malig_med >= 0.5).sum(dim=1)
-            p_pos_per = n_pos_val.float() / n_malig_groups
+            p_pos_val = n_pos_val.float() / n_malig_groups
 
             off_targets_gpu = {}
             for thresh in [0.01, 0.05, 0.1, 0.25, 0.5, 1.0]:
@@ -533,7 +533,7 @@ def target_id_multi_v1(
                 percentiles=[25, 50, 75]
             )
             positive_0_1 = (malig_med > 0.1).float().mean(dim=1) * 100
-            positive_0_5 = (malig_med > 0.5).float().mean(dim=1) * 100
+            #positive_0_5 = (malig_med > 0.5).float().mean(dim=1) * 100
 
             pos_time = time.time() - t_pos
             print(f"PosPat2:{pos_time:.1f}s | ", end='', flush=True)
@@ -550,20 +550,19 @@ def target_id_multi_v1(
                 'Log2_Fold_Change': log2_fc.cpu().numpy(),
                 'Corrected_Log2_Fold_Change': corrected_log2_fc.cpu().numpy(),
                 'N_Off_Targets': n_off_targets.cpu().numpy(),
-                'N_Pos_Val': n_pos_val.cpu().numpy(),
-                'P_Pos_Per': p_pos_per.cpu().numpy(),
+                'N_Pos_Val_0.5': n_pos_val.cpu().numpy(),
+                'P_Pos_Val_0.5': p_pos_val.cpu().numpy(),
                 'SC_2nd_Target_Val': sc_2nd_target_val.cpu().numpy(),
                 'SC_2nd_Target_LFC': sc_2nd_lfc.cpu().numpy(),
                 'N': n_malig_groups,
                 'Target_Val_Pos': target_val_pos.cpu().numpy(),
-                'N_Pos': n_pos.cpu().numpy(),
-                'P_Pos': p_pos.cpu().numpy(),
+                'N_Pos_Specific': n_pos.cpu().numpy(),
+                'P_Pos_Specific': p_pos.cpu().numpy(),
                 'Positive_Final_v2': results['positive'].cpu().numpy(),
                 'On_Val_25' : results['p25'].cpu().numpy(), 
                 'On_Val_50' : results['p50'].cpu().numpy(),
                 'On_Val_75' : results['p75'].cpu().numpy(), 
-                'Positive_Final_0.1' : positive_0_1.cpu().numpy(),
-                'Positive_Final_0.5' : positive_0_5.cpu().numpy(),
+                'P_Pos_Val_0.1' : positive_0_1.cpu().numpy(),
                 **{k: v.cpu().numpy() for k, v in off_targets_gpu.items()}
             })
 

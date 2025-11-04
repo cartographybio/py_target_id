@@ -504,8 +504,7 @@ def target_id_v1(
     )
     df['SC_2nd_Target_LFC'] = df['SC_2nd_Target_LFC'].clip(0, 10)
     df['N'] = mat_malig.shape[1]
-    df["Positive_Final_0.1"] = (malig_adata[:, df['gene_name']].X >= 0.1).mean(axis=0) * 100    
-    df["Positive_Final_0.5"] = (malig_adata[:, df['gene_name']].X >= 0.5).mean(axis=0) * 100    
+    df["P_Pos_Val_0.1"] = (malig_adata[:, df['gene_name']].X >= 0.1).mean(axis=0) * 100    
     
     # Compute target quality scores
     print("\nComputing target quality scores...")
