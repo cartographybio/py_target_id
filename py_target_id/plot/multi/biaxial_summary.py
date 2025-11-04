@@ -21,8 +21,8 @@ def biaxial_summary(
     malig_adata,  # Malignant AnnData (cells × genes)
     malig_med_adata,  # Malignant median AnnData (patients × genes) with positivity layer
     ref_adata,  # Healthy atlas AnnData
-    gtex_adata = utils.get_gtex_adata(),
-    tcga_adata = utils.get_tcga_adata(),
+    gtex_adata = None,  # Changed from utils.get_gtex_adata()
+    tcga_adata = None,  # Changed from utils.get_tcga_adata()
     out_dir: str = "multi/biaxial_summary",
     show: int = 15,
     width: float = 28,
@@ -71,6 +71,13 @@ def biaxial_summary(
     
     # Create output directory
     Path(out_dir).mkdir(parents=True, exist_ok=True)
+    
+    # Lazy-load reference data only if needed
+    if gtex_adata is None:
+        gtex_adata = utils.get_gtex_adata()
+    
+    if tcga_adata is None:
+        tcga_adata = utils.get_tcga_adata()
     
     if titles is None:
         titles = multis

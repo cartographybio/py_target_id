@@ -16,8 +16,8 @@ from datetime import datetime
 def biaxial_tcga_gtex(
     multis: list,
     main: str = "LUAD",
-    gtex_adata = utils.get_gtex_adata(),
-    tcga_adata = utils.get_tcga_adata(),
+    gtex_adata = None,  # Changed from utils.get_gtex_adata()
+    tcga_adata = None,  # Changed from utils.get_tcga_adata()
     out_dir: str = "multi/biaxial_tcga_gtex",
     width: float = 24,
     height: float = 12,
@@ -48,6 +48,13 @@ def biaxial_tcga_gtex(
     
     # Create output directory
     Path(out_dir).mkdir(parents=True, exist_ok=True)
+    
+    # Lazy-load reference data only if needed
+    if gtex_adata is None:
+        gtex_adata = utils.get_gtex_adata()
+    
+    if tcga_adata is None:
+        tcga_adata = utils.get_tcga_adata()
     
     # Parse gene combinations
     multis_split = np.array([m.split("_") for m in multis])
