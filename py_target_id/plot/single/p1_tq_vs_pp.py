@@ -6,6 +6,7 @@ Manifest loading and processing functions.
 __all__ = ['p1_tq_vs_pp']
 
 import numpy as np
+import pandas as pd
 from py_target_id import utils, plot  # Relative import
 
 def p1_tq_vs_pp(
