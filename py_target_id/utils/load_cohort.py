@@ -5,7 +5,7 @@ Manifest loading and processing functions.
 # Define what gets exported
 __all__ = ['load_cohort']
 
-def load_cohort(IND=None):
+def load_cohort(IND = None, nMalig = 0):
     """
     Load tumor cohort data and reference datasets for target identification analysis.
     
@@ -113,6 +113,13 @@ def load_cohort(IND=None):
     # med_adata: median expression per cell type per sample
     # ar_adata: activity/raw counts
     malig_med_adata = utils.get_malig_med_adata(manifest)
+    malig_pass = malig_med_adata.obs.loc[malig_med_adata.obs["nMalig"] >= nMalig, "Patient"].values
+
+    #Subset
+    p = f"{100*len(malig_pass) / malig_med_adata.shape[0]:.1f}%"
+    print(f"{p} ({len(malig_pass)} / {malig_med_adata.shape[0]}) Pass nMalig Cutoff of {nMalig}")
+    manifest = manifest[manifest["Sample_ID"].isin(malig_pass)]
+    malig_med_adata = malig_med_adata[malig_med_adata.obs["nMalig"] >= nMalig, :].copy()
     malig_adata = utils.get_malig_ar_adata(manifest)
     
     # ===== LOAD REFERENCE DATA =====

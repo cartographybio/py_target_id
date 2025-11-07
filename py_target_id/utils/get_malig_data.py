@@ -22,7 +22,7 @@ def get_malig_med_adata(manifest, positivity=True):
         except TypeError as e:
             if "obs_names" in str(e):
                 # Old AnnData format - reconstruct manually
-                #print(f"  Using legacy format reader for {file_path}")
+                #@print(f"  Using legacy format reader for {file_path}")
                 with h5py.File(file_path, 'r') as f:
                     X = f['X'][:]
                     obs_names = f['obs_names'][:].astype(str)
@@ -53,11 +53,26 @@ def get_malig_med_adata(manifest, positivity=True):
             else:
                 raise
     
-    # Load all files
+    # Load all files and preserve obs metadata
     adata_list = []
     for file_path in tqdm(manifest['Local_AD_Malig'], desc="Loading files"):
         try:
             adata = read_h5ad_robust(file_path)
+            
+            # Ensure obs metadata is preserved (especially nMalig)
+            with h5py.File(file_path, 'r') as f:
+                if 'obs' in f:
+                    if isinstance(f['obs'], h5py.Dataset):
+                        # Old format: structured array
+                        obs_data = f['obs'][:]
+                        for col_name in obs_data.dtype.names:
+                            adata.obs[col_name] = obs_data[col_name]
+                    elif isinstance(f['obs'], h5py.Group):
+                        # New format: group with columns
+                        for col_name in f['obs'].keys():
+                            if col_name != '_index':
+                                adata.obs[col_name] = f['obs'][col_name][:]
+            
             adata_list.append(adata)
         except Exception as e:
             print(f"Error loading {file_path}: {e}")
