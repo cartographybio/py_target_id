@@ -151,15 +151,15 @@ def target_quality_v2_01(  # NO SURFACE ASSUME ALL ARE SURFACE
     target_quality = np.where(df["GTEX_Tox_Tier1"].values > 1, target_quality - 10, target_quality)
     target_quality = np.where(df["GTEX_Tox_Tier2"].values > 4, target_quality - 5, target_quality)
     
-    # Zero out bad targets
-    target_quality = np.where(
-        (df["Positive_Final_v2"].values <= 1) | (df["Target_Val"].values <= 0.1), 
-        0, 
-        target_quality
-    )
-
     # Scale and clamp to 0-100
     df["TargetQ_Final_v2"] = np.maximum(target_quality + 50, 0) #For Pentalies Below 0
+
+    # Zero out bad targets
+    df["TargetQ_Final_v2"] = np.where(
+        (df["Positive_Final_v2"].values <= 1) | (df["Target_Val"].values <= 0.1), 
+        0, 
+        df["TargetQ_Final_v2"]
+    )
     df["TargetQ_Final_v2"] = 100 * df["TargetQ_Final_v2"] / (198.301384) #Value for CB21
     df = df[df.columns[df.columns != 'gene_name'].tolist() + ['gene_name']]
 
@@ -263,7 +263,7 @@ def target_quality_v1(
     raw_scores = score_1 + score_2 + score_3 + score_5 + score_6 + score_7
     
     # Step 2: Count penalties (how many of the 3 penalty components hit value of 10)
-    penalty_count = (score_1 == 10) + (score_2 == 10) + (score_3 == 10)
+    penalty_count = 1*(score_1 == 10) + 1*(score_2 == 10) + 1*(score_3 == 10)
     
     # Step 3: Calculate penalized score
     # Normalize raw score (divide by 60 = 6 components × 10 max)

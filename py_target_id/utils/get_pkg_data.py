@@ -104,7 +104,7 @@ def surface_genes(
         
         # 20251028 updates
         surface.loc[surface['gene_name'].isin([
-            'SRD5A1', 'SFTPC', 'HIST1H1A', 'CALML5'
+            'SRD5A1', 'SFTPC', 'HIST1H1A', 'CALML5', 'LIF'
         ]), 'Tier'] = 'Tier3'
 
         # Filter by requested tiers
