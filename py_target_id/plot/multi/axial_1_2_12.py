@@ -54,6 +54,8 @@ def axial_1_2_12(
         Resolution for output
     """
     
+    multis = np.unique(multis).tolist()
+
     # Create output directory
     Path(out_dir).mkdir(parents=True, exist_ok=True)
     
