@@ -120,7 +120,7 @@ def biaxial_summary(
         ref_subset.X = ref_subset.X.toarray()
     
     # Get cell types and clean special characters
-    CT = ref_subset.obs['CellType'].values
+    CT = ref_adata.obs['CellType'].values
     CT = pd.Series(CT).str.replace('α', 'a').str.replace('β', 'B').values
     
     # Compute single gene medians

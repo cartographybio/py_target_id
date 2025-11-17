@@ -17,7 +17,6 @@ manifest, malig_adata, malig_med_adata, ref_adata, ref_med_adata = utils.load_co
 
 #Run Single Target Workflow
 single = tid.run.target_id_v1(malig_med_adata, ref_med_adata)
-single.to_parquet(IND + '.Single.Results.20251107.parquet', engine='pyarrow', compression=None)
 
 #Ready Up Multi Target Workflow
 surface = tid.utils.surface_genes()
@@ -35,7 +34,6 @@ multi = tid.run.target_id_multi_v1(
     batch_size=20000,
     use_fp16=True
 )
-multi.to_parquet(IND + '.Multi.Results.20251107.parquet', engine='pyarrow', compression=None)
 
 #Get Risk
 risk_sngl = tid.utils.get_single_risk_scores()
@@ -48,8 +46,8 @@ multi = pd.merge(multi, risk_multi, how = "left", on = "gene_name")
 single = tid.run.target_quality_v2_01(single)
 multi = tid.run.target_quality_v2_01(multi)
 
-single.to_parquet(IND + '.Single.Results.20251107.parquet', engine='pyarrow', compression=None)
-multi.to_parquet(IND + '.Multi.Results.20251107.parquet', engine='pyarrow', compression=None)
+single.to_parquet(IND + '.Single.Results.20251110.parquet', engine='pyarrow', compression=None)
+multi.to_parquet(IND + '.Multi.Results.20251110.parquet', engine='pyarrow', compression=None)
 
 #CLDN18.2
 import py_target_id as tid
@@ -67,7 +65,7 @@ from tqdm import tqdm
 IND = os.path.basename(os.getcwd())
 
 #Load
-manifest, malig_adata, malig_med_adata, ref_adata, ref_med_adata = utils.load_cohort(IND)
+manifest, malig_adata, malig_med_adata, ref_adata, ref_med_adata = utils.load_cohort(IND, nMalig = 100)
 
 #CLDN18
 ref_med_18p2 = ref_med_adata[:,"CLDN18"].copy()
@@ -152,5 +150,5 @@ multi_18p2["gene_name"] = multi_18p2["gene_name"].str.replace("CLDN18", "CLDN18.
 single_18p2 = multi_18p2[multi_18p2["gene_name"]=="CLDN18.2_CLDN18.2"].copy()
 single_18p2["gene_name"]="CLDN18.2"
 
-single_18p2.to_parquet(IND + '.Single.CLDN18p2.Results.20251107.parquet', engine='pyarrow', compression=None)
-multi_18p2.to_parquet(IND + '.Multi.CLDN18p2.Results.20251107.parquet', engine='pyarrow', compression=None)
+single_18p2.to_parquet(IND + '.Single.CLDN18p2.Results.20251110.parquet', engine='pyarrow', compression=None)
+multi_18p2.to_parquet(IND + '.Multi.CLDN18p2.Results.20251110.parquet', engine='pyarrow', compression=None)

@@ -6,11 +6,19 @@ import anndata as ad
 import numpy as np
 import pandas as pd
 import os
+import sys
 from importlib.resources import files
 from py_target_id import utils
+#sys.getsizeof(single) / (1024**3) 
 
-inds = ["AML", "KIRC", "CRC", "LUAD.Magellan", "TNBC.Magellan", "PDAC_FFPE", "ESCA", ""]
+inds = ["AML", "KIRC", "CRC", "LUAD.Magellan", "TNBC.Magellan", "PDAC_FFPE", "ESCA"]
 base_dir = os.getcwd()
+
+def ref_gene_sorted(ref_med_adata, gene):
+    obs = ref_med_adata.obs.copy()
+    obs[gene] = ref_med_adata[:, gene].X.copy().flatten()
+    obs = obs.sort_values(gene, ascending=False)
+    return obs
 
 for ind in inds:
     ind_path = os.path.join(base_dir, ind)
@@ -34,7 +42,7 @@ for ind in inds:
         manifest, malig_adata, malig_med_adata, ref_adata, ref_med_adata = utils.load_cohort(IND)
         
         # Run Single Target Workflow
-        single_path = IND + '.Single.Results.20251029.parquet'
+        single_path = IND + '.Single.Results.20251104.parquet'
         if os.path.exists(single_path):
             print(f"⊘ Single target results already exist, skipping...")
         else:
@@ -44,7 +52,7 @@ for ind in inds:
             print(f"✓ Single target results saved to {single_path}")
         
         # Ready Up Multi Target Workflow
-        multi_path = IND + '.Multi.Results.20251029.parquet'
+        multi_path = IND + '.Multi.Results.20251104.parquet'
         if os.path.exists(multi_path):
             print(f"⊘ Multi-target results already exist, skipping...")
         else:
