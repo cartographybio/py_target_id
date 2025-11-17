@@ -98,9 +98,12 @@ def axial_vs_known(
     if hasattr(ref_subset, 'to_memory'):
         print("Materializing reference VirtualAnnData...")
         ref_subset = ref_subset.to_memory()
-   
+    
     # Dense
-    ref_subset.X = ref_subset.X.toarray()
+    if sparse.issparse(ref_subset.X):
+        ref_subset.X = ref_subset.X.toarray()
+
+    ref_subset.obs['CellType'] = ref_adata.obs['CellType']
  
     # Compute single gene medians
     print("Computing malignant single gene medians...")
