@@ -100,7 +100,13 @@ def load_cohort(IND = None, nMalig = 0):
         manifest = manifest[manifest["Indication"] == "PDAC_FFPE"]
         manifest = manifest.reset_index(drop=True)
         ref = "FFPE"
-        
+
+    elif IND == "HCC_FFPE":
+        # Pancreatic adenocarcinoma (FFPE samples)
+        manifest = manifest[manifest["Indication"] == "HCC_FFPE"]
+        manifest = manifest.reset_index(drop=True)
+        ref = "FFPE"
+
     else:
         raise ValueError("IND must be a valid indication (TNBC.Magellan, LUAD.Magellan, CRC, KIRC, AML, ESCA, OVCA, PDAC_FFPE)")
     

@@ -2,7 +2,7 @@
 Multi-gene UMAP visualization functions.
 """
 
-__all__ = ['umap_1_2_12']
+__all__ = ['umap_1_2_12_v2']
 
 
 import numpy as np
@@ -10,7 +10,6 @@ import pandas as pd
 import polars as pl
 import h5py
 from pathlib import Path
-from concurrent.futures import ProcessPoolExecutor
 from typing import List
 from tqdm import tqdm
 from scipy import sparse
@@ -49,20 +48,25 @@ def _load_h5_single(sample_id, h5_path, genes):
         "sample_id": sample_id
     }
 
-def umap_1_2_12(
+def umap_1_2_12_v2(
     multis: List[str],
     malig_adata,
     manifest: pd.DataFrame,
+    malig_med_adata = None,
     show: int = 10,
     out_dir: str = "multi/multi_umaps",
     width: float = 17,
     height: float = 12,
     dpi: int = 300,
-    n_jobs: int = 8
+    n_jobs: int = 8,
+    show_bottom: bool = False
 ):
     """
     Optimized UMAP visualization for multi-gene combinations.
     """
+    # Initialize R packages and global variables
+    plot.ensure_r_packages()
+    
     Path(out_dir).mkdir(parents=True, exist_ok=True)
     overall_start = time.time()
 
@@ -95,10 +99,42 @@ def umap_1_2_12(
     )
     malig_top_multi.columns = multis
 
-    top_samples_list = [
-        malig_top_multi.iloc[:, i].nlargest(show).index.tolist()
-        for i in range(len(multis))
-    ]
+    if show_bottom:
+        # Get bottom (lowest expression) positive patients using positivity layer
+        if malig_med_adata is None:
+            raise ValueError("malig_med_adata is required when show_bottom=True")
+        
+        # Get positivity matrix
+        combo_genes = np.unique(multis_split.ravel()).tolist()
+        pos_mat = malig_med_adata[:, combo_genes].layers['positivity']
+        if sparse.issparse(pos_mat):
+            pos_mat = pos_mat.toarray()
+        pos_mat = pos_mat.astype(bool)
+        
+        top_samples_list = []
+        for i in range(len(multis)):
+            gene1_idx = combo_genes.index(multis_split[i, 0])
+            gene2_idx = combo_genes.index(multis_split[i, 1])
+            
+            # Get patients positive for both genes (AND gate)
+            pos_both = pos_mat[:, gene1_idx] & pos_mat[:, gene2_idx]
+            positive_patients = malig_med_adata.obs['Patient'].values[pos_both]
+            
+            # Get expression for positive patients
+            positive_expr = malig_top_multi.iloc[:, i][malig_top_multi.iloc[:, i].index.isin(positive_patients)]
+            
+            # Show bottom 'show' positive patients (lowest expression among positive)
+            bottom_patients = positive_expr.nsmallest(show).index.tolist()
+            top_samples_list.append(bottom_patients)
+        
+        print(f"Showing bottom {show} positive patients (AND gate) for each combination")
+    else:
+        # Original behavior: top samples
+        top_samples_list = [
+            malig_top_multi.iloc[:, i].nlargest(show).index.tolist()
+            for i in range(len(multis))
+        ]
+        print(f"Showing top {show} samples for each combination")
 
     all_unique_samples = list(set().union(*top_samples_list))
     print(f"Will process {len(all_unique_samples)} unique samples")
@@ -161,7 +197,7 @@ def umap_1_2_12(
             dfs.append(df)
 
         # Concatenate efficiently
-        combined_df = pl.concat(dfs).to_pandas(use_pyarrow_extension_array=True)
+        combined_df = pl.concat(dfs).to_pandas(use_pyarrow_extension_array=False)
 
         # Send to R
         # Create plots in R
@@ -180,6 +216,23 @@ def umap_1_2_12(
         # Drop any rows with missing numeric values just in case
         combined_df = combined_df.dropna(subset=arrow_cols)
 
+        # Get median values from malig_med_adata for single genes
+        med_val1 = malig_med_adata[:, gx].X.flatten() if hasattr(malig_med_adata[:, gx].X, 'flatten') else malig_med_adata[:, gx].X
+        med_val2 = malig_med_adata[:, gy].X.flatten() if hasattr(malig_med_adata[:, gy].X, 'flatten') else malig_med_adata[:, gy].X
+        
+        # Get co-expression median from malig_top_multi (already computed)
+        med_val12 = malig_top_multi[multi].values
+        
+        # Create series with patient names as index
+        med_val1_ser = pd.Series(med_val1, index=malig_med_adata.obs['Patient'].values)
+        med_val2_ser = pd.Series(med_val2, index=malig_med_adata.obs['Patient'].values)
+        med_val12_ser = pd.Series(med_val12, index=malig_top_multi.index)
+        
+        # Add medians to combined_df
+        combined_df['med_val1'] = combined_df['ID'].map(med_val1_ser).astype(float)
+        combined_df['med_val2'] = combined_df['ID'].map(med_val2_ser).astype(float)
+        combined_df['med_val12'] = combined_df['ID'].map(med_val12_ser).astype(float)
+
         # Send data to R
         plot.pd2r("umap_data", combined_df)
         
@@ -190,13 +243,23 @@ def umap_1_2_12(
         gx = multis_split[x, 0]
         gy = multis_split[x, 1]
 
-        # --- R plotting code unchanged ---
+        # --- R plotting code with SERIAL processing (not parallel) ---
         # Generate plots
         r(f'''
         gc()
 
         library(ggplot2)
         library(patchwork)
+        
+        # Define theme_small_margin
+        theme_small_margin <- function(width = 0.2){{
+            theme(plot.margin = unit(c(width, width, width, width), "cm"))
+        }}
+        
+        # Ensure pal_cart2 is available (should be set by ensure_r_packages)
+        if (!exists("pal_cart2")) {{
+            pal_cart2 <- colorRampPalette(c("#e0f3db", "#6BC291", "#18B5CB", "#2E95D2", "#28154C"))(100)
+        }}
                
         # Define quantile_cut function
         quantile_cut <- function(x = NULL, lo = 0.025, hi = 0.975, maxIf0 = TRUE) {{
@@ -211,12 +274,9 @@ def umap_1_2_12(
             return(x)
         }}
         
-        par_apply <- function(X, FUN, threads = parallel::detectCores()) {{
-          if (requireNamespace("pbapply", quietly = TRUE)) {{
-            pbapply::pblapply(X, FUN, cl = threads)
-          }} else {{
-            parallel::mclapply(X, FUN, mc.cores = threads)
-          }}
+        # SERIAL processing instead of parallel - avoids data type issues
+        par_apply <- function(X, FUN, threads = NULL) {{
+          lapply(X, FUN)
         }}
 
         # Color palette
@@ -270,14 +330,27 @@ def umap_1_2_12(
                   p + geom_density_2d(data = dfT2, bins = 2, color = "red", size = 0.3)
                 }})
 
-                # Add sample number
+                # Add median expression value to top left based on value_col
                 x_range <- range(df$UMAP_1)
                 y_range <- range(df$UMAP_2)
+                
+                # Determine which median to use based on value_col
+                if (value_col == "val1") {{
+                  med_expr_val <- unique(df$med_val1)[1]
+                }} else if (value_col == "val2") {{
+                  med_expr_val <- unique(df$med_val2)[1]
+                }} else {{
+                  med_expr_val <- unique(df$med_val12)[1]
+                }}
+                
+                # Convert to numeric to ensure proper formatting
+                med_expr_val <- as.numeric(med_expr_val)
+                med_expr_text <- sprintf("%.2f", med_expr_val)
                 
                 p + annotate("text", 
                             x = x_range[1] + diff(x_range) * 0.05,
                             y = y_range[2] - diff(y_range) * 0.05,
-                            label = as.character(i), 
+                            label = med_expr_text, 
                             size = 3, color = "black")
               }}, threads = threads)
               
@@ -309,6 +382,7 @@ def umap_1_2_12(
             plot_annotation(caption = id_text)
         
         suppressWarnings(ggsave("{out_path}", final_plot, width = {width}, height = {height}))
+        gc()
         ''')
         
 

@@ -66,7 +66,7 @@ def plot_homology_kmer(
     # Get transcript IDs
     if tx is None:
         if genes is not None:
-            df_subset = get_human_topology(genes=genes, outer_only=True, verbose=False)
+            df_subset = plot.get_human_topology(genes=genes, outer_only=True, verbose=False)
             tx = df_subset['transcript_id'].tolist()
         else:
             print("Error: Must provide either tx or genes")
