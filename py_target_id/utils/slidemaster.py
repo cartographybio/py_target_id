@@ -2,7 +2,7 @@ __all__ = ['Slides']
 
 from pptx import Presentation
 from pptx.util import Inches, Pt
-from pptx.enum.text import PP_ALIGN
+from pptx.enum.text import PP_ALIGN, MSO_VERTICAL_ANCHOR
 from pptx.dml.color import RGBColor
 from pptx.enum.shapes import MSO_SHAPE
 
@@ -326,6 +326,97 @@ class Slides:
             subtitle_p.font.size = Pt(subtitle_font_size)
             subtitle_p.font.name = 'Arial'
             subtitle_p.alignment = PP_ALIGN.LEFT
+        
+        return self
+    
+    def add_slide_two_column_text(self, left_text, right_text, 
+                                 title="Title",
+                                 text_font_size=16,
+                                 title_font_size=32,
+                                 column_gap=None):
+        """Add a slide with two columns of text side-by-side"""
+        if column_gap is None:
+            column_gap = Inches(0.3)
+            
+        blank_layout = self.prs.slide_layouts[6]
+        slide = self.prs.slides.add_slide(blank_layout)
+        
+        slide_width = self.prs.slide_width
+        slide_height = self.prs.slide_height
+        
+        # Title
+        title_box = slide.shapes.add_textbox(
+            self.text_margin,
+            self.text_margin,
+            slide_width - self.text_margin,
+            self.title_height
+        )
+        title_frame = title_box.text_frame
+        title_frame.word_wrap = True
+        title_p = title_frame.paragraphs[0]
+        title_p.text = title
+        title_p.font.size = Pt(title_font_size)
+        title_p.font.name = 'Arial'
+        title_p.font.bold = True
+        title_p.font.color.rgb = self.title_color
+        title_p.alignment = PP_ALIGN.LEFT
+        
+        # Title underline (blue line)
+        line = slide.shapes.add_shape(
+            MSO_SHAPE.RECTANGLE,
+            self.text_margin,
+            self.text_margin + self.title_height,
+            slide_width - 2 * self.text_margin,
+            Pt(0.5)
+        )
+        line.fill.solid()
+        line.fill.fore_color.rgb = self.title_color
+        line.shadow.inherit = False
+        line.line.fill.background()
+        line.line.width = Pt(0)
+        
+        # Footer
+        self._add_footer(slide, slide_width, slide_height)
+        
+        # Calculate content area
+        content_top = self.text_margin + self.title_height + self.title_margin
+        usable_height = slide_height - content_top - Inches(0.4)  # Leave room for footer
+        usable_width = slide_width - 2 * self.text_margin
+        
+        # Calculate column widths
+        column_width = (usable_width - column_gap) / 2
+        
+        # Left column
+        left_box = slide.shapes.add_textbox(
+            self.text_margin,
+            content_top,
+            column_width,
+            usable_height
+        )
+        left_frame = left_box.text_frame
+        left_frame.word_wrap = True
+        left_frame.vertical_anchor = MSO_VERTICAL_ANCHOR.TOP
+        left_p = left_frame.paragraphs[0]
+        left_p.text = left_text
+        left_p.font.size = Pt(text_font_size)
+        left_p.font.name = 'Arial'
+        left_p.alignment = PP_ALIGN.LEFT
+        
+        # Right column
+        right_box = slide.shapes.add_textbox(
+            self.text_margin + column_width + column_gap,
+            content_top,
+            column_width,
+            usable_height
+        )
+        right_frame = right_box.text_frame
+        right_frame.word_wrap = True
+        right_frame.vertical_anchor = MSO_VERTICAL_ANCHOR.TOP
+        right_p = right_frame.paragraphs[0]
+        right_p.text = right_text
+        right_p.font.size = Pt(text_font_size)
+        right_p.font.name = 'Arial'
+        right_p.alignment = PP_ALIGN.LEFT
         
         return self
     
