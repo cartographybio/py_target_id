@@ -3,7 +3,8 @@ Manifest loading and processing functions.
 """
 
 # Define what gets exported
-__all__ = ['surface_genes', 'tabs_genes', 'valid_genes', 'surface_evidence', 'apical_genes']
+__all__ = ['surface_genes', 'tabs_genes', 'valid_genes', 
+    'surface_evidence', 'apical_genes', 'surface_claude_prompt1']
 
 """
 Data loading functions for py_target_id package.
@@ -19,6 +20,15 @@ from typing import List, Optional
 def _get_data_path(subpath: str) -> str:
     """Get path to a data file in the package"""
     return files('py_target_id').joinpath(f'data/{subpath}')
+
+def surface_claude_prompt1() -> pd.Series:
+    path = _get_data_path('annotation/Surface-Prompt1-claude-haiku-4-5-20251001.csv')
+    df = pd.read_csv(path)
+    return pd.Series(
+        data=df['claude_summary'].values,
+        index=df['gene_name'].values,
+        name='claude_summary'
+    )
 
 def surface_genes(
     version: int = 2,
